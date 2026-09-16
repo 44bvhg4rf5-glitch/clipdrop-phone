@@ -1,11 +1,23 @@
 {
   "campaign": "Clash of Clans",
-  "niche": "clash",
+  "niche": "gaming",
   "clipsPerDrop": 5,
   "clipSeconds": 24,
   "skipTopPeaks": 3,
   "mode": "crop",
+
+  "_sources": "PUT ONLY CREATORS YOUR CAMPAIGN PERMITS YOU TO CLIP. That permission is the legal basis for the whole thing.",
+
   "sources": [
+    {
+      "name": "CHANGE ME",
+      "platform": "twitch",
+      "_channel": "The twitch.tv/NAME part, lowercase, nothing else. twitch.tv/example -> example",
+      "channel": "example",
+      "sinceDays": 7,
+      "mode": "blur",
+      "enabled": false
+    },
     {
       "name": "Judo Sloth",
       "platform": "youtube",
@@ -14,7 +26,8 @@
       "niche": "clash",
       "scanVideos": 4,
       "mode": "crop",
-      "enabled": true
+      "_disabled_because": "YouTube bot-blocks the datacentre IPs that CI runners use. Re-enable only if this ever runs somewhere with a residential IP.",
+      "enabled": false
     }
   ]
 }

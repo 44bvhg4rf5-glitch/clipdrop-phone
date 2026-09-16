@@ -183,15 +183,27 @@ async function twitchTopClips({ clientId, clientSecret, login, sinceDays = 7, wa
   const user = (await userRes.json()).data?.[0];
   if (!user) throw new Error(`no such twitch channel: ${login}`);
 
-  const started = new Date(Date.now() - sinceDays * 864e5).toISOString();
-  const clipRes = await fetch(
-    `https://api.twitch.tv/helix/clips?broadcaster_id=${user.id}&started_at=${started}&first=30`,
-    { headers: head },
-  );
-  const clips = (await clipRes.json()).data || [];
+  // Widen the window rather than come back empty. A streamer who didn't go live
+  // this week still has last month's clips, and an empty drop helps nobody.
+  let clips = [];
+  for (const days of [sinceDays, sinceDays * 4, sinceDays * 13]) {
+    const started = new Date(Date.now() - days * 864e5).toISOString();
+    const res = await fetch(
+      `https://api.twitch.tv/helix/clips?broadcaster_id=${user.id}&started_at=${started}&first=60`,
+      { headers: head },
+    );
+    if (!res.ok) throw new Error(`twitch clips failed: ${res.status} ${await res.text()}`);
+    clips = (await res.json()).data || [];
+    if (clips.length >= want + 3) break;
+  }
+  if (!clips.length) throw new Error(`${login} has no clips in the last ${sinceDays * 13} days`);
 
-  // Ordered by view count already; skip the top few for the same reason as above.
-  return clips.slice(3, 3 + want).map((c) => ({
+  // Ordered by view count already. Skip the most-contested few for the same
+  // reason as the YouTube path — but only when skipping still leaves enough.
+  // On a smaller channel, blindly dropping the top 3 can empty the list.
+  const skip = clips.length >= want + 3 ? 3 : 0;
+
+  return clips.slice(skip, skip + want).map((c) => ({
     id: c.id,
     title: c.title,
     url: c.url,               // yt-dlp downloads a clip URL directly
