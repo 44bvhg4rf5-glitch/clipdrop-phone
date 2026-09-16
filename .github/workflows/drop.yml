@@ -33,6 +33,7 @@ jobs:
           yt-dlp --version
       - name: Build today's drop
         env:
+          CLIPDROP_RUNNER: cloud
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
           TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}

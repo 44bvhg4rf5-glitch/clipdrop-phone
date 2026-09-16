@@ -292,6 +292,42 @@ async function fetchWhole({ url, out }) {
 }
 
 /**
+ * Auto-captions, transcribed on the machine — no API, no key, no per-clip cost.
+ * Most TikTok viewing is muted, so burnt-in captions are one of the few changes
+ * that reliably moves watch time.
+ *
+ * Returns an .srt path, or null. Never throws: a clip without captions is still
+ * a clip, and losing the whole drop over a missing model would be absurd.
+ */
+async function transcribe(input, workDir, slug) {
+  const model = process.env.CLIPDROP_WHISPER_MODEL
+    || path.join(process.env.HOME || '.', '.clipdrop', 'ggml-base.en.bin');
+  if (!existsSync(model)) return null;
+
+  // Homebrew has renamed this binary more than once.
+  let bin = null;
+  for (const c of ['whisper-cli', 'whisper-cpp', 'whisper']) {
+    if (await has(c)) { bin = c; break; }
+  }
+  if (!bin) return null;
+
+  const wav = path.join(workDir, `${slug}.wav`);
+  const prefix = path.join(workDir, slug);
+  try {
+    // whisper.cpp wants 16 kHz mono PCM and will not resample for you.
+    await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', input,
+      '-vn', '-ar', '16000', '-ac', '1', '-c:a', 'pcm_s16le', '-y', wav], BIG);
+    await run(bin, ['-m', model, '-f', wav, '-osrt', '-of', prefix, '-np'], BIG);
+    const srt = `${prefix}.srt`;
+    return existsSync(srt) && statSync(srt).size > 20 ? srt : null;
+  } catch {
+    return null;
+  } finally {
+    if (existsSync(wav)) rmSync(wav, { force: true });
+  }
+}
+
+/**
  * 16:9 → 9:16 with the hook burnt into the opening seconds.
  *
  * mode 'crop'  — fill the frame, lose the sides. Best for gameplay, where the
@@ -299,7 +335,7 @@ async function fetchWhole({ url, out }) {
  * mode 'blur'  — whole frame kept, blurred copy fills the bars. Best when the
  *                edges carry information (scoreboards, chat, facecam).
  */
-async function toVertical({ input, out, hook, mode = 'crop', seconds, hookFor = 3.2 }) {
+async function toVertical({ input, out, hook, mode = 'crop', seconds, hookFor = 3.2, srt, encoder = 'libx264' }) {
   mkdirSync(path.dirname(out), { recursive: true });
 
   const base = mode === 'blur'
@@ -312,15 +348,29 @@ async function toVertical({ input, out, hook, mode = 'crop', seconds, hookFor = 
       + `:fontcolor=white:fontsize=68:line_spacing=12`
       + `:box=1:boxcolor=black@0.58:boxborderw=26`
       + `:x=(w-text_w)/2:y=h*0.13`
-      + `:enable='lt(t,${hookFor})'[vout]`
-    : `${base};[v0]null[vout]`;
+      + `:enable='lt(t,${hookFor})'[v1]`
+    : `${base};[v0]null[v1]`;
+
+  // Captions sit low so they never collide with the hook up top, and are
+  // burnt in rather than attached: TikTok shows no sidecar subtitle track.
+  const subbed = srt
+    ? `${chain};[v1]subtitles=${escFilter(srt)}`
+      + `:force_style='FontName=DejaVu Sans,Fontsize=15,Bold=1,PrimaryColour=&H00FFFFFF,`
+      + `OutlineColour=&H00000000,BorderStyle=1,Outline=3,Shadow=0,Alignment=2,MarginV=190'[vout]`
+    : `${chain};[v1]null[vout]`;
+
+  // The two encoders take completely different rate-control flags — -crf means
+  // nothing to VideoToolbox, and passing it aborts the run.
+  const codec = encoder === 'h264_videotoolbox'
+    ? ['-c:v', 'h264_videotoolbox', '-b:v', '6M']
+    : ['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20'];
 
   const args = [
     '-hide_banner', '-loglevel', 'error',
     '-i', input,
-    '-filter_complex', chain,
+    '-filter_complex', subbed,
     '-map', '[vout]', '-map', '0:a?',
-    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
+    ...codec,
     '-pix_fmt', 'yuv420p', '-r', '30',
     '-c:a', 'aac', '-b:a', '128k',
     '-movflags', '+faststart',
@@ -693,6 +743,15 @@ ${cards}
 // must not cost you the whole morning's drop.
 
 
+// ── where am I running? ───────────────────────────────────────
+// The two halves of this pipeline want different machines:
+//   cloud — always on, free, no battery, but YouTube refuses its IP range
+//   local — a residential IP YouTube will serve, but only while the lid is open
+// Neither is better; they cover each other's gap. Sources declare which they
+// need via "runner", and each environment skips what isn't its job.
+const RUNNER = process.env.CLIPDROP_RUNNER
+  || (process.env.GITHUB_ACTIONS ? 'cloud' : 'local');
+
 const ROOT = import.meta.dirname;
 const cfg = JSON.parse(readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
 const DRY = process.argv.includes('--dry');
@@ -709,6 +768,39 @@ const warn = (...a) => console.log('!', ...a);
 // naming it here a blocked run reads as "that channel had no good moments".
 const BOT_BLOCKED = /Sign in to confirm|not a bot|confirm your age|cookies/i;
 let botBlocks = 0;
+
+const has = async (bin) => { try { await run('which', [bin]); return true; } catch { return false; } };
+
+/**
+ * Rendering video pins the CPU for minutes. On a laptop that is a measurable
+ * chunk of the battery, so on battery we decline the work rather than quietly
+ * flattening the machine. The cloud half of the pipeline covers the gap.
+ */
+async function onMains() {
+  if (process.platform !== 'darwin') return true;
+  try {
+    const { stdout } = await run('pmset', ['-g', 'ps']);
+    return /AC Power/i.test(stdout);
+  } catch {
+    return true;   // can't tell — don't block the run on a missing tool
+  }
+}
+
+/**
+ * Apple's hardware encoder is dramatically faster than libx264 on a Mac and
+ * barely touches the CPU, which matters twice over on a laptop. Fall back to
+ * libx264 wherever it isn't offered.
+ */
+async function pickEncoder() {
+  if (process.env.CLIPDROP_ENCODER) return process.env.CLIPDROP_ENCODER;
+  if (process.platform !== 'darwin') return 'libx264';
+  try {
+    const { stdout } = await run('ffmpeg', ['-hide_banner', '-encoders'], BIG);
+    return stdout.includes('h264_videotoolbox') ? 'h264_videotoolbox' : 'libx264';
+  } catch {
+    return 'libx264';
+  }
+}
 
 async function fromYouTube(source, budget) {
   const picked = [];
@@ -782,14 +874,38 @@ async function main() {
   const want = cfg.clipsPerDrop ?? 5;
   const perSource = Math.max(1, Math.ceil(want / Math.max(1, cfg.sources.length)));
 
+  // ── 0. is this machine the right one for the job? ──────────
+  const mine = cfg.sources.filter((s) => {
+    if (s.enabled === false) return false;
+    const wants = s.runner || (s.platform === 'youtube' ? 'local' : 'any');
+    return wants === 'any' || wants === RUNNER;
+  });
+  const theirs = cfg.sources.filter((s) => s.enabled !== false && !mine.includes(s));
+
+  log(`runner: ${RUNNER} · ${mine.length} source(s) mine${theirs.length ? `, ${theirs.length} for the other machine` : ''}`);
+
+  if (!mine.length) {
+    log('nothing here for this runner — the other machine covers these sources.');
+    return;                       // not a failure: the split is deliberate
+  }
+
+  if (RUNNER === 'local' && !DRY && !(await onMains())) {
+    warn('on battery — skipping. Plug in and re-run, or let the cloud half cover today.');
+    return;
+  }
+
+  const encoder = RUNNER === 'local' ? await pickEncoder() : 'libx264';
+  if (RUNNER === 'local') log(`encoder: ${encoder}`);
+
+  const perMine = Math.max(1, Math.ceil(want / mine.length));
+
   // ── 1. find moments ────────────────────────────────────────
   let candidates = [];
-  for (const source of cfg.sources) {
-    if (source.enabled === false) continue;
+  for (const source of mine) {
     try {
       const got = source.platform === 'twitch'
-        ? await fromTwitch(source, perSource)
-        : await fromYouTube(source, perSource);
+        ? await fromTwitch(source, perMine)
+        : await fromYouTube(source, perMine);
       candidates.push(...got);
     } catch (e) {
       warn(`${source.name} failed entirely: ${e.message}`);
@@ -838,11 +954,21 @@ async function main() {
       if (c.kind === 'twitch') await fetchWhole({ url: c.sourceUrl, out: raw });
       else await fetchSlice({ url: c.sourceUrl, start: c.start, seconds: c.seconds, out: raw });
 
+      const srt = cfg.captions === false ? null : await transcribe(raw, WORK, slug);
+
       const { size } = await toVertical({
-        input: raw, out: fin, hook: c.hook, mode: c.mode, seconds: c.seconds,
+        input: raw, out: fin, hook: c.hook, mode: c.mode, seconds: c.seconds, srt, encoder,
       });
-      done.push({ ...c, file: `clips/${slug}.mp4`, sizeMb: +(size / 1048576).toFixed(1) });
-      log(`    ok — ${(size / 1048576).toFixed(1)} MB`);
+      if (srt && existsSync(srt)) rmSync(srt, { force: true });
+
+      done.push({
+        ...c,
+        file: `clips/${slug}.mp4`,
+        sizeMb: +(size / 1048576).toFixed(1),
+        captioned: !!srt,
+        builtBy: RUNNER,
+      });
+      log(`    ok — ${(size / 1048576).toFixed(1)} MB${srt ? ' · captioned' : ''}`);
     } catch (e) {
       warn(`    failed: ${e.message}`);
     } finally {
@@ -856,12 +982,29 @@ async function main() {
   }
 
   // ── 4. publish ─────────────────────────────────────────────
-  const drop = { date: today, generatedAt: new Date().toISOString(), clips: done };
-  writeFileSync(path.join(ROOT, 'docs', 'drop.json'), JSON.stringify(drop, null, 2));
+  // Merge, don't overwrite. Both machines write this file, and whichever ran
+  // second used to wipe the other's clips off the page — so a morning where
+  // both ran produced FEWER clips than a morning where one did.
+  const dropPath = path.join(ROOT, 'docs', 'drop.json');
+  let kept = [];
+  if (existsSync(dropPath)) {
+    try {
+      const prev = JSON.parse(readFileSync(dropPath, 'utf8'));
+      if (prev.date === today) {
+        kept = (prev.clips || []).filter((c) =>
+          c.builtBy !== RUNNER && existsSync(path.join(ROOT, 'docs', c.file)));
+      }
+    } catch { /* unreadable or first run — start clean */ }
+  }
+  if (kept.length) log(`keeping ${kept.length} clip(s) from the ${kept[0].builtBy} run`);
+
+  const clips = [...kept, ...done];
+  const drop = { date: today, generatedAt: new Date().toISOString(), clips };
+  writeFileSync(dropPath, JSON.stringify(drop, null, 2));
   writeFileSync(path.join(ROOT, 'docs', 'index.html'), buildPage(drop, cfg));
   rmSync(WORK, { recursive: true, force: true });
 
-  log(`\ndrop ready: ${done.length} clips`);
+  log(`\ndrop ready: ${clips.length} clips (${done.length} new from ${RUNNER})`);
 }
 
 /** Round-robin across a key so one noisy source can't dominate the drop. */

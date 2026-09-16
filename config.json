@@ -1,23 +1,16 @@
 {
   "campaign": "Clash of Clans",
-  "niche": "gaming",
+  "niche": "clash",
   "clipsPerDrop": 5,
   "clipSeconds": 24,
   "skipTopPeaks": 3,
   "mode": "crop",
+  "captions": true,
 
-  "_sources": "PUT ONLY CREATORS YOUR CAMPAIGN PERMITS YOU TO CLIP. That permission is the legal basis for the whole thing.",
+  "_runner": "Which machine handles a source. 'local' = your Mac (residential IP, needed for YouTube). 'cloud' = GitHub Actions (always on, no battery). 'any' = either. Omit and YouTube defaults to local, everything else to any.",
+  "_permission": "ONLY creators your campaign permits you to clip. That permission is the legal basis for all of this.",
 
   "sources": [
-    {
-      "name": "CHANGE ME",
-      "platform": "twitch",
-      "_channel": "The twitch.tv/NAME part, lowercase, nothing else. twitch.tv/example -> example",
-      "channel": "example",
-      "sinceDays": 7,
-      "mode": "blur",
-      "enabled": false
-    },
     {
       "name": "Judo Sloth",
       "platform": "youtube",
@@ -26,7 +19,16 @@
       "niche": "clash",
       "scanVideos": 4,
       "mode": "crop",
-      "_disabled_because": "YouTube bot-blocks the datacentre IPs that CI runners use. Re-enable only if this ever runs somewhere with a residential IP.",
+      "runner": "local",
+      "enabled": true
+    },
+    {
+      "name": "CHANGE ME - a twitch streamer your campaign allows",
+      "platform": "twitch",
+      "channel": "example",
+      "sinceDays": 7,
+      "mode": "blur",
+      "runner": "cloud",
       "enabled": false
     }
   ]
