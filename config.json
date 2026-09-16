@@ -1,0 +1,20 @@
+{
+  "campaign": "Clash of Clans",
+  "niche": "clash",
+  "clipsPerDrop": 5,
+  "clipSeconds": 24,
+  "skipTopPeaks": 3,
+  "mode": "crop",
+  "sources": [
+    {
+      "name": "Judo Sloth",
+      "platform": "youtube",
+      "channel": "https://www.youtube.com/@JudoSloth/videos",
+      "subject": "Judo Sloth",
+      "niche": "clash",
+      "scanVideos": 4,
+      "mode": "crop",
+      "enabled": true
+    }
+  ]
+}
