@@ -692,6 +692,12 @@ const WORK = path.join(ROOT, '.work');
 const log = (...a) => console.log('·', ...a);
 const warn = (...a) => console.log('!', ...a);
 
+// YouTube bot-blocks datacentre IP ranges, and CI runners live in exactly those
+// ranges. The failure is per-video and looks like an ordinary skip, so without
+// naming it here a blocked run reads as "that channel had no good moments".
+const BOT_BLOCKED = /Sign in to confirm|not a bot|confirm your age|cookies/i;
+let botBlocks = 0;
+
 async function fromYouTube(source, budget) {
   const picked = [];
   const videos = await recentVideos(source.channel, source.scanVideos ?? 5);
@@ -701,7 +707,11 @@ async function fromYouTube(source, budget) {
     if (picked.length >= budget) break;
     let detail;
     try { detail = await videoDetail(v.url); }
-    catch (e) { warn(`skip ${v.id}: ${e.message}`); continue; }
+    catch (e) {
+      if (BOT_BLOCKED.test(e.message)) { botBlocks++; warn(`skip ${v.id}: blocked by YouTube (bot check)`); }
+      else warn(`skip ${v.id}: ${e.message}`);
+      continue;
+    }
 
     const { ok, reason, moments } = momentsFromHeatmap(detail, {
       want: budget - picked.length,
@@ -775,8 +785,17 @@ async function main() {
   }
 
   if (!candidates.length) {
-    warn('no moments found from any source — leaving yesterday\'s drop in place');
-    process.exit(0);
+    // Exit non-zero. Exiting 0 here made the run go GREEN while producing
+    // nothing, which is the worst possible outcome: the page silently keeps
+    // yesterday's clips and you only find out when you go to post.
+    if (botBlocks) {
+      warn(`\nBLOCKED: YouTube refused ${botBlocks} of ${botBlocks} video lookups with its bot check.`);
+      warn('This is the datacentre IP, not the channel. CI runners sit in ranges');
+      warn('YouTube rejects. A Twitch source uses an official API and is unaffected.');
+    } else {
+      warn('\nNo moments found from any source — nothing to publish today.');
+    }
+    process.exit(1);
   }
 
   // Interleave sources so a drop is never five clips from one creator.
