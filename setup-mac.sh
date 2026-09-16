@@ -28,7 +28,7 @@ command -v brew >/dev/null 2>&1 && ok "homebrew $(brew --version | head -1 | awk
 
 # ── tools ─────────────────────────────────────────────────────
 say "Installing tools"
-for pkg in node ffmpeg yt-dlp whisper-cpp; do
+for pkg in node ffmpeg yt-dlp whisper-cpp gh; do
   if brew list --formula "$pkg" >/dev/null 2>&1; then
     ok "$pkg (already installed)"
   else
@@ -55,6 +55,28 @@ if command -v ffmpeg >/dev/null 2>&1; then
     || bad "no subtitles filter — captions will be skipped"
 else
   bad "ffmpeg missing"
+fi
+
+# ── GitHub sign-in ────────────────────────────────────────────
+# Publishing means pushing. GitHub stopped accepting passwords over git years
+# ago, so without this the first push fails with an authentication error that
+# looks nothing like "you need to log in".
+say "GitHub sign-in"
+if gh auth status >/dev/null 2>&1; then
+  ok "signed in as $(gh api user --jq .login 2>/dev/null || echo 'github user')"
+else
+  printf '  Not signed in yet. Run this, then come back:\n\n    gh auth login\n\n'
+  printf '  Choose: GitHub.com -> HTTPS -> Yes (authenticate git) -> Login with a web browser\n'
+fi
+
+# git needs an identity before it will make a commit at all.
+if [ -z "$(git config --global user.name 2>/dev/null)" ]; then
+  git config --global user.name "$(id -F 2>/dev/null || echo 'ClipDrop User')"
+  ok "set a git name (was blank, commits would have failed)"
+fi
+if [ -z "$(git config --global user.email 2>/dev/null)" ]; then
+  git config --global user.email "$(gh api user --jq '.id|tostring + "+" + (env.USER//"user") + "@users.noreply.github.com"' 2>/dev/null || echo "clipdrop@users.noreply.github.com")"
+  ok "set a git email (was blank)"
 fi
 
 # ── speech model for captions ─────────────────────────────────

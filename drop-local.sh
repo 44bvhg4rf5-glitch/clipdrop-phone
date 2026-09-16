@@ -38,6 +38,10 @@ if git diff --quiet -- docs && git diff --staged --quiet -- docs; then
   exit 0
 fi
 
+# A fresh Mac has no git identity, and commit fails outright without one.
+[ -z "$(git config user.name 2>/dev/null)" ]  && git config user.name "ClipDrop User"
+[ -z "$(git config user.email 2>/dev/null)" ] && git config user.email "clipdrop@users.noreply.github.com"
+
 printf '  publishing…\n'
 git add docs
 git commit --quiet -m "drop: $(date -u +%Y-%m-%d) (local)"
