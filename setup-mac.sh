@@ -50,9 +50,14 @@ if command -v ffmpeg >/dev/null 2>&1; then
   else
     printf '       no videotoolbox — will fall back to libx264 (slower, hotter)\n'
   fi
-  ffmpeg -hide_banner -filters 2>/dev/null | grep -q " subtitles " \
-    && ok "subtitles filter (captions can be burnt in)" \
-    || bad "no subtitles filter — captions will be skipped"
+  # Match the filter name as a word: the columns around it shift between
+  # ffmpeg releases, and a padding-sensitive grep reported a working build as
+  # broken.
+  if ffmpeg -hide_banner -filters 2>/dev/null | awk '{print $2}' | grep -qx subtitles; then
+    ok "subtitles filter (captions can be burnt in)"
+  else
+    bad "no subtitles filter — captions will be skipped (everything else still works)"
+  fi
 else
   bad "ffmpeg missing"
 fi

@@ -74,9 +74,29 @@ async function recentVideos(channelUrl, limit = 6) {
 
 /** Full metadata for one video — this is the call that carries the heatmap. */
 async function videoDetail(url) {
-  const [v] = await ytJson(['--dump-json', '--no-warnings', url]);
-  if (!v) throw new Error(`no metadata for ${url}`);
-  return v;
+  // The heatmap only exists in YouTube's *web* player response. yt-dlp now
+  // defaults to other clients (tv, ios) because web needs extra tokens to get
+  // download formats — but plain metadata still comes back fine. Without this
+  // every video looks like it has no most-replayed data at all, which reads as
+  // "no good moments" rather than "we asked the wrong client".
+  const clients = ['web,default', 'mweb,default', 'default'];
+  let last = null;
+  for (const client of clients) {
+    try {
+      const [v] = await ytJson([
+        '--dump-json', '--no-warnings',
+        '--extractor-args', `youtube:player_client=${client}`,
+        url,
+      ]);
+      if (!v) continue;
+      last = v;
+      if (Array.isArray(v.heatmap) && v.heatmap.length) return v;
+    } catch (e) {
+      if (BOT_BLOCKED.test(e.message)) throw e;   // a block won't fix itself by retrying
+    }
+  }
+  if (last) return last;                          // no heatmap, but the caller says so clearly
+  throw new Error(`no metadata for ${url}`);
 }
 
 /**
