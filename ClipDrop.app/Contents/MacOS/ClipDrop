@@ -1,0 +1,46 @@
+#!/bin/bash
+# ClipDrop.app — double-click launcher for the dashboard.
+#
+# Runs the server as the app itself (via exec), so the Dock icon IS the server:
+# quitting from the Dock stops it cleanly, with no stray node process left behind
+# and no Terminal window to keep track of.
+
+set -u
+say() { osascript -e "display dialog \"$1\" buttons {\"OK\"} default button 1 with icon caution with title \"ClipDrop\"" >/dev/null 2>&1; }
+
+# An app launched from Finder gets a bare PATH — it does not read .zprofile, so
+# Homebrew is invisible unless we say where it is. This is the single most
+# common reason a working script fails once it becomes an app.
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
+# The bundle normally sits inside the project. If it has been moved to
+# /Applications, fall back to the usual spot rather than failing silently.
+HERE="$(cd "$(dirname "$0")/../../.." && pwd)"
+for candidate in "$HERE" "$HOME/Desktop/clipdrop-phone" "$HOME/clipdrop-phone"; do
+  if [ -f "$candidate/dashboard.mjs" ]; then REPO="$candidate"; break; fi
+done
+
+if [ -z "${REPO:-}" ]; then
+  say "Can't find the ClipDrop project folder.\n\nKeep ClipDrop.app inside the clipdrop-phone folder, or put that folder on your Desktop."
+  exit 1
+fi
+
+if ! command -v node >/dev/null 2>&1; then
+  say "Node isn't installed.\n\nOpen Terminal and run:\n\ncd $REPO\nbash setup-mac.sh"
+  exit 1
+fi
+
+PORT="${CLIPDROP_PORT:-4100}"
+
+# Already running? Just bring the page up rather than starting a second copy
+# and failing on the port.
+if curl -sS -o /dev/null --max-time 2 "http://localhost:$PORT/api/state" 2>/dev/null; then
+  open "http://localhost:$PORT/"
+  exit 0
+fi
+
+cd "$REPO" || exit 1
+( sleep 1.5; open "http://localhost:$PORT/" ) &
+
+# exec, so this process becomes the server: the Dock's Quit reaches node itself.
+exec node dashboard.mjs
