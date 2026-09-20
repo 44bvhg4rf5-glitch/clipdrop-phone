@@ -130,6 +130,22 @@
     <div class="hint" id="uphint"></div>
 
     <div class="card" style="margin-top:14px">
+      <h3>Watch folder</h3>
+      <p class="hint" style="margin:0 0 9px">New videos appearing here are picked up on their own and rendered — point it at Downloads, or at a synced folder your campaign drops source packs into.</p>
+      <label class="f" for="wdir">Folder to watch</label>
+      <input id="wdir" class="mono" placeholder="/Users/you/Downloads">
+      <div class="row" style="margin-top:10px">
+        <button class="ghost" id="savewatch">Save</button>
+        <button class="ghost" id="scannow">Check now</button>
+        <label class="row" style="gap:6px;font-size:13px;color:var(--muted);cursor:pointer">
+          <input type="checkbox" id="autorender" style="width:auto"> Render automatically
+        </label>
+        <button class="ghost" id="forget" style="margin-left:auto">Re-import all</button>
+      </div>
+      <div class="hint" id="whint"></div>
+    </div>
+
+    <div class="card">
       <h3>Waiting to render</h3>
       <div id="inbox"></div>
       <div class="row" style="margin-top:13px">
@@ -252,7 +268,7 @@ show(location.hash.slice(1));
 // ── load ──
 async function refresh() {
   try { S = await (await fetch('/api/state')).json(); } catch { return; }
-  drawInbox(); drawLog(); drawClips(); drawNumbers(); drawChat(); drawVault();
+  drawWatch(); drawInbox(); drawLog(); drawClips(); drawNumbers(); drawChat(); drawVault();
   const running = S.job?.running;
   $('#run').disabled = running || !S.inbox.length;
   $('#runstate').textContent = running ? 'rendering…'
@@ -263,6 +279,18 @@ async function refresh() {
 }
 
 // ── studio ──
+function drawWatch() {
+  const w = S.watch || {};
+  if (document.activeElement !== $('#wdir')) $('#wdir').value = w.dir || '';
+  $('#autorender').checked = w.auto !== false;
+  $('#whint').textContent =
+    w.error === 'folder_not_found' ? 'That folder doesn\u2019t exist — check the path.'
+    : w.error === 'cannot_read' ? 'That folder can\u2019t be read. macOS may need permission: System Settings → Privacy & Security → Files and Folders.'
+    : !w.dir ? 'Not watching anywhere yet.'
+    : w.picked?.length ? `Last picked up: ${w.picked.join(', ')}`
+    : `Watching. Checked ${w.lastScan ? new Date(w.lastScan).toLocaleTimeString('en-GB') : 'not yet'}.`;
+}
+
 function drawInbox() {
   $('#inbox').innerHTML = S.inbox.length
     ? S.inbox.map((f) => `<div class="row" style="justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)">
@@ -297,6 +325,29 @@ async function upload(files) {
   refresh();
 }
 $('#run').onclick = async () => { await fetch('/api/render', { method: 'POST' }); refresh(); };
+
+$('#savewatch').onclick = async () => {
+  await fetch('/api/settings', { method: 'POST', body: JSON.stringify({ watchDir: $('#wdir').value.trim() }) });
+  $('#whint').textContent = 'Saved.';
+  await fetch('/api/watch/scan', { method: 'POST' });
+  refresh();
+};
+$('#autorender').onchange = async () => {
+  await fetch('/api/settings', { method: 'POST', body: JSON.stringify({ autoRender: $('#autorender').checked }) });
+  refresh();
+};
+$('#scannow').onclick = async () => {
+  const b = $('#scannow'); b.textContent = 'Checking…';
+  const r = await (await fetch('/api/watch/scan', { method: 'POST' })).json();
+  b.textContent = 'Check now';
+  $('#whint').textContent = r.copied?.length ? `Picked up ${r.copied.length}: ${r.copied.join(', ')}` : 'Nothing new.';
+  refresh();
+};
+$('#forget').onclick = async () => {
+  await fetch('/api/watch/forget', { method: 'POST' });
+  $('#whint').textContent = 'Cleared — everything in the folder will be picked up again.';
+  refresh();
+};
 
 // ── queue ──
 function pill(c) {

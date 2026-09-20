@@ -13,7 +13,7 @@ import http from 'node:http';
 import { spawn } from 'node:child_process';
 import {
   readFileSync, writeFileSync, existsSync, mkdirSync,
-  readdirSync, statSync, createReadStream, unlinkSync,
+  readdirSync, statSync, createReadStream, unlinkSync, copyFileSync,
 } from 'node:fs';
 import path from 'node:path';
 
@@ -37,7 +37,7 @@ const cfg = () => {
 // hand-entered and irreplaceable, so it is never derived from anything the
 // pipeline regenerates — merges only ever ADD pipeline clips, never overwrite
 // what you typed.
-const blank = { clips: {}, research: [], chat: [], settings: { vault: '', tiktok: '' } };
+const blank = { clips: {}, research: [], chat: [], seen: {}, settings: { vault: '', tiktok: '', watchDir: '', autoRender: true } };
 
 function load() {
   if (!existsSync(STORE)) return structuredClone(blank);
@@ -115,6 +115,78 @@ function startRender() {
   });
   return { ok: true };
 }
+
+
+// ── watch folder ──────────────────────────────────────────────
+// Point this at Downloads, or at a synced Drive/Dropbox folder a campaign
+// drops source packs into, and new footage walks itself into the pipeline.
+
+const VIDEO = /\.(mp4|mov|m4v|mkv|webm)$/i;
+let watchState = { lastScan: null, picked: [], error: null };
+
+/**
+ * A file that is still being written has a size that keeps changing. Copying
+ * one mid-download yields a truncated video that fails to render ten minutes
+ * later, so nothing is taken until its size has held steady across two scans.
+ */
+function scanWatch() {
+  const st = load();
+  const dir = st.settings.watchDir;
+  watchState.lastScan = new Date().toISOString();
+  watchState.error = null;
+  if (!dir) return { copied: [] };
+  if (!existsSync(dir)) { watchState.error = 'folder_not_found'; return { copied: [] }; }
+
+  st.seen = st.seen || {};
+  const copied = [];
+
+  let names;
+  try { names = readdirSync(dir); }
+  catch { watchState.error = 'cannot_read'; return { copied: [] }; }
+
+  for (const name of names) {
+    if (!VIDEO.test(name)) continue;
+    const full = path.join(dir, name);
+    let info;
+    try { info = statSync(full); } catch { continue; }
+    if (!info.isFile() || info.size < 10000) continue;
+
+    const prev = st.seen[full];
+    if (prev?.done) continue;                       // already taken
+
+    if (!prev || prev.size !== info.size) {
+      // First sighting, or still growing — note the size and look again next scan.
+      st.seen[full] = { size: info.size, done: false };
+      continue;
+    }
+
+    // Size held steady since last scan: the download has finished.
+    const target = path.join(INBOX, name);
+    try {
+      // Copy rather than move. These are the user's own files in their own
+      // Downloads folder; having them silently disappear would be alarming.
+      if (!existsSync(target)) copyFileSync(full, target);
+      st.seen[full] = { size: info.size, done: true, at: new Date().toISOString() };
+      copied.push(name);
+    } catch (e) {
+      st.seen[full] = { size: info.size, done: false, error: e.message };
+    }
+  }
+
+  if (copied.length) watchState.picked = copied.slice(-10);
+  save(st);
+  return { copied };
+}
+
+setInterval(() => {
+  try {
+    const { copied } = scanWatch();
+    const st = load();
+    // One render for the batch, not one per file, and never on top of a run
+    // that is already going.
+    if (copied.length && st.settings.autoRender && !job?.running) startRender();
+  } catch { /* a bad folder must not take the server down */ }
+}, 15000).unref();
 
 // ── AI (optional) ─────────────────────────────────────────────
 async function ask(system, user, maxTokens = 1800) {
@@ -401,6 +473,7 @@ const server = http.createServer(async (req, res) => {
               .map((f) => ({ name: f, mb: +(statSync(path.join(INBOX, f)).size / 1048576).toFixed(1) }))
           : [],
         job: job ? { running: job.running, lines: job.lines, code: job.code } : null,
+        watch: { ...watchState, dir: s.settings.watchDir || '', auto: s.settings.autoRender !== false },
         hasKey: !!process.env.ANTHROPIC_API_KEY,
       });
     }
@@ -424,6 +497,18 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (p === '/api/render' && req.method === 'POST') return json(res, 200, startRender());
+
+    if (p === '/api/watch/scan' && req.method === 'POST') {
+      const { copied } = scanWatch();
+      return json(res, 200, { ok: true, copied, error: watchState.error });
+    }
+
+    if (p === '/api/watch/forget' && req.method === 'POST') {
+      // Lets a folder be re-imported after clearing the inbox, without which
+      // the only way back is editing the store by hand.
+      const st = load(); st.seen = {}; save(st);
+      return json(res, 200, { ok: true });
+    }
 
     if (p === '/api/clip' && req.method === 'POST') {
       const body = JSON.parse((await readBody(req)).toString() || '{}');
