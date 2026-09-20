@@ -37,7 +37,7 @@ const cfg = () => {
 // hand-entered and irreplaceable, so it is never derived from anything the
 // pipeline regenerates — merges only ever ADD pipeline clips, never overwrite
 // what you typed.
-const blank = { clips: {}, research: [], settings: { vault: '', tiktok: '' } };
+const blank = { clips: {}, research: [], chat: [], settings: { vault: '', tiktok: '' } };
 
 function load() {
   if (!existsSync(STORE)) return structuredClone(blank);
@@ -259,6 +259,92 @@ function analyse(state) {
   };
 }
 
+
+// ── what the assistant knows before you say anything ──────────
+// Hard-won context, written down so a fresh API conversation doesn't re-suggest
+// approaches that were already tried and failed. Every line here cost a day.
+const PROJECT_BRIEF = `You are the assistant inside ClipDrop, a clip-farming
+command centre running on this user's Mac. You only handle this project.
+
+WHAT CLIPDROP IS
+A pipeline that turns source footage into vertical TikTok clips with burnt-in
+hooks and auto-captions, publishes them to a page, and tracks what each one
+earned. It runs locally on a Mac and on GitHub Actions.
+
+WHAT IS ALREADY SETTLED — do not re-propose these:
+- YouTube's "most replayed" heatmap is dead as a signal. yt-dlp returns an empty
+  heatmap from every player client, verified against a 500k-view video. The
+  YouTube source is retired.
+- YouTube blocks datacentre IPs, so anything YouTube-related cannot run in CI.
+- TikTok will not let software post. Their Content Posting API keeps every post
+  private until an app passes an audit, and posts made while unaudited stay
+  private. Posting is manual: TikTok's own web scheduler (Creator account, 10
+  days ahead) or a paid scheduler like Buffer. Never suggest bot automation —
+  it gets accounts banned.
+- Whop has no public API for clipper earnings. Views and earnings are typed in
+  by hand.
+- Twitch's Helix clips API works fine and needs no crowd-data extraction,
+  because viewers have already cut the clips.
+
+CAMPAIGN RULES ARE THE THING THAT MATTERS MOST
+A previous campaign (Supercell Clash of Clans) was abandoned after its brief
+turned out to require ORIGINAL recorded footage and explicitly rejected reused
+content — which the whole pipeline was built against. When the user pastes
+campaign rules, check FIRST:
+  1. Does it allow reuploading someone else's clips, or demand original content?
+  2. Is there a named creator or streamer to source from?
+  3. Pay rate, per-clip cap, and any minimum view threshold before it pays.
+  4. Does it require specific editing, watermarks, or on-screen elements?
+Say plainly when a campaign does not fit this system, and why.
+
+HOW TO ANSWER
+Be concrete and brief. Use the real figures given below — never invent numbers.
+When the data is too thin to support a conclusion, say so and say what to
+collect instead. Plain English, no filler, no motivational padding.`;
+
+/** A compact picture of the project as it stands right now. */
+function liveContext(state) {
+  const s = analyse(state);
+  const clips = Object.values(state.clips);
+  const recent = clips.filter((c) => c.postedAt).slice(0, 20)
+    .map((c) => `- "${c.hook}" | ${c.seconds}s | ${c.views ?? '?'} views | £${c.earnings ?? '?'}${c.claimed ? '' : ' | NOT CLAIMED'}`)
+    .join('\n');
+  const sources = (cfg().sources || [])
+    .map((x) => `- ${x.name} (${x.platform}) ${x.enabled === false ? 'disabled' : 'ENABLED'}`)
+    .join('\n');
+
+  return `CURRENT STATE
+Campaign: ${cfg().campaign || 'none set'}
+Sources configured:
+${sources || '- none'}
+
+Clips: ${s.total} total, ${s.posted} posted, ${s.claimed} claimed, ${s.unclaimed} posted but NOT claimed.
+Views: ${s.totalViews} total, median ${s.medianViews} per clip, best ${s.bestViews}.
+Earned: £${s.totalEarned}. Effective CPM: £${s.effectiveCpm}.
+Clips with view counts: ${s.scored} (needs ${s.minTotal} before breakdowns mean anything).
+
+Posted clips:
+${recent || '(none yet)'}`;
+}
+
+async function askChat(system, messages, maxTokens = 2000) {
+  const key = process.env.ANTHROPIC_API_KEY;
+  if (!key) return { error: 'no_key' };
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({
+        model: process.env.CLIPDROP_MODEL || 'claude-sonnet-5',
+        max_tokens: maxTokens, system, messages,
+      }),
+      signal: AbortSignal.timeout(120000),
+    });
+    if (!res.ok) return { error: `api_${res.status}` };
+    return { text: (await res.json()).content?.[0]?.text || '' };
+  } catch (e) { return { error: e.message }; }
+}
+
 /** What the numbers actually say — computed, not guessed at by the model. */
 const summarise = analyse;
 
@@ -306,6 +392,7 @@ const server = http.createServer(async (req, res) => {
       return json(res, 200, {
         clips: Object.values(s.clips).sort((a, b) => (b.date || '').localeCompare(a.date || '') || a.file.localeCompare(b.file)),
         research: s.research.slice(-20).reverse(),
+        chat: (s.chat || []).slice(-40),
         settings: s.settings,
         summary: summarise(s),
         campaign: cfg().campaign || '',
@@ -381,6 +468,33 @@ const server = http.createServer(async (req, res) => {
       s.research.push(entry);
       save(s);
       return json(res, 200, { ok: true, entry });
+    }
+
+
+    if (p === '/api/chat' && req.method === 'POST') {
+      const body = JSON.parse((await readBody(req)).toString() || '{}');
+      const st = load();
+      st.chat = st.chat || [];
+
+      if (body.reset) { st.chat = []; save(st); return json(res, 200, { ok: true, chat: [] }); }
+
+      const text = String(body.message || '').trim();
+      if (!text) return json(res, 400, { error: 'empty' });
+      st.chat.push({ role: 'user', content: text, at: new Date().toISOString() });
+
+      // Keep the window bounded: the live figures are re-sent every turn
+      // anyway, so old turns add cost without adding accuracy.
+      const history = st.chat.slice(-24).map(({ role, content }) => ({ role, content }));
+      const r = await askChat(`${PROJECT_BRIEF}\n\n${liveContext(st)}`, history);
+
+      if (r.error) {
+        st.chat.pop();                       // don't leave a question with no answer
+        save(st);
+        return json(res, 200, { error: r.error });
+      }
+      st.chat.push({ role: 'assistant', content: r.text, at: new Date().toISOString() });
+      save(st);
+      return json(res, 200, { ok: true, chat: st.chat });
     }
 
     if (p === '/api/vault' && req.method === 'POST') {

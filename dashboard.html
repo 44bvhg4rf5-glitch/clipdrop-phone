@@ -99,6 +99,7 @@
     border-radius:9px;padding:10px 12px;line-height:1.5}
   .note b{color:var(--ink)}
   .hint{font-size:12px;color:var(--faint);margin-top:6px}
+  #thread{max-height:56vh;overflow-y:auto}
 </style>
 </head>
 <body>
@@ -109,7 +110,7 @@
     <button data-p="studio" class="on">Studio</button>
     <button data-p="queue">Queue</button>
     <button data-p="numbers">Numbers</button>
-    <button data-p="research">Research</button>
+    <button data-p="chat">Chat</button>
     <button data-p="vault">Vault</button>
   </nav>
 </header>
@@ -184,21 +185,30 @@
   </section>
 
   <!-- RESEARCH -->
-  <section class="panel" id="research">
-    <h2>Research</h2>
-    <p class="sub">Ask about your own numbers. It reads the real figures rather than guessing at them.</p>
-    <div class="card">
-      <label class="f" for="q">Question</label>
-      <textarea id="q" rows="2" placeholder="What should I change to get more views per clip?"></textarea>
-      <div class="row" style="margin-top:10px">
-        <button class="act" id="askbtn">Ask</button>
-        <button class="ghost" data-q="What should I change to get more views per clip?">Improve views</button>
-        <button class="ghost" data-q="Write me a two-week posting plan based on what has worked so far.">Posting plan</button>
-        <button class="ghost" data-q="Which of my hooks are working and which should I retire? Be specific about why.">Hook review</button>
-      </div>
-      <div class="hint" id="aihint"></div>
+  <section class="panel" id="chat">
+    <h2>Chat</h2>
+    <p class="sub">Ask about this project. It can see your clips, your numbers and your campaign settings — and nothing from your other work.</p>
+
+    <div class="note" style="margin-bottom:14px">
+      <b>This is Claude through the API, not the conversation you had while building this.</b>
+      It's been given the project's history and your live figures, so it knows what's already
+      been tried — but it won't remember anything you said elsewhere, and it can't change the
+      code or push to GitHub.
     </div>
-    <div id="answers"></div>
+
+    <div class="card" id="thread"></div>
+
+    <div class="card">
+      <textarea id="msg" rows="3" placeholder="Paste a campaign's rules and ask whether it fits — or ask about your numbers."></textarea>
+      <div class="row" style="margin-top:10px">
+        <button class="act" id="send">Send</button>
+        <button class="ghost" data-q="I'm looking for a new campaign. What exactly should I check before joining one?">Campaign checklist</button>
+        <button class="ghost" data-q="Based on my numbers, what should I change to get more views per clip?">Improve views</button>
+        <button class="ghost" data-q="Write me a posting plan for the next two weeks.">Posting plan</button>
+        <button class="ghost" id="reset" style="margin-left:auto">Clear</button>
+      </div>
+      <div class="hint" id="chathint"></div>
+    </div>
   </section>
 
   <!-- VAULT -->
@@ -227,7 +237,7 @@ let S = null, timer = null;
 // ── nav ──
 // Routed through the hash so a refresh keeps you on the tab you were reading,
 // and so a tab can be linked to. Without it every reload bounced back to Studio.
-const PANELS = ['studio', 'queue', 'numbers', 'research', 'vault'];
+const PANELS = ['studio', 'queue', 'numbers', 'chat', 'vault'];
 function show(name) {
   const p = PANELS.includes(name) ? name : 'studio';
   document.querySelectorAll('nav button').forEach((x) => x.classList.toggle('on', x.dataset.p === p));
@@ -242,7 +252,7 @@ show(location.hash.slice(1));
 // ── load ──
 async function refresh() {
   try { S = await (await fetch('/api/state')).json(); } catch { return; }
-  drawInbox(); drawLog(); drawClips(); drawNumbers(); drawResearch(); drawVault();
+  drawInbox(); drawLog(); drawClips(); drawNumbers(); drawChat(); drawVault();
   const running = S.job?.running;
   $('#run').disabled = running || !S.inbox.length;
   $('#runstate').textContent = running ? 'rendering…'
@@ -431,21 +441,52 @@ function md(t) {
     .replace(/^[-*] (.*)$/gm, '<li>$1</li>').replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>')
     .split(/\n{2,}/).map((p) => p.startsWith('<') ? p : `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
 }
-function drawResearch() {
-  $('#aihint').textContent = S.hasKey ? '' : 'Set ANTHROPIC_API_KEY before starting the dashboard to enable this.';
-  $('#askbtn').disabled = !S.hasKey;
-  $('#answers').innerHTML = S.research.map((r) => `
-    <div class="card"><h3>${esc(r.question)}</h3>
-      <div class="mono" style="font-size:11.5px;color:var(--faint);margin-bottom:9px">${new Date(r.at).toLocaleString('en-GB')}</div>
-      <div class="md">${md(r.answer)}</div></div>`).join('');
+function md(t) {
+  return esc(t)
+    .replace(/^### (.*)$/gm, '<h3>$1</h3>').replace(/^## (.*)$/gm, '<h2>$1</h2>').replace(/^# (.*)$/gm, '<h2>$1</h2>')
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/^[-*] (.*)$/gm, '<li>$1</li>').replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>')
+    .split(/\n{2,}/).map((p) => p.startsWith('<') ? p : `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
 }
-document.querySelectorAll('[data-q]').forEach((b) => b.onclick = () => { $('#q').value = b.dataset.q; $('#askbtn').click(); });
-$('#askbtn').onclick = async () => {
-  const btn = $('#askbtn'); btn.disabled = true; btn.textContent = 'Thinking…';
-  const r = await (await fetch('/api/research', { method: 'POST', body: JSON.stringify({ question: $('#q').value }) })).json();
-  btn.textContent = 'Ask'; btn.disabled = false;
-  if (r.error) $('#aihint').textContent = 'Failed: ' + r.error;
-  else { $('#q').value = ''; refresh(); }
+
+function drawChat() {
+  $('#chathint').textContent = S.hasKey ? '' : 'Set ANTHROPIC_API_KEY before starting ClipDrop to enable this.';
+  $('#send').disabled = !S.hasKey;
+  const t = $('#thread');
+  const chat = S.chat || [];
+  t.innerHTML = chat.length
+    ? chat.map((m) => `
+        <div style="margin-bottom:14px">
+          <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;font-weight:700;
+               color:${m.role === 'user' ? 'var(--cool)' : 'var(--go)'};margin-bottom:4px">
+            ${m.role === 'user' ? 'You' : 'ClipDrop'}
+          </div>
+          <div class="md" ${m.role === 'user' ? 'style="color:var(--muted)"' : ''}>${md(m.content)}</div>
+        </div>`).join('')
+    : '<div class="empty">Nothing yet. Ask something below.</div>';
+  t.scrollTop = t.scrollHeight;
+}
+
+async function sendChat(text) {
+  if (!text.trim()) return;
+  const btn = $('#send');
+  btn.disabled = true; btn.textContent = 'Thinking…';
+  $('#chathint').textContent = '';
+  const r = await (await fetch('/api/chat', { method: 'POST', body: JSON.stringify({ message: text }) })).json();
+  btn.textContent = 'Send'; btn.disabled = false;
+  if (r.error) $('#chathint').textContent = r.error === 'no_key'
+    ? 'No API key set.' : 'Failed: ' + r.error + ' — your message wasn\u2019t sent, try again.';
+  else { $('#msg').value = ''; refresh(); }
+}
+
+$('#send').onclick = () => sendChat($('#msg').value);
+$('#msg').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) sendChat($('#msg').value);
+});
+document.querySelectorAll('[data-q]').forEach((b) => b.onclick = () => sendChat(b.dataset.q));
+$('#reset').onclick = async () => {
+  await fetch('/api/chat', { method: 'POST', body: JSON.stringify({ reset: true }) });
+  refresh();
 };
 
 // ── vault ──
