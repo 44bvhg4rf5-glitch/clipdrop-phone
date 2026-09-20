@@ -16,7 +16,7 @@
 
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, statSync, readdirSync, renameSync } from 'node:fs';
 import path from 'node:path';
 
 const run = promisify(execFile);
@@ -306,6 +306,24 @@ async function fetchSlice({ url, start, seconds, out }) {
   return out;
 }
 
+/**
+ * Cut a window out of a file already on disk. Stream-copy first: on your own
+ * recording that is near-instant and lossless, and the re-encode in toVertical
+ * is the only generation loss the clip takes.
+ */
+async function trimLocal({ input, start, seconds, out }) {
+  mkdirSync(path.dirname(out), { recursive: true });
+  const base = ['-hide_banner', '-loglevel', 'error', '-ss', String(start), '-t', String(seconds), '-i', input];
+  try {
+    await run('ffmpeg', [...base, '-c', 'copy', '-movflags', '+faststart', '-y', out], BIG);
+    if (existsSync(out) && statSync(out).size > 20000) return out;
+  } catch { /* keyframes didn't line up — re-encode below */ }
+  await run('ffmpeg', [...base, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
+    '-c:a', 'aac', '-movflags', '+faststart', '-y', out], BIG);
+  if (!existsSync(out)) throw new Error(`could not cut ${path.basename(input)}`);
+  return out;
+}
+
 /** Whole-file download, for Twitch clips that are already the right length. */
 async function fetchWhole({ url, out }) {
   mkdirSync(path.dirname(out), { recursive: true });
@@ -450,16 +468,32 @@ const TAGS = {
 
 // Hook frames that work because they open a loop the viewer needs closed —
 // not because they're clever. Keep them short: 3 seconds of screen time.
+// Split by whether the line needs a name in it. The hook is burnt into the
+// video, so a bad substitution ships in the clip itself and can't be edited out
+// afterwards — "This is why My recordings is unreal" is not a recoverable typo.
 const FRAMES = [
-  (s) => `He did NOT expect this`,
-  (s) => `Wait for the last 3 seconds`,
-  (s) => `This is why ${s} is unreal`,
-  (s) => `Nobody saw this coming`,
-  (s) => `I had to rewatch this`,
-  (s) => `The reaction says it all`,
-  (s) => `This shouldn't be possible`,
-  (s) => `Chat lost it`,
+  () => `He did NOT expect this`,
+  () => `Wait for the last 3 seconds`,
+  () => `Nobody saw this coming`,
+  () => `I had to rewatch this`,
+  () => `The reaction says it all`,
+  () => `This shouldn't be possible`,
+  () => `Chat lost it`,
 ];
+
+const NAMED_FRAMES = [
+  (s) => `This is why ${s} is unreal`,
+  (s) => `${s} did not see this coming`,
+  (s) => `Only ${s} could pull this off`,
+];
+
+/** A usable on-screen name: a real person or channel, not a filename. */
+function nameable(subject) {
+  const t = String(subject || '').trim();
+  if (!t || t.length > 18) return null;
+  if (/recording|footage|clip|inbox|folder|untitled|session|gameplay|\d{4}-\d{2}-\d{2}/i.test(t)) return null;
+  return t;
+}
 
 const clean = (t) => String(t || '')
   .replace(/[|\-–—]+\s*(highlights?|stream|vod|full|part \d+).*$/i, '')
@@ -469,9 +503,12 @@ const clean = (t) => String(t || '')
 
 /** Deterministic copy. No network, no key, never fails. */
 function fallbackCopy({ title, subject, niche = 'generic', index = 0 }) {
-  const who = subject || clean(title).split(/\s+/).slice(0, 2).join(' ') || 'this';
+  const who = nameable(subject) || nameable(clean(title).split(/\s+/).slice(0, 2).join(' '));
+  const hook = who
+    ? [...FRAMES, ...NAMED_FRAMES.map((f) => () => f(who))][index % (FRAMES.length + NAMED_FRAMES.length)]()
+    : FRAMES[index % FRAMES.length]();
   return {
-    hook: FRAMES[index % FRAMES.length](who),
+    hook,
     caption: `${clean(title).slice(0, 90) || 'Had to clip this'} 😳`,
     hashtags: (TAGS[niche] || TAGS.generic).map((t) => `#${t}`),
     source: 'fallback',
@@ -798,6 +835,7 @@ const warn = (...a) => console.log('!', ...a);
 const BOT_BLOCKED = /Sign in to confirm|not a bot|confirm your age|cookies/i;
 let botBlocks = 0;
 let noHeatmap = 0;
+let emptyFolders = 0;
 
 const has = async (bin) => { try { await run('which', [bin]); return true; } catch { return false; } };
 
@@ -877,6 +915,141 @@ async function fromYouTube(source, budget) {
   return picked;
 }
 
+// ── your own footage ──────────────────────────────────────────
+// Some campaigns forbid reusing anyone else's content and require original
+// recordings — Supercell's Clash brief is one: "DO NOT re-use this official
+// content in your clip. Your clip will be REJECTED." For those, the pipeline
+// stops being a sourcer and becomes an editor: you record, it reframes, hooks,
+// captions and publishes.
+
+const VIDEO_EXT = /\.(mp4|mov|m4v|mkv|webm)$/i;
+
+async function probeDuration(file) {
+  try {
+    const { stdout } = await run('ffprobe', [
+      '-v', 'error', '-show_entries', 'format=duration',
+      '-of', 'default=noprint_wrappers=1:nokey=1', file,
+    ], BIG);
+    return Math.round(parseFloat(stdout.trim()) || 0);
+  } catch { return 0; }
+}
+
+/**
+ * Where is this recording loudest? For gameplay that tracks the moment
+ * something happens — the win, the reaction, the crowd noise. It is a proxy for
+ * excitement rather than a measure of it, so it is only used on recordings too
+ * long to post whole; a short clip is already the moment.
+ */
+async function loudMoments(file, { want, clipSeconds, duration }) {
+  const windows = [];
+  try {
+    const { stdout, stderr } = await run('ffmpeg', [
+      '-hide_banner', '-nostats', '-i', file, '-vn',
+      '-af', 'aresample=8000,asetnsamples=n=8000,astats=metadata=1:reset=1,'
+           + 'ametadata=print:key=lavfi.astats.Overall.RMS_level:file=-',
+      '-f', 'null', '-',
+    ], BIG);
+    const text = `${stdout}\n${stderr}`;
+    let t = null;
+    for (const line of text.split('\n')) {
+      const pts = line.match(/pts_time:([\d.]+)/);
+      if (pts) { t = parseFloat(pts[1]); continue; }
+      const rms = line.match(/RMS_level=(-?[\d.]+|-inf)/);
+      if (rms && t !== null) {
+        const v = rms[1] === '-inf' ? -91 : parseFloat(rms[1]);
+        if (Number.isFinite(v)) windows.push({ t, v });
+        t = null;
+      }
+    }
+  } catch { /* no audio, or ffmpeg said no — fall through */ }
+
+  // No usable audio: fall back to evenly spaced windows so the recording is
+  // still cut into something postable rather than skipped entirely.
+  if (windows.length < 8) {
+    const span = Math.max(1, Math.floor((duration - clipSeconds) / Math.max(1, want)));
+    return Array.from({ length: want }, (_, i) => ({
+      start: Math.min(i * span, Math.max(0, duration - clipSeconds)),
+      seconds: clipSeconds,
+      basis: 'evenly spaced (no audio to read)',
+    })).filter((m, i, a) => i === 0 || m.start !== a[i - 1].start);
+  }
+
+  const usable = windows
+    .filter((w) => w.t < duration - clipSeconds + 2)
+    .sort((a, b) => b.v - a.v);
+
+  const picked = [];
+  for (const w of usable) {
+    if (picked.length >= want) break;
+    if (picked.some((p) => Math.abs(p.peakAt - w.t) < clipSeconds)) continue;
+    picked.push({
+      peakAt: w.t,
+      start: Math.max(0, Math.round(w.t - clipSeconds * 0.45)),
+      seconds: clipSeconds,
+      basis: `loudest at ${hms(Math.round(w.t))}`,
+    });
+  }
+  picked.sort((a, b) => a.start - b.start);
+  return picked;
+}
+
+async function fromFolder(source, budget) {
+  const dir = path.isAbsolute(source.path || '')
+    ? source.path
+    : path.join(ROOT, source.path || 'inbox');
+  mkdirSync(dir, { recursive: true });
+  mkdirSync(path.join(dir, 'done'), { recursive: true });
+
+  const files = readdirSync(dir)
+    .filter((f) => VIDEO_EXT.test(f))
+    .map((f) => path.join(dir, f))
+    .filter((f) => statSync(f).isFile())
+    .sort();
+
+  if (!files.length) {
+    emptyFolders++;
+    log(`${source.name}: nothing in ${path.relative(ROOT, dir) || dir} — drop recordings in there`);
+    return [];
+  }
+  log(`${source.name}: ${files.length} recording(s) waiting`);
+
+  const clipSeconds = source.clipSeconds ?? cfg.clipSeconds ?? 24;
+  const out = [];
+
+  for (const file of files) {
+    if (out.length >= budget) break;
+    const duration = await probeDuration(file);
+    const name = path.basename(file);
+    if (!duration) { warn(`skip ${name}: could not read it`); continue; }
+
+    // Short enough to be the clip already — reframe it whole rather than
+    // hunting for a highlight inside something that is entirely highlight.
+    const moments = duration <= clipSeconds * 1.4
+      ? [{ start: 0, seconds: Math.min(duration, clipSeconds * 1.4), basis: 'whole recording' }]
+      : await loudMoments(file, { want: Math.min(3, budget - out.length), clipSeconds, duration });
+
+    log(`  ${name} (${hms(duration)}) → ${moments.length} clip(s)`);
+    for (const m of moments) {
+      if (out.length >= budget) break;
+      out.push({
+        kind: 'folder',
+        sourceName: source.name,
+        sourceFile: file,
+        sourceUrl: null,
+        title: name.replace(VIDEO_EXT, '').replace(/[_-]+/g, ' '),
+        subject: source.subject || source.name,
+        niche: source.niche || cfg.niche || 'generic',
+        start: hms(m.start),
+        startSeconds: m.start,
+        seconds: m.seconds,
+        basis: m.basis,
+        mode: source.mode || cfg.mode || 'blur',
+      });
+    }
+  }
+  return out;
+}
+
 async function fromTwitch(source, budget) {
   const id = process.env.TWITCH_CLIENT_ID;
   const secret = process.env.TWITCH_CLIENT_SECRET;
@@ -911,7 +1084,8 @@ async function main() {
   // ── 0. is this machine the right one for the job? ──────────
   const mine = cfg.sources.filter((s) => {
     if (s.enabled === false) return false;
-    const wants = s.runner || (s.platform === 'youtube' ? 'local' : 'any');
+    const wants = s.runner
+      || (s.platform === 'youtube' || s.platform === 'folder' ? 'local' : 'any');
     return wants === 'any' || wants === RUNNER;
   });
   const theirs = cfg.sources.filter((s) => s.enabled !== false && !mine.includes(s));
@@ -937,13 +1111,21 @@ async function main() {
   let candidates = [];
   for (const source of mine) {
     try {
-      const got = source.platform === 'twitch'
-        ? await fromTwitch(source, perMine)
+      const got = source.platform === 'twitch' ? await fromTwitch(source, perMine)
+        : source.platform === 'folder'          ? await fromFolder(source, perMine)
         : await fromYouTube(source, perMine);
       candidates.push(...got);
     } catch (e) {
       warn(`${source.name} failed entirely: ${e.message}`);
     }
+  }
+
+  // An empty inbox is not a failure, it is Tuesday. Exiting non-zero here made
+  // drop-local.sh announce "The run failed" on any morning you hadn't recorded
+  // anything yet, which is both alarming and wrong.
+  if (!candidates.length && emptyFolders && emptyFolders === mine.length) {
+    log('\nNothing to do — no recordings waiting. Drop some in and run again.');
+    return;
   }
 
   if (!candidates.length) {
@@ -989,7 +1171,8 @@ async function main() {
     const fin = path.join(OUT, `${slug}.mp4`);
     try {
       log(`[${i + 1}/${withCopy.length}] ${c.sourceName} — ${c.start || 'full clip'}`);
-      if (c.kind === 'twitch') await fetchWhole({ url: c.sourceUrl, out: raw });
+      if (c.kind === 'folder') await trimLocal({ input: c.sourceFile, start: c.start, seconds: c.seconds, out: raw });
+      else if (c.kind === 'twitch') await fetchWhole({ url: c.sourceUrl, out: raw });
       else await fetchSlice({ url: c.sourceUrl, start: c.start, seconds: c.seconds, out: raw });
 
       const srt = cfg.captions === false ? null : await transcribe(raw, WORK, slug);
@@ -1035,6 +1218,17 @@ async function main() {
     } catch { /* unreadable or first run — start clean */ }
   }
   if (kept.length) log(`keeping ${kept.length} clip(s) from the ${kept[0].builtBy} run`);
+
+  // Move used recordings aside. Without this every run re-cuts the same files
+  // and tomorrow's drop is a copy of today's.
+  const used = new Set(done.filter((c) => c.kind === 'folder').map((c) => c.sourceFile));
+  for (const file of used) {
+    try {
+      const target = path.join(path.dirname(file), 'done', path.basename(file));
+      renameSync(file, target);
+      log(`archived ${path.basename(file)} → done/`);
+    } catch (e) { warn(`could not archive ${path.basename(file)}: ${e.message}`); }
+  }
 
   const clips = [...kept, ...done];
   const drop = { date: today, generatedAt: new Date().toISOString(), clips };
