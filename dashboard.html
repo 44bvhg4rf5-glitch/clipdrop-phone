@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClipDrop</title>
+<style>
+  :root{
+    --paper:#eaeef1; --panel:#fff; --panel2:#f2f6f8; --ink:#101c26; --muted:#5b6d7b;
+    --faint:#8598a6; --line:#d4dde4;
+    --go:#b5306a; --ok:#3f7a12; --warn:#a8650c; --cool:#0a6a87;
+    --shadow:0 1px 1px #101c260d, 0 8px 20px -14px #101c2633;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    --paper:#070e14; --panel:#101c26; --panel2:#16242f; --ink:#e8eef4; --muted:#93a5b4;
+    --faint:#6d8294; --line:#22323f;
+    --go:#f277ab; --ok:#a3d45f; --warn:#e8b45c; --cool:#4fc6e8;
+    --shadow:0 1px 1px #0006, 0 10px 26px -18px #000a; } }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-variant-numeric:tabular-nums}
+
+  header{position:sticky;top:0;z-index:20;background:var(--panel);border-bottom:1px solid var(--line);
+    padding:0 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{font-weight:800;letter-spacing:-.02em;font-size:17px;padding:14px 0}
+  .brand span{color:var(--go)}
+  nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+  nav button{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);
+    font:inherit;font-weight:600;font-size:13.5px;padding:15px 13px;cursor:pointer}
+  nav button:hover{color:var(--ink)}
+  nav button.on{color:var(--go);border-bottom-color:var(--go)}
+
+  main{max-width:1060px;margin:0 auto;padding:22px 20px 70px}
+  .panel{display:none} .panel.on{display:block}
+  h2{font-size:20px;letter-spacing:-.02em;margin:0 0 4px;font-weight:750}
+  .sub{color:var(--muted);font-size:13.5px;margin:0 0 20px;max-width:64ch}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:13px;
+    padding:16px;box-shadow:var(--shadow);margin-bottom:14px}
+  .card h3{margin:0 0 11px;font-size:14px;font-weight:700;letter-spacing:-.01em}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px;box-shadow:var(--shadow)}
+  .stat b{display:block;font-size:24px;font-weight:800;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+  .stat span{font-size:11.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+  .stat.a b{color:var(--go)} .stat.b b{color:var(--cool)} .stat.c b{color:var(--ok)}
+
+  .drop{border:2px dashed var(--line);border-radius:13px;padding:34px 18px;text-align:center;
+    color:var(--muted);background:var(--panel);transition:border-color .15s,background .15s;cursor:pointer}
+  .drop.hot{border-color:var(--go);background:var(--panel2);color:var(--ink)}
+  .drop b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
+
+  button.act{background:var(--go);color:var(--panel);border:0;border-radius:9px;
+    padding:11px 18px;font:inherit;font-weight:650;cursor:pointer}
+  button.act:disabled{opacity:.45;cursor:default}
+  button.ghost{background:var(--panel2);color:var(--ink);border:1px solid var(--line);
+    border-radius:9px;padding:9px 14px;font:inherit;font-weight:600;cursor:pointer;font-size:13.5px}
+  button.ghost:hover{border-color:var(--muted)}
+  .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+
+  pre.log{background:#0b1218;color:#b8d4e8;border-radius:10px;padding:13px;
+    font:12px/1.65 ui-monospace,Menlo,monospace;max-height:320px;overflow:auto;margin:0;white-space:pre-wrap}
+  pre.log:empty::before{content:'Nothing has run yet.';color:#5b7385}
+
+  .clip{display:grid;grid-template-columns:104px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .clip:last-child{border-bottom:0}
+  .clip video{width:104px;aspect-ratio:9/16;object-fit:cover;border-radius:8px;background:#000;display:block}
+  .clip .hook{font-weight:700;font-size:15px;margin-bottom:2px;letter-spacing:-.01em}
+  .clip .meta{font-size:12px;color:var(--faint);margin-bottom:9px}
+  .clip .cap{font-size:12.5px;color:var(--muted);margin-bottom:9px;line-height:1.45}
+  .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(124px,1fr));gap:7px;margin-bottom:8px}
+  input,select,textarea{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--ink);font:inherit;font-size:13px}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--go);outline-offset:1px}
+  label.f{display:block;font-size:10.5px;color:var(--faint);text-transform:uppercase;
+    letter-spacing:.07em;font-weight:650;margin-bottom:3px}
+
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px;
+    text-transform:uppercase;letter-spacing:.06em;border:1px solid}
+  .p-ready{color:var(--cool);border-color:var(--cool);background:#0a6a8714}
+  .p-posted{color:var(--warn);border-color:var(--warn);background:#a8650c14}
+  .p-claimed{color:var(--ok);border-color:var(--ok);background:#3f7a1214}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;
+    color:var(--faint);font-weight:700;padding:0 10px 8px 0;border-bottom:1px solid var(--line)}
+  td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line)}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;font-family:ui-monospace,Menlo,monospace}
+
+  .md{font-size:14px;line-height:1.6}
+  .md h1,.md h2,.md h3{font-size:15px;margin:16px 0 6px;font-weight:700}
+  .md ul{padding-left:20px;margin:6px 0}
+  .md code{background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:12.5px}
+  .md p{margin:0 0 9px}
+
+  .empty{color:var(--faint);font-size:13.5px;padding:22px 0;text-align:center}
+  .note{font-size:12.5px;color:var(--muted);background:var(--panel2);border:1px solid var(--line);
+    border-radius:9px;padding:10px 12px;line-height:1.5}
+  .note b{color:var(--ink)}
+  .hint{font-size:12px;color:var(--faint);margin-top:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Clip<span>Drop</span></div>
+  <nav>
+    <button data-p="studio" class="on">Studio</button>
+    <button data-p="queue">Queue</button>
+    <button data-p="numbers">Numbers</button>
+    <button data-p="research">Research</button>
+    <button data-p="vault">Vault</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- STUDIO -->
+  <section class="panel on" id="studio">
+    <h2>Studio</h2>
+    <p class="sub">Drop recordings in, render them into vertical clips with hooks and captions.</p>
+
+    <div class="drop" id="drop">
+      <b>Drop recordings here</b>
+      or click to choose files · mp4, mov, m4v
+      <input type="file" id="picker" multiple accept="video/*" hidden>
+    </div>
+    <div class="hint" id="uphint"></div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>Waiting to render</h3>
+      <div id="inbox"></div>
+      <div class="row" style="margin-top:13px">
+        <button class="act" id="run">Render clips</button>
+        <span class="mono" id="runstate" style="font-size:12.5px;color:var(--faint)"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Output</h3>
+      <pre class="log" id="log"></pre>
+    </div>
+  </section>
+
+  <!-- QUEUE -->
+  <section class="panel" id="queue">
+    <h2>Queue</h2>
+    <p class="sub">Every clip and where it got to. Post on TikTok, paste the link back, mark it claimed on Whop.</p>
+    <div class="note" style="margin-bottom:14px">
+      <b>You press publish.</b> TikTok's posting API keeps everything private until an app passes their audit,
+      so posting stays manual — through TikTok's own web scheduler (Creator account, up to 10 days ahead)
+      or a scheduler like Buffer. This tracks it; it can't do it for you.
+    </div>
+    <div class="card"><div id="clips"></div></div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="panel" id="numbers">
+    <h2>Numbers</h2>
+    <p class="sub">What each clip earned, and which hooks are actually carrying the account.</p>
+    <div class="stats" id="stats"></div>
+    <div class="card">
+      <h3>Hooks, ranked by average views</h3>
+      <div id="hooks"></div>
+      <div class="hint">Needs view counts entered on the Queue tab. Two or three clips per hook before this means much.</div>
+    </div>
+    <div class="card">
+      <h3>Every posted clip</h3>
+      <div style="overflow-x:auto"><table id="ledger"></table></div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="panel" id="research">
+    <h2>Research</h2>
+    <p class="sub">Ask about your own numbers. It reads the real figures rather than guessing at them.</p>
+    <div class="card">
+      <label class="f" for="q">Question</label>
+      <textarea id="q" rows="2" placeholder="What should I change to get more views per clip?"></textarea>
+      <div class="row" style="margin-top:10px">
+        <button class="act" id="askbtn">Ask</button>
+        <button class="ghost" data-q="What should I change to get more views per clip?">Improve views</button>
+        <button class="ghost" data-q="Write me a two-week posting plan based on what has worked so far.">Posting plan</button>
+        <button class="ghost" data-q="Which of my hooks are working and which should I retire? Be specific about why.">Hook review</button>
+      </div>
+      <div class="hint" id="aihint"></div>
+    </div>
+    <div id="answers"></div>
+  </section>
+
+  <!-- VAULT -->
+  <section class="panel" id="vault">
+    <h2>Vault</h2>
+    <p class="sub">Write reports into Obsidian. A vault is just a folder of markdown, so there's nothing to connect — point at the folder.</p>
+    <div class="card">
+      <label class="f" for="vpath">Obsidian vault folder</label>
+      <input id="vpath" placeholder="/Users/you/Documents/MyVault" class="mono">
+      <div class="row" style="margin-top:10px">
+        <button class="ghost" id="savevault">Save path</button>
+        <button class="act" id="export">Write report to vault</button>
+      </div>
+      <div class="hint" id="vhint">Notes are written to <span class="mono">&lt;vault&gt;/ClipDrop/</span>.</div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const n = (v) => Number(v ?? 0).toLocaleString();
+let S = null, timer = null;
+
+// ── nav ──
+document.querySelectorAll('nav button').forEach((b) => b.onclick = () => {
+  document.querySelectorAll('nav button').forEach((x) => x.classList.toggle('on', x === b));
+  document.querySelectorAll('.panel').forEach((p) => p.classList.toggle('on', p.id === b.dataset.p));
+});
+
+// ── load ──
+async function refresh() {
+  try { S = await (await fetch('/api/state')).json(); } catch { return; }
+  drawInbox(); drawLog(); drawClips(); drawNumbers(); drawResearch(); drawVault();
+  const running = S.job?.running;
+  $('#run').disabled = running || !S.inbox.length;
+  $('#runstate').textContent = running ? 'rendering…'
+    : S.job?.code === 0 ? 'last run finished'
+    : S.job?.code ? `last run failed (exit ${S.job.code})` : '';
+  if (running && !timer) timer = setInterval(refresh, 1500);
+  if (!running && timer) { clearInterval(timer); timer = null; }
+}
+
+// ── studio ──
+function drawInbox() {
+  $('#inbox').innerHTML = S.inbox.length
+    ? S.inbox.map((f) => `<div class="row" style="justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)">
+        <span class="mono" style="font-size:13px">${esc(f.name)}</span>
+        <span class="row"><span class="mono" style="font-size:12px;color:var(--faint)">${f.mb} MB</span>
+        <button class="ghost" data-rm="${esc(f.name)}" style="padding:4px 10px">Remove</button></span></div>`).join('')
+    : '<div class="empty">Nothing waiting. Drop a recording above.</div>';
+  document.querySelectorAll('[data-rm]').forEach((b) => b.onclick = async () => {
+    await fetch('/api/inbox/remove', { method:'POST', body: JSON.stringify({ name: b.dataset.rm }) });
+    refresh();
+  });
+}
+function drawLog() { const l = $('#log'); l.textContent = (S.job?.lines || []).join('\n'); l.scrollTop = l.scrollHeight; }
+
+const drop = $('#drop'), picker = $('#picker');
+drop.onclick = () => picker.click();
+picker.onchange = () => upload([...picker.files]);
+['dragenter','dragover'].forEach((e) => drop.addEventListener(e, (ev) => { ev.preventDefault(); drop.classList.add('hot'); }));
+['dragleave','drop'].forEach((e) => drop.addEventListener(e, (ev) => { ev.preventDefault(); drop.classList.remove('hot'); }));
+drop.addEventListener('drop', (ev) => upload([...ev.dataTransfer.files]));
+
+async function upload(files) {
+  const vids = files.filter((f) => /\.(mp4|mov|m4v|mkv|webm)$/i.test(f.name));
+  if (!vids.length) { $('#uphint').textContent = 'Those weren’t video files.'; return; }
+  for (const [i, f] of vids.entries()) {
+    $('#uphint').textContent = `Uploading ${i + 1} of ${vids.length} — ${f.name}…`;
+    try {
+      await fetch('/api/upload/' + encodeURIComponent(f.name), { method: 'PUT', body: f });
+    } catch { $('#uphint').textContent = `Failed on ${f.name}`; return; }
+  }
+  $('#uphint').textContent = `${vids.length} added.`;
+  refresh();
+}
+$('#run').onclick = async () => { await fetch('/api/render', { method: 'POST' }); refresh(); };
+
+// ── queue ──
+function pill(c) {
+  if (c.claimed) return '<span class="pill p-claimed">claimed</span>';
+  if (c.postedAt) return '<span class="pill p-posted">posted</span>';
+  return '<span class="pill p-ready">ready</span>';
+}
+function drawClips() {
+  const el = $('#clips');
+  if (!S.clips.length) { el.innerHTML = '<div class="empty">No clips yet. Render some in Studio.</div>'; return; }
+  el.innerHTML = S.clips.map((c) => `
+    <div class="clip">
+      <video src="/${esc(c.file)}" preload="metadata" muted playsinline controls></video>
+      <div>
+        <div class="row" style="justify-content:space-between;align-items:flex-start">
+          <div class="hook">${esc(c.hook)}</div>${pill(c)}
+        </div>
+        <div class="meta mono">${esc(c.sourceName)} · ${esc(c.seconds)}s · ${esc(c.sizeMb)} MB${c.captioned ? ' · captioned' : ''}${c.basis ? ' · ' + esc(c.basis) : ''}</div>
+        <div class="cap">${esc(c.caption)}<br><span style="color:var(--faint)">${esc((c.hashtags || []).join(' '))}</span></div>
+        <div class="fields">
+          <div><label class="f">TikTok link</label><input data-f="link" data-id="${esc(c.id)}" value="${esc(c.link)}" placeholder="https://…"></div>
+          <div><label class="f">Views</label><input data-f="views" data-id="${esc(c.id)}" value="${c.views ?? ''}" inputmode="numeric" placeholder="0"></div>
+          <div><label class="f">Earned £</label><input data-f="earnings" data-id="${esc(c.id)}" value="${c.earnings ?? ''}" inputmode="decimal" placeholder="0.00"></div>
+        </div>
+        <div class="row">
+          <button class="ghost" data-copy="${esc(c.caption + '\n\n' + (c.hashtags || []).join(' '))}">Copy caption</button>
+          <a class="ghost" style="text-decoration:none;display:inline-block" href="/${esc(c.file)}" download>Download</a>
+          <button class="ghost" data-toggle="${esc(c.id)}">${c.postedAt ? 'Mark unposted' : 'Mark posted'}</button>
+          ${c.postedAt ? `<button class="ghost" data-claim="${esc(c.id)}">${c.claimed ? 'Unclaim' : 'Mark claimed'}</button>` : ''}
+        </div>
+      </div>
+    </div>`).join('');
+
+  el.querySelectorAll('input[data-f]').forEach((i) => i.onchange = () => {
+    const v = i.dataset.f === 'link' ? i.value : (i.value === '' ? null : Number(i.value));
+    patch(i.dataset.id, { [i.dataset.f]: v });
+  });
+  el.querySelectorAll('[data-toggle]').forEach((b) => b.onclick = () => {
+    const c = S.clips.find((x) => x.id === b.dataset.toggle);
+    patch(c.id, { status: c.postedAt ? 'ready' : 'posted' });
+  });
+  el.querySelectorAll('[data-claim]').forEach((b) => b.onclick = () => {
+    const c = S.clips.find((x) => x.id === b.dataset.claim);
+    patch(c.id, { claimed: !c.claimed });
+  });
+  el.querySelectorAll('[data-copy]').forEach((b) => b.onclick = async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy caption', 1400); } catch {}
+  });
+}
+async function patch(id, fields) {
+  await fetch('/api/clip', { method: 'POST', body: JSON.stringify({ id, ...fields }) });
+  refresh();
+}
+
+// ── numbers ──
+function drawNumbers() {
+  const s = S.summary;
+  $('#stats').innerHTML = `
+    <div class="stat a"><b>${n(s.totalViews)}</b><span>total views</span></div>
+    <div class="stat c"><b>£${s.totalEarned.toFixed(2)}</b><span>earned</span></div>
+    <div class="stat b"><b>${n(s.medianViews)}</b><span>median per clip</span></div>
+    <div class="stat"><b>${s.posted}/${s.total}</b><span>posted</span></div>
+    <div class="stat"><b>£${s.effectiveCpm.toFixed(2)}</b><span>real CPM</span></div>`;
+
+  $('#hooks').innerHTML = s.hookRank.length
+    ? `<table><tr><th>Hook</th><th style="text-align:right">Clips</th><th style="text-align:right">Avg views</th></tr>` +
+      s.hookRank.map((h) => `<tr><td>${esc(h.hook)}</td><td class="n">${h.n}</td><td class="n">${n(h.avg)}</td></tr>`).join('') + '</table>'
+    : '<div class="empty">No view counts entered yet.</div>';
+
+  const posted = S.clips.filter((c) => c.postedAt);
+  $('#ledger').innerHTML = posted.length
+    ? `<tr><th>Date</th><th>Hook</th><th style="text-align:right">Views</th><th style="text-align:right">£</th><th style="text-align:right">CPM</th><th>Claimed</th></tr>` +
+      posted.map((c) => {
+        const cpm = c.views && c.earnings ? ((c.earnings / c.views) * 1000).toFixed(2) : '—';
+        return `<tr><td class="mono">${esc(c.date || '')}</td><td>${esc(c.hook)}</td>
+          <td class="n">${c.views != null ? n(c.views) : '—'}</td>
+          <td class="n">${c.earnings != null ? Number(c.earnings).toFixed(2) : '—'}</td>
+          <td class="n">${cpm}</td><td>${c.claimed ? 'yes' : 'no'}</td></tr>`;
+      }).join('')
+    : '<tr><td class="empty">Nothing posted yet.</td></tr>';
+}
+
+// ── research ──
+function md(t) {
+  return esc(t)
+    .replace(/^### (.*)$/gm, '<h3>$1</h3>').replace(/^## (.*)$/gm, '<h2>$1</h2>').replace(/^# (.*)$/gm, '<h2>$1</h2>')
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/^[-*] (.*)$/gm, '<li>$1</li>').replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>')
+    .split(/\n{2,}/).map((p) => p.startsWith('<') ? p : `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+}
+function drawResearch() {
+  $('#aihint').textContent = S.hasKey ? '' : 'Set ANTHROPIC_API_KEY before starting the dashboard to enable this.';
+  $('#askbtn').disabled = !S.hasKey;
+  $('#answers').innerHTML = S.research.map((r) => `
+    <div class="card"><h3>${esc(r.question)}</h3>
+      <div class="mono" style="font-size:11.5px;color:var(--faint);margin-bottom:9px">${new Date(r.at).toLocaleString('en-GB')}</div>
+      <div class="md">${md(r.answer)}</div></div>`).join('');
+}
+document.querySelectorAll('[data-q]').forEach((b) => b.onclick = () => { $('#q').value = b.dataset.q; $('#askbtn').click(); });
+$('#askbtn').onclick = async () => {
+  const btn = $('#askbtn'); btn.disabled = true; btn.textContent = 'Thinking…';
+  const r = await (await fetch('/api/research', { method: 'POST', body: JSON.stringify({ question: $('#q').value }) })).json();
+  btn.textContent = 'Ask'; btn.disabled = false;
+  if (r.error) $('#aihint').textContent = 'Failed: ' + r.error;
+  else { $('#q').value = ''; refresh(); }
+};
+
+// ── vault ──
+function drawVault() { if (document.activeElement !== $('#vpath')) $('#vpath').value = S.settings.vault || ''; }
+$('#savevault').onclick = async () => {
+  await fetch('/api/settings', { method: 'POST', body: JSON.stringify({ vault: $('#vpath').value.trim() }) });
+  $('#vhint').textContent = 'Saved.'; refresh();
+};
+$('#export').onclick = async () => {
+  const s = S.summary;
+  const lines = [
+    `# ClipDrop — ${new Date().toLocaleDateString('en-GB')}`, '',
+    `Campaign: ${S.campaign || 'unspecified'}`, '',
+    '## Numbers', '',
+    `- Clips: ${s.total} (${s.posted} posted, ${s.claimed} claimed)`,
+    `- Views: ${s.totalViews}`,
+    `- Earned: £${s.totalEarned.toFixed(2)}`,
+    `- Median views per clip: ${s.medianViews}`,
+    `- Effective CPM: £${s.effectiveCpm.toFixed(2)}`, '',
+    '## Hooks by average views', '',
+    ...(s.hookRank.length ? s.hookRank.map((h) => `- **${h.hook}** — ${h.avg} avg over ${h.n} clip(s)`) : ['- no view data yet']),
+    '', '## Latest research', '',
+    ...(S.research[0] ? [`### ${S.research[0].question}`, '', S.research[0].answer] : ['- none yet']),
+  ];
+  const r = await (await fetch('/api/vault', { method: 'POST', body: JSON.stringify({
+    name: `ClipDrop ${new Date().toISOString().slice(0, 10)}`, markdown: lines.join('\n') }) })).json();
+  $('#vhint').textContent = r.ok ? `Written to ${r.file}`
+    : r.error === 'no_vault_set' ? 'Set your vault folder first.'
+    : r.error === 'vault_not_found' ? 'That folder doesn’t exist.' : 'Failed: ' + r.error;
+};
+
+refresh();
+setInterval(() => { if (!S?.job?.running) refresh(); }, 10000);
+</script>
+</body>
+</html>

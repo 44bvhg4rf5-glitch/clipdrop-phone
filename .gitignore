@@ -1,0 +1,7 @@
+data/
+inbox/*
+!inbox/README.txt
+!inbox/done/
+inbox/done/*
+!inbox/done/.gitkeep
+docs/clips/*.mp4
