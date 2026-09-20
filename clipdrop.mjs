@@ -120,7 +120,16 @@ function momentsFromHeatmap(detail, opts = {}) {
   const heat = Array.isArray(detail.heatmap) ? detail.heatmap : null;
   const duration = Math.round(detail.duration || 0);
   if (!heat || heat.length < 8 || duration < 90) {
-    return { ok: false, reason: heat ? 'video_too_short' : 'no_heatmap', moments: [] };
+    // Verified 2026-09-20 against a 500k-view video: yt-dlp returns an empty
+    // heatmap from every player client (web, web_safari, mweb, tv, default).
+    // The field still exists, nothing fills it. This is not a quiet channel or
+    // a new upload -- the most-replayed signal is simply not retrievable any
+    // more, which is why the YouTube source ships disabled.
+    return {
+      ok: false,
+      reason: heat ? 'video_too_short' : 'youtube_heatmap_unavailable',
+      moments: [],
+    };
   }
 
   const usable = heat
@@ -788,6 +797,7 @@ const warn = (...a) => console.log('!', ...a);
 // naming it here a blocked run reads as "that channel had no good moments".
 const BOT_BLOCKED = /Sign in to confirm|not a bot|confirm your age|cookies/i;
 let botBlocks = 0;
+let noHeatmap = 0;
 
 const has = async (bin) => { try { await run('which', [bin]); return true; } catch { return false; } };
 
@@ -842,7 +852,11 @@ async function fromYouTube(source, budget) {
       clipSeconds: cfg.clipSeconds ?? 24,
       skipTop: cfg.skipTopPeaks ?? 3,
     });
-    if (!ok) { warn(`skip "${v.title.slice(0, 50)}": ${reason}`); continue; }
+    if (!ok) {
+      if (reason === 'youtube_heatmap_unavailable') noHeatmap++;
+      warn(`skip "${v.title.slice(0, 50)}": ${reason}`);
+      continue;
+    }
 
     log(`  "${v.title.slice(0, 50)}" → ${moments.length} moments`);
     for (const m of moments) {
@@ -940,6 +954,10 @@ async function main() {
       warn(`\nBLOCKED: YouTube refused ${botBlocks} of ${botBlocks} video lookups with its bot check.`);
       warn('This is the datacentre IP, not the channel. CI runners sit in ranges');
       warn('YouTube rejects. A Twitch source uses an official API and is unaffected.');
+    } else if (noHeatmap) {
+      warn(`\nYouTube's most-replayed data came back empty for all ${noHeatmap} video(s).`);
+      warn('That signal is no longer retrievable — it is not this channel, and not');
+      warn('a setup problem. Use a Twitch source instead; its clips are already cut.');
     } else {
       warn('\nNo moments found from any source — nothing to publish today.');
     }

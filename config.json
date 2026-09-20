@@ -1,34 +1,32 @@
 {
-  "campaign": "Clash of Clans",
-  "niche": "clash",
+  "campaign": "CHANGE ME",
+  "niche": "gaming",
   "clipsPerDrop": 5,
   "clipSeconds": 24,
   "skipTopPeaks": 3,
-  "mode": "crop",
+  "mode": "blur",
   "captions": true,
 
-  "_runner": "Which machine handles a source. 'local' = your Mac (residential IP, needed for YouTube). 'cloud' = GitHub Actions (always on, no battery). 'any' = either. Omit and YouTube defaults to local, everything else to any.",
   "_permission": "ONLY creators your campaign permits you to clip. That permission is the legal basis for all of this.",
+  "_runner": "'cloud' = GitHub Actions, always on, costs no battery. 'local' = your Mac. Twitch works fine from the cloud, so nothing here needs the Mac.",
 
   "sources": [
     {
-      "name": "Judo Sloth",
-      "platform": "youtube",
-      "channel": "https://www.youtube.com/@JudoSloth/videos",
-      "subject": "Judo Sloth",
-      "niche": "clash",
-      "scanVideos": 4,
-      "mode": "crop",
-      "runner": "local",
-      "enabled": true
-    },
-    {
-      "name": "CHANGE ME - a twitch streamer your campaign allows",
+      "name": "CHANGE ME",
       "platform": "twitch",
+      "_channel": "The twitch.tv/NAME part, lowercase. twitch.tv/example -> example",
       "channel": "example",
       "sinceDays": 7,
       "mode": "blur",
       "runner": "cloud",
+      "enabled": false
+    },
+    {
+      "name": "YouTube (retired)",
+      "platform": "youtube",
+      "channel": "https://www.youtube.com/@JudoSloth/videos",
+      "runner": "local",
+      "_retired": "Disabled 2026-09-20. This source picked moments from YouTube's most-replayed heatmap, and that data is no longer retrievable: yt-dlp returns an empty heatmap from every player client, verified against a 500k-view video. Nothing here is fixable from our side. Re-enable only if that changes.",
       "enabled": false
     }
   ]
