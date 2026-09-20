@@ -158,13 +158,25 @@
   <!-- NUMBERS -->
   <section class="panel" id="numbers">
     <h2>Numbers</h2>
-    <p class="sub">What each clip earned, and which hooks are actually carrying the account.</p>
+    <p class="sub">What each clip earned, and what to make more of. Medians, not averages — one clip that spikes would otherwise make every week look like that week.</p>
+
+    <div id="confidence"></div>
     <div class="stats" id="stats"></div>
+
     <div class="card">
-      <h3>Hooks, ranked by average views</h3>
-      <div id="hooks"></div>
-      <div class="hint">Needs view counts entered on the Queue tab. Two or three clips per hook before this means much.</div>
+      <h3>Views per clip, in order posted</h3>
+      <div id="trend"></div>
+      <div class="hint">Each bar is one clip. A flat line of small bars with occasional spikes is normal — that's how this business pays.</div>
     </div>
+
+    <div class="card">
+      <h3>What a week is worth</h3>
+      <div id="projection"></div>
+      <div class="hint">Built from your median clip, not your best one. The best one is the exception you can't plan around.</div>
+    </div>
+
+    <div id="breakdowns"></div>
+
     <div class="card">
       <h3>Every posted clip</h3>
       <div style="overflow-x:auto"><table id="ledger"></table></div>
@@ -213,10 +225,19 @@ const n = (v) => Number(v ?? 0).toLocaleString();
 let S = null, timer = null;
 
 // ── nav ──
+// Routed through the hash so a refresh keeps you on the tab you were reading,
+// and so a tab can be linked to. Without it every reload bounced back to Studio.
+const PANELS = ['studio', 'queue', 'numbers', 'research', 'vault'];
+function show(name) {
+  const p = PANELS.includes(name) ? name : 'studio';
+  document.querySelectorAll('nav button').forEach((x) => x.classList.toggle('on', x.dataset.p === p));
+  document.querySelectorAll('.panel').forEach((el) => el.classList.toggle('on', el.id === p));
+}
 document.querySelectorAll('nav button').forEach((b) => b.onclick = () => {
-  document.querySelectorAll('nav button').forEach((x) => x.classList.toggle('on', x === b));
-  document.querySelectorAll('.panel').forEach((p) => p.classList.toggle('on', p.id === b.dataset.p));
+  location.hash = b.dataset.p;
 });
+addEventListener('hashchange', () => show(location.hash.slice(1)));
+show(location.hash.slice(1));
 
 // ── load ──
 async function refresh() {
@@ -321,19 +342,72 @@ async function patch(id, fields) {
 }
 
 // ── numbers ──
+function bars(points) {
+  if (!points.length) return '<div class="empty">No view counts entered yet.</div>';
+  const max = Math.max(...points.map((p) => p.views), 1);
+  const w = Math.max(320, points.length * 26), h = 130, pad = 22;
+  const bw = Math.max(6, (w - pad) / points.length - 6);
+  return `<div style="overflow-x:auto"><svg viewBox="0 0 ${w} ${h + 26}" style="width:100%;min-width:${Math.min(w, 620)}px;height:auto" role="img"
+    aria-label="Views for each clip in the order it was posted, highest ${max.toLocaleString()}">
+    ${points.map((p, i) => {
+      const bh = Math.max(2, (p.views / max) * h);
+      const x = pad + i * (bw + 6);
+      return `<rect x="${x}" y="${h - bh}" width="${bw}" height="${bh}" rx="2" fill="var(--go)" opacity="${0.45 + 0.55 * (p.views / max)}"><title>${esc(p.hook)} — ${n(p.views)} views (${p.at})</title></rect>`;
+    }).join('')}
+    <line x1="0" y1="${h}" x2="${w}" y2="${h}" stroke="var(--line)" stroke-width="1"/>
+    <text x="0" y="12" fill="var(--faint)" font-size="10" font-family="ui-monospace,Menlo,monospace">${n(max)}</text>
+    <text x="0" y="${h + 18}" fill="var(--faint)" font-size="10" font-family="ui-monospace,Menlo,monospace">oldest</text>
+    <text x="${w}" y="${h + 18}" fill="var(--faint)" font-size="10" text-anchor="end" font-family="ui-monospace,Menlo,monospace">newest</text>
+  </svg></div>`;
+}
+
 function drawNumbers() {
   const s = S.summary;
-  $('#stats').innerHTML = `
-    <div class="stat a"><b>${n(s.totalViews)}</b><span>total views</span></div>
-    <div class="stat c"><b>£${s.totalEarned.toFixed(2)}</b><span>earned</span></div>
-    <div class="stat b"><b>${n(s.medianViews)}</b><span>median per clip</span></div>
-    <div class="stat"><b>${s.posted}/${s.total}</b><span>posted</span></div>
-    <div class="stat"><b>£${s.effectiveCpm.toFixed(2)}</b><span>real CPM</span></div>`;
 
-  $('#hooks').innerHTML = s.hookRank.length
-    ? `<table><tr><th>Hook</th><th style="text-align:right">Clips</th><th style="text-align:right">Avg views</th></tr>` +
-      s.hookRank.map((h) => `<tr><td>${esc(h.hook)}</td><td class="n">${h.n}</td><td class="n">${n(h.avg)}</td></tr>`).join('') + '</table>'
-    : '<div class="empty">No view counts entered yet.</div>';
+  $('#confidence').innerHTML = s.scored >= s.minTotal ? '' :
+    `<div class="note" style="margin-bottom:14px"><b>${s.scored} clip${s.scored === 1 ? '' : 's'} with view counts so far.</b>
+     Below ${s.minTotal} there isn't enough to tell a pattern from luck, so the breakdowns stay
+     greyed out rather than pointing you somewhere on the strength of two clips.
+     Keep entering views on the Queue tab.</div>`;
+
+  $('#stats').innerHTML = `
+    <div class="stat a"><b>${n(s.medianViews)}</b><span>median clip</span></div>
+    <div class="stat b"><b>${n(s.bestViews)}</b><span>best clip</span></div>
+    <div class="stat"><b>${n(s.totalViews)}</b><span>total views</span></div>
+    <div class="stat c"><b>£${s.totalEarned.toFixed(2)}</b><span>earned</span></div>
+    <div class="stat"><b>£${s.effectiveCpm.toFixed(2)}</b><span>real CPM</span></div>
+    ${s.unclaimed ? `<div class="stat" style="border-color:var(--warn)"><b style="color:var(--warn)">${s.unclaimed}</b><span>not claimed yet</span></div>` : ''}`;
+
+  $('#trend').innerHTML = bars(s.timeline);
+
+  const p = s.projection;
+  $('#projection').innerHTML = s.scored
+    ? `<table>
+        <tr><th>Clips per week</th><th style="text-align:right">Expected views</th><th style="text-align:right">Expected £</th><th style="text-align:right">Per month</th></tr>
+        ${[['3', p.at3, 3], ['7', p.at7, 7], ['14', p.at14, 14]].map(([label, amt, cnt]) =>
+          `<tr><td>${label}</td><td class="n">${n(s.medianViews * cnt)}</td><td class="n">£${amt.toFixed(2)}</td><td class="n">£${(amt * 4.33).toFixed(2)}</td></tr>`).join('')}
+      </table>`
+    : '<div class="empty">Needs view counts and earnings.</div>';
+
+  $('#breakdowns').innerHTML = s.breakdowns.map((b) => `
+    <div class="card" ${b.thin ? 'style="opacity:.62"' : ''}>
+      <h3>${esc(b.label)}</h3>
+      ${b.verdict ? `<div class="note" style="margin-bottom:11px;border-color:var(--ok)"><b>${esc(b.verdict)}</b></div>` : ''}
+      ${b.rows.length ? `<table>
+        <tr><th>${esc(b.label)}</th><th style="text-align:right">Clips</th><th style="text-align:right">Median</th><th style="text-align:right">Best</th></tr>
+        ${b.rows.map((r) => {
+          // A "median" over one or two clips is just those clips. Printing it
+          // invites acting on it, so thin groups show their size and nothing
+          // that looks like a finding.
+          const thin = r.n < s.minPerGroup;
+          return `<tr${thin ? ' style="color:var(--faint)"' : ''}>
+            <td>${esc(r.key)}</td><td class="n">${r.n}</td>
+            <td class="n">${thin ? 'too few' : n(r.median)}</td>
+            <td class="n">${thin ? '—' : n(r.best)}</td></tr>`;
+        }).join('')}
+      </table><div class="hint">Rows with fewer than ${s.minPerGroup} clips are held back — two clips can't tell you anything, and a median over two clips is just those two clips.</div>`
+      : '<div class="empty">Nothing to compare yet.</div>'}
+    </div>`).join('');
 
   const posted = S.clips.filter((c) => c.postedAt);
   $('#ledger').innerHTML = posted.length
@@ -343,7 +417,8 @@ function drawNumbers() {
         return `<tr><td class="mono">${esc(c.date || '')}</td><td>${esc(c.hook)}</td>
           <td class="n">${c.views != null ? n(c.views) : '—'}</td>
           <td class="n">${c.earnings != null ? Number(c.earnings).toFixed(2) : '—'}</td>
-          <td class="n">${cpm}</td><td>${c.claimed ? 'yes' : 'no'}</td></tr>`;
+          <td class="n">${cpm}</td>
+          <td>${c.claimed ? 'yes' : '<span style="color:var(--warn)">no</span>'}</td></tr>`;
       }).join('')
     : '<tr><td class="empty">Nothing posted yet.</td></tr>';
 }

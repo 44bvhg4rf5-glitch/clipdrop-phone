@@ -137,37 +137,130 @@ async function ask(system, user, maxTokens = 1800) {
   } catch (e) { return { error: e.message }; }
 }
 
-/** What the numbers actually say — computed, not guessed at by the model. */
-function summarise(state) {
+
+// ── analysis ──────────────────────────────────────────────────
+// Clip view counts are violently skewed: most clips do a few hundred views and
+// occasionally one does fifty thousand. The mean of that is a number that
+// describes none of your clips. Everything below reports medians, and refuses
+// to call anything a pattern until there is enough of it to be one.
+
+const MIN_PER_GROUP = 3;    // below this a group is an anecdote
+const MIN_TOTAL = 8;        // below this the whole dataset is
+
+const median = (xs) => {
+  if (!xs.length) return 0;
+  const a = [...xs].sort((x, y) => x - y);
+  const m = a.length >> 1;
+  return a.length % 2 ? a[m] : Math.round((a[m - 1] + a[m]) / 2);
+};
+const pct = (xs, p) => {
+  if (!xs.length) return 0;
+  const a = [...xs].sort((x, y) => x - y);
+  return a[Math.min(a.length - 1, Math.floor((p / 100) * a.length))];
+};
+
+/** Group posted clips by some key and rank by median views. */
+function breakdown(clips, keyOf, label) {
+  const groups = new Map();
+  for (const c of clips) {
+    const k = keyOf(c);
+    if (k == null) continue;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(c.views);
+  }
+  const rows = [...groups.entries()]
+    .map(([k, v]) => ({ key: String(k), n: v.length, median: median(v), best: Math.max(...v) }))
+    .sort((a, b) => b.median - a.median);
+
+  const solid = rows.filter((r) => r.n >= MIN_PER_GROUP);
+  return {
+    label,
+    rows,
+    // A verdict is only offered when two groups each have enough clips behind
+    // them AND the gap between them is big enough to survive this much noise.
+    verdict: solid.length >= 2 && solid[0].median >= solid[solid.length - 1].median * 1.5
+      ? `${solid[0].key} is doing best — ${solid[0].median.toLocaleString()} median views vs ${solid[solid.length - 1].median.toLocaleString()}`
+      : null,
+    thin: solid.length < 2,
+  };
+}
+
+const lengthBucket = (c) => {
+  if (!c.seconds) return null;
+  if (c.seconds <= 15) return 'under 15s';
+  if (c.seconds <= 22) return '15-22s';
+  if (c.seconds <= 30) return '23-30s';
+  return 'over 30s';
+};
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const dayOf = (c) => (c.postedAt ? DAYS[new Date(c.postedAt).getDay()] : null);
+const hourBand = (c) => {
+  if (!c.postedAt) return null;
+  const h = new Date(c.postedAt).getHours();
+  if (h < 6) return 'night (00-06)';
+  if (h < 12) return 'morning (06-12)';
+  if (h < 18) return 'afternoon (12-18)';
+  return 'evening (18-24)';
+};
+
+function analyse(state) {
   const clips = Object.values(state.clips);
   const posted = clips.filter((c) => c.postedAt);
-  const withViews = posted.filter((c) => Number.isFinite(c.views));
-  const totalViews = withViews.reduce((a, c) => a + c.views, 0);
+  const scored = posted.filter((c) => Number.isFinite(c.views));
+  const views = scored.map((c) => c.views);
+  const totalViews = views.reduce((a, b) => a + b, 0);
   const totalEarned = posted.reduce((a, c) => a + (Number(c.earnings) || 0), 0);
 
-  const byHook = {};
-  for (const c of withViews) {
-    const k = (c.hook || 'none').slice(0, 40);
-    (byHook[k] ||= []).push(c.views);
-  }
-  const hookRank = Object.entries(byHook)
-    .map(([hook, v]) => ({ hook, n: v.length, avg: Math.round(v.reduce((a, b) => a + b, 0) / v.length) }))
-    .sort((a, b) => b.avg - a.avg);
+  // Per-clip history, oldest first, for the trend chart.
+  const timeline = scored
+    .slice()
+    .sort((a, b) => a.postedAt.localeCompare(b.postedAt))
+    .map((c) => ({ at: c.postedAt.slice(0, 10), views: c.views, hook: c.hook }));
+
+  const med = median(views);
+  const p90 = pct(views, 90);
+
+  // What a week is actually worth, from the median rather than the average --
+  // the average is inflated by the one clip that spiked and would have you
+  // planning around an outcome most weeks will not repeat.
+  const cpm = totalViews ? (totalEarned / totalViews) * 1000 : 0;
+  const perWeek = (clipsPerWeek) => +((med * clipsPerWeek * cpm) / 1000).toFixed(2);
 
   return {
     total: clips.length,
-    ready: clips.filter((c) => c.status === 'ready').length,
+    ready: clips.filter((c) => !c.postedAt).length,
     posted: posted.length,
     claimed: posted.filter((c) => c.claimed).length,
+    scored: scored.length,
     totalViews,
     totalEarned: +totalEarned.toFixed(2),
-    medianViews: withViews.length
-      ? [...withViews].map((c) => c.views).sort((a, b) => a - b)[Math.floor(withViews.length / 2)]
-      : 0,
-    effectiveCpm: totalViews ? +((totalEarned / totalViews) * 1000).toFixed(2) : 0,
-    hookRank,
+    medianViews: med,
+    bestViews: views.length ? Math.max(...views) : 0,
+    p90Views: p90,
+    effectiveCpm: +cpm.toFixed(2),
+    unclaimed: posted.filter((c) => !c.claimed).length,
+    // Unclaimed clips are money already earned and not collected -- the one
+    // number here that is directly actionable today.
+    unclaimedViews: posted.filter((c) => !c.claimed && Number.isFinite(c.views))
+      .reduce((a, c) => a + c.views, 0),
+    timeline,
+    enough: scored.length >= MIN_TOTAL,
+    minTotal: MIN_TOTAL,
+    minPerGroup: MIN_PER_GROUP,
+    projection: { at3: perWeek(3), at7: perWeek(7), at14: perWeek(14) },
+    breakdowns: [
+      breakdown(scored, (c) => (c.hook || '').slice(0, 44) || null, 'Hook'),
+      breakdown(scored, lengthBucket, 'Clip length'),
+      breakdown(scored, dayOf, 'Day posted'),
+      breakdown(scored, hourBand, 'Time posted'),
+      breakdown(scored, (c) => c.sourceName || null, 'Source'),
+    ],
+    hookRank: breakdown(scored, (c) => (c.hook || '').slice(0, 44) || null, 'Hook').rows,
   };
 }
+
+/** What the numbers actually say — computed, not guessed at by the model. */
+const summarise = analyse;
 
 // ── Obsidian ──────────────────────────────────────────────────
 // A vault is a folder of markdown. Nothing to integrate with, nothing to break.
