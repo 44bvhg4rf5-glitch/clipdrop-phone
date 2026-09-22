@@ -1,0 +1,36 @@
+{
+  "_note": "The single source of truth for who these two are. Change a detail HERE and nowhere else — every prompt is built from this file, so editing it in one place keeps two hundred videos consistent.",
+
+  "style": "STYLE: 3D animated feature film still, Pixar-quality rendering, soft volumetric lighting, shallow depth of field, warm colour grade, gentle subsurface scattering on fur, clean uncluttered composition, vertical 9:16 framing.",
+
+  "world": "a sunlit eucalyptus grove, soft sage-green foliage, dappled light, cosy handmade details",
+
+  "negative": "text, watermark, signature, human, people, blurry, deformed, extra limbs, duplicate characters, distorted face, low quality",
+
+  "characters": [
+    {
+      "name": "Pip",
+      "personality": "tries too hard, earnest, eager",
+      "prompt": "a small male koala, warm dove-grey fur slightly darker along the back, very large round ears with pale cream inner fluff, a small V-shaped notch in his LEFT ear, big soft matte charcoal nose, round dark amber-brown eyes with a single highlight upper-left, short rounded build, wearing a chunky mustard-yellow knitted scarf"
+    },
+    {
+      "name": "Willow",
+      "personality": "calm, warm, quietly amused, quietly in charge",
+      "prompt": "a female koala, soft silver-grey fur with a warm undertone, very large round ears with blush-pink inner fluff, a cream heart-shaped patch on her chest, big soft matte charcoal nose, round deep green-hazel eyes with a single highlight upper-left, slightly taller with longer limbs and a soft relaxed posture, a small dried wildflower tucked behind her RIGHT ear"
+    }
+  ],
+
+  "model": "",
+  "lora": "",
+  "steps": 28,
+  "music": "music/theme.mp3",
+
+  "_lora_note": "Once you have ~20 good stills of the pair, train a LoRA in Draw Things (Settings → LoRA training, about 20 minutes on an M-series Mac) and put its name in 'lora' above. That is what takes consistency from good to locked.",
+
+  "episodes": [
+    "The leaf bouquet", "Rain", "The nap", "Too high", "The flower",
+    "Cold night", "She's taller", "The gift", "Hiccups", "Star watching",
+    "The argument", "New scarf", "Butterfly", "The puddle", "Snoring",
+    "Lost", "The picnic", "First snow", "The photograph", "Anniversary"
+  ]
+}

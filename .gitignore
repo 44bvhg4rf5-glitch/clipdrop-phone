@@ -10,3 +10,6 @@ inbox-koala/*
 !inbox-koala/done/
 inbox-koala/done/*
 !inbox-koala/done/.gitkeep
+music/*
+!music/README.txt
+.produce/
