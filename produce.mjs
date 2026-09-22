@@ -23,7 +23,8 @@ const run = promisify(execFile);
 const BIG = { maxBuffer: 64 * 1024 * 1024 };
 const ROOT = import.meta.dirname;
 const OUT = path.join(ROOT, 'inbox-koala');
-const WORK = path.join(ROOT, '.produce');
+const WORKROOT = path.join(ROOT, '.produce');
+const slugify = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
 
 const log = (...a) => console.log('·', ...a);
 const warn = (...a) => console.log('!', ...a);
@@ -131,19 +132,68 @@ async function haveCli() {
   try { await run('which', ['draw-things-cli']); return true; } catch { return false; }
 }
 
-async function generateStill(prompt, out, b) {
+/**
+ * Every generation parameter is pinned, not left to whatever the tool defaults
+ * to. Steps, guidance, sampler and model version all change the look, and a
+ * default that shifts under you in an app update makes episode 40 quietly
+ * different from episode 1 with nothing in your own setup having changed.
+ */
+async function generateStill(prompt, out, b, seed) {
   const args = [
     '--prompt', prompt,
     '--negative-prompt', b.negative || 'text, watermark, human, blurry, deformed, extra limbs',
-    '--width', '768', '--height', '1344',       // 9:16, a size SDXL-class models handle well
+    '--width', String(b.width || 768),
+    '--height', String(b.height || 1344),
     '--steps', String(b.steps || 28),
     '--output', out,
   ];
+  if (b.guidance) args.push('--guidance-scale', String(b.guidance));
+  if (b.sampler) args.push('--sampler', b.sampler);
   if (b.model) args.push('--model', b.model);
   if (b.lora) args.push('--lora', b.lora);       // the trained character LoRA, once you have one
+  if (Number.isFinite(seed)) args.push('--seed', String(seed));
   await run('draw-things-cli', args, BIG);
   if (!existsSync(out)) throw new Error('no image produced');
   return out;
+}
+
+/** A contact sheet to judge from. Picking a still takes seconds; discovering a
+ *  bad one after it has been animated and assembled does not. */
+function contactSheet(shots, variants, dir, idea) {
+  const rows = shots.map((sh, i) => `
+    <section>
+      <h2><span>${i + 1}</span> ${sh.shot} · ${sh.seconds}s</h2>
+      <p>${sh.scene.replace(/[<&]/g, '')}</p>
+      <div class="grid">
+        ${Array.from({ length: variants }, (_, v) => `
+          <figure><img src="shot${i + 1}-v${v + 1}.png" alt="option ${v + 1}">
+          <figcaption>${v + 1}</figcaption></figure>`).join('')}
+      </div>
+    </section>`).join('');
+
+  return `<!doctype html><meta charset="utf-8"><title>${idea} — pick</title>
+<style>
+ body{margin:0;background:#12160f;color:#e8efe4;font:15px/1.5 -apple-system,system-ui,sans-serif;padding:26px}
+ h1{font-size:23px;margin:0 0 4px} .lede{color:#9db08f;margin:0 0 26px;font-size:14px}
+ section{margin-bottom:30px;border-top:1px solid #2a3524;padding-top:16px}
+ h2{font-size:14px;margin:0 0 3px;color:#b9cfa8;text-transform:uppercase;letter-spacing:.06em}
+ h2 span{display:inline-block;background:#3d5230;color:#dff0d0;border-radius:6px;padding:1px 8px;margin-right:7px}
+ section p{color:#9db08f;font-size:13.5px;margin:0 0 12px}
+ .grid{display:flex;gap:12px;flex-wrap:wrap}
+ figure{margin:0;position:relative}
+ img{height:330px;border-radius:9px;display:block;background:#000}
+ figcaption{position:absolute;top:8px;left:8px;background:#000c;color:#fff;
+   font:600 13px ui-monospace,monospace;padding:3px 9px;border-radius:14px}
+ footer{color:#9db08f;font-size:13.5px;border-top:1px solid #2a3524;padding-top:16px;line-height:1.7}
+ code{background:#222c1c;padding:2px 7px;border-radius:5px;font-size:13px;color:#dff0d0}
+</style>
+<h1>${idea}</h1>
+<p class="lede">Pick the best option for each shot, then assemble only those.</p>
+${rows}
+<footer>Note one number per shot, top to bottom, then run:<br><br>
+<code>node produce.mjs "${idea}" --assemble --picks ${shots.map(() => '1').join(',')}</code><br><br>
+Nothing is animated until you do — a bad still costs seconds to reject here and
+minutes to discover after assembly.</footer>`;
 }
 
 // ── motion ────────────────────────────────────────────────────
@@ -180,11 +230,11 @@ async function shotToClip(still, seconds, out, i) {
   return out;
 }
 
-async function assemble(clips, music, out) {
-  const list = path.join(WORK, 'list.txt');
+async function assemble(clips, music, out, work) {
+  const list = path.join(work, 'list.txt');
   writeFileSync(list, clips.map((c) => `file '${c}'`).join('\n'));
 
-  const joined = path.join(WORK, 'joined.mp4');
+  const joined = path.join(work, 'joined.mp4');
   await run('ffmpeg', ['-hide_banner', '-loglevel', 'error',
     '-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', '-y', joined], BIG);
 
@@ -208,7 +258,7 @@ async function assemble(clips, music, out) {
 
 async function main() {
   const args = process.argv.slice(2);
-  const dry = args.includes('--dry');
+  const flag = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
   const b = bible();
 
   if (args.includes('--list')) {
@@ -216,16 +266,32 @@ async function main() {
     return;
   }
 
-  const idea = args.filter((a) => !a.startsWith('--'))[0]
+  const idea = args.filter((a, i) => !a.startsWith('--') && !String(args[i - 1] || '').startsWith('--'))[0]
     || b.episodes[Math.floor(Math.random() * b.episodes.length)];
+
+  const slug = slugify(idea);
+  const WORK = path.join(WORKROOT, slug);
+  const shotFile = path.join(WORK, 'shots.json');
+  const assemble_ = args.includes('--assemble');
+  const dry = args.includes('--dry');
+  const variants = Math.min(4, Math.max(1, Number(flag('--variants')) || 1));
 
   log(`episode: ${idea}`);
   mkdirSync(WORK, { recursive: true });
   mkdirSync(OUT, { recursive: true });
 
-  const shots = await writeShots(idea, b);
-  log(`${shots.length} shots, ${shots.reduce((a, s) => a + s.seconds, 0)}s total`);
-  shots.forEach((s, i) => log(`  ${i + 1}. [${s.shot}] ${s.scene}`));
+  // Reuse the shot list on the assemble pass. Re-asking the model would give a
+  // different episode from the one whose stills are sitting on disk.
+  let shots;
+  if (assemble_ && existsSync(shotFile)) {
+    shots = JSON.parse(readFileSync(shotFile, 'utf8'));
+    log(`${shots.length} shots (from the earlier run)`);
+  } else {
+    shots = await writeShots(idea, b);
+    writeFileSync(shotFile, JSON.stringify(shots, null, 2));
+    log(`${shots.length} shots, ${shots.reduce((a, s) => a + s.seconds, 0)}s total`);
+    shots.forEach((s, i) => log(`  ${i + 1}. [${s.shot}] ${s.scene}`));
+  }
 
   if (dry) {
     console.log('\n--- prompt for shot 1 ---\n');
@@ -233,42 +299,66 @@ async function main() {
     return;
   }
 
+  // ── assemble pass: animate the chosen stills ────────────────
+  if (assemble_) {
+    const picks = String(flag('--picks') || '').split(',').map((n) => Number(n.trim()));
+    if (picks.length !== shots.length || picks.some((n) => !Number.isFinite(n) || n < 1)) {
+      warn(`--picks needs ${shots.length} numbers, one per shot. e.g. --picks ${shots.map(() => 1).join(',')}`);
+      process.exit(1);
+    }
+
+    const clips = [];
+    for (const [i, shot] of shots.entries()) {
+      const still = path.join(WORK, `shot${i + 1}-v${picks[i]}.png`);
+      if (!existsSync(still)) { warn(`missing ${path.basename(still)} — skipping shot ${i + 1}`); continue; }
+      const clip = path.join(WORK, `clip${i + 1}.mp4`);
+      try {
+        log(`[${i + 1}/${shots.length}] animating option ${picks[i]} · ${shot.seconds}s`);
+        await shotToClip(still, shot.seconds, clip, i);
+        clips.push(clip);
+      } catch (e) { warn(`  shot ${i + 1} failed: ${e.message}`); }
+    }
+    if (clips.length < 2) { warn('\nToo few shots to assemble.'); process.exit(1); }
+
+    const final = path.join(OUT, `${slug}.mp4`);
+    const music = b.music && existsSync(path.join(ROOT, b.music)) ? path.join(ROOT, b.music) : null;
+    const r = await assemble(clips, music, final, WORK);
+    rmSync(WORK, { recursive: true, force: true });
+    log(`\ndone: inbox-koala/${path.basename(final)}${r.music ? '' : '  (no music — see music/README.txt)'}`);
+    log('Open ClipDrop and it will caption and queue it.');
+    return;
+  }
+
+  // ── generate pass: stills only ──────────────────────────────
   if (!(await haveCli())) {
     warn('\ndraw-things-cli not found. Install it with:');
     warn('  brew install drawthingsai/draw-things/draw-things-cli');
-    warn('Then run this again. Everything else is ready.');
     process.exit(1);
   }
 
-  const clips = [];
+  let made = 0;
   for (const [i, shot] of shots.entries()) {
-    const still = path.join(WORK, `shot${i + 1}.png`);
-    const clip = path.join(WORK, `shot${i + 1}.mp4`);
-    try {
-      log(`[${i + 1}/${shots.length}] generating still…`);
-      await generateStill(promptFor(shot, b), still, b);
-      log(`             animating ${shot.seconds}s…`);
-      await shotToClip(still, shot.seconds, clip, i);
-      clips.push(clip);
-    } catch (e) {
-      warn(`  shot ${i + 1} failed: ${e.message}`);
+    const prompt = promptFor(shot, b);
+    for (let v = 0; v < variants; v++) {
+      const out = path.join(WORK, `shot${i + 1}-v${v + 1}.png`);
+      try {
+        log(`[${i + 1}/${shots.length}] still ${v + 1}/${variants}…`);
+        // A seed derived from the episode and shot, so a re-run reproduces the
+        // same images rather than a fresh roll of the dice.
+        const seed = b.seed ? b.seed + i * 100 + v : undefined;
+        await generateStill(prompt, out, b, seed);
+        made++;
+      } catch (e) { warn(`  failed: ${e.message}`); }
     }
   }
 
-  if (clips.length < 2) {
-    warn('\nToo few shots rendered to make an episode.');
-    process.exit(1);
-  }
+  if (!made) { warn('\nNothing generated.'); process.exit(1); }
 
-  const slug = idea.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
-  const final = path.join(OUT, `${slug}.mp4`);
-  const music = b.music && existsSync(path.join(ROOT, b.music)) ? path.join(ROOT, b.music) : null;
-
-  const r = await assemble(clips, music, final);
-  rmSync(WORK, { recursive: true, force: true });
-
-  log(`\ndone: inbox-koala/${path.basename(final)}${r.music ? '' : '  (no music — see characters.json)'}`);
-  log('Open ClipDrop and it will caption and queue it.');
+  const sheet = path.join(WORK, 'pick.html');
+  writeFileSync(sheet, contactSheet(shots, variants, WORK, idea));
+  log(`\n${made} still(s) generated.`);
+  log(`Review them:  open ${path.relative(ROOT, sheet)}`);
+  log(`Then assemble: node produce.mjs "${idea}" --assemble --picks ${shots.map(() => 1).join(',')}`);
 }
 
 main().catch((e) => { console.error('fatal:', e.message); process.exit(1); });
