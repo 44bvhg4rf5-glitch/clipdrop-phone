@@ -1,22 +1,22 @@
 {
-  "campaign": "Clash of Clans — Global Chat",
+  "campaign": "Two lanes: koala channel + clipping",
   "niche": "clash",
   "clipsPerDrop": 5,
   "clipSeconds": 24,
   "skipTopPeaks": 3,
   "mode": "blur",
   "captions": true,
-
-  "_permission": "ONLY sources your campaign permits. The Clash campaign requires ORIGINAL footage you recorded yourself — reusing official content is explicitly rejected.",
-
+  "_permission": "ONLY sources your campaign permits. The Clash campaign requires ORIGINAL footage you recorded yourself \u2014 reusing official content is explicitly rejected.",
   "sources": [
     {
-      "name": "My Clash recordings",
+      "name": "Koala couple",
       "platform": "folder",
-      "path": "inbox",
-      "subject": "Clash",
-      "niche": "clash",
-      "mode": "blur",
+      "path": "inbox-koala",
+      "subject": "Pip and Willow",
+      "niche": "cute",
+      "passthrough": true,
+      "hook": false,
+      "mode": "crop",
       "runner": "local",
       "enabled": true
     },

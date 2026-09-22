@@ -5,3 +5,8 @@ inbox/*
 inbox/done/*
 !inbox/done/.gitkeep
 docs/clips/*.mp4
+inbox-koala/*
+!inbox-koala/README.txt
+!inbox-koala/done/
+inbox-koala/done/*
+!inbox-koala/done/.gitkeep

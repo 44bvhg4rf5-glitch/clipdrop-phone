@@ -464,6 +464,7 @@ const TAGS = {
   clash:  ['fyp', 'clashofclans', 'coc', 'clashclips', 'townhall', 'gaming', 'viral', 'foryou'],
   irl:    ['fyp', 'streamer', 'clips', 'funny', 'viral', 'twitch', 'foryou', 'lol'],
   generic:['fyp', 'viral', 'clips', 'foryou', 'trending', 'fyppppp', 'edit', 'watchtillend'],
+  cute:   ['fyp', 'cute', 'aianimals', 'koala', 'couplegoals', 'wholesome', 'foryou', 'cutecouple'],
 };
 
 // Hook frames that work because they open a loop the viewer needs closed —
@@ -479,6 +480,15 @@ const FRAMES = [
   () => `The reaction says it all`,
   () => `This shouldn't be possible`,
   () => `Chat lost it`,
+];
+
+const CUTE_FRAMES = [
+  () => `Wait for the ending`,
+  () => `She had no idea`,
+  () => `This is too sweet`,
+  () => `He planned this all week`,
+  () => `Nobody warned me it gets cuter`,
+  () => `Watch his face at the end`,
 ];
 
 const NAMED_FRAMES = [
@@ -497,6 +507,13 @@ function nameable(subject) {
 
 const clean = (t) => String(t || '')
   .replace(/[|\-–—]+\s*(highlights?|stream|vod|full|part \d+).*$/i, '')
+  // Filenames carry working notes — "40s", "v2", "final", a date. They are for
+  // you, not for the caption.
+  .replace(/\b\d+\s?s\b/gi, '')
+  // The separator is already a space by the time this runs — the filename's
+  // hyphens were normalised on the way in — so match either form.
+  .replace(/\b\d{4}[-_ ]\d{2}[-_ ]\d{2}\b/g, '')
+  .replace(/\b(v\d+|final|draft|export|render|copy|untitled|screen\s?recording)\b/gi, '')
   .replace(/[#@]\S+/g, '')
   .replace(/\s+/g, ' ')
   .trim();
@@ -504,12 +521,19 @@ const clean = (t) => String(t || '')
 /** Deterministic copy. No network, no key, never fails. */
 function fallbackCopy({ title, subject, niche = 'generic', index = 0 }) {
   const who = nameable(subject) || nameable(clean(title).split(/\s+/).slice(0, 2).join(' '));
-  const hook = who
-    ? [...FRAMES, ...NAMED_FRAMES.map((f) => () => f(who))][index % (FRAMES.length + NAMED_FRAMES.length)]()
-    : FRAMES[index % FRAMES.length]();
+  // Reaction-bait hooks read as clickbait over wholesome content and suppress
+  // exactly the audience it needs.
+  const pool = niche === 'cute'
+    ? CUTE_FRAMES
+    : who ? [...FRAMES, ...NAMED_FRAMES.map((f) => () => f(who))] : FRAMES;
+  const hook = pool[index % pool.length]();
   return {
     hook,
-    caption: `${clean(title).slice(0, 90) || 'Had to clip this'} 😳`,
+    // The sign-off sets the tone before a word is read. Shock-face over a
+    // wholesome piece reads as mockery of it.
+    caption: niche === 'cute'
+      ? `${clean(title).slice(0, 90) || 'these two'} 🥺💛`
+      : `${clean(title).slice(0, 90) || 'Had to clip this'} 😳`,
     hashtags: (TAGS[niche] || TAGS.generic).map((t) => `#${t}`),
     source: 'fallback',
   };
@@ -1022,11 +1046,13 @@ async function fromFolder(source, budget) {
     const name = path.basename(file);
     if (!duration) { warn(`skip ${name}: could not read it`); continue; }
 
-    // Short enough to be the clip already — reframe it whole rather than
-    // hunting for a highlight inside something that is entirely highlight.
-    const moments = duration <= clipSeconds * 1.4
-      ? [{ start: 0, seconds: Math.min(duration, clipSeconds * 1.4), basis: 'whole recording' }]
-      : await loudMoments(file, { want: Math.min(3, budget - out.length), clipSeconds, duration });
+    // A finished video wants assembling, not cutting. Hunting for "the best
+    // moment" inside something already edited to length throws away the edit.
+    const moments = source.passthrough
+      ? [{ start: 0, seconds: duration, basis: 'used whole' }]
+      : duration <= clipSeconds * 1.4
+        ? [{ start: 0, seconds: Math.min(duration, clipSeconds * 1.4), basis: 'whole recording' }]
+        : await loudMoments(file, { want: Math.min(3, budget - out.length), clipSeconds, duration });
 
     log(`  ${name} (${hms(duration)}) → ${moments.length} clip(s)`);
     for (const m of moments) {
@@ -1044,6 +1070,9 @@ async function fromFolder(source, budget) {
         seconds: m.seconds,
         basis: m.basis,
         mode: source.mode || cfg.mode || 'blur',
+        // Some content carries its own opening. A burnt-in hook over a piece
+        // that was authored with one is clutter, not a lever.
+        noHook: source.hook === false,
       });
     }
   }
@@ -1178,7 +1207,8 @@ async function main() {
       const srt = cfg.captions === false ? null : await transcribe(raw, WORK, slug);
 
       const { size } = await toVertical({
-        input: raw, out: fin, hook: c.hook, mode: c.mode, seconds: c.seconds, srt, encoder,
+        input: raw, out: fin, hook: c.noHook ? null : c.hook,
+        mode: c.mode, seconds: c.seconds, srt, encoder,
       });
       if (srt && existsSync(srt)) rmSync(srt, { force: true });
 
