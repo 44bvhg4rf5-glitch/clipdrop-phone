@@ -3,6 +3,7 @@
 //   node produce.mjs "The leaf bouquet"
 //   node produce.mjs --list          show the episode backlog
 //   node produce.mjs --dry "Rain"    write the shot list, generate nothing
+//   node produce.mjs "Rain" --assemble --picks 2,1,3,1,2 [--motion video]
 //
 // The chain:
 //   idea → shot list (LLM) → stills (Draw Things, local) → motion + music
@@ -10,9 +11,13 @@
 //
 // Nothing here calls a paid video model. Stills are generated locally by
 // draw-things-cli and given motion with ffmpeg's zoompan — the slow push-in
-// that most of this genre actually uses. A true image-to-video model looks
-// better and costs either money or ~7 minutes per 4 seconds locally; this
-// costs neither, and you can upgrade one shot at a time later.
+// that most of this genre actually uses.
+//
+// --motion video swaps the push-in for real animation: each chosen still is
+// handed to a local image-to-video model as its first frame, so the koalas
+// move but stay the koalas you picked. Slow (minutes per shot) but free.
+// Any shot the video model fails on falls back to the push-in, so an
+// overnight run always finishes with a watchable episode.
 
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -41,11 +46,16 @@ const bible = () => JSON.parse(readFileSync(path.join(ROOT, 'characters.json'), 
 function fallbackShots(idea, b) {
   const [a, w] = b.characters.map((c) => c.name);
   return [
-    { shot: 'wide', seconds: 4, scene: `${a} and ${w} in the grove, ${idea.toLowerCase()} just beginning. Establishing wide.` },
-    { shot: 'medium', seconds: 5, scene: `${a} sets about it with total seriousness. ${w} watches.` },
-    { shot: 'close', seconds: 5, scene: `It goes slightly wrong. ${a}'s face falls.` },
-    { shot: 'two-shot', seconds: 6, scene: `${w} reacts with warmth, not annoyance. She was always going to.` },
-    { shot: 'close', seconds: 5, scene: `The two of them settled and content. Hold on this.` },
+    { shot: 'wide', seconds: 4, scene: `${a} and ${w} in the grove, ${idea.toLowerCase()} just beginning. Establishing wide.`,
+      action: 'leaves sway gently, both koalas look around, slow camera push-in' },
+    { shot: 'medium', seconds: 5, scene: `${a} sets about it with total seriousness. ${w} watches.`,
+      action: `${a} busily works with his paws, ${w} tilts her head and blinks` },
+    { shot: 'close', seconds: 5, scene: `It goes slightly wrong. ${a}'s face falls.`,
+      action: `${a}'s ears droop and his eyes go wide and sad` },
+    { shot: 'two-shot', seconds: 6, scene: `${w} reacts with warmth, not annoyance. She was always going to.`,
+      action: `${w} smiles softly and leans in to hug ${a}` },
+    { shot: 'close', seconds: 5, scene: `The two of them settled and content. Hold on this.`,
+      action: 'both koalas snuggle and close their eyes contentedly, gentle breathing' },
   ];
 }
 
@@ -64,10 +74,11 @@ Write a 5-shot silent episode, 25 seconds total. The beats are fixed:
 4. ${w}'s warm reaction  5. Hold on the last frame
 
 Reply with JSON only:
-[{"shot":"wide|medium|close|two-shot","seconds":4,"scene":"what we see, one sentence"}]
+[{"shot":"wide|medium|close|two-shot","seconds":4,"scene":"what we see, one sentence","action":"the one movement that happens during the shot, a short phrase"}]
 
 Rules: no dialogue, no text on screen, tiny stakes, warmth not slapstick.
-Describe only what is VISIBLE. Never restate the characters' appearance — that
+Describe only what is VISIBLE. Each action is one simple, gentle movement
+(a head tilt, a hug, a blink, ears drooping) — video models fail on complex action. Never restate the characters' appearance — that
 is handled separately and repeating it causes drift.`;
 
   try {
@@ -90,6 +101,7 @@ is handled separately and repeating it causes drift.`;
       shot: s.shot || 'medium',
       seconds: Math.min(8, Math.max(3, Number(s.seconds) || 5)),
       scene: String(s.scene || '').slice(0, 300),
+      action: String(s.action || '').slice(0, 200),
     }));
   } catch (e) {
     warn(`shot list failed (${e.message}) — using the standard five beats`);
@@ -225,6 +237,49 @@ function kenBurns(seconds, fps, direction) {
   ].join(',');
 }
 
+/** Frame counts video models accept are 8n+1 (LTX) / 4n+1 (Wan); 8n+1 fits both. */
+const videoFrames = (seconds, fps) => Math.min(121, Math.max(25, Math.round(seconds * fps / 8) * 8 + 1));
+
+/**
+ * Real motion: the chosen still becomes the first frame of a short generated
+ * clip, then ffmpeg brings it to 1080x1920 at 30fps and exactly `seconds` long
+ * (holding the last frame if the model returned less). Audio is dropped —
+ * some video models invent a soundtrack, and music is added at assembly.
+ */
+async function videoClip(still, shot, out, b, i) {
+  const raw = out.replace(/\.mp4$/, '-raw.mp4');
+  const fps = b.videoFps || 24;
+  const action = shot.action || shot.scene;
+  const prompt = `${b.style} ${action}. Smooth, gentle, expressive character animation, stable camera, consistent characters.`;
+  const args = [
+    'generate',
+    '--model', b.videoModel,
+    '--image', still,
+    '--prompt', prompt,
+    '--negative-prompt', b.negative || '',
+    '--width', String(b.videoWidth || 512),
+    '--height', String(b.videoHeight || 896),
+    '--frames', String(videoFrames(shot.seconds, fps)),
+    '--output', raw,
+    '--disable-preview',
+  ];
+  if (b.videoStrength) args.push('--strength', String(b.videoStrength));
+  if (Number.isFinite(b.seed)) args.push('--seed', String(b.seed + i));
+  await run('draw-things-cli', args, { ...BIG, timeout: 60 * 60 * 1000 });
+  if (!existsSync(raw)) throw new Error('video model produced nothing');
+
+  await run('ffmpeg', [
+    '-hide_banner', '-loglevel', 'error', '-i', raw,
+    '-vf', `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,fps=30,tpad=stop_mode=clone:stop_duration=${shot.seconds},setsar=1`,
+    '-t', String(shot.seconds), '-an',
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p',
+    '-y', out,
+  ], BIG);
+  rmSync(raw, { force: true });
+  if (!existsSync(out)) throw new Error('could not normalise video clip');
+  return out;
+}
+
 async function shotToClip(still, seconds, out, i) {
   const fps = 30;
   await run('ffmpeg', [
@@ -316,6 +371,12 @@ async function main() {
       process.exit(1);
     }
 
+    const motion = flag('--motion') || b.motion || 'kenburns';
+    if (motion === 'video') {
+      if (!b.videoModel) { warn('--motion video needs "videoModel" set in characters.json'); process.exit(1); }
+      log(`real motion with ${b.videoModel} — minutes per shot; leave it plugged in`);
+    }
+
     const clips = [];
     for (const [i, shot] of shots.entries()) {
       const still = path.join(WORK, `shot${i + 1}-v${picks[i]}.png`);
@@ -323,7 +384,15 @@ async function main() {
       const clip = path.join(WORK, `clip${i + 1}.mp4`);
       try {
         log(`[${i + 1}/${shots.length}] animating option ${picks[i]} · ${shot.seconds}s`);
-        await shotToClip(still, shot.seconds, clip, i);
+        if (motion === 'video') {
+          try { await videoClip(still, shot, clip, b, i); }
+          catch (e) {
+            warn(`  video failed (${String(e.message).split('\n')[0].slice(0, 160)}) — using the push-in for this shot`);
+            await shotToClip(still, shot.seconds, clip, i);
+          }
+        } else {
+          await shotToClip(still, shot.seconds, clip, i);
+        }
         clips.push(clip);
       } catch (e) { warn(`  shot ${i + 1} failed: ${e.message}`); }
     }
@@ -332,7 +401,9 @@ async function main() {
     const final = path.join(OUT, `${slug}.mp4`);
     const music = b.music && existsSync(path.join(ROOT, b.music)) ? path.join(ROOT, b.music) : null;
     const r = await assemble(clips, music, final, WORK);
-    rmSync(WORK, { recursive: true, force: true });
+    // Keep the stills and shot list so the episode can be re-cut or re-animated
+    // (e.g. with --motion video) without regenerating; drop only the clips.
+    for (const f of [...clips, path.join(WORK, 'joined.mp4'), path.join(WORK, 'list.txt')]) rmSync(f, { force: true });
     log(`\ndone: inbox-koala/${path.basename(final)}${r.music ? '' : '  (no music — see music/README.txt)'}`);
     log('Open ClipDrop and it will caption and queue it.');
     return;

@@ -18,6 +18,12 @@
   "model": "flux_2_klein_4b_q6p.ckpt",
   "lora": "",
   "music": "music/theme.mp3",
+  "motion": "kenburns",
+  "videoModel": "ltx_2.3_22b_distilled_q6p.ckpt",
+  "videoWidth": 512,
+  "videoHeight": 896,
+  "videoFps": 24,
+  "_motion_note": "motion is 'kenburns' (slow zoom on each still, seconds per shot) or 'video' (real animation from a local image-to-video model, minutes per shot). Try video on one episode with --motion video before switching the default.",
   "_lora_note": "Once you have ~20 good stills of the pair, train a LoRA in Draw Things (Settings \u2192 LoRA training, about 20 minutes on an M-series Mac) and put its name in 'lora' above. That is what takes consistency from good to locked.",
   "episodes": [
     "The leaf bouquet",
