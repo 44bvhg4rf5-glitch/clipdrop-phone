@@ -15,9 +15,8 @@
       "prompt": "a female koala, soft silver-grey fur with a warm undertone, very large round ears with blush-pink inner fluff, a cream heart-shaped patch on her chest, big soft matte charcoal nose, round deep green-hazel eyes with a single highlight upper-left, slightly taller with longer limbs and a soft relaxed posture, a small dried wildflower tucked behind her RIGHT ear"
     }
   ],
-  "model": "",
+  "model": "flux_2_klein_4b_q6p.ckpt",
   "lora": "",
-  "steps": 28,
   "music": "music/theme.mp3",
   "_lora_note": "Once you have ~20 good stills of the pair, train a LoRA in Draw Things (Settings \u2192 LoRA training, about 20 minutes on an M-series Mac) and put its name in 'lora' above. That is what takes consistency from good to locked.",
   "episodes": [
@@ -44,8 +43,6 @@
   ],
   "width": 768,
   "height": 1344,
-  "guidance": 5.0,
-  "sampler": "DPM++ 2M Karras",
   "seed": 20260101,
-  "_pinned": "Seed, steps, guidance and sampler are pinned so a re-run reproduces the same images and an app-default change cannot quietly shift the look between episodes."
+  "_pinned": "Model, size and seed are pinned so a re-run reproduces the same images. Steps and guidance are left to the model's recommended settings (FLUX.2 klein is distilled and wants few steps and low guidance); add \"steps\" or \"guidance\" here only to override them deliberately."
 }

@@ -139,19 +139,27 @@ async function haveCli() {
  * different from episode 1 with nothing in your own setup having changed.
  */
 async function generateStill(prompt, out, b, seed) {
+  // Flags match `draw-things-cli generate --help` (v1.20260430). Anything left
+  // unset falls back to the model's own recommended settings, which matters:
+  // distilled models like FLUX.2 klein want few steps and low CFG, and forcing
+  // SDXL-style numbers on them produces mush.
   const args = [
-    'generate',                                   // the CLI takes a subcommand first
+    'generate',
+    '--model', b.model || 'flux_2_klein_4b_q6p.ckpt',
     '--prompt', prompt,
     '--negative-prompt', b.negative || 'text, watermark, human, blurry, deformed, extra limbs',
     '--width', String(b.width || 768),
     '--height', String(b.height || 1344),
-    '--steps', String(b.steps || 28),
     '--output', out,
+    '--disable-preview',
   ];
-  if (b.guidance) args.push('--guidance-scale', String(b.guidance));
-  if (b.sampler) args.push('--sampler', b.sampler);
-  if (b.model) args.push('--model', b.model);
-  if (b.lora) args.push('--lora', b.lora);       // the trained character LoRA, once you have one
+  if (b.steps) args.push('--steps', String(b.steps));
+  if (b.guidance) args.push('--cfg', String(b.guidance));
+  // No --lora flag exists; LoRAs go in as a JSON override. `version` is needed
+  // for a LoRA trained locally and not registered with the app.
+  if (b.lora) args.push('--config-json', JSON.stringify({
+    loras: [{ file: b.lora, weight: b.loraWeight ?? 1, ...(b.loraVersion ? { version: b.loraVersion } : {}) }],
+  }));
   if (Number.isFinite(seed)) args.push('--seed', String(seed));
   await run('draw-things-cli', args, BIG);
   if (!existsSync(out)) throw new Error('no image produced');
