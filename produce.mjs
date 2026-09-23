@@ -140,6 +140,7 @@ async function haveCli() {
  */
 async function generateStill(prompt, out, b, seed) {
   const args = [
+    'generate',                                   // the CLI takes a subcommand first
     '--prompt', prompt,
     '--negative-prompt', b.negative || 'text, watermark, human, blurry, deformed, extra limbs',
     '--width', String(b.width || 768),
