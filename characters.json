@@ -1,8 +1,8 @@
 {
   "_note": "The single source of truth for who these two are. Change a detail HERE and nowhere else \u2014 every prompt is built from this file, so editing it in one place keeps two hundred videos consistent.",
-  "style": "STYLE: 3D animated feature film still, Pixar-quality rendering, soft volumetric lighting, shallow depth of field, warm colour grade, gentle subsurface scattering on fur, clean uncluttered composition, vertical 9:16 framing.",
+  "style": "STYLE: stylised 3D animated cartoon, NOT a photograph — a still from a Pixar-style animated feature film, cute chibi proportions with an oversized head and huge expressive eyes, smooth simplified fur, Pixar-quality rendering, soft volumetric lighting, shallow depth of field, warm colour grade, gentle subsurface scattering on fur, clean uncluttered composition, vertical 9:16 framing.",
   "world": "a sunlit eucalyptus grove, soft sage-green foliage, dappled light, cosy handmade details",
-  "negative": "text, watermark, signature, human, people, blurry, deformed, extra limbs, duplicate characters, distorted face, low quality",
+  "negative": "photograph, photo, photorealistic, realistic, real animal, wildlife photography, text, watermark, signature, human, people, blurry, deformed, extra limbs, duplicate characters, distorted face, low quality",
   "characters": [
     {
       "name": "Pip",
