@@ -237,8 +237,9 @@ function kenBurns(seconds, fps, direction) {
   ].join(',');
 }
 
-/** Frame counts video models accept are 8n+1 (LTX) / 4n+1 (Wan); 8n+1 fits both. */
-const videoFrames = (seconds, fps) => Math.min(121, Math.max(25, Math.round(seconds * fps / 8) * 8 + 1));
+/** Frame counts video models accept are 8n+1 (LTX) / 4n+1 (Wan); 8n+1 fits both.
+ *  Capped because frames are what eat memory — on a 16 GB Mac ~81 is the limit. */
+const videoFrames = (seconds, fps, max = 81) => Math.min(max, Math.max(25, Math.round(seconds * fps / 8) * 8 + 1));
 
 /**
  * Real motion: the chosen still becomes the first frame of a short generated
@@ -250,6 +251,11 @@ async function videoClip(still, shot, out, b, i) {
   const raw = out.replace(/\.mp4$/, '-raw.mp4');
   const fps = b.videoFps || 24;
   const action = shot.action || shot.scene;
+  const frames = videoFrames(shot.seconds, fps, b.videoMaxFrames || 81);
+  // If the model's clip is shorter than the shot, ease it into gentle slow
+  // motion (up to 1.5x) before holding the last frame — cute content suits it,
+  // and a long freeze reads as a glitch.
+  const stretch = Math.min(1.5, Math.max(1, shot.seconds / (frames / fps)));
   const prompt = `${b.style} ${action}. Smooth, gentle, expressive character animation, stable camera, consistent characters.`;
   const args = [
     'generate',
@@ -259,7 +265,7 @@ async function videoClip(still, shot, out, b, i) {
     '--negative-prompt', b.negative || '',
     '--width', String(b.videoWidth || 512),
     '--height', String(b.videoHeight || 896),
-    '--frames', String(videoFrames(shot.seconds, fps)),
+    '--frames', String(frames),
     '--output', raw,
     '--disable-preview',
   ];
@@ -270,7 +276,7 @@ async function videoClip(still, shot, out, b, i) {
 
   await run('ffmpeg', [
     '-hide_banner', '-loglevel', 'error', '-i', raw,
-    '-vf', `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,fps=30,tpad=stop_mode=clone:stop_duration=${shot.seconds},setsar=1`,
+    '-vf', `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setpts=${stretch.toFixed(3)}*PTS,fps=30,tpad=stop_mode=clone:stop_duration=${shot.seconds},setsar=1`,
     '-t', String(shot.seconds), '-an',
     '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p',
     '-y', out,
