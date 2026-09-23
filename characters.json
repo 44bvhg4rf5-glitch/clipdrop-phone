@@ -24,6 +24,7 @@
   "videoHeight": 896,
   "videoFps": 24,
   "videoMaxFrames": 81,
+  "kaggle": { "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers", "width": 480, "height": 832, "frames": 81, "steps": 30, "guidance": 5.0 },
   "_motion_note": "motion is 'kenburns' (slow zoom on each still, seconds per shot) or 'video' (real animation from a local image-to-video model, minutes per shot). Try video on one episode with --motion video before switching the default. Wan 2.2 TI2V 5B is chosen because it fits a 16 GB Mac; the LTX 22B models do not. If a run runs out of memory, lower videoMaxFrames to 49 or videoWidth/videoHeight to 448/768.",
   "_lora_note": "Once you have ~20 good stills of the pair, train a LoRA in Draw Things (Settings \u2192 LoRA training, about 20 minutes on an M-series Mac) and put its name in 'lora' above. That is what takes consistency from good to locked.",
   "episodes": [

@@ -4,6 +4,8 @@
 //   node produce.mjs --list          show the episode backlog
 //   node produce.mjs --dry "Rain"    write the shot list, generate nothing
 //   node produce.mjs "Rain" --assemble --picks 2,1,3,1,2 [--motion video]
+//   node produce.mjs "Rain" --pack --picks 2,1,3,1,2   upload pack for Kling / Kaggle
+//   node produce.mjs "Rain" --assemble --motion clips  join the clips that came back
 //
 // The chain:
 //   idea → shot list (LLM) → stills (Draw Things, local) → motion + music
@@ -21,7 +23,7 @@
 
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, copyFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 
 const run = promisify(execFile);
@@ -29,6 +31,7 @@ const BIG = { maxBuffer: 64 * 1024 * 1024 };
 const ROOT = import.meta.dirname;
 const OUT = path.join(ROOT, 'inbox-koala');
 const WORKROOT = path.join(ROOT, '.produce');
+const PACKS = path.join(ROOT, 'packs');
 const slugify = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
 
 const log = (...a) => console.log('·', ...a);
@@ -274,16 +277,140 @@ async function videoClip(still, shot, out, b, i) {
   await run('draw-things-cli', args, { ...BIG, timeout: 60 * 60 * 1000 });
   if (!existsSync(raw)) throw new Error('video model produced nothing');
 
+  await normalise(raw, shot.seconds, out, stretch);
+  rmSync(raw, { force: true });
+  return out;
+}
+
+async function durationOf(file) {
+  try {
+    const { stdout } = await run('ffprobe', ['-v', 'error', '-show_entries', 'format=duration',
+      '-of', 'default=nw=1:nk=1', file]);
+    return Number(stdout.trim()) || 0;
+  } catch { return 0; }
+}
+
+/**
+ * Any generated clip → 1080x1920, 30fps, exactly `seconds` long, silent, and
+ * encoded identically to the push-in clips so the concat step can stream-copy.
+ * A clip shorter than the shot eases into slow motion (≤1.5x) and then holds
+ * its last frame; a longer one is trimmed.
+ */
+async function normalise(raw, seconds, out, stretch) {
+  if (!stretch) {
+    const dur = await durationOf(raw);
+    stretch = dur ? Math.min(1.5, Math.max(1, seconds / dur)) : 1;
+  }
   await run('ffmpeg', [
     '-hide_banner', '-loglevel', 'error', '-i', raw,
-    '-vf', `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setpts=${stretch.toFixed(3)}*PTS,fps=30,tpad=stop_mode=clone:stop_duration=${shot.seconds},setsar=1`,
-    '-t', String(shot.seconds), '-an',
+    '-vf', `scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,setpts=${stretch.toFixed(3)}*PTS,fps=30,tpad=stop_mode=clone:stop_duration=${seconds},setsar=1`,
+    '-t', String(seconds), '-an',
     '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p',
     '-y', out,
   ], BIG);
-  rmSync(raw, { force: true });
   if (!existsSync(out)) throw new Error('could not normalise video clip');
   return out;
+}
+
+// ── packs: hand-off to an outside video model ─────────────────
+//
+// A pack is a plain folder, packs/<episode>/, holding the chosen stills and one
+// motion prompt per shot. Two things fill it with clips: you (upload to Kling's
+// site, drop the downloads back in) or kaggle-run.sh (free cloud GPU). Either
+// way `--assemble --motion clips` picks them up, so the routes are swappable.
+
+const VIDEO_EXT = /\.(mp4|mov|m4v|webm)$/i;
+
+/** Only the movement: an image-to-video model already sees the koalas, and
+ *  re-describing them invites it to redraw them. */
+function motionPrompt(shot) {
+  const action = (shot.action || shot.scene).replace(/\.$/, '');
+  return `${action}. Gentle, cute Pixar-style 3D animation, smooth natural movement, `
+    + 'the characters keep exactly the same look as in the image, soft slow camera push-in.';
+}
+const MOTION_NEGATIVE = 'morphing, changing face, distorted face, extra limbs, extra ears, realistic, photographic, '
+  + 'scary, horror, creepy teeth, flicker, text, watermark';
+
+function packHtml(idea, entries) {
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const cards = entries.map((e) => `
+  <section>
+    <h2>Shot ${e.n} <small>${e.seconds}s · 5s in Kling</small></h2>
+    <img src="${e.image}" alt="shot ${e.n}">
+    <label>Prompt</label>
+    <textarea readonly rows="4">${esc(e.prompt)}</textarea>
+    <button onclick="cp(this)">Copy prompt</button>
+    <p class="save">Save the download as <b>shot${e.n}.mp4</b> in this folder (or just download them in order).</p>
+  </section>`).join('');
+  return `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upload pack · ${esc(idea)}</title>
+<style>
+:root{--bg:#f3f5f1;--card:#fff;--ink:#1c2a22;--muted:#5b6b61;--line:#d6ded4;--acc:#4f7355}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1512;--card:#18211c;--ink:#e7eee8;--muted:#9fb1a5;--line:#2b3a31;--acc:#8cba91}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:20px 16px 60px}
+main{max-width:620px;margin:auto}h1{margin:.2em 0}ol{padding-left:1.2em;color:var(--muted)}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+h2{margin:0 0 10px;font-size:18px}small{color:var(--muted);font-weight:500}
+img{width:100%;max-width:260px;border-radius:10px;display:block;margin-bottom:10px}
+label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+textarea{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:10px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+button{margin-top:8px;background:var(--acc);color:var(--card);border:0;border-radius:9px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer}
+.save{font-size:13px;color:var(--muted);margin:10px 0 0}
+.neg{font-size:14px}
+</style><main>
+<h1>${esc(idea)}</h1>
+<ol>
+  <li>Open <b>klingai.com</b> → Video → <b>Image to Video</b>.</li>
+  <li>For each shot: upload the picture, paste its prompt, length <b>5s</b>, the free/standard mode.</li>
+  <li>Paste the negative prompt below into "Negative prompt" (under advanced settings) every time.</li>
+  <li>Download each result into this folder: <code>packs/${esc(path.basename(entries.dir || ''))}</code>.</li>
+  <li>Then in Terminal: <code>node produce.mjs "${esc(idea)}" --assemble --motion clips</code></li>
+</ol>
+<section class="neg"><h2>Negative prompt <small>same for every shot</small></h2>
+<textarea readonly rows="3">${esc(MOTION_NEGATIVE)}</textarea><button onclick="cp(this)">Copy</button></section>
+${cards}
+</main>
+<script>
+function cp(btn){const t=btn.previousElementSibling;t.select();
+  const done=()=>{btn.textContent='Copied ✓';setTimeout(()=>btn.textContent='Copy prompt',1500)};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t.value).then(done,()=>{document.execCommand('copy');done()})}
+  else{document.execCommand('copy');done()}}
+</script>`;
+}
+
+function makePack(idea, slug, shots, picks, work) {
+  const dir = path.join(PACKS, slug);
+  mkdirSync(dir, { recursive: true });
+  const entries = [];
+  for (const [i, shot] of shots.entries()) {
+    const still = path.join(work, `shot${i + 1}-v${picks[i]}.png`);
+    if (!existsSync(still)) { warn(`missing ${path.basename(still)} — shot ${i + 1} left out of the pack`); continue; }
+    const image = `shot${i + 1}.png`;
+    copyFileSync(still, path.join(dir, image));
+    entries.push({ n: i + 1, image, seconds: shot.seconds, prompt: motionPrompt(shot), negative: MOTION_NEGATIVE });
+  }
+  entries.dir = dir;
+  writeFileSync(path.join(dir, 'prompts.json'), JSON.stringify({ idea, slug, shots: entries }, null, 2));
+  writeFileSync(path.join(dir, 'pack.html'), packHtml(idea, entries));
+  return { dir, entries };
+}
+
+/** Match clips to shots: a file named like shot3 / shot_3 goes to shot 3; any
+ *  other videos (Kling's own names) fill the remaining shots in download order. */
+function clipsInPack(dir, count) {
+  if (!existsSync(dir)) return [];
+  const vids = readdirSync(dir).filter((f) => VIDEO_EXT.test(f)).map((f) => path.join(dir, f));
+  const byShot = new Array(count).fill(null);
+  const loose = [];
+  for (const f of vids) {
+    const m = path.basename(f).match(/shot[ _-]?(\d+)/i);
+    const n = m ? Number(m[1]) : 0;
+    if (n >= 1 && n <= count && !byShot[n - 1]) byShot[n - 1] = f; else loose.push(f);
+  }
+  loose.sort((a, b) => statSync(a).mtimeMs - statSync(b).mtimeMs);
+  for (let i = 0; i < count && loose.length; i++) if (!byShot[i]) byShot[i] = loose.shift();
+  if (loose.length) warn(`${loose.length} extra video(s) in the pack were not used`);
+  return byShot;
 }
 
 async function shotToClip(still, seconds, out, i) {
@@ -343,6 +470,7 @@ async function main() {
   const WORK = path.join(WORKROOT, slug);
   const shotFile = path.join(WORK, 'shots.json');
   const assemble_ = args.includes('--assemble');
+  const pack_ = args.includes('--pack');
   const dry = args.includes('--dry');
   const variants = Math.min(4, Math.max(1, Number(flag('--variants')) || 1));
 
@@ -353,7 +481,7 @@ async function main() {
   // Reuse the shot list on the assemble pass. Re-asking the model would give a
   // different episode from the one whose stills are sitting on disk.
   let shots;
-  if (assemble_ && existsSync(shotFile)) {
+  if ((assemble_ || pack_) && existsSync(shotFile)) {
     shots = JSON.parse(readFileSync(shotFile, 'utf8'));
     log(`${shots.length} shots (from the earlier run)`);
   } else {
@@ -369,15 +497,39 @@ async function main() {
     return;
   }
 
-  // ── assemble pass: animate the chosen stills ────────────────
-  if (assemble_) {
+  const motion = flag('--motion') || b.motion || 'kenburns';
+  const packDir = path.join(PACKS, slug);
+  const readPicks = () => {
     const picks = String(flag('--picks') || '').split(',').map((n) => Number(n.trim()));
     if (picks.length !== shots.length || picks.some((n) => !Number.isFinite(n) || n < 1)) {
       warn(`--picks needs ${shots.length} numbers, one per shot. e.g. --picks ${shots.map(() => 1).join(',')}`);
       process.exit(1);
     }
+    return picks;
+  };
 
-    const motion = flag('--motion') || b.motion || 'kenburns';
+  // ── pack pass: stills + motion prompts for Kling or Kaggle ──
+  if (pack_) {
+    const { dir, entries } = makePack(idea, slug, shots, readPicks(), WORK);
+    log(`\npack ready: packs/${slug}/  (${entries.length} shots)`);
+    log('Kling by hand: follow pack.html.   Free cloud GPU: ./kaggle-run.sh ' + slug);
+    log(`Then: node produce.mjs "${idea}" --assemble --motion clips`);
+    if (process.platform === 'darwin') run('open', [path.join(dir, 'pack.html')]).catch(() => {});
+    return;
+  }
+
+  // ── assemble pass: animate the chosen stills ────────────────
+  if (assemble_) {
+    // With --motion clips the stills come from the pack, so picks are already made.
+    const picks = motion === 'clips' ? null : readPicks();
+    const stillFor = (i) => (picks ? path.join(WORK, `shot${i + 1}-v${picks[i]}.png`) : path.join(packDir, `shot${i + 1}.png`));
+    const packed = motion === 'clips' ? clipsInPack(packDir, shots.length) : [];
+    if (motion === 'clips') {
+      const have = packed.filter(Boolean).length;
+      if (!have) { warn(`no video clips in packs/${slug}/ yet — download them there first`); process.exit(1); }
+      log(`${have}/${shots.length} clips found in packs/${slug}/${have < shots.length ? ' — the rest get the push-in' : ''}`);
+    }
+
     if (motion === 'video') {
       if (!b.videoModel) { warn('--motion video needs "videoModel" set in characters.json'); process.exit(1); }
       log(`real motion with ${b.videoModel} — minutes per shot; leave it plugged in`);
@@ -385,11 +537,18 @@ async function main() {
 
     const clips = [];
     for (const [i, shot] of shots.entries()) {
-      const still = path.join(WORK, `shot${i + 1}-v${picks[i]}.png`);
-      if (!existsSync(still)) { warn(`missing ${path.basename(still)} — skipping shot ${i + 1}`); continue; }
+      const still = stillFor(i);
       const clip = path.join(WORK, `clip${i + 1}.mp4`);
+      if (packed[i]) {
+        try {
+          log(`[${i + 1}/${shots.length}] ${path.basename(packed[i])} · ${shot.seconds}s`);
+          clips.push(await normalise(packed[i], shot.seconds, clip));
+          continue;
+        } catch (e) { warn(`  clip for shot ${i + 1} unreadable (${e.message}) — using the push-in`); }
+      }
+      if (!existsSync(still)) { warn(`missing ${path.basename(still)} — skipping shot ${i + 1}`); continue; }
       try {
-        log(`[${i + 1}/${shots.length}] animating option ${picks[i]} · ${shot.seconds}s`);
+        log(`[${i + 1}/${shots.length}] ${picks ? `animating option ${picks[i]}` : 'push-in'} · ${shot.seconds}s`);
         if (motion === 'video') {
           try { await videoClip(still, shot, clip, b, i); }
           catch (e) {

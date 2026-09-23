@@ -13,3 +13,4 @@ inbox-koala/done/*
 music/*
 !music/README.txt
 .produce/
+packs/
