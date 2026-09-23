@@ -14,3 +14,4 @@ music/*
 !music/README.txt
 .produce/
 packs/
+__pycache__/
