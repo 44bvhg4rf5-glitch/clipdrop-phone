@@ -13,7 +13,7 @@ cd "$(dirname "$0")"
 [ $# -le 4 ] || { echo "Use at most 4 pictures."; exit 1; }
 for f in "$@"; do [ -f "$f" ] || { echo "Can't find $f"; exit 1; }; done
 
-git pull --rebase --quiet origin main
+git pull --rebase --autostash --quiet origin main
 rm -rf koala/refs && mkdir -p koala/refs
 i=1
 for f in "$@"; do
