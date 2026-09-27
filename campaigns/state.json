@@ -2,13 +2,62 @@
   "used": {
     "ketone-iq": [
       "Ketone IQ Sample Draft3 flipped.mp4",
-      "Ketone IQ sample 2 flipped.mp4"
+      "Ketone IQ sample 2 flipped.mp4",
+      "Ketone IQ sample 3 flipped.mp4",
+      "Shank Tank 5 flipped.mp4",
+      "Shark Tank 15 flipped.mp4"
     ]
   },
-  "drops": [],
+  "drops": [
+    {
+      "date": "2026-09-27",
+      "tag": "clips-2026-09-27",
+      "items": [
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Ketone IQ sample 3 flipped.mp4",
+          "file": "2026-09-27-ketone-iq-ketone-iq-sample-3-flipped.mp4",
+          "seconds": 17,
+          "hook": "Joe Rogan's 6-hour brain cheat code??",
+          "caption": "The nerds were onto something 👀\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        },
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Shank Tank 5 flipped.mp4",
+          "file": "2026-09-27-ketone-iq-shank-tank-5-flipped.mp4",
+          "seconds": 26.2,
+          "hook": "Silicon Valley really tried to bottle ketosis",
+          "caption": "Ketone-IQ before it was everywhere 👀\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        },
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Shark Tank 15 flipped.mp4",
+          "file": "2026-09-27-ketone-iq-shark-tank-15-flipped.mp4",
+          "seconds": 25.2,
+          "hook": "this is either genius or peak biohacker insanity",
+          "caption": "Crazy how far Ketone-IQ has come\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        }
+      ]
+    }
+  ],
   "status": {
-    "level": "error",
-    "text": "No clips could be made today — see the run log.",
-    "at": "2026-09-27T19:11:10.577Z"
+    "level": "ok",
+    "text": "3 clip(s) ready for 2026-09-27.",
+    "at": "2026-09-27T19:18:33.962Z"
   }
 }
