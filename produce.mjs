@@ -215,6 +215,9 @@ function contactSheet(shots, variants, dir, idea) {
 <p class="lede">Pick the best option for each shot, then assemble only those.</p>
 ${rows}
 <footer>Note one number per shot, top to bottom, then run:<br><br>
+For real animation (Kling / Hailuo):<br>
+<code>node produce.mjs "${idea}" --pack --picks ${shots.map(() => '1').join(',')}</code><br><br>
+For the quick zoom-only version:<br>
 <code>node produce.mjs "${idea}" --assemble --picks ${shots.map(() => '1').join(',')}</code><br><br>
 Nothing is animated until you do — a bad still costs seconds to reject here and
 minutes to discover after assembly.</footer>`;
