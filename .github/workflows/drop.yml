@@ -1,8 +1,8 @@
 name: Daily drop
 
+# Superseded by clipfarm.yml (Vyro campaigns, in the cloud). Kept for manual
+# runs only: none of its cloud sources are enabled any more.
 on:
-  schedule:
-    - cron: '10 5 * * *'
   workflow_dispatch:
 
 permissions:

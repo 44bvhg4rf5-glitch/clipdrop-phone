@@ -1,0 +1,29 @@
+{
+  "name": "Ketone-IQ",
+  "enabled": true,
+  "type": "bank",
+  "_type": "A 'bank' campaign supplies finished edits that must be posted whole: no cropping, trimming or audio changes. We may only add a border and an on-screen hook.",
+  "source": "https://f.io/v5fbvabK",
+  "endsOn": "2026-10-05",
+  "cpmUsd": 1.5,
+  "minViewsPerPost": 5000,
+  "platforms": ["tiktok"],
+  "perDay": 3,
+  "minSeconds": 15,
+  "hooks": [
+    "Sharks go OFF on these nerds",
+    "Shark Tank absolutely COOKED these nerds",
+    "Joe Rogan's 6-hour brain cheat code??",
+    "Silicon Valley really tried to bottle ketosis",
+    "this is either genius or peak biohacker insanity",
+    "the tech bros might've actually cooked with this one"
+  ],
+  "captionLines": [
+    "Crazy how far Ketone-IQ has come",
+    "Ketone-IQ really started like THIS 💀",
+    "The nerds were onto something 👀",
+    "Ketone-IQ before it was everywhere 👀"
+  ],
+  "hashtags": ["#KetoneIQPartner"],
+  "postingNotes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+}

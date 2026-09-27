@@ -1,0 +1,82 @@
+name: Clip farm
+
+# Every morning at 06:00 UTC: fetch each live Vyro campaign's footage
+# (campaigns/*.json), make today's clips following that campaign's rules, and
+# put them on docs/clips.html with captions. Costs nothing.
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Make clips even if today''s are already made'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: clipfarm
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install ffmpeg and a browser
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+          npm init -y >/dev/null && npm i --no-save playwright@1 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+      - name: Make today's clips
+        id: make
+        continue-on-error: true
+        env:
+          CLIP_FORCE: ${{ inputs.force }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node clipfarm-cloud.mjs
+      - name: Upload clips
+        if: hashFiles('out/clips/manifest.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG=$(node -p "require('./out/clips/manifest.json').tag")
+          gh release view "$TAG" >/dev/null 2>&1 && gh release delete "$TAG" --yes --cleanup-tag
+          gh release create "$TAG" out/clips/*.mp4 --title "Clips $(date -u +%Y-%m-%d)" --notes "Daily clip drop"
+          GITHUB_REPOSITORY=${{ github.repository }} node clipfarm-cloud.mjs --publish
+      - name: Save state and page
+        if: always()
+        run: |
+          git config user.name "clipdrop"
+          git config user.email "clipdrop@users.noreply.github.com"
+          for f in campaigns/state.json docs/clips.html; do [ -e "$f" ] && git add "$f"; done
+          git diff --staged --quiet && exit 0
+          git commit -m "clips: $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q && break; sleep $((i*2)); done
+      - uses: actions/upload-pages-artifact@v3
+        if: always()
+        with:
+          path: docs
+      - name: Report failure
+        if: steps.make.outcome == 'failure'
+        run: echo "::error::The clip run failed — see docs/clips.html for why." && exit 1
+
+  publish:
+    needs: make
+    if: always() && needs.make.result != 'cancelled'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
