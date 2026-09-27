@@ -143,7 +143,7 @@ function stillPrompt(shot) {
   const alone = who.length === 1 ? `Only ${who[0].name} is in this frame.` : 'Both characters are in this frame.';
   return [
     bible.style,
-    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf and Willow\'s flowers and heart patch. Pip wears the scarf; Willow never does.',
+    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf, Willow\'s pink bow, blossoms and heart patch. Pip is slightly taller than Willow. Pip wears the scarf; Willow never does.',
     ...who.map((c) => `${c.name.toUpperCase()}: ${c.prompt}`),
     alone,
     `WORLD: ${bible.world}`,
@@ -293,6 +293,7 @@ video{width:100%;border-radius:10px;background:#000;margin:6px 0}
 .btn.alt{background:transparent;color:var(--acc);border:1px solid var(--acc)}
 textarea{width:100%;font:inherit;font-size:14px;padding:10px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
 h2{margin:0;font-size:18px}.note{color:var(--warn);font-size:13px}
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}.refs img{width:100%;border-radius:8px}
 </style><main>
 <h1>Pip &amp; Willow</h1>
 <section class="budget">
@@ -301,6 +302,7 @@ h2{margin:0;font-size:18px}.note{color:var(--warn);font-size:13px}
   <span class="muted">About ${left} more episode${left === 1 ? '' : 's'} fit in this month's budget. Next up: ${esc(book.episodes[state.next]?.title || 'end of the list')}.</span>
 </section>
 ${st ? `<section class="status ${esc(st.level)}"><b>Last run:</b> ${esc(st.text)}<br><span class="muted">${esc(st.at.slice(0, 16).replace('T', ' '))} UTC</span></section>` : ''}
+${existsSync(path.join(DOCS, 'refs-new')) ? `<section class="status"><b>New look — waiting for your OK</b><div class="refs">${readdirSync(path.join(DOCS, 'refs-new')).filter((f) => f.endsWith('.jpg')).map((f) => `<img src="refs-new/${f}" alt="">`).join('')}</div><span class="muted">Tell Claude "approve the new look" or what to change.</span></section>` : ''}
 <p class="muted">Posting: download → add a sound in TikTok → tick <b>AI-generated</b> → post. Post the full episode first, the short cut on the next day.</p>
 ${cards || '<p class="muted">No episodes yet.</p>'}
 </main>
@@ -308,6 +310,59 @@ ${cards || '<p class="muted">No episodes yet.</p>'}
 }
 
 function writePage() { mkdirSync(DOCS, { recursive: true }); writeFileSync(path.join(DOCS, 'koala.html'), page()); }
+
+// ── redraw the reference pictures after a design change ───────
+
+/**
+ * Redraws each picture in koala/refs/ with the current character descriptions,
+ * one call per picture (so each keeps its own pose and scene). Results go to
+ * koala/refs-new/ for approval — they only replace the references once
+ * approved, because every future episode copies whatever is in refs/.
+ */
+async function newRefs() {
+  const dir = K('refs-new');
+  try {
+    if (!MOCK && !process.env.FAL_KEY) return setStatus('error', 'No FAL_KEY secret yet — add it in GitHub first. Nothing was spent.');
+    const refs = refImages();
+    if (!refs.length) return setStatus('error', 'No reference pictures to redraw.');
+    if (remaining() < refs.length * PRICE.still) return setStatus('ok', 'Not enough budget left this month to redraw the references.');
+    rmSync(dir, { recursive: true, force: true });
+    mkdirSync(dir, { recursive: true });
+    const [pip, willow] = ['Pip', 'Willow'].map((n) => bible.characters.find((c) => c.name === n));
+    const change = (bible.designChange || '').trim();
+    const prompt = [
+      'Redraw this exact image: same scene, same composition, same poses, same lighting, same 3D animated Pixar style.',
+      'Update the two koala characters to match these descriptions exactly:',
+      `PIP (the one with the mustard scarf): ${pip.prompt}`,
+      `WILLOW: ${willow.prompt}`,
+      change ? `Design change: ${change}` : '',
+      'Pip must be visibly a little taller than Willow. Willow must clearly read as a girl and Pip as a boy.',
+      'No text, no watermark.',
+    ].filter(Boolean).join('\n');
+    for (const [i, ref] of refs.entries()) {
+      const r = await fal(cfg.stillModel || 'fal-ai/bytedance/seedream/v4/edit', {
+        prompt, image_urls: [ref], image_size: 'portrait_16_9', num_images: 1, seed: (bible.seed || 1) + i,
+      }, `reference redraw ${i + 1}`, PRICE.still);
+      const url = r.images?.[0]?.url;
+      if (!url) throw new Error(`no image for reference ${i + 1}`);
+      const png = path.join(dir, `ref${i + 1}.png`);
+      await download(url, png);
+      await run('ffmpeg', ['-loglevel', 'error', '-i', png, '-vf', 'scale=768:-2', '-q:v', '3', '-y', path.join(dir, `ref${i + 1}.jpg`)], BIG);
+      rmSync(png, { force: true });
+    }
+    // A copy on the phone page so they can be judged there.
+    const pub = path.join(DOCS, 'refs-new');
+    rmSync(pub, { recursive: true, force: true });
+    mkdirSync(pub, { recursive: true });
+    for (const f of readdirSync(dir)) writeFileSync(path.join(pub, f), readFileSync(path.join(dir, f)));
+    setStatus('ok', `New-look reference pictures are ready to approve (${refs.length}). No episode is made until they are approved.`);
+  } catch (e) {
+    setStatus('error', `Reference redraw failed: ${e.message}`);
+    process.exitCode = 1;
+  } finally {
+    writePage();
+  }
+}
 
 // ── entry ─────────────────────────────────────────────────────
 
@@ -318,6 +373,8 @@ async function main() {
     log(`spent ${usd(spent())} of ${usd(CAP)} in ${month()}; next episode #${state.next + 1}: ${book.episodes[state.next]?.title || '(none left)'}`);
     return;
   }
+
+  if (args.includes('--new-refs')) return newRefs();
 
   if (args.includes('--publish')) {
     const m = readJson(path.join(OUT, 'manifest.json'), null);
@@ -334,6 +391,7 @@ async function main() {
     if (process.env.KOALA_PAUSED === 'true') return setStatus('ok', 'Paused (KOALA_PAUSED is set). Nothing was spent.');
     if (!MOCK && !process.env.FAL_KEY) return setStatus('error', 'No FAL_KEY secret yet — add it in GitHub to start. Nothing was spent.');
     if (state.lastRunDate === today() && !force) return setStatus('ok', 'Already made an episode today. Nothing was spent.');
+    if (existsSync(K('refs-new'))) return setStatus('ok', 'New-look pictures are waiting for approval, so no episode was made. Nothing was spent.');
     if (!refImages().length) return setStatus('error', 'No reference pictures in koala/refs/ yet — run ./koala-refs.sh on the Mac. Nothing was spent.');
 
     const ep = book.episodes[state.next];

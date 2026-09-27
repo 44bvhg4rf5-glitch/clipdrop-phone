@@ -1,18 +1,18 @@
 {
-  "_note": "The single source of truth for who these two are. Change a detail HERE and nowhere else \u2014 every prompt is built from this file, so editing it in one place keeps two hundred videos consistent.",
+  "_note": "The single source of truth for who these two are. Change a detail HERE and nowhere else — every prompt is built from this file, so editing it in one place keeps two hundred videos consistent.",
   "style": "STYLE: stylised 3D animated cartoon, NOT a photograph — a still from a Pixar-style animated feature film, cute chibi proportions with an oversized head and huge expressive eyes, smooth simplified fur, Pixar-quality rendering, soft volumetric lighting, shallow depth of field, warm colour grade, gentle subsurface scattering on fur, clean uncluttered composition, vertical 9:16 framing.",
   "world": "a sunlit eucalyptus grove, soft sage-green foliage, dappled light, cosy handmade details",
   "negative": "photograph, photo, photorealistic, realistic, real animal, wildlife photography, text, watermark, signature, human, people, blurry, deformed, extra limbs, duplicate characters, distorted face, low quality",
   "characters": [
     {
       "name": "Pip",
-      "personality": "tries too hard, earnest, eager",
-      "prompt": "a small male koala, warm dove-grey fur slightly darker along the back, very large round fluffy ears with blush-pink inner fluff, a soft cream-white belly, big soft matte charcoal nose, round dark amber-brown eyes with a single highlight upper-left, short rounded build, wearing a chunky mustard-yellow knitted scarf"
+      "personality": "gallant and protective, tries too hard, earnest, eager to impress her",
+      "prompt": "a young male koala, warm dove-grey fur slightly darker along the back, very large round fluffy ears with pale grey-pink inner fluff, a soft cream-white belly, big soft matte charcoal nose, round dark amber-brown eyes with a single highlight upper-left, slightly TALLER and a little broader-shouldered than Willow, sturdy boyish build, short plain eyelashes, wearing a chunky mustard-yellow knitted scarf"
     },
     {
       "name": "Willow",
-      "personality": "calm, warm, quietly amused, quietly in charge",
-      "prompt": "a female koala, soft silver-grey fur with a warm undertone, very large round ears with blush-pink inner fluff, a cream heart-shaped patch on her chest, big soft matte charcoal nose, round deep green-hazel eyes with a single highlight upper-left, slightly taller with longer limbs and a soft relaxed posture, a small sprig of dried golden wildflowers tucked behind her LEFT ear (on the right side of the picture when she faces the camera)"
+      "personality": "sweet, gentle and nurturing, warm, quietly amused, quietly in charge",
+      "prompt": "a young female koala, soft silver-grey fur with a warm undertone, very large round ears with rosy-pink inner fluff, a pale pink heart-shaped patch on her chest, big soft matte charcoal nose, round deep green-hazel eyes with long curled eyelashes and a single highlight upper-left, soft rosy-pink blushed cheeks, slightly SHORTER and more petite than Pip with a delicate feminine posture, a small pink satin bow and a sprig of pink blossoms tucked behind her LEFT ear (on the right side of the picture when she faces the camera)"
     }
   ],
   "model": "flux_2_klein_4b_q6p.ckpt",
@@ -24,9 +24,16 @@
   "videoHeight": 896,
   "videoFps": 24,
   "videoMaxFrames": 81,
-  "kaggle": { "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers", "width": 480, "height": 832, "frames": 81, "steps": 30, "guidance": 5.0 },
+  "kaggle": {
+    "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+    "width": 480,
+    "height": 832,
+    "frames": 81,
+    "steps": 30,
+    "guidance": 5.0
+  },
   "_motion_note": "motion is 'kenburns' (slow zoom on each still, seconds per shot) or 'video' (real animation from a local image-to-video model, minutes per shot). Try video on one episode with --motion video before switching the default. Wan 2.2 TI2V 5B is chosen because it fits a 16 GB Mac; the LTX 22B models do not. If a run runs out of memory, lower videoMaxFrames to 49 or videoWidth/videoHeight to 448/768.",
-  "_lora_note": "Once you have ~20 good stills of the pair, train a LoRA in Draw Things (Settings \u2192 LoRA training, about 20 minutes on an M-series Mac) and put its name in 'lora' above. That is what takes consistency from good to locked.",
+  "_lora_note": "Once you have ~20 good stills of the pair, train a LoRA in Draw Things (Settings → LoRA training, about 20 minutes on an M-series Mac) and put its name in 'lora' above. That is what takes consistency from good to locked.",
   "episodes": [
     "The leaf bouquet",
     "Rain",
@@ -52,5 +59,6 @@
   "width": 768,
   "height": 1344,
   "seed": 20260101,
-  "_pinned": "Model, size and seed are pinned so a re-run reproduces the same images. Steps and guidance are left to the model's recommended settings (FLUX.2 klein is distilled and wants few steps and low guidance); add \"steps\" or \"guidance\" here only to override them deliberately."
+  "_pinned": "Model, size and seed are pinned so a re-run reproduces the same images. Steps and guidance are left to the model's recommended settings (FLUX.2 klein is distilled and wants few steps and low guidance); add \"steps\" or \"guidance\" here only to override them deliberately.",
+  "_look_note": "Pip is a little taller and sturdier; Willow is petite with pink accents (bow, blossoms, blush, heart patch, eyelashes) so the two read as boy and girl at a glance, even on a small phone screen."
 }
