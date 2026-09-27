@@ -48,6 +48,13 @@ jobs:
           CLIP_FORCE: ${{ inputs.force }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node clipfarm-cloud.mjs
+      - name: Keep diagnostics
+        if: hashFiles('out/debug/*') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug
+          path: out/debug
+          retention-days: 7
       - name: Upload clips
         if: hashFiles('out/clips/manifest.json') != ''
         env:

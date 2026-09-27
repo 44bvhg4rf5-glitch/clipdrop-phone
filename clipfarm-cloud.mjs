@@ -66,9 +66,18 @@ async function fetchFrameIo(url, dir) {
   const b = await browser();
   const saved = [];
   try {
-    const ctx = await b.newContext({ acceptDownloads: true, viewport: { width: 1280, height: 900 } });
+    // An ordinary desktop Chrome identity: some share pages serve a stripped
+    // page to anything announcing itself as headless.
+    const ctx = await b.newContext({
+      acceptDownloads: true, viewport: { width: 1280, height: 900 }, locale: 'en-GB',
+      userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+    });
     const p = await ctx.newPage();
     await p.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
+    await p.getByText('Download All').first().waitFor({ timeout: 45000 }).catch(() => {});
+    for (const name of ['Accept all', 'Accept', 'I agree', 'Got it']) {
+      await p.getByRole('button', { name, exact: true }).first().click({ timeout: 1500 }).catch(() => {});
+    }
     const body = await p.innerText('body');
     const expected = Number((body.match(/(\d+)\s+Assets/) || [])[1]) || 0;
     const pending = [];
@@ -89,6 +98,13 @@ async function fetchFrameIo(url, dir) {
     }
     await Promise.allSettled(pending);
     log(`downloaded ${saved.length}${expected ? ` of ${expected}` : ''} file(s)`);
+    if (!saved.length) {
+      // Leave evidence for diagnosis: what the page looked like and said.
+      const dbg = path.join(ROOT, 'out', 'debug'); mkdirSync(dbg, { recursive: true });
+      await p.screenshot({ path: path.join(dbg, 'share-page.png'), fullPage: true }).catch(() => {});
+      writeFileSync(path.join(dbg, 'share-page.txt'), (await p.innerText('body').catch(() => '')).slice(0, 5000));
+      throw new Error(`the share page gave no files (expected ${expected || 'some'}) — see the debug screenshot`);
+    }
   } finally { await b.close(); }
   return saved.filter((f) => /\.(mp4|mov|m4v)$/i.test(f));
 }
