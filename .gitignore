@@ -16,3 +16,6 @@ music/*
 packs/
 __pycache__/
 out/
+.DS_Store
+test*.png
+testvid.mp4
