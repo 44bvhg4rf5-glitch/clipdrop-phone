@@ -2,9 +2,9 @@
   "next": 0,
   "episodes": [],
   "status": {
-    "level": "error",
-    "text": "No FAL_KEY secret yet — add it in GitHub to start. Nothing was spent.",
-    "at": "2026-09-27T17:26:47.563Z"
+    "level": "ok",
+    "text": "New-look reference pictures are ready to approve (3). No episode is made until they are approved.",
+    "at": "2026-09-27T18:22:49.405Z"
   },
   "lastRunDate": null
 }
