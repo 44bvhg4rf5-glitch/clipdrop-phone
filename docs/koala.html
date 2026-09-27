@@ -1,0 +1,28 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pip &amp; Willow queue</title>
+<style>
+:root{--bg:#eef2ec;--card:#fff;--ink:#1c2a22;--muted:#5b6b61;--line:#d6ded4;--acc:#4f7355;--warn:#9a5b25}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1512;--card:#18211c;--ink:#e7eee8;--muted:#9fb1a5;--line:#2b3a31;--acc:#8cba91;--warn:#d7a45e}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:20px 16px 60px}
+main{max-width:560px;margin:auto}h1{margin:.1em 0 .4em;font-size:26px}
+.budget,article,.status{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0}
+.bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--acc)}
+.muted,small{color:var(--muted);font-size:13px;font-weight:500}.status.error{border-color:var(--warn)}
+video{width:100%;border-radius:10px;background:#000;margin:6px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.btn,button{display:inline-block;background:var(--acc);color:var(--card);text-decoration:none;border:0;border-radius:9px;padding:10px 14px;font:inherit;font-weight:700}
+.btn.alt{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+textarea{width:100%;font:inherit;font-size:14px;padding:10px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+h2{margin:0;font-size:18px}.note{color:var(--warn);font-size:13px}
+</style><main>
+<h1>Pip &amp; Willow</h1>
+<section class="budget">
+  <b>$0.00</b> of $48.00 spent this month
+  <div class="bar"><i style="width:0.0%"></i></div>
+  <span class="muted">About 19 more episodes fit in this month's budget. Next up: The leaf bouquet.</span>
+</section>
+<section class="status error"><b>Last run:</b> No FAL_KEY secret yet — add it in GitHub to start. Nothing was spent.<br><span class="muted">2026-09-27 17:26 UTC</span></section>
+<p class="muted">Posting: download → add a sound in TikTok → tick <b>AI-generated</b> → post. Post the full episode first, the short cut on the next day.</p>
+<p class="muted">No episodes yet.</p>
+</main>
+<script>function cp(b){const t=b.previousElementSibling;t.select();(navigator.clipboard?navigator.clipboard.writeText(t.value):Promise.reject()).catch(()=>document.execCommand('copy'));b.textContent='Copied ✓';setTimeout(()=>b.textContent='Copy caption',1500)}</script>
