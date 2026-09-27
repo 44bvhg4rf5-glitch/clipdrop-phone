@@ -89,7 +89,10 @@ async function fetchFrameIo(url, dir) {
       log(`  got ${name}`);
     })()));
     await p.getByText('Download All').first().click({ timeout: 30000 });
-    await p.getByRole('button', { name: 'Continue' }).click({ timeout: 15000 }).catch(() => {});
+    // Frame.io asks one of two questions depending on the machine: "Continue
+    // with download?" or "Download with the Desktop App / … in Browser".
+    await p.getByText('Download in Browser', { exact: true }).first().click({ timeout: 8000 }).catch(() => {});
+    await p.getByRole('button', { name: 'Continue' }).click({ timeout: 8000 }).catch(() => {});
     // Wait until every expected file has started and finished, or nothing new for 2 min.
     let last = -1, still = 0;
     while (still < 24 && (!expected || saved.length < expected)) {
