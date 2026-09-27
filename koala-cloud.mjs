@@ -143,7 +143,7 @@ function stillPrompt(shot) {
   const alone = who.length === 1 ? `Only ${who[0].name} is in this frame.` : 'Both characters are in this frame.';
   return [
     bible.style,
-    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape and notch, markings, eye colour, nose, scarf and flower.',
+    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf and Willow\'s flowers and heart patch. Pip wears the scarf; Willow never does.',
     ...who.map((c) => `${c.name.toUpperCase()}: ${c.prompt}`),
     alone,
     `WORLD: ${bible.world}`,

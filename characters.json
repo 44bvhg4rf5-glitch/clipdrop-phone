@@ -7,12 +7,12 @@
     {
       "name": "Pip",
       "personality": "tries too hard, earnest, eager",
-      "prompt": "a small male koala, warm dove-grey fur slightly darker along the back, very large round ears with pale cream inner fluff, a small V-shaped notch in his LEFT ear, big soft matte charcoal nose, round dark amber-brown eyes with a single highlight upper-left, short rounded build, wearing a chunky mustard-yellow knitted scarf"
+      "prompt": "a small male koala, warm dove-grey fur slightly darker along the back, very large round fluffy ears with blush-pink inner fluff, a soft cream-white belly, big soft matte charcoal nose, round dark amber-brown eyes with a single highlight upper-left, short rounded build, wearing a chunky mustard-yellow knitted scarf"
     },
     {
       "name": "Willow",
       "personality": "calm, warm, quietly amused, quietly in charge",
-      "prompt": "a female koala, soft silver-grey fur with a warm undertone, very large round ears with blush-pink inner fluff, a cream heart-shaped patch on her chest, big soft matte charcoal nose, round deep green-hazel eyes with a single highlight upper-left, slightly taller with longer limbs and a soft relaxed posture, a small dried wildflower tucked behind her RIGHT ear"
+      "prompt": "a female koala, soft silver-grey fur with a warm undertone, very large round ears with blush-pink inner fluff, a cream heart-shaped patch on her chest, big soft matte charcoal nose, round deep green-hazel eyes with a single highlight upper-left, slightly taller with longer limbs and a soft relaxed posture, a small sprig of dried golden wildflowers tucked behind her LEFT ear (on the right side of the picture when she faces the camera)"
     }
   ],
   "model": "flux_2_klein_4b_q6p.ckpt",
