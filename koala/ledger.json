@@ -1,7 +1,7 @@
 {
   "months": {
     "2026-09": {
-      "spent": 0.16,
+      "spent": 2.64,
       "items": [
         {
           "at": "2026-09-27T18:21:38.211Z",
@@ -22,6 +22,86 @@
           "at": "2026-09-27T18:26:07.885Z",
           "what": "reference redraw 1",
           "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:28:12.828Z",
+          "what": "the-leaf-bouquet shot 1 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:28:38.301Z",
+          "what": "the-leaf-bouquet shot 1 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-27T18:30:02.590Z",
+          "what": "the-leaf-bouquet shot 2 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:30:21.606Z",
+          "what": "the-leaf-bouquet shot 2 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-27T18:32:10.471Z",
+          "what": "the-leaf-bouquet shot 3 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:32:35.510Z",
+          "what": "the-leaf-bouquet shot 3 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-27T18:34:41.787Z",
+          "what": "the-leaf-bouquet shot 4 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:35:01.172Z",
+          "what": "the-leaf-bouquet shot 4 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-27T18:37:21.928Z",
+          "what": "the-leaf-bouquet shot 5 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:37:53.407Z",
+          "what": "the-leaf-bouquet shot 5 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-27T18:39:53.788Z",
+          "what": "the-leaf-bouquet shot 6 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:40:13.911Z",
+          "what": "the-leaf-bouquet shot 6 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-27T18:42:19.894Z",
+          "what": "the-leaf-bouquet shot 7 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:42:50.884Z",
+          "what": "the-leaf-bouquet shot 7 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-27T18:44:26.319Z",
+          "what": "the-leaf-bouquet shot 8 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-27T18:44:51.638Z",
+          "what": "the-leaf-bouquet shot 8 video",
+          "usd": 0.27
         }
       ]
     }

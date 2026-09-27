@@ -1,10 +1,22 @@
 {
-  "next": 0,
-  "episodes": [],
+  "next": 1,
+  "episodes": [
+    {
+      "title": "The leaf bouquet",
+      "slug": "the-leaf-bouquet",
+      "date": "2026-09-27",
+      "tag": "koala-2026-09-27-the-leaf-bouquet",
+      "full": "the-leaf-bouquet-full.mp4",
+      "short": "the-leaf-bouquet-short.mp4",
+      "caption": "He picked every leaf in the forest for her 🥺🌿\n\n#koala #cuteanimals #pipandwillow #animation #cartoon #couplegoals #wholesome #aianimation",
+      "shortCaption": "He picked every leaf in the forest for her 🥺🌿 (full story on our page 💛)\n\n#koala #cuteanimals #pipandwillow #animation #cartoon #couplegoals #wholesome #aianimation",
+      "failedShots": 0
+    }
+  ],
   "status": {
     "level": "ok",
-    "text": "New-look reference pictures are ready to approve (1). No episode is made until they are approved.",
-    "at": "2026-09-27T18:26:35.111Z"
+    "text": "The leaf bouquet is ready.",
+    "at": "2026-09-27T18:46:29.840Z"
   },
-  "lastRunDate": null
+  "lastRunDate": "2026-09-27"
 }
