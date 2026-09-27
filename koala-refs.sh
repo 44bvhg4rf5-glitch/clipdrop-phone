@@ -24,6 +24,8 @@ done
 [ -z "$(git config user.name 2>/dev/null)" ] && git config user.name "ClipDrop User"
 [ -z "$(git config user.email 2>/dev/null)" ] && git config user.email "clipdrop@users.noreply.github.com"
 git add koala/refs
-git commit --quiet -m "koala: reference pictures ($#)" || { echo "Those pictures are already the references."; exit 0; }
+git commit --quiet -m "koala: reference pictures ($#)" || echo "Those pictures are already the references."
+# Push even when nothing new was committed: an earlier run may have committed
+# but failed to push.
 git push --quiet origin main
 echo "Done — $# reference picture(s) are on GitHub. Tonight's episode will match them."
