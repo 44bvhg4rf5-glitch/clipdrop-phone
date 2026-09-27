@@ -1,13 +1,44 @@
 {
-  "_note": "Settings for the nightly cloud episode (koala-cloud.mjs). Prices are what fal.ai charges per call, rounded UP so the ledger over-counts rather than under-counts. monthlyCapUsd is the hard ceiling the code enforces; keep it at or below what you loaded onto fal.ai.",
+  "_note": "Settings for the nightly cloud episode (koala-cloud.mjs). Prices are what fal.ai charges per call, rounded UP so the ledger over-counts. monthlyCapUsd is the hard ceiling the code enforces. Voices are ElevenLabs premade voices pitched up with ffmpeg for a cute cartoon register.",
   "monthlyCapUsd": 48,
-  "prices": { "still": 0.04, "video": 0.27 },
+  "prices": {
+    "still": 0.04,
+    "video": 0.27,
+    "voice": 0.03,
+    "sfx": 0.02,
+    "music": 0.3
+  },
   "stillModel": "fal-ai/bytedance/seedream/v4/edit",
   "videoModel": "fal-ai/minimax/hailuo-02/standard/image-to-video",
   "videoDuration": "6",
   "videoResolution": "768P",
-  "shotSeconds": 7.75,
+  "shotSeconds": 4.5,
   "maxRetries": 1,
   "maxFailedShots": 3,
-  "shortShots": [1, 2, 8]
+  "shortShots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "voiceModel": "fal-ai/elevenlabs/tts/eleven-v3",
+  "sfxModel": "fal-ai/mmaudio-v2",
+  "musicModel": "fal-ai/stable-audio-25/text-to-audio",
+  "voices": {
+    "Pip": {
+      "voice": "Liam",
+      "pitch": 1.18
+    },
+    "Willow": {
+      "voice": "Lily",
+      "pitch": 1.22
+    }
+  },
+  "mix": {
+    "ambience": 0.45,
+    "voice": 1.15,
+    "music": 0.22
+  }
 }

@@ -1,7 +1,7 @@
 {
   "_note": "The single source of truth for who these two are. Change a detail HERE and nowhere else — every prompt is built from this file, so editing it in one place keeps two hundred videos consistent.",
   "style": "STYLE: stylised 3D animated cartoon, NOT a photograph — a still from a Pixar-style animated feature film, cute chibi proportions with an oversized head and huge expressive eyes, smooth simplified fur, Pixar-quality rendering, soft volumetric lighting, shallow depth of field, warm colour grade, gentle subsurface scattering on fur, clean uncluttered composition, vertical 9:16 framing.",
-  "world": "a sunlit eucalyptus grove, soft sage-green foliage, dappled light, cosy handmade details",
+  "world": "the sun-drenched Australian bush in high summer: tall gum trees with pale peeling bark and sage-green leaves, red-orange earth, dry golden grass, warm golden sunlight, a gentle heat haze, cosy natural details",
   "negative": "photograph, photo, photorealistic, realistic, real animal, wildlife photography, text, watermark, signature, human, people, blurry, deformed, extra limbs, duplicate characters, distorted face, low quality",
   "characters": [
     {
@@ -61,5 +61,6 @@
   "seed": 20260101,
   "_pinned": "Model, size and seed are pinned so a re-run reproduces the same images. Steps and guidance are left to the model's recommended settings (FLUX.2 klein is distilled and wants few steps and low guidance); add \"steps\" or \"guidance\" here only to override them deliberately.",
   "_look_note": "Pip is a little taller and sturdier; Willow is petite with pink accents (bow, blossoms, blush, heart patch, eyelashes) so the two read as boy and girl at a glance, even on a small phone screen.",
-  "designChange": "Show both koalas' full bodies from head to feet, standing upright side by side on short chubby legs with clearly visible feet on the ground. Pip stays a little taller. Keep their faces, fur, colours, Pip's mustard scarf and Willow's pink blossoms and pink heart patch exactly the same. Willow has no bow."
+  "designChange": "Show both koalas' full bodies from head to feet, standing upright side by side on short chubby legs with clearly visible feet on the ground. Pip stays a little taller. Keep their faces, fur, colours, Pip's mustard scarf and Willow's pink blossoms and pink heart patch exactly the same. Willow has no bow.",
+  "_world_note": "Koalas live in hot Australia: no rain, frost or snow. Golden light, red earth, gum trees, heat haze."
 }

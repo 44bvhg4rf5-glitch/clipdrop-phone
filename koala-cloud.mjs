@@ -4,11 +4,15 @@
 //   node koala-cloud.mjs --publish   after the videos are uploaded: record them, rebuild the page
 //   node koala-cloud.mjs --status    print budget and queue position, spend nothing
 //
-// The chain, per shot: reference-matched still (fal: Seedream edit, using your
-// approved pictures in koala/refs/) → 6s animation (fal: Hailuo 02) → ffmpeg
-// stretches it gently to the shot length. Eight shots make a ~62s episode,
-// long enough for TikTok's Creator Rewards (1 minute minimum). A ~23s cut-down
-// is made from the same clips for free, to post on the days in between.
+// The chain, per shot (14 shots of 4.5s, cut — never slowed — for pace):
+//   reference-matched still (Seedream edit, koala/refs/) → 6s animation
+//   (Hailuo 02) → matching sound effects (MMAudio listens to the clip) →
+//   the line of dialogue, if any (ElevenLabs voice, pitched up to a cartoon
+//   register) → hook / colour-coded subtitle burned in.
+// Then one music bed for the episode (Stable Audio 2.5, commercial-use),
+// loudness-levelled to -14 LUFS. ~63s: over TikTok's 1-minute minimum. The
+// first six shots also make a free ~27s short. Sound failures never cost a
+// shot — that part just goes quiet.
 //
 // Money can't run away. Four locks, from hardest to softest:
 //   1. fal.ai is prepaid with auto top-up off: when the credit is gone, calls fail.
@@ -23,7 +27,6 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
-import { normalise, assemble } from './produce.mjs';
 
 const run = promisify(execFile);
 const BIG = { maxBuffer: 64 * 1024 * 1024 };
@@ -49,7 +52,10 @@ const LEDGER = K('ledger.json');
 const STATE = K('state.json');
 
 const CAP = Number(process.env.KOALA_MONTHLY_CAP_USD || cfg.monthlyCapUsd || 48);
-const PRICE = { still: cfg.prices?.still ?? 0.04, video: cfg.prices?.video ?? 0.27 };
+const PRICE = {
+  still: cfg.prices?.still ?? 0.04, video: cfg.prices?.video ?? 0.27,
+  voice: cfg.prices?.voice ?? 0.03, sfx: cfg.prices?.sfx ?? 0.02, music: cfg.prices?.music ?? 0.3,
+};
 const MOCK = process.env.FAL_MOCK === '1';
 
 // ── ledger: the running total the cap is checked against ─────
@@ -109,14 +115,27 @@ async function fal(model, input, what, cost) {
 async function mockFal(model, what) {
   // Offline rehearsal: same flow and ledger, fake media, no network, no cost.
   const dir = path.join(WORK, 'mock'); mkdirSync(dir, { recursive: true });
-  const f = path.join(dir, slugify(what) + (model.includes('video') ? '.mp4' : '.png'));
+  const base = path.join(dir, slugify(what));
   if (process.env.FAL_MOCK_FAIL && what.includes(process.env.FAL_MOCK_FAIL)) throw new Error('mock failure');
-  if (model.includes('video')) {
-    await run('ffmpeg', ['-loglevel', 'error', '-f', 'lavfi', '-i', 'testsrc=s=432x768:r=25', '-t', '6', '-y', f], BIG);
-    return { video: { url: 'file://' + f } };
+  const ff = (...a) => run('ffmpeg', ['-loglevel', 'error', ...a], BIG);
+  if (model.includes('tts')) {
+    await ff('-f', 'lavfi', '-i', 'sine=f=440:d=1.6', '-y', base + '.mp3');
+    return { audio: { url: 'file://' + base + '.mp3' } };
   }
-  await run('ffmpeg', ['-loglevel', 'error', '-f', 'lavfi', '-i', 'color=c=0x8aa08a:s=720x1280', '-frames:v', '1', '-y', f], BIG);
-  return { images: [{ url: 'file://' + f }] };
+  if (model.includes('mmaudio')) {
+    await ff('-f', 'lavfi', '-i', 'testsrc=s=432x768:r=25', '-f', 'lavfi', '-i', 'anoisesrc=d=6:a=0.05', '-t', '6', '-shortest', '-y', base + '.mp4');
+    return { video: { url: 'file://' + base + '.mp4' } };
+  }
+  if (model.includes('audio')) {
+    await ff('-f', 'lavfi', '-i', 'sine=f=262:d=70', '-y', base + '.wav');
+    return { audio: { url: 'file://' + base + '.wav' } };
+  }
+  if (model.includes('video')) {
+    await ff('-f', 'lavfi', '-i', 'testsrc=s=432x768:r=25', '-t', '6', '-y', base + '.mp4');
+    return { video: { url: 'file://' + base + '.mp4' } };
+  }
+  await ff('-f', 'lavfi', '-i', 'color=c=0x8aa08a:s=720x1280', '-frames:v', '1', '-y', base + '.png');
+  return { images: [{ url: 'file://' + base + '.png' }] };
 }
 
 async function download(url, out) {
@@ -130,10 +149,10 @@ async function download(url, out) {
 // ── prompts ───────────────────────────────────────────────────
 
 const FRAMING = {
-  wide: 'wide establishing shot, full bodies visible, lots of environment',
-  medium: 'medium shot, waist up',
-  close: 'close-up on the face, shallow depth of field',
-  'two-shot': 'two-shot, both characters in frame, chest up',
+  wide: 'wide establishing shot, full bodies visible head to feet, lots of environment',
+  medium: 'medium shot, full body or knees up, legs visible',
+  close: 'close-up on the face, expressive, shallow depth of field',
+  'two-shot': 'two-shot, both characters in frame, full bodies visible',
 };
 
 function stillPrompt(shot) {
@@ -143,17 +162,20 @@ function stillPrompt(shot) {
   const alone = who.length === 1 ? `Only ${who[0].name} is in this frame.` : 'Both characters are in this frame.';
   return [
     bible.style,
-    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf, Willow\'s pink blossoms and pink heart patch (she wears no bow). Pip is slightly taller than Willow. Pip wears the scarf; Willow never does.',
+    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf, Willow\'s pink blossoms and pink heart patch (she wears no bow). Pip is slightly taller than Willow. Pip wears the scarf unless the scene says otherwise; Willow never wears a bow.',
     ...who.map((c) => `${c.name.toUpperCase()}: ${c.prompt}`),
     alone,
     `WORLD: ${bible.world}`,
     `SHOT: ${FRAMING[shot.shot] || FRAMING.medium}. ${shot.scene}`,
-    'Vertical 9:16 frame. No text, no watermark, no humans, no speech bubbles.',
+    'Strong, readable facial expression that matches the moment. Vertical 9:16 frame. No text, no watermark, no humans, no speech bubbles.',
   ].join('\n');
 }
 
-const motionPrompt = (shot) => `${shot.action.replace(/\.$/, '')}. Gentle, cute Pixar-style 3D animation, smooth natural movement, `
-  + 'the characters keep exactly the same look as in the image, stable camera with a soft slow push-in.';
+const motionPrompt = (shot) => `${shot.action.replace(/\.$/, '')}. Expressive, lively Pixar-style 3D character acting with clear emotion, `
+  + 'smooth natural movement, the characters keep exactly the same look as in the image, stable camera.';
+
+const sfxPrompt = (shot) => `${shot.sfx ? shot.sfx + ', ' : ''}cute cartoon koala foley and small koala vocal sounds, `
+  + 'warm Australian bush ambience, cicadas, rustling gum leaves';
 
 function refImages() {
   const dir = K('refs');
@@ -164,15 +186,139 @@ function refImages() {
   });
 }
 
-// ── one episode ───────────────────────────────────────────────
+// ── sound ─────────────────────────────────────────────────────
 
-async function kenBurnsFrom(still, seconds, out) {
-  const fps = 30, frames = Math.round(seconds * fps);
-  await run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-loop', '1', '-i', still,
-    '-vf', `scale=2160:3840:force_original_aspect_ratio=increase,crop=2160:3840,zoompan=z='min(1.0+on/${frames}*0.1,1.1)':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920:fps=${fps},setsar=1`,
-    '-t', String(seconds), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-y', out], BIG);
+const ffmpeg = (args) => run('ffmpeg', ['-hide_banner', '-loglevel', 'error', ...args], BIG);
+async function seconds(f) {
+  try {
+    const { stdout } = await run('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', f]);
+    return Number(stdout.trim()) || 0;
+  } catch { return 0; }
+}
+
+/** One spoken line: ElevenLabs voice, pitched up into a cartoon register with
+ *  the speed unchanged, then sped up (max 1.35x) only if it would overrun. */
+async function voiceLine(say, file, maxSecs, what) {
+  const v = cfg.voices?.[say.who] || { voice: 'Rachel', pitch: 1.2 };
+  const r = await fal(cfg.voiceModel || 'fal-ai/elevenlabs/tts/eleven-v3', {
+    text: say.line, voice: v.voice, stability: 0.4, similarity_boost: 0.75, style: 0.6, speed: 1.05,
+  }, what, PRICE.voice);
+  const raw = await download(r.audio.url, file + '.src');
+  const p = v.pitch || 1.2;
+  const pitched = file + '.p.wav';
+  await ffmpeg(['-i', raw, '-af', `aresample=44100,asetrate=${Math.round(44100 * p)},aresample=44100,atempo=${(1 / p).toFixed(4)}`, '-ac', '2', '-y', pitched]);
+  const len = await seconds(pitched);
+  const fit = len > maxSecs ? Math.min(1.35, len / maxSecs) : 1;
+  await ffmpeg(['-i', pitched, '-af', `atempo=${fit.toFixed(3)}`, '-ar', '44100', '-ac', '2', '-y', file]);
+  return file;
+}
+
+/** Sound effects and ambience that match the animated clip (MMAudio watches it). */
+async function sfxFor(shot, videoUrl, file, what) {
+  const r = await fal(cfg.sfxModel || 'fal-ai/mmaudio-v2', {
+    video_url: videoUrl, prompt: sfxPrompt(shot),
+    negative_prompt: 'music, speech, talking, human voice, singing, narration', duration: 6,
+  }, what, PRICE.sfx);
+  const mp4 = await download(r.video.url, file + '.mp4');
+  await ffmpeg(['-i', mp4, '-vn', '-ar', '44100', '-ac', '2', '-y', file]);
+  return file;
+}
+
+async function musicFor(ep, secs, file, what) {
+  const r = await fal(cfg.musicModel || 'fal-ai/stable-audio-25/text-to-audio', {
+    prompt: `${ep.music || 'gentle cute cartoon music'}, instrumental, loopable, clean mix`,
+    seconds_total: Math.min(190, Math.ceil(secs) + 3),
+  }, what, PRICE.music);
+  const src = await download(r.audio.url, file + '.src');
+  await ffmpeg(['-i', src, '-ar', '44100', '-ac', '2', '-y', file]);
+  return file;
+}
+
+// ── on-screen text ────────────────────────────────────────────
+
+const noEmoji = (t) => String(t).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').replace(/\s+/g, ' ').trim();
+function wrapText(text, max) {
+  const lines = []; let cur = '';
+  for (const w of noEmoji(text).split(' ')) {
+    if ((cur + ' ' + w).trim().length > max && cur) { lines.push(cur); cur = w; } else cur = (cur + ' ' + w).trim();
+  }
+  if (cur) lines.push(cur);
+  return lines.slice(0, 3);
+}
+const FONT = process.env.KOALA_FONT || '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf';
+const SPEAKER = { Pip: '0xF5C542', Willow: '0xFF8FB8' };
+
+/** drawtext filters for a block of lines; text goes through files so quotes,
+ *  colons and apostrophes never need escaping. */
+function textBlock(work, key, text, { y, size, color = 'white', from = 0 }) {
+  return wrapText(text, size >= 70 ? 16 : 24).map((l, i) => {
+    const f = path.join(work, `${key}-${i}.txt`);
+    writeFileSync(f, l);
+    return `drawtext=fontfile=${FONT}:textfile=${f}:fontsize=${size}:fontcolor=${color}:borderw=6:bordercolor=black@0.85:`
+      + `x=(w-text_w)/2:y=${y + i * Math.round(size * 1.18)}:enable='gte(t,${from})'`;
+  });
+}
+
+/** One finished shot: picture at 1080x1920/30fps cut (never slowed) to length,
+ *  hook/subtitle/end text burned in, ambience + voice mixed. Every shot comes
+ *  out with identical encoding so the episode joins without re-encoding. */
+async function composeShot({ raw, amb, voice, secs, out, work, n, say, hook, endText }) {
+  const draws = [];
+  if (hook) draws.push(...textBlock(work, `hook${n}`, hook, { y: 210, size: 66 }));
+  if (say) draws.push(...textBlock(work, `say${n}`, say.line, { y: 1290, size: 62, color: SPEAKER[say.who] || 'white', from: 0.3 }));
+  if (endText) draws.push(...textBlock(work, `end${n}`, endText, { y: 860, size: 110, from: 1.2 }));
+  const v = `[0:v]scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,fps=30,`
+    + `tpad=stop_mode=clone:stop_duration=${secs},trim=duration=${secs},setpts=PTS-STARTPTS,setsar=1`
+    + (draws.length ? ',' + draws.join(',') : '') + '[v]';
+  const mix = cfg.mix || {};
+  const inputs = ['-i', raw];
+  inputs.push(...(amb ? ['-i', amb] : ['-f', 'lavfi', '-t', String(secs), '-i', 'anullsrc=r=44100:cl=stereo']));
+  let a = `[1:a]aresample=44100,aformat=channel_layouts=stereo,atrim=0:${secs},asetpts=PTS-STARTPTS,volume=${amb ? (mix.ambience ?? 0.45) : 1},apad=whole_dur=${secs}[a1]`;
+  if (voice) {
+    inputs.push('-i', voice);
+    a += `;[2:a]aresample=44100,aformat=channel_layouts=stereo,adelay=350|350,volume=${mix.voice ?? 1.15}[a2];[a1][a2]amix=inputs=2:duration=first:normalize=0[a]`;
+  } else a += ';[a1]anull[a]';
+  await ffmpeg([...inputs, '-filter_complex', `${v};${a}`, '-map', '[v]', '-map', '[a]', '-t', String(secs),
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', '30',
+    '-c:a', 'aac', '-b:a', '160k', '-ar', '44100', '-ac', '2', '-y', out]);
   return out;
 }
+
+/** Join shots, then lay the music bed under the whole thing. */
+async function finish(clips, music, out, work, tag) {
+  const list = path.join(work, `${tag}-list.txt`);
+  writeFileSync(list, clips.map((c) => `file '${c}'`).join('\n'));
+  const joined = path.join(work, `${tag}-joined.mp4`);
+  await ffmpeg(['-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', '-y', joined]);
+  // Loudness levelled to the -14 LUFS short-video platforms normalise to, so an
+  // episode never plays noticeably quieter than the video before it.
+  const level = 'loudnorm=I=-14:TP=-1.5:LRA=11';
+  if (!music) {
+    await ffmpeg(['-i', joined, '-c:v', 'copy', '-af', level, '-c:a', 'aac', '-b:a', '160k', '-ar', '44100', '-movflags', '+faststart', '-y', out]);
+    return out;
+  }
+  const T = await seconds(joined);
+  const fadeAt = Math.max(0, T - 2.5).toFixed(2);
+  await ffmpeg(['-i', joined, '-stream_loop', '-1', '-i', music, '-filter_complex',
+    `[1:a]atrim=0:${T.toFixed(2)},asetpts=PTS-STARTPTS,afade=t=in:d=0.8,afade=t=out:st=${fadeAt}:d=2.5,volume=${cfg.mix?.music ?? 0.22}[m];`
+    + `[0:a][m]amix=inputs=2:duration=first:normalize=0,${level}[a]`,
+    '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-ar', '44100', '-movflags', '+faststart', '-y', out]);
+  return out;
+}
+
+// ── one episode ───────────────────────────────────────────────
+
+async function kenBurnsFrom(still, secs, out) {
+  const fps = 30, frames = Math.round(secs * fps);
+  await ffmpeg(['-loop', '1', '-i', still,
+    '-vf', `scale=2160:3840:force_original_aspect_ratio=increase,crop=2160:3840,zoompan=z='min(1.0+on/${frames}*0.1,1.1)':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920:fps=${fps},setsar=1`,
+    '-t', String(secs), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-y', out]);
+  return out;
+}
+
+/** What one episode costs before retries — used for the budget gate. */
+const episodeCost = (ep) => ep.shots.length * (PRICE.still + PRICE.video + PRICE.sfx)
+  + ep.shots.filter((s) => s.say).length * PRICE.voice + PRICE.music;
 
 async function makeEpisode(ep, index) {
   const slug = slugify(ep.title);
@@ -182,23 +328,21 @@ async function makeEpisode(ep, index) {
   mkdirSync(OUT, { recursive: true });
 
   const refs = refImages();
-  const seconds = cfg.shotSeconds || 7.75;
-  const retries = cfg.maxRetries ?? 2;
+  const secs = cfg.shotSeconds || 4.5;
+  const retries = cfg.maxRetries ?? 1;
   const clips = [];
-  let failed = 0;
+  let failed = 0, silent = 0;
+  const soft = async (fn, label) => { // sound is never worth losing a shot over
+    try { return await fn(); } catch (e) { if (e instanceof BudgetError) throw e; warn(`${label}: ${e.message}`); silent++; return null; }
+  };
 
   for (const [i, shot] of ep.shots.entries()) {
     const n = i + 1;
-    const clip = path.join(work, `clip${n}.mp4`);
     let stillUrl = null, stillFile = null;
-
     for (let a = 0; a <= retries && !stillUrl; a++) {
       try {
         const r = await fal(cfg.stillModel || 'fal-ai/bytedance/seedream/v4/edit', {
-          prompt: stillPrompt(shot),
-          image_urls: refs,
-          image_size: 'portrait_16_9',
-          num_images: 1,
+          prompt: stillPrompt(shot), image_urls: refs, image_size: 'portrait_16_9', num_images: 1,
           seed: (bible.seed || 1) + index * 100 + n + a * 1000,
         }, `${slug} shot ${n} still${a ? ` retry ${a}` : ''}`, PRICE.still);
         stillUrl = r.images?.[0]?.url;
@@ -207,27 +351,30 @@ async function makeEpisode(ep, index) {
     }
     if (!stillUrl) { failed++; warn(`shot ${n}: no picture — left out`); continue; }
 
-    let ok = false;
-    for (let a = 0; a <= retries && !ok; a++) {
+    let raw = null, videoUrl = null;
+    for (let a = 0; a <= retries && !raw; a++) {
       try {
         const r = await fal(cfg.videoModel || 'fal-ai/minimax/hailuo-02/standard/image-to-video', {
-          prompt: motionPrompt(shot),
-          image_url: stillUrl,
-          duration: String(cfg.videoDuration || '6'),
-          resolution: cfg.videoResolution || '768P',
-          prompt_optimizer: false,
+          prompt: motionPrompt(shot), image_url: stillUrl,
+          duration: String(cfg.videoDuration || '6'), resolution: cfg.videoResolution || '768P', prompt_optimizer: false,
         }, `${slug} shot ${n} video${a ? ` retry ${a}` : ''}`, PRICE.video);
-        const raw = await download(r.video.url, path.join(work, `raw${n}.mp4`));
-        await normalise(raw, seconds, clip);
-        ok = true;
+        videoUrl = r.video.url;
+        raw = await download(videoUrl, path.join(work, `raw${n}.mp4`));
       } catch (e) { if (e instanceof BudgetError) throw e; warn(`shot ${n} video: ${e.message}`); }
     }
-    if (!ok) {
-      // The picture is paid for already; a free push-in beats a hole in the story.
+    if (!raw) {
       failed++;
       warn(`shot ${n}: animation failed — using a slow zoom on its picture`);
-      await kenBurnsFrom(stillFile, seconds, clip);
+      raw = await kenBurnsFrom(stillFile, secs, path.join(work, `kb${n}.mp4`));
     }
+
+    const amb = videoUrl ? await soft(() => sfxFor(shot, videoUrl, path.join(work, `amb${n}.wav`), `${slug} shot ${n} sfx`), `shot ${n} sfx`) : null;
+    const voice = shot.say ? await soft(() => voiceLine(shot.say, path.join(work, `voice${n}.wav`), secs - 0.6, `${slug} shot ${n} voice`), `shot ${n} voice`) : null;
+    const clip = await composeShot({
+      raw, amb, voice, secs, out: path.join(work, `clip${n}.mp4`), work, n, say: shot.say,
+      hook: n === 1 ? ep.hook : null,
+      endText: n === ep.shots.length ? ep.ending : null,
+    });
     clips.push({ n, file: clip });
     log(`shot ${n}/${ep.shots.length} done · spent this month ${usd(spent())}`);
   }
@@ -237,11 +384,11 @@ async function makeEpisode(ep, index) {
     throw new Error(`${failed} of ${ep.shots.length} shots failed — episode abandoned so it isn't retried every night`);
   }
 
-  const full = path.join(OUT, `${slug}-full.mp4`);
-  await assemble(clips.map((c) => c.file), null, full, work);
-  const pick = (cfg.shortShots || [1, 2, 8]).map((n) => clips.find((c) => c.n === n)?.file).filter(Boolean);
-  const short = path.join(OUT, `${slug}-short.mp4`);
-  await assemble(pick.length >= 2 ? pick : clips.slice(0, 3).map((c) => c.file), null, short, work);
+  const total = clips.length * secs;
+  const music = await soft(() => musicFor(ep, total, path.join(work, 'music.wav'), `${slug} music`), 'music');
+  const full = await finish(clips.map((c) => c.file), music, path.join(OUT, `${slug}-full.mp4`), work, 'full');
+  const pick = (cfg.shortShots || [1, 2, 3, 4, 5, 6]).map((n) => clips.find((c) => c.n === n)?.file).filter(Boolean);
+  const short = await finish(pick.length >= 2 ? pick : clips.slice(0, 5).map((c) => c.file), music, path.join(OUT, `${slug}-short.mp4`), work, 'short');
 
   const tags = (book.hashtags || []).join(' ');
   const pending = {
@@ -249,7 +396,7 @@ async function makeEpisode(ep, index) {
     full: path.basename(full), short: path.basename(short),
     caption: `${ep.caption}\n\n${tags}`,
     shortCaption: `${ep.caption} (full story on our page 💛)\n\n${tags}`,
-    failedShots: failed,
+    failedShots: failed, silentParts: silent, music: !!music,
   };
   writeJson(path.join(OUT, 'manifest.json'), pending);
   return pending;
@@ -261,7 +408,7 @@ function page() {
   const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const repo = process.env.GITHUB_REPOSITORY || '';
   const url = (e, f) => `https://github.com/${repo}/releases/download/${e.tag}/${f}`;
-  const perEp = (book.episodes[0]?.shots.length || 8) * (PRICE.still + PRICE.video);
+  const perEp = book.episodes[0] ? episodeCost(book.episodes[0]) : 5;
   const left = Math.floor(remaining() / perEp);
   const pct = Math.min(100, (spent() / CAP) * 100);
   const st = state.status;
@@ -399,7 +546,7 @@ async function main() {
 
     // The whole episode must fit, plus room for two retried animations, so the
     // cap is never hit halfway through and the money never buys half an episode.
-    const need = ep.shots.length * (PRICE.still + PRICE.video) + 2 * PRICE.video;
+    const need = episodeCost(ep) + 2 * PRICE.video;
     if (remaining() < need) {
       return setStatus('ok', `Monthly budget reached: ${usd(spent())} of ${usd(CAP)} spent, an episode needs about ${usd(need)}. Resumes next month.`);
     }
