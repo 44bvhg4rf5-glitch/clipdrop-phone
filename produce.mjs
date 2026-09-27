@@ -602,8 +602,12 @@ async function main() {
   const sheet = path.join(WORK, 'pick.html');
   writeFileSync(sheet, contactSheet(shots, variants, WORK, idea));
   log(`\n${made} still(s) generated.`);
-  log(`Review them:  open ${path.relative(ROOT, sheet)}`);
-  log(`Then assemble: node produce.mjs "${idea}" --assemble --picks ${shots.map(() => 1).join(',')}`);
+  const ones = shots.map(() => 1).join(',');
+  log(`Review them:  open ${path.relative(ROOT, sheet)}   (opening it now)`);
+  log(`Then, with your picks in place of the 1s:`);
+  log(`  for Kling/Hailuo:  node produce.mjs "${idea}" --pack --picks ${ones}`);
+  log(`  zoom-only video:   node produce.mjs "${idea}" --assemble --picks ${ones}`);
+  if (process.platform === 'darwin') await run('open', [sheet]).catch(() => {});
 }
 
 main().catch((e) => { console.error('fatal:', e.message); process.exit(1); });
