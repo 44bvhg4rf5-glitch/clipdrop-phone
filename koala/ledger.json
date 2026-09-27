@@ -1,7 +1,7 @@
 {
   "months": {
     "2026-09": {
-      "spent": 2.64,
+      "spent": 2.68,
       "items": [
         {
           "at": "2026-09-27T18:21:38.211Z",
@@ -102,6 +102,11 @@
           "at": "2026-09-27T18:44:51.638Z",
           "what": "the-leaf-bouquet shot 8 video",
           "usd": 0.27
+        },
+        {
+          "at": "2026-09-27T19:08:23.094Z",
+          "what": "reference redraw 1",
+          "usd": 0.04
         }
       ]
     }
