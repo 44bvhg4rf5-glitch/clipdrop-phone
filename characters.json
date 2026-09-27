@@ -12,7 +12,7 @@
     {
       "name": "Willow",
       "personality": "sweet, gentle and nurturing, warm, quietly amused, quietly in charge",
-      "prompt": "a young female koala, soft silver-grey fur with a warm undertone, very large round ears with rosy-pink inner fluff, a pale pink heart-shaped patch on her chest, big soft matte charcoal nose, round deep green-hazel eyes with long curled eyelashes and a single highlight upper-left, soft rosy-pink blushed cheeks, slightly SHORTER and more petite than Pip with a delicate feminine posture, a small pink satin bow and a sprig of pink blossoms tucked behind her LEFT ear (on the right side of the picture when she faces the camera)"
+      "prompt": "a young female koala, soft silver-grey fur with a warm undertone, very large round ears with rosy-pink inner fluff, a pale pink heart-shaped patch on her chest, big soft matte charcoal nose, round deep green-hazel eyes with long curled eyelashes and a single highlight upper-left, soft rosy-pink blushed cheeks, slightly SHORTER and more petite than Pip with a delicate feminine posture, a sprig of pink blossoms tucked behind her LEFT ear (on the right side of the picture when she faces the camera), nothing around her neck (no bow, no ribbon, no scarf)"
     }
   ],
   "model": "flux_2_klein_4b_q6p.ckpt",
@@ -60,5 +60,6 @@
   "height": 1344,
   "seed": 20260101,
   "_pinned": "Model, size and seed are pinned so a re-run reproduces the same images. Steps and guidance are left to the model's recommended settings (FLUX.2 klein is distilled and wants few steps and low guidance); add \"steps\" or \"guidance\" here only to override them deliberately.",
-  "_look_note": "Pip is a little taller and sturdier; Willow is petite with pink accents (bow, blossoms, blush, heart patch, eyelashes) so the two read as boy and girl at a glance, even on a small phone screen."
+  "_look_note": "Pip is a little taller and sturdier; Willow is petite with pink accents (bow, blossoms, blush, heart patch, eyelashes) so the two read as boy and girl at a glance, even on a small phone screen.",
+  "designChange": "Remove the pink bow from Willow's neck completely, leaving plain fur and her pink heart patch. Keep everything else exactly as it is."
 }
