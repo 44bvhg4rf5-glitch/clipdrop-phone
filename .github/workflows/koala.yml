@@ -1,0 +1,86 @@
+name: Koala episode
+
+# Every other night at 03:30 UTC: one ~62s Pip & Willow episode plus a ~23s cut,
+# made with fal.ai inside the monthly cap in koala/config.json. The videos go to
+# a GitHub Release (kept out of git history); the phone page is docs/koala.html.
+#
+# To pause: GitHub app → this repo → Actions → Koala episode → ••• → Disable,
+# or set the repository variable KOALA_PAUSED to true.
+
+on:
+  schedule:
+    - cron: '30 3 */2 * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Make one even if one was already made today'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: koala
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && ffmpeg -version | head -1
+      - name: Make tonight's episode
+        id: make
+        continue-on-error: true
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          KOALA_PAUSED: ${{ vars.KOALA_PAUSED }}
+          KOALA_FORCE: ${{ inputs.force }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node koala-cloud.mjs
+      - name: Upload videos
+        if: hashFiles('out/koala/manifest.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG=$(node -p "require('./out/koala/manifest.json').tag")
+          TITLE=$(node -p "require('./out/koala/manifest.json').title")
+          gh release create "$TAG" out/koala/*.mp4 --title "Pip & Willow — $TITLE" \
+            --notes "$(node -p "require('./out/koala/manifest.json').caption")"
+          GITHUB_REPOSITORY=${{ github.repository }} node koala-cloud.mjs --publish
+      # Always save the ledger: money spent on a failed night still counts.
+      - name: Save ledger and page
+        if: always()
+        run: |
+          git config user.name "clipdrop"
+          git config user.email "clipdrop@users.noreply.github.com"
+          git add koala/ledger.json koala/state.json docs/koala.html 2>/dev/null || true
+          git diff --staged --quiet && exit 0
+          git commit -m "koala: $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q && break; sleep $((i*2)); done
+      - uses: actions/upload-pages-artifact@v3
+        if: always()
+        with:
+          path: docs
+      - name: Report failure
+        if: steps.make.outcome == 'failure'
+        run: echo "::error::The episode run failed — see docs/koala.html for why." && exit 1
+
+  publish:
+    needs: make
+    if: always() && needs.make.result != 'cancelled'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -445,11 +445,14 @@ async function assemble(clips, music, out, work) {
   }
 
   // -shortest so a long track doesn't stretch the video past its last frame.
+  // The fade-out is timed from the real length (it used to assume 25s).
+  const total = await durationOf(joined);
+  const fadeAt = Math.max(1, (total || 25) - 3).toFixed(2);
   await run('ffmpeg', ['-hide_banner', '-loglevel', 'error',
     '-i', joined, '-i', music,
     '-map', '0:v', '-map', '1:a',
     '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k',
-    '-af', 'afade=t=in:st=0:d=1,afade=t=out:st=20:d=3',
+    '-af', `afade=t=in:st=0:d=1,afade=t=out:st=${fadeAt}:d=3`,
     '-shortest', '-movflags', '+faststart', '-y', out], BIG);
   return { out, music: true };
 }
@@ -613,4 +616,9 @@ async function main() {
   if (process.platform === 'darwin') await run('open', [sheet]).catch(() => {});
 }
 
-main().catch((e) => { console.error('fatal:', e.message); process.exit(1); });
+export { normalise, assemble, durationOf };
+
+// Run only when invoked directly, so koala-cloud.mjs can import the helpers.
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) {
+  main().catch((e) => { console.error('fatal:', e.message); process.exit(1); });
+}
