@@ -15,7 +15,7 @@ on:
       task:
         description: 'What to do'
         type: choice
-        options: [episode, new-refs]
+        options: [episode, new-refs, preview]
         default: episode
       force:
         description: 'Make one even if one was already made today'
@@ -55,7 +55,7 @@ jobs:
           KOALA_FORCE: ${{ inputs.force }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
-          if [ "${{ inputs.task }}" = "new-refs" ]; then node koala-cloud.mjs --new-refs; else node koala-cloud.mjs; fi
+          case "${{ inputs.task }}" in new-refs) node koala-cloud.mjs --new-refs ;; preview) node koala-cloud.mjs --preview ;; *) node koala-cloud.mjs ;; esac
       - name: Upload videos
         if: hashFiles('out/koala/manifest.json') != ''
         env:
@@ -73,7 +73,7 @@ jobs:
           git config user.name "clipdrop"
           git config user.email "clipdrop@users.noreply.github.com"
           # One file at a time: a single missing path makes a combined `git add` add nothing.
-          for f in koala/ledger.json koala/state.json docs/koala.html koala/refs-new docs/refs-new; do [ -e "$f" ] && git add "$f"; done
+          for f in koala/ledger.json koala/state.json docs/koala.html koala/refs-new docs/refs-new docs/koala-preview.jpg; do [ -e "$f" ] && git add "$f"; done
           git diff --staged --quiet && exit 0
           git commit -m "koala: $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q && break; sleep $((i*2)); done

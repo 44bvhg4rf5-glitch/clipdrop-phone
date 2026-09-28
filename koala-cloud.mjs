@@ -162,7 +162,7 @@ function stillPrompt(shot) {
   const alone = who.length === 1 ? `Only ${who[0].name} is in this frame.` : 'Both characters are in this frame.';
   return [
     bible.style,
-    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf, Willow\'s pink blossoms and pink heart patch (she wears no bow). Pip is only a little taller than Willow (her head reaches about his eye level). Pip wears the scarf unless the scene says otherwise; Willow never wears a bow.',
+    'The reference images show the exact character designs (one picture per character: the koala with the mustard scarf is Pip, the one with pink blossoms and a pink heart is Willow). Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf, Willow\'s pink blossoms and pink heart patch (she wears no bow). Pip is only a little taller than Willow (her head reaches about his eye level). Pip wears the scarf unless the scene says otherwise; Willow never wears a bow.',
     ...who.map((c) => `${c.name.toUpperCase()}: ${c.prompt}`),
     alone,
     `WORLD: ${bible.world}`,
@@ -511,6 +511,26 @@ async function newRefs() {
   }
 }
 
+// ── a single test picture of the pair, to check a look cheaply ─
+
+async function preview() {
+  try {
+    if (!MOCK && !process.env.FAL_KEY) return setStatus('error', 'No FAL_KEY secret yet. Nothing was spent.');
+    const shot = { shot: 'two-shot', cast: 'both', scene: 'Pip and Willow stand side by side on the red earth facing the camera, full bodies head to feet, smiling. Willow\'s head reaches Pip\'s eye level.' };
+    const r = await fal(cfg.stillModel || 'fal-ai/bytedance/seedream/v4/edit', {
+      prompt: stillPrompt(shot), image_urls: refImages(), image_size: 'portrait_16_9', num_images: 1, seed: bible.seed || 1,
+    }, 'look preview', PRICE.still);
+    mkdirSync(DOCS, { recursive: true });
+    const png = path.join(WORK, 'preview.png'); mkdirSync(WORK, { recursive: true });
+    await download(r.images[0].url, png);
+    await run('ffmpeg', ['-loglevel', 'error', '-i', png, '-vf', 'scale=768:-2', '-q:v', '3', '-y', path.join(DOCS, 'koala-preview.jpg')], BIG);
+    setStatus('ok', 'A test picture of the current look is ready (docs/koala-preview.jpg).');
+  } catch (e) {
+    setStatus('error', `Preview failed: ${e.message}`);
+    process.exitCode = 1;
+  } finally { writePage(); }
+}
+
 // ── entry ─────────────────────────────────────────────────────
 
 async function main() {
@@ -522,6 +542,7 @@ async function main() {
   }
 
   if (args.includes('--new-refs')) return newRefs();
+  if (args.includes('--preview')) return preview();
 
   if (args.includes('--publish')) {
     const m = readJson(path.join(OUT, 'manifest.json'), null);
