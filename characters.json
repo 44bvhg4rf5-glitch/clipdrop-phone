@@ -61,6 +61,6 @@
   "seed": 20260101,
   "_pinned": "Model, size and seed are pinned so a re-run reproduces the same images. Steps and guidance are left to the model's recommended settings (FLUX.2 klein is distilled and wants few steps and low guidance); add \"steps\" or \"guidance\" here only to override them deliberately.",
   "_look_note": "Pip is a little taller and sturdier; Willow is petite with pink accents (bow, blossoms, blush, heart patch, eyelashes) so the two read as boy and girl at a glance, even on a small phone screen.",
-  "designChange": "Make the height difference small: Willow is only a little shorter than Pip, with the top of her head reaching about Pip's eye level. Add a small sprig of pink blossoms tucked behind Willow's left ear (right side of the picture). Keep everything else exactly the same: faces, fur, legs and feet, Pip's mustard scarf, Willow's pink heart patch, no bow.",
+  "designChange": "Both koalas stand side by side on the ground, full bodies head to feet, facing the camera. Willow is almost as tall as Pip: about 90% of his height, the top of her head level with Pip's eyes. Keep their faces, fur colours, Pip's mustard scarf, Willow's pink blossoms behind her left ear and pink heart patch exactly the same. No bow.",
   "_world_note": "Koalas live in hot Australia: no rain, frost or snow. Golden light, red earth, gum trees, heat haze."
 }

@@ -478,7 +478,7 @@ async function newRefs() {
     const [pip, willow] = ['Pip', 'Willow'].map((n) => bible.characters.find((c) => c.name === n));
     const change = (bible.designChange || '').trim();
     const prompt = [
-      'Redraw this exact image: same scene, same composition, same poses, same lighting, same 3D animated Pixar style.',
+      change ? 'Redraw this image in the same 3D animated Pixar style, same setting and lighting, applying the design change below (poses and sizes may change to satisfy it).' : 'Redraw this exact image: same scene, same composition, same poses, same lighting, same 3D animated Pixar style.',
       'Update the two koala characters to match these descriptions exactly:',
       `PIP (the one with the mustard scarf): ${pip.prompt}`,
       `WILLOW: ${willow.prompt}`,
