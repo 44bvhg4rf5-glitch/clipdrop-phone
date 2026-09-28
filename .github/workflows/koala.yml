@@ -34,7 +34,7 @@ concurrency:
 jobs:
   make:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 240
     steps:
       # Latest main, not the commit that queued this run: a run that waited behind
       # another must see that run's ledger, or its save clashes and is dropped.
