@@ -1,5 +1,5 @@
 {
-  "next": 0,
+  "next": 1,
   "episodes": [
     {
       "title": "The leaf bouquet",
@@ -11,12 +11,25 @@
       "caption": "He picked every leaf in the forest for her 🥺🌿\n\n#koala #cuteanimals #pipandwillow #animation #cartoon #couplegoals #wholesome #aianimation",
       "shortCaption": "He picked every leaf in the forest for her 🥺🌿 (full story on our page 💛)\n\n#koala #cuteanimals #pipandwillow #animation #cartoon #couplegoals #wholesome #aianimation",
       "failedShots": 0
+    },
+    {
+      "title": "I'm fine",
+      "slug": "i-m-fine",
+      "date": "2026-09-28",
+      "tag": "koala-2026-09-28-i-m-fine",
+      "full": "i-m-fine-full.mp4",
+      "short": "i-m-fine-short.mp4",
+      "caption": "She was NOT fine 😭💛\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "shortCaption": "She was NOT fine 😭💛 (full story on our page 💛)\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "failedShots": 0,
+      "silentParts": 0,
+      "music": true
     }
   ],
   "status": {
     "level": "ok",
-    "text": "A test picture of the current look is ready (docs/koala-preview.jpg).",
-    "at": "2026-09-28T06:11:52.774Z"
+    "text": "I'm fine is ready.",
+    "at": "2026-09-28T07:24:51.569Z"
   },
-  "lastRunDate": "2026-09-27"
+  "lastRunDate": "2026-09-28"
 }

@@ -1,7 +1,7 @@
 {
   "months": {
     "2026-09": {
-      "spent": 2.8,
+      "spent": 7.93,
       "items": [
         {
           "at": "2026-09-27T18:21:38.211Z",
@@ -122,6 +122,256 @@
           "at": "2026-09-28T06:11:14.317Z",
           "what": "look preview",
           "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:12:40.891Z",
+          "what": "i-m-fine shot 1 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:13:18.349Z",
+          "what": "i-m-fine shot 1 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:20:11.372Z",
+          "what": "i-m-fine shot 1 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:21:36.662Z",
+          "what": "i-m-fine shot 1 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-28T06:21:45.278Z",
+          "what": "i-m-fine shot 2 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:22:28.195Z",
+          "what": "i-m-fine shot 2 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:25:37.451Z",
+          "what": "i-m-fine shot 2 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:25:53.795Z",
+          "what": "i-m-fine shot 3 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:26:38.127Z",
+          "what": "i-m-fine shot 3 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:31:48.534Z",
+          "what": "i-m-fine shot 3 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:33:26.758Z",
+          "what": "i-m-fine shot 3 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-28T06:33:34.869Z",
+          "what": "i-m-fine shot 4 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:34:11.795Z",
+          "what": "i-m-fine shot 4 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:36:44.920Z",
+          "what": "i-m-fine shot 4 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:37:40.897Z",
+          "what": "i-m-fine shot 4 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-28T06:37:49.925Z",
+          "what": "i-m-fine shot 5 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:38:39.518Z",
+          "what": "i-m-fine shot 5 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:40:11.111Z",
+          "what": "i-m-fine shot 5 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:40:23.815Z",
+          "what": "i-m-fine shot 5 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-28T06:40:32.153Z",
+          "what": "i-m-fine shot 6 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:41:09.301Z",
+          "what": "i-m-fine shot 6 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:42:47.177Z",
+          "what": "i-m-fine shot 6 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:45:59.042Z",
+          "what": "i-m-fine shot 7 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:46:49.318Z",
+          "what": "i-m-fine shot 7 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:48:32.572Z",
+          "what": "i-m-fine shot 7 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:48:59.403Z",
+          "what": "i-m-fine shot 8 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:49:42.451Z",
+          "what": "i-m-fine shot 8 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:51:19.990Z",
+          "what": "i-m-fine shot 8 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:53:13.093Z",
+          "what": "i-m-fine shot 9 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:53:50.277Z",
+          "what": "i-m-fine shot 9 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:55:40.211Z",
+          "what": "i-m-fine shot 9 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T06:55:52.783Z",
+          "what": "i-m-fine shot 9 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-28T06:56:01.365Z",
+          "what": "i-m-fine shot 10 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T06:56:44.367Z",
+          "what": "i-m-fine shot 10 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T06:58:23.567Z",
+          "what": "i-m-fine shot 10 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T07:00:33.455Z",
+          "what": "i-m-fine shot 11 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T07:01:10.495Z",
+          "what": "i-m-fine shot 11 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T07:03:12.286Z",
+          "what": "i-m-fine shot 11 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T07:05:19.749Z",
+          "what": "i-m-fine shot 11 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-28T07:05:28.010Z",
+          "what": "i-m-fine shot 12 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T07:06:04.845Z",
+          "what": "i-m-fine shot 12 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T07:12:16.187Z",
+          "what": "i-m-fine shot 12 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T07:12:32.951Z",
+          "what": "i-m-fine shot 13 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T07:13:09.645Z",
+          "what": "i-m-fine shot 13 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T07:15:12.853Z",
+          "what": "i-m-fine shot 13 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T07:18:40.588Z",
+          "what": "i-m-fine shot 13 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-28T07:18:49.000Z",
+          "what": "i-m-fine shot 14 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-28T07:19:26.880Z",
+          "what": "i-m-fine shot 14 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-28T07:20:58.681Z",
+          "what": "i-m-fine shot 14 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-28T07:24:27.822Z",
+          "what": "i-m-fine music",
+          "usd": 0.3
         }
       ]
     }
