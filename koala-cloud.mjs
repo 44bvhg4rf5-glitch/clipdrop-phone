@@ -167,7 +167,7 @@ function stillPrompt(shot) {
     alone,
     `WORLD: ${bible.world}`,
     `SHOT: ${FRAMING[shot.shot] || FRAMING.medium}. ${shot.scene}`,
-    'Strong, readable facial expression that matches the moment. Vertical 9:16 frame. No text, no watermark, no humans, no speech bubbles.',
+    'Strong, readable facial expression that matches the moment, shown through eyes, eyebrows, ears and mouth only: never recolour the face or fur (no red faces, no steam, no glowing). Pip\'s fur is warmer and browner than Willow\'s pale silver. Vertical 9:16 frame. No text, no watermark, no humans, no speech bubbles.',
   ].join('\n');
 }
 
