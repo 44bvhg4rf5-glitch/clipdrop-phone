@@ -162,7 +162,7 @@ function stillPrompt(shot) {
   const alone = who.length === 1 ? `Only ${who[0].name} is in this frame.` : 'Both characters are in this frame.';
   return [
     bible.style,
-    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf, Willow\'s pink blossoms and pink heart patch (she wears no bow). Pip is slightly taller than Willow. Pip wears the scarf unless the scene says otherwise; Willow never wears a bow.',
+    'The reference images show the exact character designs. Keep them identical: fur colour, ear shape, markings, eye colour, nose, Pip\'s mustard scarf, Willow\'s pink blossoms and pink heart patch (she wears no bow). Pip is only a little taller than Willow (her head reaches about his eye level). Pip wears the scarf unless the scene says otherwise; Willow never wears a bow.',
     ...who.map((c) => `${c.name.toUpperCase()}: ${c.prompt}`),
     alone,
     `WORLD: ${bible.world}`,
@@ -483,7 +483,7 @@ async function newRefs() {
       `PIP (the one with the mustard scarf): ${pip.prompt}`,
       `WILLOW: ${willow.prompt}`,
       change ? `Design change: ${change}` : '',
-      'Pip must be visibly a little taller than Willow. Willow must clearly read as a girl and Pip as a boy.',
+      'Pip is only a little taller than Willow: the top of her head reaches about his eye level. Willow must clearly read as a girl and Pip as a boy.',
       'No text, no watermark.',
     ].filter(Boolean).join('\n');
     for (const [i, ref] of refs.entries()) {
