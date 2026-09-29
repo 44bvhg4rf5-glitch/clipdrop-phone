@@ -8,7 +8,10 @@
       "Shark Tank 15 flipped.mp4",
       "Shark Tank Remake Flipped.mp4",
       "Shark tank 11 flipped.mp4",
-      "Shark tank 12 flipped.mp4"
+      "Shark tank 12 flipped.mp4",
+      "Shark tank 13 flipped.mp4",
+      "Shark tank 16 flipped.mp4",
+      "Shark tank 4 flipped.mp4"
     ]
   },
   "drops": [
@@ -101,11 +104,56 @@
           "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
         }
       ]
+    },
+    {
+      "date": "2026-09-29",
+      "tag": "clips-2026-09-29",
+      "items": [
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Shark tank 13 flipped.mp4",
+          "file": "2026-09-29-ketone-iq-shark-tank-13-flipped.mp4",
+          "seconds": 30.2,
+          "hook": "Joe Rogan's 6-hour brain cheat code??",
+          "caption": "Crazy how far Ketone-IQ has come\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        },
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Shark tank 16 flipped.mp4",
+          "file": "2026-09-29-ketone-iq-shark-tank-16-flipped.mp4",
+          "seconds": 96.2,
+          "hook": "Silicon Valley really tried to bottle ketosis",
+          "caption": "Ketone-IQ really started like THIS 💀\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        },
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Shark tank 4 flipped.mp4",
+          "file": "2026-09-29-ketone-iq-shark-tank-4-flipped.mp4",
+          "seconds": 16.9,
+          "hook": "this is either genius or peak biohacker insanity",
+          "caption": "The nerds were onto something 👀\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        }
+      ]
     }
   ],
   "status": {
     "level": "ok",
-    "text": "3 clip(s) ready for 2026-09-28.",
-    "at": "2026-09-28T12:15:19.367Z"
+    "text": "3 clip(s) ready for 2026-09-29.",
+    "at": "2026-09-29T11:45:56.131Z"
   }
 }
