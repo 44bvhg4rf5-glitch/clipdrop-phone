@@ -1,7 +1,7 @@
 {
   "months": {
     "2026-09": {
-      "spent": 7.93,
+      "spent": 13.09,
       "items": [
         {
           "at": "2026-09-27T18:21:38.211Z",
@@ -371,6 +371,261 @@
         {
           "at": "2026-09-28T07:24:27.822Z",
           "what": "i-m-fine music",
+          "usd": 0.3
+        },
+        {
+          "at": "2026-09-29T10:03:35.934Z",
+          "what": "where-do-you-want-to-eat shot 1 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:04:13.342Z",
+          "what": "where-do-you-want-to-eat shot 1 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:06:16.359Z",
+          "what": "where-do-you-want-to-eat shot 1 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:06:42.925Z",
+          "what": "where-do-you-want-to-eat shot 2 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:07:32.077Z",
+          "what": "where-do-you-want-to-eat shot 2 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:09:22.362Z",
+          "what": "where-do-you-want-to-eat shot 2 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:09:41.402Z",
+          "what": "where-do-you-want-to-eat shot 2 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-29T10:09:49.698Z",
+          "what": "where-do-you-want-to-eat shot 3 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:10:27.404Z",
+          "what": "where-do-you-want-to-eat shot 3 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:12:01.481Z",
+          "what": "where-do-you-want-to-eat shot 3 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:12:44.733Z",
+          "what": "where-do-you-want-to-eat shot 3 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-29T10:12:53.083Z",
+          "what": "where-do-you-want-to-eat shot 4 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:13:30.284Z",
+          "what": "where-do-you-want-to-eat shot 4 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:15:45.879Z",
+          "what": "where-do-you-want-to-eat shot 4 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:17:18.205Z",
+          "what": "where-do-you-want-to-eat shot 4 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-29T10:17:26.274Z",
+          "what": "where-do-you-want-to-eat shot 5 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:17:57.221Z",
+          "what": "where-do-you-want-to-eat shot 5 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:19:35.128Z",
+          "what": "where-do-you-want-to-eat shot 5 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:20:54.897Z",
+          "what": "where-do-you-want-to-eat shot 5 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-29T10:21:03.230Z",
+          "what": "where-do-you-want-to-eat shot 6 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:21:59.976Z",
+          "what": "where-do-you-want-to-eat shot 6 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:28:55.341Z",
+          "what": "where-do-you-want-to-eat shot 6 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:29:14.159Z",
+          "what": "where-do-you-want-to-eat shot 6 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-29T10:29:22.261Z",
+          "what": "where-do-you-want-to-eat shot 7 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:29:59.767Z",
+          "what": "where-do-you-want-to-eat shot 7 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:31:50.109Z",
+          "what": "where-do-you-want-to-eat shot 7 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:32:03.050Z",
+          "what": "where-do-you-want-to-eat shot 7 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-29T10:32:11.615Z",
+          "what": "where-do-you-want-to-eat shot 8 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:32:48.850Z",
+          "what": "where-do-you-want-to-eat shot 8 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:34:21.168Z",
+          "what": "where-do-you-want-to-eat shot 8 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:34:35.476Z",
+          "what": "where-do-you-want-to-eat shot 9 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:35:19.106Z",
+          "what": "where-do-you-want-to-eat shot 9 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:37:46.805Z",
+          "what": "where-do-you-want-to-eat shot 9 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:38:06.778Z",
+          "what": "where-do-you-want-to-eat shot 9 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-29T10:38:14.684Z",
+          "what": "where-do-you-want-to-eat shot 10 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:38:58.003Z",
+          "what": "where-do-you-want-to-eat shot 10 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:40:49.910Z",
+          "what": "where-do-you-want-to-eat shot 10 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:41:04.162Z",
+          "what": "where-do-you-want-to-eat shot 11 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:41:53.563Z",
+          "what": "where-do-you-want-to-eat shot 11 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:48:18.695Z",
+          "what": "where-do-you-want-to-eat shot 11 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:49:15.978Z",
+          "what": "where-do-you-want-to-eat shot 12 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:49:53.266Z",
+          "what": "where-do-you-want-to-eat shot 12 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:52:20.291Z",
+          "what": "where-do-you-want-to-eat shot 12 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:53:34.383Z",
+          "what": "where-do-you-want-to-eat shot 12 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-09-29T10:53:42.588Z",
+          "what": "where-do-you-want-to-eat shot 13 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:54:20.009Z",
+          "what": "where-do-you-want-to-eat shot 13 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T10:57:18.818Z",
+          "what": "where-do-you-want-to-eat shot 13 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T10:57:33.480Z",
+          "what": "where-do-you-want-to-eat shot 14 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-09-29T10:58:17.124Z",
+          "what": "where-do-you-want-to-eat shot 14 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-09-29T11:00:32.101Z",
+          "what": "where-do-you-want-to-eat shot 14 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-09-29T11:01:05.171Z",
+          "what": "where-do-you-want-to-eat music",
           "usd": 0.3
         }
       ]

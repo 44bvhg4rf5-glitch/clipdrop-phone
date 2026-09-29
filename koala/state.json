@@ -1,5 +1,5 @@
 {
-  "next": 1,
+  "next": 2,
   "episodes": [
     {
       "title": "The leaf bouquet",
@@ -24,12 +24,25 @@
       "failedShots": 0,
       "silentParts": 0,
       "music": true
+    },
+    {
+      "title": "Where do you want to eat",
+      "slug": "where-do-you-want-to-eat",
+      "date": "2026-09-29",
+      "tag": "koala-2026-09-29-where-do-you-want-to-eat",
+      "full": "where-do-you-want-to-eat-full.mp4",
+      "short": "where-do-you-want-to-eat-short.mp4",
+      "caption": "Every. Single. Time. 😭🌿\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "shortCaption": "Every. Single. Time. 😭🌿 (full story on our page 💛)\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "failedShots": 0,
+      "silentParts": 0,
+      "music": true
     }
   ],
   "status": {
     "level": "ok",
-    "text": "I'm fine is ready.",
-    "at": "2026-09-28T07:24:51.569Z"
+    "text": "Where do you want to eat is ready.",
+    "at": "2026-09-29T11:01:20.667Z"
   },
-  "lastRunDate": "2026-09-28"
+  "lastRunDate": "2026-09-29"
 }
