@@ -11,7 +11,10 @@
       "Shark tank 12 flipped.mp4",
       "Shark tank 13 flipped.mp4",
       "Shark tank 16 flipped.mp4",
-      "Shark tank 4 flipped.mp4"
+      "Shark tank 4 flipped.mp4",
+      "Shark tank 6 flipped.mp4",
+      "Shark tank 7 flipped.mp4",
+      "Shark tank 8 flipped.mp4"
     ]
   },
   "drops": [
@@ -149,11 +152,56 @@
           "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
         }
       ]
+    },
+    {
+      "date": "2026-09-30",
+      "tag": "clips-2026-09-30",
+      "items": [
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Shark tank 6 flipped.mp4",
+          "file": "2026-09-30-ketone-iq-shark-tank-6-flipped.mp4",
+          "seconds": 21.3,
+          "hook": "the tech bros might've actually cooked with this one",
+          "caption": "Ketone-IQ before it was everywhere 👀\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        },
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Shark tank 7 flipped.mp4",
+          "file": "2026-09-30-ketone-iq-shark-tank-7-flipped.mp4",
+          "seconds": 20.2,
+          "hook": "Sharks go OFF on these nerds",
+          "caption": "Crazy how far Ketone-IQ has come\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        },
+        {
+          "campaign": "Ketone-IQ",
+          "campaignId": "ketone-iq",
+          "source": "Shark tank 8 flipped.mp4",
+          "file": "2026-09-30-ketone-iq-shark-tank-8-flipped.mp4",
+          "seconds": 19.8,
+          "hook": "Shark Tank absolutely COOKED these nerds",
+          "caption": "Ketone-IQ really started like THIS 💀\n\n#KetoneIQPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "TikTok only. Likes and comments ON. Don't boost/promote. Each edit once per account. Payout only counts once a post passes 5,000 views."
+        }
+      ]
     }
   ],
   "status": {
     "level": "ok",
-    "text": "3 clip(s) ready for 2026-09-29.",
-    "at": "2026-09-29T11:45:56.131Z"
+    "text": "3 clip(s) ready for 2026-09-30.",
+    "at": "2026-09-30T11:31:46.935Z"
   }
 }
