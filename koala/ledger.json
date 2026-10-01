@@ -629,6 +629,256 @@
           "usd": 0.3
         }
       ]
+    },
+    "2026-10": {
+      "spent": 5.34,
+      "items": [
+        {
+          "at": "2026-10-01T10:22:51.637Z",
+          "what": "his-other-love shot 1 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T10:23:30.332Z",
+          "what": "his-other-love shot 1 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T10:25:35.074Z",
+          "what": "his-other-love shot 1 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T10:26:08.547Z",
+          "what": "his-other-love shot 2 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T10:26:46.536Z",
+          "what": "his-other-love shot 2 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T10:28:57.799Z",
+          "what": "his-other-love shot 2 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T10:31:29.865Z",
+          "what": "his-other-love shot 3 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T10:32:07.790Z",
+          "what": "his-other-love shot 3 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T10:36:28.679Z",
+          "what": "his-other-love shot 3 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T10:38:39.158Z",
+          "what": "his-other-love shot 3 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-01T10:38:47.966Z",
+          "what": "his-other-love shot 4 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T10:39:26.004Z",
+          "what": "his-other-love shot 4 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T10:42:08.203Z",
+          "what": "his-other-love shot 4 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T10:44:58.165Z",
+          "what": "his-other-love shot 5 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T10:45:54.665Z",
+          "what": "his-other-love shot 5 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T10:48:05.390Z",
+          "what": "his-other-love shot 5 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T10:49:57.438Z",
+          "what": "his-other-love shot 5 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-01T10:50:06.461Z",
+          "what": "his-other-love shot 6 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T10:50:44.434Z",
+          "what": "his-other-love shot 6 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T10:52:43.518Z",
+          "what": "his-other-love shot 6 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T10:55:24.885Z",
+          "what": "his-other-love shot 6 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-01T10:55:33.988Z",
+          "what": "his-other-love shot 7 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T10:56:18.307Z",
+          "what": "his-other-love shot 7 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T10:58:34.825Z",
+          "what": "his-other-love shot 7 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T11:01:10.382Z",
+          "what": "his-other-love shot 7 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-01T11:01:19.418Z",
+          "what": "his-other-love shot 8 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T11:01:57.385Z",
+          "what": "his-other-love shot 8 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T11:03:43.704Z",
+          "what": "his-other-love shot 8 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T11:06:20.971Z",
+          "what": "his-other-love shot 9 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T11:06:58.951Z",
+          "what": "his-other-love shot 9 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T11:08:32.896Z",
+          "what": "his-other-love shot 9 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T11:09:18.820Z",
+          "what": "his-other-love shot 10 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T11:09:50.613Z",
+          "what": "his-other-love shot 10 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T11:11:23.894Z",
+          "what": "his-other-love shot 10 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T11:13:30.739Z",
+          "what": "his-other-love shot 11 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T11:14:08.560Z",
+          "what": "his-other-love shot 11 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T11:16:06.653Z",
+          "what": "his-other-love shot 11 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T11:17:40.126Z",
+          "what": "his-other-love shot 11 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-01T11:17:49.094Z",
+          "what": "his-other-love shot 12 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T11:18:26.955Z",
+          "what": "his-other-love shot 12 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T11:20:19.345Z",
+          "what": "his-other-love shot 12 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T11:20:35.035Z",
+          "what": "his-other-love shot 13 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T11:21:13.078Z",
+          "what": "his-other-love shot 13 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T11:22:52.205Z",
+          "what": "his-other-love shot 13 video retry 1",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T11:24:50.510Z",
+          "what": "his-other-love shot 13 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T11:25:05.134Z",
+          "what": "his-other-love shot 14 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-01T11:25:43.004Z",
+          "what": "his-other-love shot 14 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-01T11:27:22.330Z",
+          "what": "his-other-love shot 14 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-01T11:27:37.436Z",
+          "what": "his-other-love music",
+          "usd": 0.3
+        }
+      ]
     }
   }
 }

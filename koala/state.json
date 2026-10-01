@@ -1,5 +1,5 @@
 {
-  "next": 2,
+  "next": 3,
   "episodes": [
     {
       "title": "The leaf bouquet",
@@ -37,12 +37,25 @@
       "failedShots": 0,
       "silentParts": 0,
       "music": true
+    },
+    {
+      "title": "His other love",
+      "slug": "his-other-love",
+      "date": "2026-10-01",
+      "tag": "koala-2026-10-01-his-other-love",
+      "full": "his-other-love-full.mp4",
+      "short": "his-other-love-short.mp4",
+      "caption": "I will NOT compete with a tree 😤🌳\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "shortCaption": "I will NOT compete with a tree 😤🌳 (full story on our page 💛)\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "failedShots": 0,
+      "silentParts": 0,
+      "music": true
     }
   ],
   "status": {
     "level": "ok",
-    "text": "Where do you want to eat is ready.",
-    "at": "2026-09-29T11:01:20.667Z"
+    "text": "His other love is ready.",
+    "at": "2026-10-01T11:27:56.065Z"
   },
-  "lastRunDate": "2026-09-29"
+  "lastRunDate": "2026-10-01"
 }
