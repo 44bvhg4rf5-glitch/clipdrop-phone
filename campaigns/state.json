@@ -200,8 +200,8 @@
     }
   ],
   "status": {
-    "level": "ok",
-    "text": "3 clip(s) ready for 2026-09-30.",
-    "at": "2026-09-30T11:31:46.935Z"
+    "level": "error",
+    "text": "No clips could be made today — see the run log.",
+    "at": "2026-10-01T11:58:35.266Z"
   }
 }
