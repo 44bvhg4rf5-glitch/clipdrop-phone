@@ -631,7 +631,7 @@
       ]
     },
     "2026-10": {
-      "spent": 5.34,
+      "spent": 10.41,
       "items": [
         {
           "at": "2026-10-01T10:22:51.637Z",
@@ -876,6 +876,246 @@
         {
           "at": "2026-10-01T11:27:37.436Z",
           "what": "his-other-love music",
+          "usd": 0.3
+        },
+        {
+          "at": "2026-10-03T09:22:15.411Z",
+          "what": "the-silent-treatment shot 1 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T09:22:53.591Z",
+          "what": "the-silent-treatment shot 1 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T09:24:50.527Z",
+          "what": "the-silent-treatment shot 1 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T09:28:02.981Z",
+          "what": "the-silent-treatment shot 2 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T09:28:33.919Z",
+          "what": "the-silent-treatment shot 2 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T09:30:24.608Z",
+          "what": "the-silent-treatment shot 2 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T09:32:15.155Z",
+          "what": "the-silent-treatment shot 2 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-03T09:32:24.001Z",
+          "what": "the-silent-treatment shot 3 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T09:33:01.491Z",
+          "what": "the-silent-treatment shot 3 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T09:34:52.211Z",
+          "what": "the-silent-treatment shot 3 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T09:38:35.774Z",
+          "what": "the-silent-treatment shot 4 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T09:39:31.078Z",
+          "what": "the-silent-treatment shot 4 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T09:42:54.934Z",
+          "what": "the-silent-treatment shot 4 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T09:45:16.022Z",
+          "what": "the-silent-treatment shot 4 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-03T09:45:24.044Z",
+          "what": "the-silent-treatment shot 5 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T09:46:01.411Z",
+          "what": "the-silent-treatment shot 5 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T09:52:21.176Z",
+          "what": "the-silent-treatment shot 5 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T09:53:30.337Z",
+          "what": "the-silent-treatment shot 6 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T09:54:02.473Z",
+          "what": "the-silent-treatment shot 6 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T09:59:56.716Z",
+          "what": "the-silent-treatment shot 6 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:00:09.417Z",
+          "what": "the-silent-treatment shot 6 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-03T10:00:17.590Z",
+          "what": "the-silent-treatment shot 7 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T10:00:54.507Z",
+          "what": "the-silent-treatment shot 7 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T10:03:15.203Z",
+          "what": "the-silent-treatment shot 7 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:04:38.160Z",
+          "what": "the-silent-treatment shot 8 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T10:05:09.135Z",
+          "what": "the-silent-treatment shot 8 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T10:07:23.869Z",
+          "what": "the-silent-treatment shot 8 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:08:28.164Z",
+          "what": "the-silent-treatment shot 8 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-03T10:08:36.296Z",
+          "what": "the-silent-treatment shot 9 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T10:09:19.418Z",
+          "what": "the-silent-treatment shot 9 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T10:11:27.959Z",
+          "what": "the-silent-treatment shot 9 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:17:00.438Z",
+          "what": "the-silent-treatment shot 10 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T10:17:37.878Z",
+          "what": "the-silent-treatment shot 10 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T10:23:33.212Z",
+          "what": "the-silent-treatment shot 10 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:23:48.197Z",
+          "what": "the-silent-treatment shot 11 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T10:24:31.280Z",
+          "what": "the-silent-treatment shot 11 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T10:27:10.110Z",
+          "what": "the-silent-treatment shot 11 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:31:41.417Z",
+          "what": "the-silent-treatment shot 12 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T10:32:19.192Z",
+          "what": "the-silent-treatment shot 12 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T10:33:51.578Z",
+          "what": "the-silent-treatment shot 12 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:39:29.631Z",
+          "what": "the-silent-treatment shot 13 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T10:40:13.242Z",
+          "what": "the-silent-treatment shot 13 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T10:46:38.498Z",
+          "what": "the-silent-treatment shot 13 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:46:51.616Z",
+          "what": "the-silent-treatment shot 13 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-03T10:46:59.694Z",
+          "what": "the-silent-treatment shot 14 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-03T10:47:37.233Z",
+          "what": "the-silent-treatment shot 14 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-03T10:50:04.735Z",
+          "what": "the-silent-treatment shot 14 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-03T10:52:58.496Z",
+          "what": "the-silent-treatment music",
           "usd": 0.3
         }
       ]

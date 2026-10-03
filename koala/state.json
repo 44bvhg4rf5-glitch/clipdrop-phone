@@ -1,5 +1,5 @@
 {
-  "next": 3,
+  "next": 4,
   "episodes": [
     {
       "title": "The leaf bouquet",
@@ -50,12 +50,25 @@
       "failedShots": 0,
       "silentParts": 0,
       "music": true
+    },
+    {
+      "title": "The silent treatment",
+      "slug": "the-silent-treatment",
+      "date": "2026-10-03",
+      "tag": "koala-2026-10-03-the-silent-treatment",
+      "full": "the-silent-treatment-full.mp4",
+      "short": "the-silent-treatment-short.mp4",
+      "caption": "Part 1… what did he even do?? 😭\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "shortCaption": "Part 1… what did he even do?? 😭 (full story on our page 💛)\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "failedShots": 0,
+      "silentParts": 0,
+      "music": true
     }
   ],
   "status": {
     "level": "ok",
-    "text": "His other love is ready.",
-    "at": "2026-10-01T11:27:56.065Z"
+    "text": "The silent treatment is ready.",
+    "at": "2026-10-03T10:53:13.981Z"
   },
-  "lastRunDate": "2026-10-01"
+  "lastRunDate": "2026-10-03"
 }
