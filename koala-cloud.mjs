@@ -259,7 +259,7 @@ function textBlock(work, key, text, { y, size, color = 'white', from = 0 }) {
   return wrapText(text, size >= 70 ? 16 : 24).map((l, i) => {
     const f = path.join(work, `${key}-${i}.txt`);
     writeFileSync(f, l);
-    return `drawtext=fontfile=${FONT}:textfile=${f}:fontsize=${size}:fontcolor=${color}:borderw=6:bordercolor=black@0.85:`
+    return `drawtext=fontfile=${FONT}:expansion=none:textfile=${f}:fontsize=${size}:fontcolor=${color}:borderw=6:bordercolor=black@0.85:`
       + `x=(w-text_w)/2:y=${y + i * Math.round(size * 1.18)}:enable='gte(t,${from})'`;
   });
 }

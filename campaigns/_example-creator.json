@@ -1,0 +1,18 @@
+{
+  "_how": "Template for a creator-clip campaign. Copy to campaigns/<name>.json, fill in from the Vyro/Whop brief, set enabled to true. Files starting with _ are ignored.",
+  "name": "Example Podcast",
+  "type": "creator",
+  "enabled": false,
+  "sources": ["https://drive.google.com/drive/folders/…", "https://www.dropbox.com/…", "https://f.io/…"],
+  "platforms": ["tiktok", "instagram", "youtube"],
+  "perDay": 3,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "credit": "@creatorhandle",
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": ["#ad"],
+  "endsOn": "2026-12-31",
+  "postingNotes": "Paste the brief's must-dos here: required tags, banned edits, minimum views."
+}

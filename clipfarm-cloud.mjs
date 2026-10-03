@@ -18,6 +18,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
+import { fetchSources, findMoments, hooksFor, renderMoment } from './clipfarm/creator.mjs';
 
 const run = promisify(execFile);
 const BIG = { maxBuffer: 64 * 1024 * 1024 };
@@ -45,7 +46,7 @@ function setStatus(level, text) {
 
 function campaigns() {
   if (!existsSync(CAMPAIGNS)) return [];
-  return readdirSync(CAMPAIGNS).filter((f) => f.endsWith('.json') && f !== 'state.json')
+  return readdirSync(CAMPAIGNS).filter((f) => f.endsWith('.json') && f !== 'state.json' && !f.startsWith('_'))
     .map((f) => ({ id: f.replace(/\.json$/, ''), ...readJson(path.join(CAMPAIGNS, f), {}) }))
     .filter((c) => c.enabled !== false);
 }
@@ -146,7 +147,7 @@ async function frameClip(input, hook, out, work) {
   const draws = lines.map((l, i) => {
     const f = path.join(work, `hook${i}.txt`);
     writeFileSync(f, l);
-    return `drawtext=fontfile=${FONT}:textfile=${f}:fontsize=${size}:fontcolor=white:borderw=3:bordercolor=black@0.6:x=(w-text_w)/2:y=${top + i * gap}`;
+    return `drawtext=fontfile=${FONT}:expansion=none:textfile=${f}:fontsize=${size}:fontcolor=white:borderw=3:bordercolor=black@0.6:x=(w-text_w)/2:y=${top + i * gap}`;
   });
   const vf = [
     `scale=1080:${area}:force_original_aspect_ratio=decrease:flags=lanczos`,
@@ -187,8 +188,15 @@ async function makeDrop() {
   rmSync(OUT, { recursive: true, force: true });
   mkdirSync(OUT, { recursive: true });
   const items = [];
+  let exhausted = 0;
 
   for (const c of live) {
+    if (c.type === 'creator') {
+      const got = await creatorDrop(c).catch((e) => { warn(`${c.name}: ${e.message}`); return []; });
+      if (!got.length) exhausted++;
+      items.push(...got);
+      continue;
+    }
     if (c.type !== 'bank') { warn(`${c.name}: type ${c.type} not supported yet`); continue; }
     const used = new Set(state.used[c.id] || []);
     log(`${c.name}: fetching the clip bank`);
@@ -197,7 +205,7 @@ async function makeDrop() {
     catch (e) { warn(`${c.name}: could not fetch footage — ${e.message}`); continue; }
 
     const fresh = files.map((f) => path.basename(f)).filter((n) => !used.has(n)).sort();
-    if (!fresh.length) { warn(`${c.name}: every edit has been used`); continue; }
+    if (!fresh.length) { warn(`${c.name}: every edit has been used`); exhausted++; continue; }
     const want = c.perDay || 3;
     let made = 0;
     const work = path.join(ROOT, '.produce', 'clips', c.id);
@@ -231,9 +239,57 @@ async function makeDrop() {
     }
   }
 
-  if (!items.length) return setStatus('error', 'No clips could be made today — see the run log.');
+  if (!items.length) {
+    return exhausted === live.length
+      ? setStatus('ok', 'Every live campaign is used up. Send Claude a new campaign to add.')
+      : setStatus('error', 'No clips could be made today — see the run log.');
+  }
   writeJson(path.join(OUT, 'manifest.json'), { date: today(), tag: `clips-${today()}`, items });
   setStatus('ok', `${items.length} clip(s) made for ${today()}.`);
+}
+
+/**
+ * A creator campaign: fetch its long videos, find the day's best unused
+ * moments, and render one distinct edit per allowed platform for each.
+ */
+async function creatorDrop(c) {
+  const ranges = state.ranges?.[c.id] || [];
+  log(`${c.name}: fetching creator footage`);
+  const videos = await fetchSources(c.sources || [], path.join(CACHE, c.id), { fetchFrameIo, log, warn });
+  if (!videos.length) throw new Error('no usable source videos (YouTube-only campaigns need the Mac)');
+  const want = c.perDay || 3;
+  const per = [];
+  for (const v of videos) {
+    const name = path.basename(v);
+    const used = ranges.filter((r) => r.src === name);
+    log(`${c.name}: finding moments in ${name}`);
+    const found = await findMoments(v, ROOT, { min: c.minSeconds || 20, max: c.maxSeconds || 45, want, used });
+    per.push(...found.map((m) => ({ ...m, video: v, src: name })));
+  }
+  const best = per.sort((a, b) => b.score - a.score).slice(0, want);
+  const platforms = (c.platforms || ['tiktok']).filter((p) => ['tiktok', 'instagram', 'youtube'].includes(p));
+  const work = path.join(ROOT, '.produce', 'clips', c.id);
+  const items = [];
+  for (const [k, m] of best.entries()) {
+    const hooks = hooksFor(m, c.hooks || []);
+    const momentId = `${slugify(m.src.replace(/\.\w+$/, ''))}-${Math.round(m.s)}`;
+    const captionBase = (c.captionLines?.length ? c.captionLines[(ranges.length + k) % c.captionLines.length] : hooks[0].replace(/"/g, ''));
+    for (const [pi, platform] of platforms.entries()) {
+      const out = path.join(OUT, `${today()}-${c.id}-${momentId}-${platform}.mp4`);
+      try {
+        log(`${c.name}: ${m.src} @${m.s.toFixed(0)}s → ${platform} · ${hooks[pi % hooks.length]}`);
+        await renderMoment({ video: m.video, moment: m, hook: hooks[pi % hooks.length], platform, out, work, font: FONT, layout: c.layout || 'blurfill', credit: c.credit || '' });
+        items.push({
+          kind: 'creator', campaign: c.name, campaignId: c.id, source: m.src, moment: momentId,
+          range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
+          seconds: +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
+          caption: `${captionBase}${c.credit ? ' ' + c.credit : ''}\n\n${(c.hashtags || []).join(' ')}`.trim(),
+          platforms: [platform], notes: c.postingNotes || '',
+        });
+      } catch (e) { warn(`${momentId} ${platform}: render failed — ${e.message.split('\n')[0]}`); }
+    }
+  }
+  return items;
 }
 
 // ── the page on your phone ────────────────────────────────────
@@ -298,7 +354,12 @@ async function main() {
     if (m) {
       state.drops = state.drops.filter((d) => d.date !== m.date);
       state.drops.push(m);
-      for (const it of m.items) (state.used[it.campaignId] ||= []).includes(it.source) || state.used[it.campaignId].push(it.source);
+      for (const it of m.items) {
+        if (it.kind === 'creator') {
+          const r = (state.ranges ||= {})[it.campaignId] ||= [];
+          if (!r.some((x) => x.src === it.range.src && x.s === it.range.s)) r.push(it.range);
+        } else (state.used[it.campaignId] ||= []).includes(it.source) || state.used[it.campaignId].push(it.source);
+      }
       state.drops = state.drops.slice(-30);
       setStatus('ok', `${m.items.length} clip(s) ready for ${m.date}.`);
     }
