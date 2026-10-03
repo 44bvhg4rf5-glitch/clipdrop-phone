@@ -52,6 +52,9 @@ const LEDGER = K('ledger.json');
 const STATE = K('state.json');
 
 const CAP = Number(process.env.KOALA_MONTHLY_CAP_USD || cfg.monthlyCapUsd || 48);
+// The trial budget is a total, not a monthly allowance: a calendar month
+// rolling over must not hand out a fresh $48.
+const TOTAL_CAP = Number(process.env.KOALA_TOTAL_CAP_USD || cfg.totalCapUsd || CAP);
 const PRICE = {
   still: cfg.prices?.still ?? 0.04, video: cfg.prices?.video ?? 0.27,
   voice: cfg.prices?.voice ?? 0.03, sfx: cfg.prices?.sfx ?? 0.02, music: cfg.prices?.music ?? 0.3,
@@ -63,12 +66,14 @@ const MOCK = process.env.FAL_MOCK === '1';
 const ledger = readJson(LEDGER, { months: {} });
 const thisMonth = () => (ledger.months[month()] ||= { spent: 0, items: [] });
 const spent = () => thisMonth().spent;
-const remaining = () => Math.max(0, CAP - spent());
+const spentAll = () => +Object.values(ledger.months).reduce((a, m) => a + (m.spent || 0), 0).toFixed(4);
+const remaining = () => Math.max(0, Math.min(CAP - spent(), TOTAL_CAP - spentAll()));
 
 /** Record the cost first, then spend. A crash mid-call leaves the ledger
  *  over-stating spend, never under-stating it. */
 function charge(amount, what) {
   if (spent() + amount > CAP + 1e-9) throw new BudgetError(`${what} would take this month past ${usd(CAP)} (spent ${usd(spent())})`);
+  if (spentAll() + amount > TOTAL_CAP + 1e-9) throw new BudgetError(`${what} would take the total past ${usd(TOTAL_CAP)} (spent ${usd(spentAll())})`);
   const m = thisMonth();
   m.spent = +(m.spent + amount).toFixed(4);
   m.items.push({ at: new Date().toISOString(), what, usd: amount });
@@ -410,7 +415,7 @@ function page() {
   const url = (e, f) => `https://github.com/${repo}/releases/download/${e.tag}/${f}`;
   const perEp = book.episodes[0] ? episodeCost(book.episodes[0]) : 5;
   const left = Math.floor(remaining() / perEp);
-  const pct = Math.min(100, (spent() / CAP) * 100);
+  const pct = Math.min(100, (spentAll() / TOTAL_CAP) * 100);
   const st = state.status;
   const cards = [...state.episodes].reverse().map((e, i) => `
   <article>
@@ -444,7 +449,7 @@ h2{margin:0;font-size:18px}.note{color:var(--warn);font-size:13px}
 </style><main>
 <h1>Pip &amp; Willow</h1>
 <section class="budget">
-  <b>${usd(spent())}</b> of ${usd(CAP)} spent this month
+  <b>${usd(spentAll())}</b> of ${usd(TOTAL_CAP)} trial budget spent
   <div class="bar"><i style="width:${pct.toFixed(1)}%"></i></div>
   <span class="muted">About ${left} more episode${left === 1 ? '' : 's'} fit in this month's budget. Next up: ${esc(book.episodes[state.next]?.title || 'end of the list')}.</span>
 </section>
@@ -537,7 +542,7 @@ async function main() {
   const args = process.argv.slice(2);
 
   if (args.includes('--status')) {
-    log(`spent ${usd(spent())} of ${usd(CAP)} in ${month()}; next episode #${state.next + 1}: ${book.episodes[state.next]?.title || '(none left)'}`);
+    log(`spent ${usd(spentAll())} of ${usd(TOTAL_CAP)} in total (${usd(spent())} in ${month()}); next episode #${state.next + 1}: ${book.episodes[state.next]?.title || '(none left)'}`);
     return;
   }
 
@@ -569,7 +574,7 @@ async function main() {
     // cap is never hit halfway through and the money never buys half an episode.
     const need = episodeCost(ep) + 2 * PRICE.video;
     if (remaining() < need) {
-      return setStatus('ok', `Monthly budget reached: ${usd(spent())} of ${usd(CAP)} spent, an episode needs about ${usd(need)}. Resumes next month.`);
+      return setStatus('ok', `Budget reached: ${usd(spentAll())} of the ${usd(TOTAL_CAP)} trial budget spent (${usd(spent())} this month), and an episode needs about ${usd(need)}. Nothing was spent.`);
     }
 
     log(`episode #${state.next + 1}: ${ep.title} · budget left ${usd(remaining())} · needs ~${usd(need)}`);

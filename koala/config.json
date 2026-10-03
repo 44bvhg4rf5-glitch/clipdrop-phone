@@ -40,5 +40,7 @@
     "ambience": 0.45,
     "voice": 1.15,
     "music": 0.22
-  }
+  },
+  "totalCapUsd": 48,
+  "_cap_note": "totalCapUsd is the ceiling across ALL months (the trial budget); monthlyCapUsd is a per-calendar-month ceiling inside it. Both are enforced."
 }
