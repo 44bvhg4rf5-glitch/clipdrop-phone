@@ -75,12 +75,14 @@ async function fetchFrameIo(url, dir) {
     });
     const p = await ctx.newPage();
     await p.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
-    await p.getByText('Download All').first().waitFor({ timeout: 45000 }).catch(() => {});
+    // A folder share has "Download All"; a single-file share has "Download".
+    await p.getByText(/^Download( All)?$/).first().waitFor({ timeout: 45000 }).catch(() => {});
     for (const name of ['Accept all', 'Accept', 'I agree', 'Got it']) {
       await p.getByRole('button', { name, exact: true }).first().click({ timeout: 1500 }).catch(() => {});
     }
     const body = await p.innerText('body');
-    const expected = Number((body.match(/(\d+)\s+Assets/) || [])[1]) || 0;
+    const single = !/Download All/.test(body);
+    const expected = single ? 1 : Number((body.match(/(\d+)\s+Assets/) || [])[1]) || 0;
     const pending = [];
     p.on('download', (d) => pending.push((async () => {
       const name = d.suggestedFilename().replace(/[^\w .()-]/g, '_');
@@ -89,14 +91,22 @@ async function fetchFrameIo(url, dir) {
       saved.push(f);
       log(`  got ${name}`);
     })()));
-    await p.getByText('Download All').first().click({ timeout: 30000 });
+    if (single) {
+      await p.getByText('Download', { exact: true }).first().click({ timeout: 30000 });
+      // The button opens a size menu: "Original" is only a heading, and the
+      // first resolution line under it (e.g. "1920×1080") is the original file.
+      await p.getByText(/^\d{3,4}×\d{3,4}$/).first().click({ timeout: 8000 }).catch(() => {});
+      await p.getByText('Download in Browser', { exact: true }).first().click({ timeout: 5000 }).catch(() => {});
+    } else {
+      await p.getByText('Download All').first().click({ timeout: 30000 });
+    }
     // Frame.io asks one of two questions depending on the machine: "Continue
     // with download?" or "Download with the Desktop App / … in Browser".
     await p.getByText('Download in Browser', { exact: true }).first().click({ timeout: 8000 }).catch(() => {});
     await p.getByRole('button', { name: 'Continue' }).click({ timeout: 8000 }).catch(() => {});
     // Wait until every expected file has started and finished, or nothing new for 2 min.
     let last = -1, still = 0;
-    while (still < 24 && (!expected || saved.length < expected)) {
+    while (still < (single ? 240 : 24) && (!expected || saved.length < expected)) {
       await p.waitForTimeout(5000);
       if (pending.length === last) still++; else { still = 0; last = pending.length; }
     }
