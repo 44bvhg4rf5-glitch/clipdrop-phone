@@ -200,8 +200,8 @@
     }
   ],
   "status": {
-    "level": "error",
-    "text": "No clips could be made today — see the run log.",
-    "at": "2026-10-03T10:45:23.338Z"
+    "level": "ok",
+    "text": "Every live campaign is used up. Send Claude a new campaign to add.",
+    "at": "2026-10-04T11:27:28.560Z"
   }
 }
