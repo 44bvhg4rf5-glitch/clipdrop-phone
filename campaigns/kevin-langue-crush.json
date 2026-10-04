@@ -3,8 +3,14 @@
   "type": "creator",
   "enabled": true,
   "_brief": "Vyro, $1.00 CPM, 5,000 views per post minimum, $1,000 cap. Ends ~16 Oct 2026. TikTok videos, YouTube Shorts and Instagram Reels. Min 20s. Required #kevinlangue + FTC #kevinlanguepartner. No collab posts, no tagging accounts, no unaffiliated logos/hashtags/watermarks, no misrepresenting the video, no boosting.",
-  "sources": ["https://f.io/DvtfTpUk"],
-  "platforms": ["tiktok", "instagram", "youtube"],
+  "sources": [
+    "https://f.io/DvtfTpUk"
+  ],
+  "platforms": [
+    "tiktok",
+    "instagram",
+    "youtube"
+  ],
   "perDay": 3,
   "minSeconds": 22,
   "maxSeconds": 45,
@@ -12,9 +18,13 @@
   "credit": "",
   "hooks": [
     "He was NOT ready for her answer",
+    "5 guys. 1 crush. 0 chill",
     "Shoot your shot they said...",
     "Confidence vs reality",
-    "Wait for her face"
+    "Wait for her face",
+    "She really said that to his face",
+    "The way her face changed",
+    "He thought he had a chance"
   ],
   "captionLines": [
     "He really said it to her face 😭",
@@ -23,7 +33,11 @@
     "The confidence… then the answer 😭",
     "Imagine saying this to your crush 🫣"
   ],
-  "hashtags": ["#kevinlangue", "#kevinlanguepartner"],
+  "hashtags": [
+    "#kevinlangue",
+    "#kevinlanguepartner"
+  ],
   "endsOn": "2026-10-16",
-  "postingNotes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+  "postingNotes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public.",
+  "zoom": 1.35
 }

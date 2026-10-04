@@ -46,6 +46,13 @@ jobs:
         with:
           path: ~/.cache/huggingface
           key: whisper-base-en
+      # Campaign footage and its transcripts, so each video is downloaded and
+      # transcribed once rather than every morning.
+      - uses: actions/cache@v4
+        with:
+          path: .cache/banks
+          key: banks-${{ github.run_id }}
+          restore-keys: banks-
       - name: Install ffmpeg and a browser
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null

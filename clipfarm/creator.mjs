@@ -140,7 +140,7 @@ const noEmoji = (t) => String(t).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\
 
 /** Three different hook lines for one moment: its punchiest sentences quoted
  *  (shortened), then the campaign's own hook ideas as fallbacks. */
-export function hooksFor(moment, campaignHooks = []) {
+export function hooksFor(moment, campaignHooks = [], seed = 0) {
   const lines = moment.segments.map((s) => s.text.trim())
     .filter((t) => t.split(/\s+/).length >= 3)
     .map((t) => ({ t, p: punchiness(t) - Math.max(0, t.split(/\s+/).length - 12) * 0.3 }))
@@ -150,7 +150,16 @@ export function hooksFor(moment, campaignHooks = []) {
       const short = w.length > 10 ? w.slice(0, 10).join(' ') + '…' : w.join(' ');
       return `"${short.replace(/[.,]$/, '')}"`;
     });
-  const pool = [...new Set([...lines, ...campaignHooks.map(noEmoji)])];
+  // A random question from the transcript ("You know what I'm saying?") stops
+  // nobody scrolling. Written hooks lead; a quote only gets a slot when it
+  // scores as genuinely punchy.
+  const strong = moment.segments.map((s) => s.text.trim())
+    .filter((t) => punchiness(t) >= 3 && t.split(/\s+/).length >= 4).length;
+  const written = campaignHooks.map(noEmoji);
+  const rot = written.length ? written.map((_, i) => written[(i + seed) % written.length]) : [];
+  const pool = written.length
+    ? [rot[0], strong ? lines[0] : rot[1 % rot.length], rot[2 % rot.length]]
+    : [...new Set(lines)];
   while (pool.length < 3) pool.push(pool[pool.length - 1] || 'Wait for it…');
   return pool.slice(0, 3).map(noEmoji);
 }
@@ -175,7 +184,12 @@ function captionChunks(moment, start) {
     cur.push(w);
   }
   if (cur.length) chunks.push(cur);
-  return chunks.map((c) => ({ s: Math.max(0, c[0].s - start), e: Math.max(0, c[c.length - 1].e - start + 0.05), text: c.map((w) => w.w).join(' ') }));
+  // Each chunk ends no later than the next one starts, so two never show at once.
+  return chunks.map((c, k) => {
+    const next = chunks[k + 1];
+    const end = Math.min(c[c.length - 1].e + 0.05, next ? next[0].s - 0.02 : Infinity);
+    return { s: Math.max(0, c[0].s - start), e: Math.max(0, end - start), text: c.map((w) => w.w).join(' ') };
+  });
 }
 
 // ── render ────────────────────────────────────────────────────
@@ -185,7 +199,7 @@ function captionChunks(moment, start) {
  * over a blurred, darkened copy of itself — nothing cropped away) or 'crop'
  * (centre-crop to 9:16, for sources that are already close to vertical).
  */
-export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '' }) {
+export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '', zoom = 1.3 }) {
   const st = PLATFORM_STYLE[platform] || PLATFORM_STYLE.tiktok;
   const start = Math.max(0, moment.s - 0.25 + st.nudge);
   const dur = moment.e - moment.s + 0.6;
@@ -202,7 +216,9 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   const base = layout === 'crop'
     ? `[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[v0]`
     : `[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24:2,eq=brightness=-0.18[bg];`
-      + `[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2-80,setsar=1[v0]`;
+      // Wide shots are shown zoomed (centre kept, edges trimmed) so people
+      // aren't tiny on a phone; zoom 1 shows the full width.
+      + `[b]scale=${Math.round(1080 * zoom / 2) * 2}:-2,crop=1080:ih[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2-80,setsar=1[v0]`;
   const filter = `${base};[v0]${draws.join(',')}[v]`;
   await ffmpeg(['-ss', start.toFixed(2), '-t', dur.toFixed(2), '-i', video, '-filter_complex', filter,
     '-map', '[v]', '-map', '0:a?', '-r', '30', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p',
