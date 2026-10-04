@@ -95,7 +95,9 @@ async function fetchFrameIo(url, dir) {
       await p.getByText('Download', { exact: true }).first().click({ timeout: 30000 });
       // The button opens a size menu: "Original" is only a heading, and the
       // first resolution line under it (e.g. "1920×1080") is the original file.
-      await p.getByText(/^\d{3,4}×\d{3,4}$/).first().click({ timeout: 8000 }).catch(() => {});
+      const original = p.locator('[data-testid="Download original file"]');
+      if (await original.count()) await original.first().click({ timeout: 8000 });
+      else await p.getByRole('menuitem').first().click({ timeout: 8000 }).catch(() => {});
       await p.getByText('Download in Browser', { exact: true }).first().click({ timeout: 5000 }).catch(() => {});
     } else {
       await p.getByText('Download All').first().click({ timeout: 30000 });
