@@ -40,7 +40,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Speech-to-text and Drive downloader
-        run: pip install -q faster-whisper gdown
+        run: pip install -q faster-whisper gdown numpy
       # The transcription model (~150 MB) is kept between runs.
       - uses: actions/cache@v4
         with:
