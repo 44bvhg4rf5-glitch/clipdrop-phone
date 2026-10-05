@@ -1,5 +1,5 @@
 {
-  "next": 4,
+  "next": 5,
   "episodes": [
     {
       "title": "The leaf bouquet",
@@ -63,12 +63,25 @@
       "failedShots": 0,
       "silentParts": 0,
       "music": true
+    },
+    {
+      "title": "One fan",
+      "slug": "one-fan",
+      "date": "2026-10-05",
+      "tag": "koala-2026-10-05-one-fan",
+      "full": "one-fan-full.mp4",
+      "short": "one-fan-short.mp4",
+      "caption": "He'd melt for her. Literally 🥵💛\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "shortCaption": "He'd melt for her. Literally 🥵💛 (full story on our page 💛)\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "failedShots": 1,
+      "silentParts": 0,
+      "music": true
     }
   ],
   "status": {
     "level": "ok",
-    "text": "The silent treatment is ready.",
-    "at": "2026-10-03T10:53:13.981Z"
+    "text": "One fan is ready (1 shot(s) fell back to a zoom).",
+    "at": "2026-10-05T11:58:41.811Z"
   },
-  "lastRunDate": "2026-10-03"
+  "lastRunDate": "2026-10-05"
 }

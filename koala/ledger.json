@@ -631,7 +631,7 @@
       ]
     },
     "2026-10": {
-      "spent": 10.41,
+      "spent": 15.7,
       "items": [
         {
           "at": "2026-10-01T10:22:51.637Z",
@@ -1116,6 +1116,241 @@
         {
           "at": "2026-10-03T10:52:58.496Z",
           "what": "the-silent-treatment music",
+          "usd": 0.3
+        },
+        {
+          "at": "2026-10-05T10:46:19.643Z",
+          "what": "one-fan shot 1 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T10:47:09.643Z",
+          "what": "one-fan shot 1 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T10:48:53.795Z",
+          "what": "one-fan shot 1 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T10:50:09.994Z",
+          "what": "one-fan shot 2 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T10:50:47.330Z",
+          "what": "one-fan shot 2 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T10:52:49.825Z",
+          "what": "one-fan shot 2 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T10:53:51.584Z",
+          "what": "one-fan shot 2 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-05T10:54:00.198Z",
+          "what": "one-fan shot 3 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T10:54:43.958Z",
+          "what": "one-fan shot 3 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T10:57:17.060Z",
+          "what": "one-fan shot 3 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:00:05.444Z",
+          "what": "one-fan shot 4 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:00:42.737Z",
+          "what": "one-fan shot 4 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:03:16.560Z",
+          "what": "one-fan shot 4 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:07:46.510Z",
+          "what": "one-fan shot 5 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:08:38.447Z",
+          "what": "one-fan shot 5 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:14:47.875Z",
+          "what": "one-fan shot 5 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:16:46.823Z",
+          "what": "one-fan shot 6 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:17:28.030Z",
+          "what": "one-fan shot 6 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:18:05.197Z",
+          "what": "one-fan shot 6 video retry 1",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:18:21.210Z",
+          "what": "one-fan shot 7 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:19:04.722Z",
+          "what": "one-fan shot 7 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:21:07.707Z",
+          "what": "one-fan shot 7 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:22:46.567Z",
+          "what": "one-fan shot 7 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-05T11:22:55.372Z",
+          "what": "one-fan shot 8 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:23:32.894Z",
+          "what": "one-fan shot 8 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:25:54.193Z",
+          "what": "one-fan shot 8 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:26:08.487Z",
+          "what": "one-fan shot 9 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:26:59.321Z",
+          "what": "one-fan shot 9 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:28:44.693Z",
+          "what": "one-fan shot 9 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:28:59.381Z",
+          "what": "one-fan shot 10 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:29:42.775Z",
+          "what": "one-fan shot 10 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:31:22.065Z",
+          "what": "one-fan shot 10 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:37:10.876Z",
+          "what": "one-fan shot 10 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-05T11:37:18.819Z",
+          "what": "one-fan shot 11 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:38:02.508Z",
+          "what": "one-fan shot 11 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:40:23.271Z",
+          "what": "one-fan shot 11 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:42:38.428Z",
+          "what": "one-fan shot 11 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-05T11:42:47.496Z",
+          "what": "one-fan shot 12 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:43:25.010Z",
+          "what": "one-fan shot 12 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:50:29.017Z",
+          "what": "one-fan shot 12 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:50:44.185Z",
+          "what": "one-fan shot 13 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:51:22.065Z",
+          "what": "one-fan shot 13 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:54:07.576Z",
+          "what": "one-fan shot 13 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:55:41.574Z",
+          "what": "one-fan shot 14 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-05T11:56:18.889Z",
+          "what": "one-fan shot 14 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-05T11:58:09.587Z",
+          "what": "one-fan shot 14 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-05T11:58:24.206Z",
+          "what": "one-fan music",
           "usd": 0.3
         }
       ]
