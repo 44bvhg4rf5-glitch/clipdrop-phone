@@ -1,5 +1,5 @@
 {
-  "next": 5,
+  "next": 6,
   "episodes": [
     {
       "title": "The leaf bouquet",
@@ -76,12 +76,25 @@
       "failedShots": 1,
       "silentParts": 0,
       "music": true
+    },
+    {
+      "title": "He forgot",
+      "slug": "he-forgot",
+      "date": "2026-10-07",
+      "tag": "koala-2026-10-07-he-forgot",
+      "full": "he-forgot-full.mp4",
+      "short": "he-forgot-short.mp4",
+      "caption": "He forgot… but look what he did 🥺💛\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "shortCaption": "He forgot… but look what he did 🥺💛 (full story on our page 💛)\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "failedShots": 0,
+      "silentParts": 0,
+      "music": true
     }
   ],
   "status": {
     "level": "ok",
-    "text": "One fan is ready (1 shot(s) fell back to a zoom).",
-    "at": "2026-10-05T11:58:41.811Z"
+    "text": "He forgot is ready.",
+    "at": "2026-10-07T11:35:46.597Z"
   },
-  "lastRunDate": "2026-10-05"
+  "lastRunDate": "2026-10-07"
 }
