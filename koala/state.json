@@ -1,5 +1,5 @@
 {
-  "next": 6,
+  "next": 7,
   "episodes": [
     {
       "title": "The leaf bouquet",
@@ -89,12 +89,25 @@
       "failedShots": 0,
       "silentParts": 0,
       "music": true
+    },
+    {
+      "title": "Five minutes",
+      "slug": "five-minutes",
+      "date": "2026-10-09",
+      "tag": "koala-2026-10-09-five-minutes",
+      "full": "five-minutes-full.mp4",
+      "short": "five-minutes-short.mp4",
+      "caption": "Tag your clingy one 😭💛\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "shortCaption": "Tag your clingy one 😭💛 (full story on our page 💛)\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "failedShots": 0,
+      "silentParts": 0,
+      "music": true
     }
   ],
   "status": {
     "level": "ok",
-    "text": "He forgot is ready.",
-    "at": "2026-10-07T11:35:46.597Z"
+    "text": "Five minutes is ready.",
+    "at": "2026-10-09T12:05:58.907Z"
   },
-  "lastRunDate": "2026-10-07"
+  "lastRunDate": "2026-10-09"
 }

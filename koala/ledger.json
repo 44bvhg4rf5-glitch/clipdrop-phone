@@ -631,7 +631,7 @@
       ]
     },
     "2026-10": {
-      "spent": 20.8,
+      "spent": 25.87,
       "items": [
         {
           "at": "2026-10-01T10:22:51.637Z",
@@ -1596,6 +1596,246 @@
         {
           "at": "2026-10-07T11:35:31.332Z",
           "what": "he-forgot music",
+          "usd": 0.3
+        },
+        {
+          "at": "2026-10-09T10:49:27.771Z",
+          "what": "five-minutes shot 1 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T10:50:24.521Z",
+          "what": "five-minutes shot 1 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T10:58:43.574Z",
+          "what": "five-minutes shot 1 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:01:44.074Z",
+          "what": "five-minutes shot 2 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:02:21.404Z",
+          "what": "five-minutes shot 2 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:04:18.465Z",
+          "what": "five-minutes shot 2 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:06:21.654Z",
+          "what": "five-minutes shot 2 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-09T11:06:35.991Z",
+          "what": "five-minutes shot 3 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:07:19.597Z",
+          "what": "five-minutes shot 3 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:08:46.260Z",
+          "what": "five-minutes shot 3 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:12:58.124Z",
+          "what": "five-minutes shot 3 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-09T11:13:06.707Z",
+          "what": "five-minutes shot 4 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:14:02.940Z",
+          "what": "five-minutes shot 4 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:15:42.150Z",
+          "what": "five-minutes shot 4 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:15:57.117Z",
+          "what": "five-minutes shot 5 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:16:34.773Z",
+          "what": "five-minutes shot 5 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:18:07.018Z",
+          "what": "five-minutes shot 5 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:20:48.884Z",
+          "what": "five-minutes shot 6 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:21:33.645Z",
+          "what": "five-minutes shot 6 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:23:37.045Z",
+          "what": "five-minutes shot 6 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:26:04.965Z",
+          "what": "five-minutes shot 6 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-09T11:26:13.389Z",
+          "what": "five-minutes shot 7 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:26:56.716Z",
+          "what": "five-minutes shot 7 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:29:05.562Z",
+          "what": "five-minutes shot 7 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:30:56.624Z",
+          "what": "five-minutes shot 7 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-09T11:31:11.166Z",
+          "what": "five-minutes shot 8 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:31:54.798Z",
+          "what": "five-minutes shot 8 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:33:39.485Z",
+          "what": "five-minutes shot 8 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:35:19.878Z",
+          "what": "five-minutes shot 9 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:36:09.397Z",
+          "what": "five-minutes shot 9 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:38:42.710Z",
+          "what": "five-minutes shot 9 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:41:55.291Z",
+          "what": "five-minutes shot 10 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:42:39.152Z",
+          "what": "five-minutes shot 10 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:44:18.064Z",
+          "what": "five-minutes shot 10 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:44:32.635Z",
+          "what": "five-minutes shot 11 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:45:21.884Z",
+          "what": "five-minutes shot 11 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:47:19.173Z",
+          "what": "five-minutes shot 11 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:50:06.535Z",
+          "what": "five-minutes shot 12 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:50:55.977Z",
+          "what": "five-minutes shot 12 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:52:28.126Z",
+          "what": "five-minutes shot 12 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T11:55:09.862Z",
+          "what": "five-minutes shot 13 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T11:55:59.911Z",
+          "what": "five-minutes shot 13 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T11:57:32.073Z",
+          "what": "five-minutes shot 13 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T12:00:11.805Z",
+          "what": "five-minutes shot 13 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-09T12:00:20.324Z",
+          "what": "five-minutes shot 14 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-09T12:00:57.878Z",
+          "what": "five-minutes shot 14 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-09T12:02:55.455Z",
+          "what": "five-minutes shot 14 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-09T12:05:37.285Z",
+          "what": "five-minutes music",
           "usd": 0.3
         }
       ]
