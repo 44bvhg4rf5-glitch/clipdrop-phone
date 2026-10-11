@@ -1,5 +1,5 @@
 {
-  "next": 7,
+  "next": 8,
   "episodes": [
     {
       "title": "The leaf bouquet",
@@ -102,12 +102,25 @@
       "failedShots": 0,
       "silentParts": 0,
       "music": true
+    },
+    {
+      "title": "Not hungry",
+      "slug": "not-hungry",
+      "date": "2026-10-11",
+      "tag": "koala-2026-10-11-not-hungry",
+      "full": "not-hungry-full.mp4",
+      "short": "not-hungry-short.mp4",
+      "caption": "'I'm not hungry' ... 🍃👀\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "shortCaption": "'I'm not hungry' ... 🍃👀 (full story on our page 💛)\n\n#koala #couplegoals #relationships #relatable #pipandwillow #cuteanimals #aianimation #couples",
+      "failedShots": 0,
+      "silentParts": 0,
+      "music": true
     }
   ],
   "status": {
     "level": "ok",
-    "text": "Five minutes is ready.",
-    "at": "2026-10-09T12:05:58.907Z"
+    "text": "Not hungry is ready.",
+    "at": "2026-10-11T11:07:21.967Z"
   },
-  "lastRunDate": "2026-10-09"
+  "lastRunDate": "2026-10-11"
 }

@@ -631,7 +631,7 @@
       ]
     },
     "2026-10": {
-      "spent": 25.87,
+      "spent": 30.94,
       "items": [
         {
           "at": "2026-10-01T10:22:51.637Z",
@@ -1836,6 +1836,246 @@
         {
           "at": "2026-10-09T12:05:37.285Z",
           "what": "five-minutes music",
+          "usd": 0.3
+        },
+        {
+          "at": "2026-10-11T10:14:30.571Z",
+          "what": "not-hungry shot 1 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:15:10.528Z",
+          "what": "not-hungry shot 1 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:17:13.012Z",
+          "what": "not-hungry shot 1 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:19:12.371Z",
+          "what": "not-hungry shot 1 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-11T10:19:23.528Z",
+          "what": "not-hungry shot 2 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:20:14.397Z",
+          "what": "not-hungry shot 2 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:21:52.267Z",
+          "what": "not-hungry shot 2 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:22:05.449Z",
+          "what": "not-hungry shot 2 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-11T10:22:14.459Z",
+          "what": "not-hungry shot 3 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:22:52.217Z",
+          "what": "not-hungry shot 3 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:24:58.391Z",
+          "what": "not-hungry shot 3 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:25:19.624Z",
+          "what": "not-hungry shot 4 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:26:00.869Z",
+          "what": "not-hungry shot 4 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:27:54.316Z",
+          "what": "not-hungry shot 4 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:28:33.880Z",
+          "what": "not-hungry shot 5 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:29:11.907Z",
+          "what": "not-hungry shot 5 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:30:57.513Z",
+          "what": "not-hungry shot 5 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:31:25.675Z",
+          "what": "not-hungry shot 6 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:32:07.125Z",
+          "what": "not-hungry shot 6 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:34:17.636Z",
+          "what": "not-hungry shot 6 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:34:33.453Z",
+          "what": "not-hungry shot 7 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:35:10.971Z",
+          "what": "not-hungry shot 7 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:36:53.239Z",
+          "what": "not-hungry shot 7 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:37:07.784Z",
+          "what": "not-hungry shot 8 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:37:36.432Z",
+          "what": "not-hungry shot 8 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:39:45.602Z",
+          "what": "not-hungry shot 8 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:40:02.385Z",
+          "what": "not-hungry shot 8 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-11T10:40:18.944Z",
+          "what": "not-hungry shot 9 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:41:06.930Z",
+          "what": "not-hungry shot 9 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:43:16.732Z",
+          "what": "not-hungry shot 9 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:45:40.386Z",
+          "what": "not-hungry shot 10 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:46:26.587Z",
+          "what": "not-hungry shot 10 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:48:33.063Z",
+          "what": "not-hungry shot 10 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:50:07.579Z",
+          "what": "not-hungry shot 11 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:50:46.445Z",
+          "what": "not-hungry shot 11 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:52:51.619Z",
+          "what": "not-hungry shot 11 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:55:15.031Z",
+          "what": "not-hungry shot 12 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T10:56:01.662Z",
+          "what": "not-hungry shot 12 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T10:57:50.068Z",
+          "what": "not-hungry shot 12 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T10:59:59.161Z",
+          "what": "not-hungry shot 12 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-11T11:00:10.625Z",
+          "what": "not-hungry shot 13 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T11:00:42.422Z",
+          "what": "not-hungry shot 13 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T11:02:35.185Z",
+          "what": "not-hungry shot 13 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T11:03:31.078Z",
+          "what": "not-hungry shot 13 voice",
+          "usd": 0.03
+        },
+        {
+          "at": "2026-10-11T11:03:39.420Z",
+          "what": "not-hungry shot 14 still",
+          "usd": 0.04
+        },
+        {
+          "at": "2026-10-11T11:04:25.925Z",
+          "what": "not-hungry shot 14 video",
+          "usd": 0.27
+        },
+        {
+          "at": "2026-10-11T11:06:32.237Z",
+          "what": "not-hungry shot 14 sfx",
+          "usd": 0.02
+        },
+        {
+          "at": "2026-10-11T11:07:05.243Z",
+          "what": "not-hungry music",
           "usd": 0.3
         }
       ]
