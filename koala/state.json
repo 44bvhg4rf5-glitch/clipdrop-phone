@@ -119,8 +119,8 @@
   ],
   "status": {
     "level": "ok",
-    "text": "Not hungry is ready.",
-    "at": "2026-10-11T11:07:21.967Z"
+    "text": "Budget reached: $44.03 of the $48.00 trial budget spent ($30.94 this month), and an episode needs about $5.58. Nothing was spent.",
+    "at": "2026-10-13T10:55:03.071Z"
   },
   "lastRunDate": "2026-10-11"
 }
