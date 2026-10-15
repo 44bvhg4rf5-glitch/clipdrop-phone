@@ -2243,12 +2243,198 @@
           "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
         }
       ]
+    },
+    {
+      "date": "2026-10-15",
+      "tag": "clips-2026-10-15",
+      "items": [
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-195",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 195.29,
+            "e": 219.53
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-195-tiktok.mp4",
+          "seconds": 24.2,
+          "hook": "5 guys. 1 crush. 0 chill",
+          "caption": "The confidence… then the answer 😭\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-195",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 195.29,
+            "e": 219.53
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-195-instagram.mp4",
+          "seconds": 24.2,
+          "hook": "Shoot your shot they said...",
+          "caption": "The confidence… then the answer 😭\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "instagram"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-195",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 195.29,
+            "e": 219.53
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-195-youtube.mp4",
+          "seconds": 24.2,
+          "hook": "Confidence vs reality",
+          "caption": "The confidence… then the answer 😭\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "youtube"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-2363",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 2363.3,
+            "e": 2401.7
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-2363-tiktok.mp4",
+          "seconds": 38.4,
+          "hook": "Shoot your shot they said...",
+          "caption": "Imagine saying this to your crush 🫣\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-2363",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 2363.3,
+            "e": 2401.7
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-2363-instagram.mp4",
+          "seconds": 38.4,
+          "hook": "Confidence vs reality",
+          "caption": "Imagine saying this to your crush 🫣\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "instagram"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-2363",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 2363.3,
+            "e": 2401.7
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-2363-youtube.mp4",
+          "seconds": 38.4,
+          "hook": "Wait for her face",
+          "caption": "Imagine saying this to your crush 🫣\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "youtube"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-1325",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 1324.73,
+            "e": 1346.99
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-1325-tiktok.mp4",
+          "seconds": 22.3,
+          "hook": "Confidence vs reality",
+          "caption": "He really said it to her face 😭\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-1325",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 1324.73,
+            "e": 1346.99
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-1325-instagram.mp4",
+          "seconds": 22.3,
+          "hook": "Wait for her face",
+          "caption": "He really said it to her face 😭\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "instagram"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Kevin Langue · 5 Guys Face Their Crush",
+          "campaignId": "kevin-langue-crush",
+          "source": "5 Guys Face Their Crush.mp4",
+          "moment": "5-guys-face-their-crush-1325",
+          "range": {
+            "src": "5 Guys Face Their Crush.mp4",
+            "s": 1324.73,
+            "e": 1346.99
+          },
+          "file": "2026-10-15-kevin-langue-crush-5-guys-face-their-crush-1325-youtube.mp4",
+          "seconds": 22.3,
+          "hook": "She really said that to his face",
+          "caption": "He really said it to her face 😭\n\n#kevinlangue #kevinlanguepartner",
+          "platforms": [
+            "youtube"
+          ],
+          "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
+        }
+      ]
     }
   ],
   "status": {
     "level": "ok",
-    "text": "9 clip(s) ready for 2026-10-14.",
-    "at": "2026-10-14T10:50:44.131Z"
+    "text": "9 clip(s) ready for 2026-10-15.",
+    "at": "2026-10-15T10:33:25.390Z"
   },
   "ranges": {
     "kevin-langue-crush": [
@@ -2416,6 +2602,21 @@
         "src": "5 Guys Face Their Crush.mp4",
         "s": 96.04,
         "e": 118.12
+      },
+      {
+        "src": "5 Guys Face Their Crush.mp4",
+        "s": 195.29,
+        "e": 219.53
+      },
+      {
+        "src": "5 Guys Face Their Crush.mp4",
+        "s": 2363.3,
+        "e": 2401.7
+      },
+      {
+        "src": "5 Guys Face Their Crush.mp4",
+        "s": 1324.73,
+        "e": 1346.99
       }
     ]
   }
