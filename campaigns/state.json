@@ -18,7 +18,9 @@
     ],
     "hulu-phony": [
       "HULU-Phony-260911-101-PreSexTalk-9x16-TT-V5-TEXTLESS-AD_2.mp4",
-      "HULU-Phony-260911-101-SonnyWhat_sWrong-9x16-TT-V3-TEXTLESS-AD.mp4"
+      "HULU-Phony-260911-101-SonnyWhat_sWrong-9x16-TT-V3-TEXTLESS-AD.mp4",
+      "HULU-Phony-260911-BlowingOffSonny.-9x16-V5-JC-TXTLS.mp4",
+      "HULU-Phony-260911-ThinkMomWasSwapped-9x16-V3-JC-TXTLS.mp4"
     ]
   },
   "drops": [
@@ -2627,11 +2629,11 @@
         {
           "campaign": "Hulu · Phony (Ep 1–3)",
           "campaignId": "hulu-phony",
-          "source": "HULU-Phony-260911-101-PreSexTalk-9x16-TT-V5-TEXTLESS-AD_2.mp4",
-          "file": "2026-10-31-hulu-phony-hulu-phony-260911-101-presextalk-9x16-tt-v5-textle.mp4",
-          "seconds": 57.6,
-          "hook": "This show is actually unhinged",
-          "caption": "This show is unhinged 😭\n\n#Phony #HuluPartner",
+          "source": "HULU-Phony-260911-BlowingOffSonny.-9x16-V5-JC-TXTLS.mp4",
+          "file": "2026-10-31-hulu-phony-hulu-phony-260911-blowingoffsonny-9x16-v5-jc-txtls.mp4",
+          "seconds": 31.2,
+          "hook": "When your mom is also your principal",
+          "caption": "Something is NOT right with his mom 👀\n\n#Phony #HuluPartner",
           "platforms": [
             "tiktok",
             "instagram",
@@ -2643,11 +2645,11 @@
         {
           "campaign": "Hulu · Phony (Ep 1–3)",
           "campaignId": "hulu-phony",
-          "source": "HULU-Phony-260911-101-SonnyWhat_sWrong-9x16-TT-V3-TEXTLESS-AD.mp4",
-          "file": "2026-10-31-hulu-phony-hulu-phony-260911-101-sonnywhat-swrong-9x16-tt-v3-.mp4",
-          "seconds": 70,
-          "hook": "Nobody was ready for this scene",
-          "caption": "Nobody was ready for this 💀\n\n#Phony #HuluPartner",
+          "source": "HULU-Phony-260911-ThinkMomWasSwapped-9x16-V3-JC-TXTLS.mp4",
+          "file": "2026-10-31-hulu-phony-hulu-phony-260911-thinkmomwasswapped-9x16-v3-jc-tx.mp4",
+          "seconds": 28.9,
+          "hook": "Something is very wrong with his mom",
+          "caption": "Imagine waking up and your mom is… different 😭\n\n#Phony #HuluPartner",
           "platforms": [
             "tiktok",
             "instagram",
@@ -2661,16 +2663,16 @@
           "campaign": "Hulu · The Mob (Ep 1–2)",
           "campaignId": "hulu-the-mob",
           "source": "mob_101_dsm_1.mp4",
-          "moment": "mob-101-dsm-1-541",
+          "moment": "mob-101-dsm-1-875",
           "range": {
             "src": "mob_101_dsm_1.mp4",
-            "s": 541,
-            "e": 580.76
+            "s": 875.25,
+            "e": 919.01
           },
-          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-541-tiktok.mp4",
-          "seconds": 39.8,
-          "hook": "Nobody walks away from the family",
-          "caption": "This scene had me holding my breath 😳\n\n#themob #HuluPartner",
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-875-tiktok.mp4",
+          "seconds": 43.8,
+          "hook": "Celebrities backstabbing for $250,000",
+          "caption": "Who would you trust as the don? 👀\n\n#themob #HuluPartner",
           "platforms": [
             "tiktok"
           ],
@@ -2682,16 +2684,16 @@
           "campaign": "Hulu · The Mob (Ep 1–2)",
           "campaignId": "hulu-the-mob",
           "source": "mob_101_dsm_1.mp4",
-          "moment": "mob-101-dsm-1-541",
+          "moment": "mob-101-dsm-1-875",
           "range": {
             "src": "mob_101_dsm_1.mp4",
-            "s": 541,
-            "e": 580.76
+            "s": 875.25,
+            "e": 919.01
           },
-          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-541-instagram.mp4",
-          "seconds": 39.8,
-          "hook": "\"Who the hell? Hello? Hi. What's going on? Get the…\"",
-          "caption": "This scene had me holding my breath 😳\n\n#themob #HuluPartner",
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-875-instagram.mp4",
+          "seconds": 43.8,
+          "hook": "Nobody trusts the don",
+          "caption": "Who would you trust as the don? 👀\n\n#themob #HuluPartner",
           "platforms": [
             "instagram"
           ],
@@ -2703,16 +2705,16 @@
           "campaign": "Hulu · The Mob (Ep 1–2)",
           "campaignId": "hulu-the-mob",
           "source": "mob_101_dsm_1.mp4",
-          "moment": "mob-101-dsm-1-541",
+          "moment": "mob-101-dsm-1-875",
           "range": {
             "src": "mob_101_dsm_1.mp4",
-            "s": 541,
-            "e": 580.76
+            "s": 875.25,
+            "e": 919.01
           },
-          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-541-youtube.mp4",
-          "seconds": 39.8,
-          "hook": "He had no idea what was coming",
-          "caption": "This scene had me holding my breath 😳\n\n#themob #HuluPartner",
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-875-youtube.mp4",
+          "seconds": 43.8,
+          "hook": "This vote changed everything",
+          "caption": "Who would you trust as the don? 👀\n\n#themob #HuluPartner",
           "platforms": [
             "youtube"
           ],
@@ -2723,17 +2725,17 @@
           "kind": "creator",
           "campaign": "Hulu · The Mob (Ep 1–2)",
           "campaignId": "hulu-the-mob",
-          "source": "mob_101_dsm_1.mp4",
-          "moment": "mob-101-dsm-1-650",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-17",
           "range": {
-            "src": "mob_101_dsm_1.mp4",
-            "s": 649.89,
-            "e": 690.33
+            "src": "mob_102_dsm_1.mp4",
+            "s": 17.24,
+            "e": 58.92
           },
-          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-650-tiktok.mp4",
-          "seconds": 40.4,
-          "hook": "The tension in this scene...",
-          "caption": "Nobody crosses the family 🤫\n\n#themob #HuluPartner",
+          "file": "2026-10-31-hulu-the-mob-mob-102-dsm-1-17-tiktok.mp4",
+          "seconds": 41.7,
+          "hook": "Nobody trusts the don",
+          "caption": "The backstabbing in this show is unreal 🔪\n\n#themob #HuluPartner",
           "platforms": [
             "tiktok"
           ],
@@ -2744,17 +2746,17 @@
           "kind": "creator",
           "campaign": "Hulu · The Mob (Ep 1–2)",
           "campaignId": "hulu-the-mob",
-          "source": "mob_101_dsm_1.mp4",
-          "moment": "mob-101-dsm-1-650",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-17",
           "range": {
-            "src": "mob_101_dsm_1.mp4",
-            "s": 649.89,
-            "e": 690.33
+            "src": "mob_102_dsm_1.mp4",
+            "s": 17.24,
+            "e": 58.92
           },
-          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-650-instagram.mp4",
-          "seconds": 40.4,
-          "hook": "\"in five. Wait, wait, another one. What do you got?…\"",
-          "caption": "Nobody crosses the family 🤫\n\n#themob #HuluPartner",
+          "file": "2026-10-31-hulu-the-mob-mob-102-dsm-1-17-instagram.mp4",
+          "seconds": 41.7,
+          "hook": "This vote changed everything",
+          "caption": "The backstabbing in this show is unreal 🔪\n\n#themob #HuluPartner",
           "platforms": [
             "instagram"
           ],
@@ -2765,17 +2767,17 @@
           "kind": "creator",
           "campaign": "Hulu · The Mob (Ep 1–2)",
           "campaignId": "hulu-the-mob",
-          "source": "mob_101_dsm_1.mp4",
-          "moment": "mob-101-dsm-1-650",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-17",
           "range": {
-            "src": "mob_101_dsm_1.mp4",
-            "s": 649.89,
-            "e": 690.33
+            "src": "mob_102_dsm_1.mp4",
+            "s": 17.24,
+            "e": 58.92
           },
-          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-650-youtube.mp4",
-          "seconds": 40.4,
-          "hook": "This is why you never cross them",
-          "caption": "Nobody crosses the family 🤫\n\n#themob #HuluPartner",
+          "file": "2026-10-31-hulu-the-mob-mob-102-dsm-1-17-youtube.mp4",
+          "seconds": 41.7,
+          "hook": "He did NOT see that coming",
+          "caption": "The backstabbing in this show is unreal 🔪\n\n#themob #HuluPartner",
           "platforms": [
             "youtube"
           ],
@@ -2788,7 +2790,7 @@
   "status": {
     "level": "ok",
     "text": "8 clip(s) ready for 2026-10-31.",
-    "at": "2026-10-31T06:36:21.294Z"
+    "at": "2026-10-31T06:46:54.771Z"
   },
   "ranges": {
     "kevin-langue-crush": [
@@ -2998,6 +3000,16 @@
         "src": "mob_101_dsm_1.mp4",
         "s": 649.89,
         "e": 690.33
+      },
+      {
+        "src": "mob_101_dsm_1.mp4",
+        "s": 875.25,
+        "e": 919.01
+      },
+      {
+        "src": "mob_102_dsm_1.mp4",
+        "s": 17.24,
+        "e": 58.92
       }
     ]
   }
