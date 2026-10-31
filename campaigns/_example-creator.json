@@ -1,10 +1,13 @@
 {
-  "_how": "Template for a creator-clip campaign. Copy to campaigns/<name>.json, fill in from the Vyro/Whop brief, set enabled to true. Files starting with _ are ignored.",
+  "_how": "Template for a creator-clip campaign. Copy to campaigns/<name>.json, fill in from the Vyro/Whop brief, set enabled to true. Files starting with _ are ignored. 'account' is which of our brands posts it: ReplayRoom (streamers/entertainment), Off Mic (podcasts) or The Deal Room (money/business).",
   "name": "Example Podcast",
   "type": "creator",
   "enabled": false,
-  "sources": ["https://drive.google.com/drive/folders/…", "https://www.dropbox.com/…", "https://f.io/…"],
-  "platforms": ["tiktok", "instagram", "youtube"],
+  "sources": [
+    "https://drive.google.com/drive/folders/…",
+    "https://www.dropbox.com/…",
+    "https://f.io/…"
+  ],
   "perDay": 3,
   "minSeconds": 20,
   "maxSeconds": 45,
@@ -12,7 +15,15 @@
   "credit": "@creatorhandle",
   "hooks": [],
   "captionLines": [],
-  "hashtags": ["#ad"],
+  "hashtags": [
+    "#ad"
+  ],
   "endsOn": "2026-12-31",
-  "postingNotes": "Paste the brief's must-dos here: required tags, banned edits, minimum views."
+  "postingNotes": "Paste the brief's must-dos here: required tags, banned edits, minimum views.",
+  "account": "ReplayRoom",
+  "platforms": [
+    "tiktok",
+    "instagram",
+    "youtube"
+  ]
 }

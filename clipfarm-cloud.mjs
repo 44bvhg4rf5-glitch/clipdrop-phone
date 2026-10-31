@@ -244,7 +244,7 @@ async function makeDrop() {
           campaign: c.name, campaignId: c.id, source: name, file: path.basename(out),
           seconds: +secs.toFixed(1), hook: plain(hook),
           caption: `${line}\n\n${(c.hashtags || []).join(' ')}`.trim(),
-          platforms: c.platforms || ['tiktok'], notes: c.postingNotes || '',
+          platforms: c.platforms || ['tiktok'], account: c.account || 'ReplayRoom', notes: c.postingNotes || '',
         });
         made++;
       } catch (e) { warn(`${name}: render failed — ${e.message}`); }
@@ -296,7 +296,7 @@ async function creatorDrop(c) {
           range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
           seconds: +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
           caption: `${captionBase}${c.credit ? ' ' + c.credit : ''}\n\n${(c.hashtags || []).join(' ')}`.trim(),
-          platforms: [platform], notes: c.postingNotes || '',
+          platforms: [platform], account: c.account || 'ReplayRoom', notes: c.postingNotes || '',
         });
       } catch (e) { warn(`${momentId} ${platform}: render failed — ${e.message.split('\n')[0]}`); }
     }
@@ -315,7 +315,7 @@ function page() {
   ${d.items.map((it) => {
     const url = `https://github.com/${repo}/releases/download/${d.tag}/${it.file}`;
     return `<article data-id="${esc(it.file)}">
-    <div class="top"><b>${esc(it.campaign)}</b> <small>${esc(it.platforms.join(', '))} · ${esc(it.seconds)}s</small></div>
+    <div class="top"><span class="acct">Post on ${esc(it.account || 'ReplayRoom')} · ${esc(it.platforms.join(', '))}</span><b>${esc(it.campaign)}</b> <small>${esc(it.seconds)}s</small></div>
     ${di === 0 ? `<video src="${esc(url)}" controls playsinline preload="metadata"></video>` : ''}
     <a class="btn" href="${esc(url)}">Download</a>
     <textarea readonly rows="3">${esc(it.caption)}</textarea>
@@ -332,7 +332,7 @@ function page() {
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,sans-serif;padding:20px 16px 60px}
 main{max-width:560px;margin:auto}h1{margin:.1em 0 .3em;font-size:26px}h2{font-size:15px;color:var(--muted);margin:22px 0 4px;text-transform:uppercase;letter-spacing:.06em}
 article,.status,.how{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:12px 0}
-article.posted{opacity:.5}.top{margin-bottom:6px}small,.muted{color:var(--muted);font-size:13px}
+article.posted{opacity:.5}.acct{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);margin-bottom:2px}.top{margin-bottom:6px}small,.muted{color:var(--muted);font-size:13px}
 video{width:100%;border-radius:10px;background:#000;margin:4px 0 8px}
 .btn,button{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;border:0;border-radius:9px;padding:10px 14px;font:inherit;font-weight:700;margin:4px 0}
 textarea{width:100%;font:inherit;font-size:14px;padding:10px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:6px}
