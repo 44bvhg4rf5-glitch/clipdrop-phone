@@ -15,6 +15,10 @@
       "Shark tank 6 flipped.mp4",
       "Shark tank 7 flipped.mp4",
       "Shark tank 8 flipped.mp4"
+    ],
+    "hulu-phony": [
+      "HULU-Phony-260911-101-PreSexTalk-9x16-TT-V5-TEXTLESS-AD_2.mp4",
+      "HULU-Phony-260911-101-SonnyWhat_sWrong-9x16-TT-V3-TEXTLESS-AD.mp4"
     ]
   },
   "drops": [
@@ -2615,12 +2619,176 @@
           "notes": "Likes & comments ON. Don't tag anyone or add collaborators. No extra hashtags. Never boost. Submit in Vyro the moment it's public."
         }
       ]
+    },
+    {
+      "date": "2026-10-31",
+      "tag": "clips-2026-10-31",
+      "items": [
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260911-101-PreSexTalk-9x16-TT-V5-TEXTLESS-AD_2.mp4",
+          "file": "2026-10-31-hulu-phony-hulu-phony-260911-101-presextalk-9x16-tt-v5-textle.mp4",
+          "seconds": 57.6,
+          "hook": "This show is actually unhinged",
+          "caption": "This show is unhinged 😭\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260911-101-SonnyWhat_sWrong-9x16-TT-V3-TEXTLESS-AD.mp4",
+          "file": "2026-10-31-hulu-phony-hulu-phony-260911-101-sonnywhat-swrong-9x16-tt-v3-.mp4",
+          "seconds": 70,
+          "hook": "Nobody was ready for this scene",
+          "caption": "Nobody was ready for this 💀\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-541",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 541,
+            "e": 580.76
+          },
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-541-tiktok.mp4",
+          "seconds": 39.8,
+          "hook": "Nobody walks away from the family",
+          "caption": "This scene had me holding my breath 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-541",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 541,
+            "e": 580.76
+          },
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-541-instagram.mp4",
+          "seconds": 39.8,
+          "hook": "\"Who the hell? Hello? Hi. What's going on? Get the…\"",
+          "caption": "This scene had me holding my breath 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-541",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 541,
+            "e": 580.76
+          },
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-541-youtube.mp4",
+          "seconds": 39.8,
+          "hook": "He had no idea what was coming",
+          "caption": "This scene had me holding my breath 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-650",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 649.89,
+            "e": 690.33
+          },
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-650-tiktok.mp4",
+          "seconds": 40.4,
+          "hook": "The tension in this scene...",
+          "caption": "Nobody crosses the family 🤫\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-650",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 649.89,
+            "e": 690.33
+          },
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-650-instagram.mp4",
+          "seconds": 40.4,
+          "hook": "\"in five. Wait, wait, another one. What do you got?…\"",
+          "caption": "Nobody crosses the family 🤫\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-650",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 649.89,
+            "e": 690.33
+          },
+          "file": "2026-10-31-hulu-the-mob-mob-101-dsm-1-650-youtube.mp4",
+          "seconds": 40.4,
+          "hook": "This is why you never cross them",
+          "caption": "Nobody crosses the family 🤫\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        }
+      ]
     }
   ],
   "status": {
     "level": "ok",
-    "text": "No live campaigns. Send Claude a new Vyro campaign to add.",
-    "at": "2026-10-30T11:47:40.159Z"
+    "text": "8 clip(s) ready for 2026-10-31.",
+    "at": "2026-10-31T06:36:21.294Z"
   },
   "ranges": {
     "kevin-langue-crush": [
@@ -2818,6 +2986,18 @@
         "src": "5 Guys Face Their Crush.mp4",
         "s": 370.37,
         "e": 398.67
+      }
+    ],
+    "hulu-the-mob": [
+      {
+        "src": "mob_101_dsm_1.mp4",
+        "s": 541,
+        "e": 580.76
+      },
+      {
+        "src": "mob_101_dsm_1.mp4",
+        "s": 649.89,
+        "e": 690.33
       }
     ]
   }
