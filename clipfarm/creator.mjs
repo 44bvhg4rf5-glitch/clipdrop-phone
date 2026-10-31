@@ -140,7 +140,7 @@ const noEmoji = (t) => String(t).replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\
 
 /** Three different hook lines for one moment: its punchiest sentences quoted
  *  (shortened), then the campaign's own hook ideas as fallbacks. */
-export function hooksFor(moment, campaignHooks = [], seed = 0) {
+export function hooksFor(moment, campaignHooks = [], seed = 0, allowQuotes = true) {
   const lines = moment.segments.map((s) => s.text.trim())
     .filter((t) => t.split(/\s+/).length >= 3)
     .map((t) => ({ t, p: punchiness(t) - Math.max(0, t.split(/\s+/).length - 12) * 0.3 }))
@@ -158,7 +158,7 @@ export function hooksFor(moment, campaignHooks = [], seed = 0) {
   const written = campaignHooks.map(noEmoji);
   const rot = written.length ? written.map((_, i) => written[(i + seed) % written.length]) : [];
   const pool = written.length
-    ? [rot[0], strong ? lines[0] : rot[1 % rot.length], rot[2 % rot.length]]
+    ? [rot[0], strong && allowQuotes ? lines[0] : rot[1 % rot.length], rot[2 % rot.length]]
     : [...new Set(lines)];
   while (pool.length < 3) pool.push(pool[pool.length - 1] || 'Wait for it…');
   return pool.slice(0, 3).map(noEmoji);

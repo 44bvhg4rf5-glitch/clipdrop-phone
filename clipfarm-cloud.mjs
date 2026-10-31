@@ -283,7 +283,7 @@ async function creatorDrop(c) {
   const work = path.join(ROOT, '.produce', 'clips', c.id);
   const items = [];
   for (const [k, m] of best.entries()) {
-    const hooks = hooksFor(m, c.hooks || [], ranges.length + k);
+    const hooks = hooksFor(m, c.hooks || [], ranges.length + k, c.quoteHooks !== false);
     const momentId = `${slugify(m.src.replace(/\.\w+$/, ''))}-${Math.round(m.s)}`;
     const captionBase = (c.captionLines?.length ? c.captionLines[(ranges.length + k) % c.captionLines.length] : hooks[0].replace(/"/g, ''));
     for (const [pi, platform] of platforms.entries()) {

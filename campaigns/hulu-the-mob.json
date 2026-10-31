@@ -4,8 +4,14 @@
   "enabled": true,
   "account": "ReplayRoom",
   "_brief": "Vyro, $2.00 CPM, 5,000 views per post minimum, $1,000 cap. Budget $5,400 (0 spent on 31 Oct). Ends 11 Nov 2026 14:00 UTC. TikTok, YouTube Shorts, Instagram Reels. Min 15s. Hashtag #themob + FTC #HuluPartner (or the platform's paid-partnership label). No collab posts or tagging. Footage: two full episodes on Frame.io. Read the full brief in the Vyro app after joining and send it to Claude.",
-  "sources": ["https://f.io/23AUgRAW"],
-  "platforms": ["tiktok", "instagram", "youtube"],
+  "sources": [
+    "https://f.io/23AUgRAW"
+  ],
+  "platforms": [
+    "tiktok",
+    "instagram",
+    "youtube"
+  ],
   "perDay": 2,
   "minSeconds": 20,
   "maxSeconds": 45,
@@ -13,22 +19,28 @@
   "zoom": 1.3,
   "credit": "",
   "hooks": [
-    "Nobody walks away from the family",
-    "The tension in this scene...",
-    "He had no idea what was coming",
-    "This is why you never cross them",
-    "Wait for the last line",
-    "The way he said that",
-    "This show is not playing around"
+    "They just turned on the don",
+    "From the people who made The Traitors",
+    "Celebrities backstabbing for $250,000",
+    "Nobody trusts the don",
+    "This vote changed everything",
+    "He did NOT see that coming",
+    "Parker Posey runs this villa",
+    "The most savage vote yet"
   ],
   "captionLines": [
-    "This scene had me holding my breath 😳",
-    "Nobody crosses the family 🤫",
-    "The tension in this show is unreal",
-    "He really thought he could walk away 👀",
-    "Wait for the end of this scene 🔥"
+    "The Traitors producers really did it again 😳",
+    "Celebrities in a villa fighting over $250,000 💰",
+    "Who would you trust as the don? 👀",
+    "The backstabbing in this show is unreal 🔪",
+    "This vote changed everything 😭"
   ],
-  "hashtags": ["#themob", "#HuluPartner"],
+  "hashtags": [
+    "#themob",
+    "#HuluPartner"
+  ],
   "endsOn": "2026-11-11",
-  "postingNotes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+  "postingNotes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public.",
+  "_show": "Celebrity reality competition from The Traitors' producers: 12 celebrities (Harry Jowsey, Bruno Tonioli, Joe Gorga, Romeo Miller, Demi Engemann...) in an Italian villa, hosted by Parker Posey. The group picks a 'don' who decides who gets paid, stays or leaves; the others can overthrow them. Up to $250,000.",
+  "quoteHooks": false
 }
