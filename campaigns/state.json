@@ -20,7 +20,9 @@
       "HULU-Phony-260911-101-PreSexTalk-9x16-TT-V5-TEXTLESS-AD_2.mp4",
       "HULU-Phony-260911-101-SonnyWhat_sWrong-9x16-TT-V3-TEXTLESS-AD.mp4",
       "HULU-Phony-260911-BlowingOffSonny.-9x16-V5-JC-TXTLS.mp4",
-      "HULU-Phony-260911-ThinkMomWasSwapped-9x16-V3-JC-TXTLS.mp4"
+      "HULU-Phony-260911-ThinkMomWasSwapped-9x16-V3-JC-TXTLS.mp4",
+      "HULU-Phony-260917-NotOneSqueeze-9x16-V5-Mixed-CM-TXTLS.mp4",
+      "HULU-Phony-260917-ThreeSqueezes-9x16-V3-CM-TXTLS.mp4"
     ]
   },
   "drops": [
@@ -2785,12 +2787,176 @@
           "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
         }
       ]
+    },
+    {
+      "date": "2026-11-01",
+      "tag": "clips-2026-11-01",
+      "items": [
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260917-NotOneSqueeze-9x16-V5-Mixed-CM-TXTLS.mp4",
+          "file": "2026-11-01-hulu-phony-hulu-phony-260917-notonesqueeze-9x16-v5-mixed-cm-t.mp4",
+          "seconds": 59.6,
+          "hook": "He woke up and his mom was different",
+          "caption": "Is she really his mom? 🤔\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260917-ThreeSqueezes-9x16-V3-CM-TXTLS.mp4",
+          "file": "2026-11-01-hulu-phony-hulu-phony-260917-threesqueezes-9x16-v3-cm-txtls.mp4",
+          "seconds": 34.8,
+          "hook": "Is she really his mom?",
+          "caption": "He's convinced his mom is an impostor 😳\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1040",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1039.5,
+            "e": 1074.88
+          },
+          "file": "2026-11-01-hulu-the-mob-mob-102-dsm-1-1040-tiktok.mp4",
+          "seconds": 35.4,
+          "hook": "This vote changed everything",
+          "caption": "This vote changed everything 😭\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1040",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1039.5,
+            "e": 1074.88
+          },
+          "file": "2026-11-01-hulu-the-mob-mob-102-dsm-1-1040-instagram.mp4",
+          "seconds": 35.4,
+          "hook": "He did NOT see that coming",
+          "caption": "This vote changed everything 😭\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1040",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1039.5,
+            "e": 1074.88
+          },
+          "file": "2026-11-01-hulu-the-mob-mob-102-dsm-1-1040-youtube.mp4",
+          "seconds": 35.4,
+          "hook": "Parker Posey runs this villa",
+          "caption": "This vote changed everything 😭\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1316",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1316.49,
+            "e": 1356.33
+          },
+          "file": "2026-11-01-hulu-the-mob-mob-102-dsm-1-1316-tiktok.mp4",
+          "seconds": 39.8,
+          "hook": "He did NOT see that coming",
+          "caption": "The Traitors producers really did it again 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1316",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1316.49,
+            "e": 1356.33
+          },
+          "file": "2026-11-01-hulu-the-mob-mob-102-dsm-1-1316-instagram.mp4",
+          "seconds": 39.8,
+          "hook": "Parker Posey runs this villa",
+          "caption": "The Traitors producers really did it again 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1316",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1316.49,
+            "e": 1356.33
+          },
+          "file": "2026-11-01-hulu-the-mob-mob-102-dsm-1-1316-youtube.mp4",
+          "seconds": 39.8,
+          "hook": "The most savage vote yet",
+          "caption": "The Traitors producers really did it again 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        }
+      ]
     }
   ],
   "status": {
     "level": "ok",
-    "text": "Today's clips are already made.",
-    "at": "2026-10-31T11:21:46.394Z"
+    "text": "8 clip(s) ready for 2026-11-01.",
+    "at": "2026-11-01T12:20:22.711Z"
   },
   "ranges": {
     "kevin-langue-crush": [
@@ -3010,6 +3176,16 @@
         "src": "mob_102_dsm_1.mp4",
         "s": 17.24,
         "e": 58.92
+      },
+      {
+        "src": "mob_102_dsm_1.mp4",
+        "s": 1039.5,
+        "e": 1074.88
+      },
+      {
+        "src": "mob_102_dsm_1.mp4",
+        "s": 1316.49,
+        "e": 1356.33
       }
     ]
   }
