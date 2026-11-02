@@ -1,0 +1,89 @@
+name: Edit an upload
+
+# Started by the app after it uploads a video to a temporary branch
+# (upload-<time>). Finds the best moments, makes one edit per platform,
+# publishes them like the daily clips, deletes the branch and notifies.
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch: { description: 'Upload branch', required: true, type: string }
+      file: { description: 'File path in that branch', required: true, type: string }
+      account: { description: 'Account', required: false, type: string, default: 'ReplayRoom' }
+      campaign: { description: 'Campaign id (optional)', required: false, type: string, default: '' }
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: clipfarm
+  cancel-in-progress: false
+
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q faster-whisper numpy
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/huggingface, key: whisper-base-en }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+      - name: Fetch the upload
+        id: up
+        run: |
+          set -e
+          git fetch -q origin "${{ inputs.branch }}"
+          mkdir -p .cache/uploads
+          NAME="$(basename "${{ inputs.file }}")"
+          git show "origin/${{ inputs.branch }}:${{ inputs.file }}" > ".cache/uploads/$NAME"
+          ls -la .cache/uploads
+          echo "path=.cache/uploads/$NAME" >> "$GITHUB_OUTPUT"
+          echo "tag=upload-$(date -u +%Y%m%d-%H%M%S)" >> "$GITHUB_OUTPUT"
+      - name: Edit it
+        id: make
+        continue-on-error: true
+        env:
+          CLIP_TAG: ${{ steps.up.outputs.tag }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          node upload-config.mjs "${{ steps.up.outputs.path }}" "${{ inputs.account }}" "${{ inputs.campaign }}" > .cache/upload-config.json
+          CLIP_ONLY=.cache/upload-config.json node clipfarm-cloud.mjs
+      - name: Publish clips
+        if: hashFiles('out/clips/manifest.json') != ''
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          TAG=$(node -p "require('./out/clips/manifest.json').tag")
+          gh release create "$TAG" out/clips/*.mp4 --title "Your upload $(date -u +%d\ %b)" --notes "Edited from an upload in the app"
+          GITHUB_REPOSITORY=${{ github.repository }} node clipfarm-cloud.mjs --publish
+          ./notify.sh "Your upload is edited" "$(node -p "require('./out/clips/manifest.json').items.length") clips ready in the app"
+      - name: Report a failed edit
+        if: steps.make.outcome == 'failure' || hashFiles('out/clips/manifest.json') == ''
+        run: ./notify.sh "Upload could not be edited" "$(node -p "require('./campaigns/state.json').status.text" 2>/dev/null || echo 'See the app')"
+      - name: Save and tidy
+        if: always()
+        run: |
+          git config user.name "clipdrop"; git config user.email "clipdrop@users.noreply.github.com"
+          for f in campaigns/state.json docs/clips.html; do [ -e "$f" ] && git add "$f"; done
+          git diff --staged --quiet || { git commit -qm "upload: ${{ inputs.branch }}"; for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q && break; sleep $((i*2)); done; }
+          git push -q origin --delete "${{ inputs.branch }}" || true
+      - uses: actions/upload-pages-artifact@v3
+        if: always()
+        with: { path: docs }
+  publish:
+    needs: edit
+    if: always() && needs.edit.result != 'cancelled'
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: '${{ steps.deploy.outputs.page_url }}' }
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

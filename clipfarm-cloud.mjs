@@ -191,9 +191,12 @@ async function duration(f) {
 // ── one day's drop ────────────────────────────────────────────
 
 async function makeDrop() {
-  const live = campaigns().filter((c) => !c.endsOn || c.endsOn >= today());
+  // CLIP_ONLY=<config path>: a one-off run (an upload from the app) that
+  // processes just that config and publishes under its own tag.
+  const only = process.env.CLIP_ONLY ? [{ id: path.basename(process.env.CLIP_ONLY).replace(/\.json$/, ''), ...readJson(process.env.CLIP_ONLY, {}) }] : null;
+  const live = only || campaigns().filter((c) => !c.endsOn || c.endsOn >= today());
   if (!live.length) return setStatus('ok', 'No live campaigns. Send Claude a new Vyro campaign to add.');
-  if (state.drops.some((d) => d.date === today()) && process.env.CLIP_FORCE !== 'true') {
+  if (!only && state.drops.some((d) => d.date === today() && !d.upload) && process.env.CLIP_FORCE !== 'true') {
     return setStatus('ok', 'Today\'s clips are already made.');
   }
 
@@ -244,7 +247,7 @@ async function makeDrop() {
           campaign: c.name, campaignId: c.id, source: name, file: path.basename(out),
           seconds: +secs.toFixed(1), hook: plain(hook),
           caption: `${line}\n\n${(c.hashtags || []).join(' ')}`.trim(),
-          platforms: c.platforms || ['tiktok'], account: c.account || 'ReplayRoom', notes: c.postingNotes || '',
+          platforms: c.platforms || ['tiktok'], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '',
         });
         made++;
       } catch (e) { warn(`${name}: render failed — ${e.message}`); }
@@ -256,7 +259,8 @@ async function makeDrop() {
       ? setStatus('ok', 'Every live campaign is used up. Send Claude a new campaign to add.')
       : setStatus('error', 'No clips could be made today — see the run log.');
   }
-  writeJson(path.join(OUT, 'manifest.json'), { date: today(), tag: `clips-${today()}`, items });
+  const tag = process.env.CLIP_TAG || `clips-${today()}`;
+  writeJson(path.join(OUT, 'manifest.json'), { date: today(), tag, upload: !!only, items });
   setStatus('ok', `${items.length} clip(s) made for ${today()}.`);
 }
 
@@ -296,7 +300,7 @@ async function creatorDrop(c) {
           range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
           seconds: +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
           caption: `${captionBase}${c.credit ? ' ' + c.credit : ''}\n\n${(c.hashtags || []).join(' ')}`.trim(),
-          platforms: [platform], account: c.account || 'ReplayRoom', notes: c.postingNotes || '',
+          platforms: [platform], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '',
         });
       } catch (e) { warn(`${momentId} ${platform}: render failed — ${e.message.split('\n')[0]}`); }
     }
@@ -365,7 +369,7 @@ async function main() {
   if (process.argv.includes('--publish')) {
     const m = readJson(path.join(OUT, 'manifest.json'), null);
     if (m) {
-      state.drops = state.drops.filter((d) => d.date !== m.date);
+      state.drops = state.drops.filter((d) => d.tag !== m.tag);
       state.drops.push(m);
       for (const it of m.items) {
         if (it.kind === 'creator') {

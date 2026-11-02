@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ReplayRoom HQ</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ReplayRoom">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#12141c">
+<style>
+/* Layout: one column of cards under a sticky title; tab bar fixed to the bottom like a phone app. */
+:root{
+  --bg:#f2f2f6; --card:#ffffff; --ink:#15151c; --muted:#5f6070; --line:#dcdce6;
+  --acc:#e2426f; --acc-ink:#ffffff; --go:#1c7f55; --warn:#a15c12; --bad:#b3261e; --chip:#ececf3;
+}
+@media (prefers-color-scheme:dark){ :root{
+  --bg:#0d0d12; --card:#17171f; --ink:#ececf2; --muted:#9d9daf; --line:#2a2a36;
+  --acc:#ff5c8a; --acc-ink:#12141c; --go:#3cc48a; --warn:#e3a54a; --bad:#ff7a70; --chip:#22222c; color-scheme:dark } }
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:var(--bg);padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 8px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}
+header h1{margin:0;font-size:20px;letter-spacing:-.01em}
+#sync{font-size:13px;color:var(--muted);background:none;border:0;padding:6px 0;cursor:pointer}
+main{max-width:640px;margin:0 auto;padding:12px 16px calc(env(safe-area-inset-bottom,0px) + 96px)}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:6px 4px calc(env(safe-area-inset-bottom,0px) + 6px)}
+nav button{flex:1;background:none;border:0;color:var(--muted);font-family:inherit;font-weight:600;font-size:12px;line-height:1.2;padding:6px 2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
+nav button svg{width:22px;height:22px}
+nav button[aria-current="page"]{color:var(--acc)}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:22px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
+.title{font-weight:700;margin:2px 0 4px}
+.meta,.muted{color:var(--muted);font-size:14px;margin:0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--acc);color:var(--acc-ink);text-decoration:none;border:0;border-radius:10px;padding:10px 14px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;min-height:44px}
+.btn.ghost{background:var(--chip);color:var(--ink)}
+.btn:disabled{opacity:.5}
+input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:44px}
+textarea{resize:vertical}
+label{font-size:13px;font-weight:600;color:var(--muted);display:block;margin:10px 0 4px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.chip{display:inline-block;font-size:12px;font-weight:700;background:var(--chip);border-radius:999px;padding:3px 9px;margin:2px 4px 2px 0}
+.ok{color:var(--go)} .warn{color:var(--warn)} .bad{color:var(--bad)}
+.status{font-size:14px;margin-top:8px;padding:8px 10px;border-radius:10px;background:var(--chip)}
+video{width:100%;max-height:60vh;border-radius:10px;background:#000;margin-top:8px}
+.bar{height:8px;border-radius:5px;background:var(--chip);overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--acc)}
+.empty{color:var(--muted);text-align:center;padding:28px 0}
+details summary{cursor:pointer;color:var(--muted);font-size:14px;margin-top:8px}
+.posted{opacity:.6}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="viewTitle">Today</h1>
+  <button id="sync" type="button">Refresh</button>
+</header>
+<main id="view"><p class="empty">Loading…</p></main>
+<nav id="tabs">
+  <button data-tab="today" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>Today</button>
+  <button data-tab="scout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Scout</button>
+  <button data-tab="upload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>Upload</button>
+  <button data-tab="koala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="6"/><circle cx="5" cy="8" r="3"/><circle cx="19" cy="8" r="3"/></svg>Koala</button>
+  <button data-tab="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</button>
+</nav>
+
+<script>
+const OWNER = '44bvhg4rf5-glitch', REPO = 'clipdrop-phone';
+const API = `https://api.github.com/repos/${OWNER}/${REPO}`;
+const RAW = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/`;
+const REL = `https://github.com/${OWNER}/${REPO}/releases/download/`;
+const HOUSE = {
+  ReplayRoom: ['Wait for it...', 'Nobody saw this coming', 'The reaction says it all', 'He really said that'],
+  'Off Mic': ['This answer changed everything', 'He said what we were all thinking', 'The most honest answer yet'],
+  'The Deal Room': ['This is how the deal really works', 'The pitch that changed everything', 'Nobody explains money like this'],
+};
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const store = { get: (k, d = '') => { try { return localStorage.getItem(k) ?? d; } catch { return d; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
+const token = () => store.get('rr_token');
+const today = () => new Date().toISOString().slice(0, 10);
+const b64 = (s) => btoa(unescape(encodeURIComponent(s)));
+const unb64 = (s) => decodeURIComponent(escape(atob(s.replace(/\n/g, ''))));
+
+// ── GitHub ───────────────────────────────────────────────────
+async function gh(path, opts = {}) {
+  if (!token()) throw new Error('Add your GitHub key in Settings first.');
+  const r = await fetch(path.startsWith('http') ? path : API + path, {
+    ...opts, headers: { Authorization: `Bearer ${token()}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json', ...(opts.headers || {}) },
+  });
+  if (r.status === 204) return null;
+  const body = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(body.message ? `GitHub: ${body.message}` : `GitHub error ${r.status}`);
+  return body;
+}
+async function raw(path) {
+  // With a key the API is always fresh; without one, the public copy (may lag ~5 min).
+  if (token()) { const f = await gh(`/contents/${path}?ref=main&t=${Date.now()}`); return JSON.parse(unb64(f.content)); }
+  const r = await fetch(`${RAW}${path}?t=${Date.now()}`); if (!r.ok) throw new Error(`${path}: ${r.status}`); return r.json();
+}
+async function getFile(path) { try { return await gh(`/contents/${path}?ref=main`); } catch { return null; } }
+async function putFile(path, text, message, sha) {
+  return gh(`/contents/${path}`, { method: 'PUT', body: JSON.stringify({ message, content: b64(text), branch: 'main', ...(sha ? { sha } : {}) }) });
+}
+async function runWorkflow(file, inputs = {}) {
+  return gh(`/actions/workflows/${file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref: 'main', inputs }) });
+}
+
+// ── data ─────────────────────────────────────────────────────
+const data = { clips: null, scout: null, koala: null, ledger: null, campaigns: [], posts: {} };
+async function load() {
+  $('#sync').textContent = 'Refreshing…';
+  const [clips, scout, koala, ledger] = await Promise.allSettled([raw('campaigns/state.json'), raw('scout/report.json'), raw('koala/state.json'), raw('koala/ledger.json')]);
+  data.clips = clips.value || null; data.scout = scout.value || null; data.koala = koala.value || null; data.ledger = ledger.value || null;
+  if (token()) {
+    try { data.campaigns = (await gh(`/contents/campaigns?ref=main`)).map((f) => f.name); } catch {}
+    try {
+      const list = await gh(`/contents/posts/${today()}?ref=main`).catch(() => []);
+      data.posts = {};
+      await Promise.all(list.filter((f) => f.name.endsWith('.json')).map(async (f) => {
+        const j = JSON.parse(unb64((await gh(`/contents/${f.path}?ref=main`)).content));
+        (data.posts[j.file] ||= []).push(j);
+      }));
+    } catch {}
+  }
+  $('#sync').textContent = 'Refreshed ' + new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+}
+
+// ── views ────────────────────────────────────────────────────
+const views = {
+  today() {
+    const drops = (data.clips?.drops || []).slice().reverse();
+    const recent = drops.filter((d) => d.date >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)).slice(0, 4);
+    const st = data.clips?.status;
+    let h = st ? `<div class="status">${esc(st.text)}</div>` : '';
+    if (!recent.length) return h + '<p class="empty">No clips in the last two days.<br>New ones arrive at 7am, or upload a video.</p>';
+    for (const d of recent) {
+      h += `<h2>${d.upload ? 'Your upload' : 'Clips'} · ${esc(d.date)}</h2>`;
+      for (const it of d.items) h += clipCard(d, it);
+    }
+    return h;
+  },
+  scout() {
+    const r = data.scout;
+    if (!r) return '<p class="empty">No scout report yet. It runs at 6:30am.</p>';
+    const on = data.campaigns.filter((f) => f.endsWith('.json') && !f.startsWith('_') && f !== 'state.json');
+    let h = `<p class="muted">Checked ${r.checked} of ${r.total} live campaigns · ${esc(r.at.slice(0, 16).replace('T', ' '))} UTC</p>`;
+    for (const acct of ['ReplayRoom', 'Off Mic', 'The Deal Room']) {
+      const ps = r.picks.filter((p) => p.account === acct);
+      h += `<h2>${esc(acct)}</h2>` + (ps.length ? ps.map((p) => scoutCard(p, on)).join('') : '<p class="muted">Nothing that fits today.</p>');
+    }
+    h += `<details><summary>Rejected and why (${r.rejected.length})</summary>${r.rejected.map((p) => `<p class="meta"><b>${esc(p.title)}</b>: ${esc(p.reject.join('; '))}</p>`).join('')}</details>`;
+    if (token()) h += `<h2>Running now</h2><div id="running"><p class="muted">Loading…</p></div>`;
+    setTimeout(renderRunning, 0);
+    return h;
+  },
+  upload() {
+    const camps = data.campaigns.filter((f) => f.endsWith('.json') && !f.startsWith('_') && f !== 'state.json').map((f) => f.replace(/\.json$/, ''));
+    return `<div class="card">
+      <div class="title">Edit a video</div>
+      <p class="meta">The system finds the best moments, adds hooks and captions, and makes a version for each platform. Clips appear in Today, and you get a notification.</p>
+      <label for="upFile">Video (up to 70 MB)</label><input id="upFile" type="file" accept="video/*">
+      <label for="upAcct">Account</label><select id="upAcct"><option>ReplayRoom</option><option>Off Mic</option><option>The Deal Room</option></select>
+      <label for="upCamp">Follow a campaign's rules (optional)</label><select id="upCamp"><option value="">No campaign</option>${camps.map((c) => `<option>${esc(c)}</option>`).join('')}</select>
+      <div class="row"><button class="btn" id="upGo" type="button">Upload &amp; edit</button></div>
+      <div id="upStatus" class="status" hidden></div>
+    </div>
+    <p class="muted">Only upload footage you have the right to use, such as a campaign's own files. Uploads are public on GitHub while they are being edited.</p>`;
+  },
+  koala() {
+    const k = data.koala;
+    if (!k) return '<p class="empty">No koala data yet.</p>';
+    const spent = Object.values(data.ledger?.months || {}).reduce((a, m) => a + (m.spent || 0), 0);
+    let h = `<div class="card"><div class="title">Pip &amp; Willow</div><p class="meta">$${spent.toFixed(2)} of the $48.00 trial budget spent</p>
+      <div class="bar"><i style="width:${Math.min(100, spent / 48 * 100).toFixed(0)}%"></i></div><p class="meta">${esc(k.status?.text || '')}</p></div><h2>Episodes</h2>`;
+    for (const e of (k.episodes || []).slice().reverse()) {
+      h += `<div class="card"><div class="title">${esc(e.title)}</div><p class="meta">${esc(e.date)}</p>
+        <div class="row"><a class="btn" href="${REL}${esc(e.tag)}/${esc(e.full)}">Full episode</a><a class="btn ghost" href="${REL}${esc(e.tag)}/${esc(e.short)}">Short cut</a>
+        <button class="btn ghost" type="button" data-copy="${esc(e.caption)}">Copy caption</button></div></div>`;
+    }
+    return h;
+  },
+  settings() {
+    const has = !!token();
+    return `<div class="card">
+      <div class="title">GitHub key ${has ? '<span class="ok">· connected</span>' : ''}</div>
+      <p class="meta">Lets the app save links, switch campaigns on and upload videos. It stays on this device.</p>
+      <details ${has ? '' : 'open'}><summary>How to make one (2 minutes)</summary>
+        <ol class="meta">
+          <li>github.com → your picture → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b> → Generate new token.</li>
+          <li>Name: ReplayRoom HQ. Expiration: 90 days. Repository access: <b>Only select repositories → clipdrop-phone</b>.</li>
+          <li>Permissions → Repository: <b>Contents: Read and write</b>, <b>Actions: Read and write</b>, <b>Secrets: Read and write</b>.</li>
+          <li>Generate, copy it, paste below.</li>
+        </ol></details>
+      <label for="tok">Key</label><input id="tok" type="password" autocomplete="off" placeholder="github_pat_…" value="${has ? '••••••••••' : ''}">
+      <div class="row"><button class="btn" id="saveTok" type="button">Save key</button>${has ? '<button class="btn ghost" id="forgetTok" type="button">Remove from this device</button>' : ''}</div>
+    </div>
+    <div class="card">
+      <div class="title">Notifications</div>
+      <p class="meta">Uses the free <b>ntfy</b> app (App Store / Play Store). Notifications go to a private channel name only you know.</p>
+      <label for="topic">Channel name</label><input id="topic" autocomplete="off" value="${esc(store.get('rr_topic'))}">
+      <div class="row"><button class="btn ghost" id="genTopic" type="button">Make a private name</button><button class="btn" id="saveTopic" type="button">Turn on</button><button class="btn ghost" id="testTopic" type="button">Send a test</button></div>
+      <p class="meta">After "Turn on": open ntfy → + → paste the channel name → Subscribe.</p>
+      <div id="topicStatus" class="status" hidden></div>
+    </div>
+    <div class="card"><div class="title">Install on this device</div>
+      <p class="meta">iPhone: Share → <b>Add to Home Screen</b>. Laptop (Chrome or Edge): the install icon in the address bar.</p></div>`;
+  },
+};
+
+function clipCard(d, it) {
+  const url = `${REL}${d.tag}/${it.file}`;
+  const posts = data.posts[it.file] || [];
+  const plats = it.platforms || [];
+  const done = posts.length >= plats.length && plats.length;
+  return `<div class="card ${done ? 'posted' : ''}" data-file="${esc(it.file)}">
+    <div class="eyebrow">Post on ${esc(it.account || 'ReplayRoom')} · ${esc(plats.join(', '))}</div>
+    <div class="title">${esc(it.campaign)}</div>
+    <p class="meta">"${esc(it.hook)}" · ${esc(it.seconds)}s</p>
+    <details><summary>Preview</summary><video preload="none" controls playsinline src="${esc(url)}"></video></details>
+    <label>Caption</label><textarea rows="3" readonly>${esc(it.caption)}</textarea>
+    <div class="row"><a class="btn" href="${esc(url)}">Download</a><button class="btn ghost" type="button" data-copy="${esc(it.caption)}">Copy caption</button></div>
+    <label>Posted? Paste the post's link</label>
+    <div class="row" style="margin-top:0"><input type="url" inputmode="url" placeholder="https://…" data-link="${esc(it.file)}"><button class="btn" type="button" data-post="${esc(it.file)}" data-tag="${esc(d.tag)}">Save &amp; check</button></div>
+    ${posts.map(postStatus).join('')}
+  </div>`;
+}
+function postStatus(p) {
+  const c = p.check;
+  const head = !c ? '<span class="muted">Checking… (about a minute)</span>' : c.status === 'ok' ? '<span class="ok">✓ Looks good</span>' : `<span class="${c.status === 'error' ? 'warn' : 'bad'}">⚠ ${esc((c.problems || [])[0] || 'Needs a look')}</span>`;
+  const notes = (c?.notes || []).map((n) => `<div class="muted">${esc(n)}</div>`).join('');
+  const submit = p.submitUrl ? `<a class="btn" href="${esc(p.submitUrl)}" data-copylink="${esc(p.url)}">Copy link &amp; open campaign</a>` : `<button class="btn ghost" type="button" data-copy="${esc(p.url)}">Copy link to submit</button>`;
+  return `<div class="status"><b>${esc(c?.platform || p.platform || '')}</b> ${head}${notes}<div class="row">${submit}</div></div>`;
+}
+function scoutCard(p, on) {
+  const id = p.ref.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+  const live = on.includes(`${id}.json`);
+  return `<div class="card">
+    <div class="eyebrow">${esc(p.board)} · score ${esc(p.score)}</div>
+    <div class="title">${esc(p.title)}</div>
+    <p class="meta">$${esc(p.rate)} per 1K · $${esc(p.budgetLeft)} left${p.days != null ? ` · ~${esc(p.days)} days` : ''} · ${esc(p.platforms.join(', '))}</p>
+    ${p.why.length ? `<p class="meta ok">✓ ${esc(p.why.join(' · '))}</p>` : ''}
+    ${(p.disclosure.length || p.tags.length) ? `<p class="meta"><b>Must include:</b> ${esc([...p.disclosure, ...p.tags].join(' · '))}</p>` : ''}
+    <div class="row"><a class="btn ghost" href="${esc(p.joinUrl)}">Open &amp; join</a>${live ? '<span class="chip ok">Running</span>' : `<button class="btn" type="button" data-joined="${esc(id)}" data-footage="${esc(p.footage)}">I joined</button>`}</div>
+    <div class="row" data-footbox="${esc(id)}" hidden><input type="url" placeholder="Footage link (Frame.io, Drive or Dropbox)" data-footlink="${esc(id)}"><button class="btn" type="button" data-joinedgo="${esc(id)}">Start clips</button></div>
+  </div>`;
+}
+async function renderRunning() {
+  const box = $('#running'); if (!box) return;
+  const on = data.campaigns.filter((f) => f.endsWith('.json') && !f.startsWith('_') && f !== 'state.json');
+  const rows = [];
+  for (const f of on) {
+    try { const c = await raw(`campaigns/${f}`); if (c.enabled !== false && (!c.endsOn || c.endsOn >= today())) rows.push(`<div class="card"><div class="eyebrow">${esc(c.account || 'ReplayRoom')}</div><div class="title">${esc(c.name)}</div><p class="meta">${c.endsOn ? `Ends ${esc(c.endsOn)} · ` : ''}${esc(c.perDay || 3)} a day</p><div class="row"><button class="btn ghost" type="button" data-stop="${esc(f)}">Stop this campaign</button></div></div>`); } catch {}
+  }
+  box.innerHTML = rows.join('') || '<p class="muted">No campaigns running.</p>';
+}
+
+// ── actions ──────────────────────────────────────────────────
+async function savePost(file, tag, url) {
+  const drop = (data.clips?.drops || []).find((d) => d.tag === tag);
+  const it = drop?.items.find((x) => x.file === file) || {};
+  const platform = /tiktok/i.test(url) ? 'tiktok' : /instagram/i.test(url) ? 'instagram' : /youtu/i.test(url) ? 'youtube' : 'unknown';
+  const rec = { url, platform, file, tag, campaign: it.campaign, campaignId: it.campaignId, account: it.account, requiredTags: it.requiredTags || [], submitUrl: it.submitUrl || '', at: new Date().toISOString() };
+  const name = `${file.replace(/\.mp4$/, '')}-${platform}-${Date.now()}.json`;
+  await putFile(`posts/${today()}/${name}`, JSON.stringify(rec, null, 2) + '\n', `post: ${platform} ${it.campaign || ''}`);
+  (data.posts[file] ||= []).push(rec);
+}
+async function enableCampaign(id, footage) {
+  const prop = await getFile(`campaigns/_proposed-${id}.json`);
+  if (!prop) throw new Error('That pick has changed since this morning. Refresh and try again.');
+  const cfg = JSON.parse(unb64(prop.content));
+  cfg.enabled = true;
+  if (footage) cfg.sources = [footage];
+  if (!cfg.sources?.length) throw new Error('Paste the campaign\'s footage link first.');
+  if (!cfg.hooks?.length) { cfg.hooks = HOUSE[cfg.account] || HOUSE.ReplayRoom; cfg.quoteHooks = false; }
+  await putFile(`campaigns/${id}.json`, JSON.stringify(cfg, null, 2) + '\n', `campaign: joined ${cfg.name}`);
+  await gh(`/contents/campaigns/_proposed-${id}.json`, { method: 'DELETE', body: JSON.stringify({ message: `campaign: ${id} switched on`, sha: prop.sha, branch: 'main' }) });
+  await runWorkflow('clipfarm.yml', { force: 'true' });
+}
+async function stopCampaign(f) {
+  const file = await getFile(`campaigns/${f}`);
+  const cfg = JSON.parse(unb64(file.content)); cfg.enabled = false;
+  await putFile(`campaigns/${f}`, JSON.stringify(cfg, null, 2) + '\n', `campaign: stopped ${cfg.name}`, file.sha);
+}
+function toB64(buf) {
+  let s = ''; const b = new Uint8Array(buf);
+  for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+async function upload() {
+  const f = $('#upFile').files[0], st = $('#upStatus');
+  const say = (t, cls = '') => { st.hidden = false; st.innerHTML = `<span class="${cls}">${t}</span>`; };
+  if (!f) return say('Choose a video first.', 'warn');
+  if (f.size > 70 * 1024 * 1024) return say('That file is over 70 MB. Trim it or export at a lower quality first.', 'bad');
+  $('#upGo').disabled = true;
+  try {
+    say('Reading the video…');
+    const content = toB64(await f.arrayBuffer());
+    say('Uploading… (keep the app open)');
+    const blob = await gh('/git/blobs', { method: 'POST', body: JSON.stringify({ content, encoding: 'base64' }) });
+    const safe = f.name.replace(/[^\w.-]+/g, '_');
+    const tree = await gh('/git/trees', { method: 'POST', body: JSON.stringify({ tree: [{ path: `upload/${safe}`, mode: '100644', type: 'blob', sha: blob.sha }] }) });
+    const commit = await gh('/git/commits', { method: 'POST', body: JSON.stringify({ message: `upload ${safe}`, tree: tree.sha, parents: [] }) });
+    const branch = `upload-${Date.now()}`;
+    await gh('/git/refs', { method: 'POST', body: JSON.stringify({ ref: `refs/heads/${branch}`, sha: commit.sha }) });
+    await runWorkflow('edit-upload.yml', { branch, file: `upload/${safe}`, account: $('#upAcct').value, campaign: $('#upCamp').value });
+    say('✓ Uploaded. Editing has started: it usually takes 5–15 minutes. You\'ll get a notification and the clips will appear in Today.', 'ok');
+    $('#upFile').value = '';
+  } catch (e) { say(esc(e.message), 'bad'); }
+  $('#upGo').disabled = false;
+}
+async function setTopic(topic) {
+  if (!window.sodium) {
+    await new Promise((res, rej) => { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/libsodium-wrappers@0.7.13/dist/browsers/sodium.js'; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+  }
+  await window.sodium.ready;
+  const so = window.sodium;
+  const key = await gh('/actions/secrets/public-key');
+  const sealed = so.crypto_box_seal(so.from_string(topic), so.from_base64(key.key, so.base64_variants.ORIGINAL));
+  await gh('/actions/secrets/NTFY_TOPIC', { method: 'PUT', body: JSON.stringify({ encrypted_value: so.to_base64(sealed, so.base64_variants.ORIGINAL), key_id: key.key_id }) });
+}
+
+// ── wiring ───────────────────────────────────────────────────
+let tab = store.get('rr_tab', 'today');
+const titles = { today: 'Today', scout: 'Scout', upload: 'Upload', koala: 'Pip & Willow', settings: 'Settings' };
+function render() {
+  $('#viewTitle').textContent = titles[tab];
+  document.querySelectorAll('#tabs button').forEach((b) => b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'));
+  $('#view').innerHTML = views[tab]();
+}
+async function copy(text, btn) {
+  try { await navigator.clipboard.writeText(text); } catch { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+  if (btn) { const o = btn.textContent; btn.textContent = 'Copied ✓'; setTimeout(() => (btn.textContent = o), 1400); }
+}
+document.addEventListener('click', async (e) => {
+  const b = e.target.closest('button,a'); if (!b) return;
+  if (b.dataset.tab) { tab = b.dataset.tab; store.set('rr_tab', tab); render(); return; }
+  if (b.dataset.copy !== undefined) { copy(b.dataset.copy, b); return; }
+  if (b.dataset.copylink) { copy(b.dataset.copylink); return; }
+  try {
+    if (b.dataset.post) {
+      const input = document.querySelector(`[data-link="${CSS.escape(b.dataset.post)}"]`);
+      const url = input.value.trim(); if (!/^https?:\/\//.test(url)) { input.focus(); return; }
+      b.disabled = true; b.textContent = 'Saving…';
+      await savePost(b.dataset.post, b.dataset.tag, url); render(); pollChecks();
+    } else if (b.dataset.joined) {
+      if (b.dataset.footage === 'downloadable') { b.disabled = true; b.textContent = 'Starting…'; await enableCampaign(b.dataset.joined); await load(); render(); alertBox('Switched on. The first clips are being made now (about 10–30 minutes).'); }
+      else { document.querySelector(`[data-footbox="${CSS.escape(b.dataset.joined)}"]`).hidden = false; }
+    } else if (b.dataset.joinedgo) {
+      const link = document.querySelector(`[data-footlink="${CSS.escape(b.dataset.joinedgo)}"]`).value.trim();
+      b.disabled = true; b.textContent = 'Starting…'; await enableCampaign(b.dataset.joinedgo, link); await load(); render(); alertBox('Switched on. The first clips are being made now.');
+    } else if (b.dataset.stop) {
+      b.disabled = true; await stopCampaign(b.dataset.stop); await load(); render();
+    } else if (b.id === 'upGo') { await upload(); }
+    else if (b.id === 'saveTok') { const v = $('#tok').value.trim(); if (v && !v.startsWith('••')) { store.set('rr_token', v); await gh(''); await load(); render(); alertBox('Connected.'); } }
+    else if (b.id === 'forgetTok') { store.set('rr_token', ''); render(); }
+    else if (b.id === 'genTopic') { const a = new Uint8Array(9); crypto.getRandomValues(a); $('#topic').value = 'rr-' + [...a].map((x) => x.toString(36).padStart(2, '0')).join('').slice(0, 16); }
+    else if (b.id === 'saveTopic') { const t = $('#topic').value.trim(); if (!/^[\w-]{8,64}$/.test(t)) throw new Error('Use letters, numbers and dashes (8+ characters). Tap "Make a private name".'); await setTopic(t); store.set('rr_topic', t); topicSay(`✓ Turned on. Now subscribe to <b>${esc(t)}</b> in the ntfy app.`, 'ok'); }
+    else if (b.id === 'testTopic') { const t = $('#topic').value.trim(); if (!t) return; await fetch(`https://ntfy.sh/${encodeURIComponent(t)}`, { method: 'POST', headers: { Title: 'ReplayRoom HQ' }, body: 'Test notification: it works.' }); topicSay('Sent. If nothing arrived, check you subscribed to the same name in ntfy.', 'ok'); }
+  } catch (err) { alertBox(err.message, true); b.disabled = false; }
+});
+function topicSay(t, cls) { const s = $('#topicStatus'); s.hidden = false; s.innerHTML = `<span class="${cls}">${t}</span>`; }
+function alertBox(text, bad) { const d = document.createElement('div'); d.className = 'status ' + (bad ? 'bad' : 'ok'); d.textContent = text; $('#view').prepend(d); setTimeout(() => d.remove(), 6000); }
+let polling = null;
+function pollChecks() {
+  clearInterval(polling); let n = 0;
+  polling = setInterval(async () => {
+    if (++n > 12) return clearInterval(polling);
+    const pending = Object.values(data.posts).flat().some((p) => !p.check);
+    if (!pending) return clearInterval(polling);
+    await load(); if (tab === 'today') render();
+  }, 20000);
+}
+$('#sync').addEventListener('click', async () => { await load(); render(); });
+(async () => {
+  render();
+  try { await load(); } catch (e) { alertBox(e.message, true); }
+  render();
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+})();
+</script>
+</body>
+</html>

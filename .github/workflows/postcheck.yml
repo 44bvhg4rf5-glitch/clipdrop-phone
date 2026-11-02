@@ -1,0 +1,39 @@
+name: Check posted links
+
+# The app writes posts/<date>/<id>.json when you paste a post link. This checks
+# each new one through the platforms' public oEmbed lookups, writes the result
+# back for the app to show, and notifies you if something needs fixing.
+
+on:
+  push:
+    paths: ['posts/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: postcheck
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: node postcheck.mjs
+      - name: Save results and notify
+        run: |
+          git config user.name "clipdrop"; git config user.email "clipdrop@users.noreply.github.com"
+          git add posts
+          git diff --staged --quiet && exit 0
+          git commit -qm "postcheck: $(date -u +%H:%M)"
+          for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q && break; sleep $((i*2)); done
+          S="$(cat .postcheck-summary.txt 2>/dev/null)"
+          if echo "$S" | grep -q "⚠️"; then ./notify.sh "A posted link needs attention" "$S"; else ./notify.sh "Links checked" "$S"; fi

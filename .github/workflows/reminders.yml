@@ -1,0 +1,25 @@
+name: Posting reminders
+
+# 12:00, 16:00 and 20:00 UTC (= UK time in winter; an hour later on the clock
+# in summer). Only sends if there are clips today.
+on:
+  schedule:
+    - cron: '0 12,16,20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, sparse-checkout: 'campaigns/state.json
+            notify.sh' }
+      - run: |
+          N=$(node -e "const s=require('./campaigns/state.json');const d=(s.drops||[]).filter(x=>x.date===new Date().toISOString().slice(0,10));console.log(d.reduce((a,x)=>a+x.items.length,0))")
+          [ "$N" -gt 0 ] && ./notify.sh "Time to post" "Post your next clip, then paste the link in the app ($N clips today)" || echo "no clips today"

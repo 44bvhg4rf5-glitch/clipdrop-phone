@@ -40,6 +40,10 @@ jobs:
           git diff --staged --quiet && exit 0
           git commit -m "scout: $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q && break; sleep $((i*2)); done
+      - name: Notify
+        env: { NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}' }
+        run: |
+          ./notify.sh "Campaign scout" "$(node -p "const r=require('./scout/report.json');r.picks.length+' campaigns worth joining today: '+r.picks.slice(0,3).map(p=>p.brand).join(', ')")"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs

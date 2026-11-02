@@ -77,6 +77,11 @@ jobs:
           git diff --staged --quiet && exit 0
           git commit -m "koala: $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q && break; sleep $((i*2)); done
+      - name: Notify
+        if: always()
+        env: { NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}' }
+        run: |
+          ./notify.sh "Pip & Willow" "$(node -p "require('./koala/state.json').status.text")"
       - uses: actions/upload-pages-artifact@v3
         if: always()
         with:
