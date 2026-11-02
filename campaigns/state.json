@@ -22,7 +22,9 @@
       "HULU-Phony-260911-BlowingOffSonny.-9x16-V5-JC-TXTLS.mp4",
       "HULU-Phony-260911-ThinkMomWasSwapped-9x16-V3-JC-TXTLS.mp4",
       "HULU-Phony-260917-NotOneSqueeze-9x16-V5-Mixed-CM-TXTLS.mp4",
-      "HULU-Phony-260917-ThreeSqueezes-9x16-V3-CM-TXTLS.mp4"
+      "HULU-Phony-260917-ThreeSqueezes-9x16-V3-CM-TXTLS.mp4",
+      "HULU-Phony-260925-102-PhotoshopIsMyPassion-9x16-TT-V2-TEXTLESS-AD.mp4",
+      "HULU-Phony-260925-102-WeridJoke-9x16-TT-V2-TEXTLESS-AD.mp4"
     ]
   },
   "drops": [
@@ -2951,12 +2953,176 @@
           "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
         }
       ]
+    },
+    {
+      "date": "2026-11-02",
+      "tag": "clips-2026-11-02",
+      "items": [
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260925-102-PhotoshopIsMyPassion-9x16-TT-V2-TEXTLESS-AD.mp4",
+          "file": "2026-11-02-hulu-phony-hulu-phony-260925-102-photoshopismypassion-9x16-tt.mp4",
+          "seconds": 30.9,
+          "hook": "He thinks his mom is an impostor",
+          "caption": "When your mom is also your principal 💀\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260925-102-WeridJoke-9x16-TT-V2-TEXTLESS-AD.mp4",
+          "file": "2026-11-02-hulu-phony-hulu-phony-260925-102-weridjoke-9x16-tt-v2-textles.mp4",
+          "seconds": 33.5,
+          "hook": "That is NOT his mom",
+          "caption": "Something is NOT right with his mom 👀\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-361",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 360.92,
+            "e": 403.56
+          },
+          "file": "2026-11-02-hulu-the-mob-mob-101-dsm-1-361-tiktok.mp4",
+          "seconds": 42.6,
+          "hook": "Parker Posey runs this villa",
+          "caption": "Celebrities in a villa fighting over $250,000 💰\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-361",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 360.92,
+            "e": 403.56
+          },
+          "file": "2026-11-02-hulu-the-mob-mob-101-dsm-1-361-instagram.mp4",
+          "seconds": 42.6,
+          "hook": "The most savage vote yet",
+          "caption": "Celebrities in a villa fighting over $250,000 💰\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-361",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 360.92,
+            "e": 403.56
+          },
+          "file": "2026-11-02-hulu-the-mob-mob-101-dsm-1-361-youtube.mp4",
+          "seconds": 42.6,
+          "hook": "They just turned on the don",
+          "caption": "Celebrities in a villa fighting over $250,000 💰\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1423",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1423.16,
+            "e": 1467.88
+          },
+          "file": "2026-11-02-hulu-the-mob-mob-101-dsm-1-1423-tiktok.mp4",
+          "seconds": 44.7,
+          "hook": "The most savage vote yet",
+          "caption": "Who would you trust as the don? 👀\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1423",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1423.16,
+            "e": 1467.88
+          },
+          "file": "2026-11-02-hulu-the-mob-mob-101-dsm-1-1423-instagram.mp4",
+          "seconds": 44.7,
+          "hook": "They just turned on the don",
+          "caption": "Who would you trust as the don? 👀\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1423",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1423.16,
+            "e": 1467.88
+          },
+          "file": "2026-11-02-hulu-the-mob-mob-101-dsm-1-1423-youtube.mp4",
+          "seconds": 44.7,
+          "hook": "From the people who made The Traitors",
+          "caption": "Who would you trust as the don? 👀\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        }
+      ]
     }
   ],
   "status": {
     "level": "ok",
-    "text": "8 clip(s) ready for 2026-11-01.",
-    "at": "2026-11-01T12:20:22.711Z"
+    "text": "8 clip(s) ready for 2026-11-02.",
+    "at": "2026-11-02T14:09:04.547Z"
   },
   "ranges": {
     "kevin-langue-crush": [
@@ -3186,6 +3352,16 @@
         "src": "mob_102_dsm_1.mp4",
         "s": 1316.49,
         "e": 1356.33
+      },
+      {
+        "src": "mob_101_dsm_1.mp4",
+        "s": 360.92,
+        "e": 403.56
+      },
+      {
+        "src": "mob_101_dsm_1.mp4",
+        "s": 1423.16,
+        "e": 1467.88
       }
     ]
   }
