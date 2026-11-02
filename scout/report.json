@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-02T18:26:24.168Z",
+  "at": "2026-11-02T18:29:50.341Z",
   "total": 504,
   "checked": 30,
   "picks": [
@@ -599,49 +599,6 @@
       "pageUrl": "https://clippingalpha.com/campaigns/silent-bushcraft/hakan-karahan?via=mcp"
     },
     {
-      "ref": "alex-trent/atomic-habits-book-riffs",
-      "title": "Alex Trent, Atomic Habits Book Riffs",
-      "brand": "Alex Trent",
-      "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 616,
-      "alpha": 26,
-      "tier": "low",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 1,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 16,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "budget forecast to run out within 3 days"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Keep clips 20 to 45 seconds",
-        "Open with the biggest take from the riff in the first 3 seconds",
-        "Show the quote for 10 seconds maximum after the take",
-        "Put B-roll over every cut",
-        "Use only the brand's footage",
-        "Add captions to every clip",
-        "Made for creators in Content Creator and Personal Brand",
-        "20 to 45 seconds",
-        "Captions on",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/8038661?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/alex-trent/atomic-habits-book-riffs?via=mcp"
-    },
-    {
       "ref": "slime-mart/clipping",
       "title": "[VIRAL V2] Slime Mart Clipping",
       "brand": "Slime Mart",
@@ -691,6 +648,49 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/8755750?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/slime-mart/clipping?via=mcp"
+    },
+    {
+      "ref": "alex-trent/atomic-habits-book-riffs",
+      "title": "Alex Trent, Atomic Habits Book Riffs",
+      "brand": "Alex Trent",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 616,
+      "alpha": 24,
+      "tier": "low",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 1,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 14,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "budget forecast to run out within 3 days"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Keep clips 20 to 45 seconds",
+        "Open with the biggest take from the riff in the first 3 seconds",
+        "Show the quote for 10 seconds maximum after the take",
+        "Put B-roll over every cut",
+        "Use only the brand's footage",
+        "Add captions to every clip",
+        "Made for creators in Content Creator and Personal Brand",
+        "20 to 45 seconds",
+        "Captions on",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/8038661?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/alex-trent/atomic-habits-book-riffs?via=mcp"
     },
     {
       "ref": "ricky-hilfiger/clipping",
