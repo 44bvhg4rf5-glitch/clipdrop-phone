@@ -341,6 +341,7 @@ textarea{width:100%;font:inherit;font-size:14px;padding:10px;border-radius:9px;b
 ol{margin:6px 0 0;padding-left:1.2em}
 </style><main>
 <h1>ReplayRoom clips</h1>
+<p class="muted"><a href="scout.html">Campaign scout: what to join next →</a></p>
 ${st ? `<section class="status ${esc(st.level)}"><b>Last run:</b> ${esc(st.text)}<br><span class="muted">${esc(st.at.slice(0, 16).replace('T', ' '))} UTC</span></section>` : ''}
 <section class="how"><b>For each clip</b><ol>
 <li>Download → post on the platforms shown, with the copied caption</li>

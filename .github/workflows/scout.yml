@@ -1,0 +1,55 @@
+name: Campaign scout
+
+# Every morning at 05:30 UTC (before the clips): ask ClippingAlpha's agent
+# interface (its terms allow AI agents) for live campaigns, read each brief and
+# footage list, reject what our pipeline must not or cannot do, and publish
+# docs/scout.html with the best picks per account. Read-only; costs nothing.
+
+on:
+  schedule:
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-writers
+  cancel-in-progress: false
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Scout campaigns
+        run: node scout.mjs
+      - name: Save report
+        run: |
+          git config user.name "clipdrop"
+          git config user.email "clipdrop@users.noreply.github.com"
+          git add -A scout docs/scout.html campaigns
+          git diff --staged --quiet && exit 0
+          git commit -m "scout: $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q && break; sleep $((i*2)); done
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  publish:
+    needs: scout
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
