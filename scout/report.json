@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-02T18:29:50.341Z",
-  "total": 504,
+  "at": "2026-11-02T18:42:41.942Z",
+  "total": 503,
   "checked": 30,
   "picks": [
     {
@@ -147,7 +147,7 @@
       "brand": "WorldsFirstPodcast",
       "board": "Content Rewards",
       "rate": 1.5,
-      "budgetLeft": 3982,
+      "budgetLeft": 3981,
       "alpha": 90,
       "tier": "alpha",
       "platforms": [
@@ -747,7 +747,7 @@
       "brand": "PB Blake",
       "board": "Content Rewards",
       "rate": 1.25,
-      "budgetLeft": 7035,
+      "budgetLeft": 7034,
       "alpha": 96,
       "tier": "alpha",
       "platforms": [
