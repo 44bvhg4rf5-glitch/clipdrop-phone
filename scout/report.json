@@ -1,76 +1,15 @@
 {
-  "at": "2026-11-02T18:42:41.942Z",
-  "total": 503,
+  "at": "2026-11-03T12:59:36.622Z",
+  "total": 501,
   "checked": 30,
   "picks": [
-    {
-      "ref": "jake-paul/clipping",
-      "title": "Jake Paul [CLIPPING]",
-      "brand": "Jake Paul",
-      "board": "Clipster",
-      "rate": 1.25,
-      "budgetLeft": 3633,
-      "alpha": 79,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 86,
-      "minViews": null,
-      "footage": "downloadable",
-      "sources": [
-        "https://next.frame.io/share/61991e4e-cb7d-4638-8b31-3c18616b1de7/view/f98f09d7-fc10-4f62-a34a-a8556d93a756",
-        "https://next.frame.io/share/61991e4e-cb7d-4638-8b31-3c18616b1de7/view/9cd54f04-bdf9-4dcd-99a4-4da49e693c6e",
-        "https://next.frame.io/share/61991e4e-cb7d-4638-8b31-3c18616b1de7/view/ece73c8c-a205-4158-91be-29e7b273f93f",
-        "https://next.frame.io/share/61991e4e-cb7d-4638-8b31-3c18616b1de7/view/8b2afecf-74f8-446b-b32a-58603b70b97d",
-        "https://next.frame.io/share/61991e4e-cb7d-4638-8b31-3c18616b1de7/view/9aa20555-83d4-42d7-8b74-a61d179863a3",
-        "https://next.frame.io/share/61991e4e-cb7d-4638-8b31-3c18616b1de7/view/52a07f17-6d94-4525-9b9a-6775790ad0dc",
-        "https://next.frame.io/share/61991e4e-cb7d-4638-8b31-3c18616b1de7/view/a0a6a950-a592-4b73-a6e8-2cfa05ca8f3a",
-        "https://next.frame.io/share/61991e4e-cb7d-4638-8b31-3c18616b1de7/view/0d538075-3039-4498-b0a5-3e4800848aae",
-        "https://f.io/2G15_yEc"
-      ],
-      "account": "ReplayRoom",
-      "score": 99,
-      "why": [
-        "footage on frameio"
-      ],
-      "reject": [],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Use suggested on-screen lines, rephrased to sound native to your content",
-        "Keep clips 7 to 60 seconds",
-        "Max earnings per creator: 1500 USD",
-        "Read the full rules in the linked Google Doc brief",
-        "Use the words \"PFL and MVP merger\"",
-        "Accounts need 100 followers",
-        "Post in English",
-        "Maximum 100 posts per account in total",
-        "Use only the brand's footage",
-        "No outside footage",
-        "No negative portrayal",
-        "Add captions to every clip",
-        "7 to 60 seconds",
-        "Captions on",
-        "Outside footage",
-        "Negative portrayal",
-        "Negative portrayal",
-        "Brand footage only",
-        "English",
-        "100 followers or more"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/7988861?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/jake-paul/clipping?via=mcp"
-    },
     {
       "ref": "jafar-try/clipping",
       "title": "Jafar Try Campaign",
       "brand": "Jafar Try",
       "board": "Content Rewards",
       "rate": 7,
-      "budgetLeft": 1009,
+      "budgetLeft": 1004,
       "alpha": 99,
       "tier": "alpha",
       "platforms": [
@@ -78,7 +17,7 @@
         "tiktok",
         "youtube"
       ],
-      "days": 50,
+      "days": 59,
       "minViews": null,
       "footage": "after-join",
       "sources": [],
@@ -100,7 +39,7 @@
       "brand": "Lady A",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 4096,
+      "budgetLeft": 4095,
       "alpha": 95,
       "tier": "alpha",
       "platforms": [
@@ -142,13 +81,13 @@
       "pageUrl": "https://clippingalpha.com/campaigns/lady-a/bigger-picture?via=mcp"
     },
     {
-      "ref": "worldsfirstpodcast/clipping",
-      "title": "WorldsFirstPodcast Clipping",
-      "brand": "WorldsFirstPodcast",
+      "ref": "wiped/clipping-2",
+      "title": "Wiped Clipping",
+      "brand": "Wiped",
       "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 3981,
-      "alpha": 90,
+      "rate": 2,
+      "budgetLeft": 2479,
+      "alpha": 93,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -156,6 +95,36 @@
         "youtube"
       ],
       "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 93,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [],
+      "tags": [],
+      "disclosure": [],
+      "rules": [],
+      "joinUrl": "https://clippingalpha.com/go/8382988?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/wiped/clipping-2?via=mcp"
+    },
+    {
+      "ref": "worldsfirstpodcast/clipping",
+      "title": "WorldsFirstPodcast Clipping",
+      "brand": "WorldsFirstPodcast",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 3676,
+      "alpha": 90,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 28,
       "minViews": 2000,
       "footage": "after-join",
       "sources": [],
@@ -194,15 +163,15 @@
       "brand": "George Michael",
       "board": "Clipster",
       "rate": 1,
-      "budgetLeft": 2500,
-      "alpha": 64,
+      "budgetLeft": 2362,
+      "alpha": 68,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": null,
+      "days": 14,
       "minViews": null,
       "footage": "downloadable",
       "sources": [
@@ -220,7 +189,7 @@
         "https://f.io/7c2kjtiW"
       ],
       "account": "Off Mic",
-      "score": 84,
+      "score": 88,
       "why": [
         "footage on frameio"
       ],
@@ -230,10 +199,10 @@
       "rules": [
         "Pick on-screen text lines from the provided list for the folder",
         "Meme clips: mention George Michael in caption or as hashtag",
-        "Use the campaign sound on every post",
+        "Put text on screen on every post, per folder TOS",
         "Accounts need 1,000 followers",
         "Post in English",
-        "Maximum 50 posts per account",
+        "Maximum 50 posts per account per day",
         "Use only the brand's footage",
         "No outside footage",
         "No negative portrayal",
@@ -249,114 +218,16 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/8862070?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/george-michael/personality?via=mcp"
-    }
-  ],
-  "rejected": [
+    },
     {
-      "ref": "taylor-swift/lainey-wilson",
-      "title": "Taylor Swift x Lainey Wilson Clipping",
-      "brand": "Taylor Swift",
+      "ref": "harry-jowsey/shane-parton-boyfriend-material",
+      "title": "Harry Jowsey x Shane Parton, Boyfriend Material",
+      "brand": "Harry Jowsey",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 1883,
-      "alpha": 95,
+      "budgetLeft": 2498,
+      "alpha": 83,
       "tier": "alpha",
-      "platforms": [
-        "tiktok"
-      ],
-      "days": 77,
-      "minViews": 2000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 95,
-      "why": [
-        "footage shown after joining",
-        "pays from 2,000 views"
-      ],
-      "reject": [
-        "only tiktok platforms"
-      ],
-      "tags": [
-        "@laineywilson",
-        "#laineywilson",
-        "#performance"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Tag @laineywilson on TikTok",
-        "Add #laineywilson and #performance on TikTok",
-        "Keep clips over 8 seconds",
-        "Taylor must be visible in frame with her face reacting",
-        "Reaction or shoutout must appear within the first 2 seconds",
-        "Watch all footage in the assets folder before cutting",
-        "Use the words \"Kinda Love It\"",
-        "Audience proof: Screen-record per-video analytics: watch time, view graphs, locations",
-        "2,000 views before payout",
-        "Post in English",
-        "Likes and comments must stay on",
-        "No spam posting, story boosts, paid boosts or collab posts"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/8028951?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/taylor-swift/lainey-wilson?via=mcp"
-    },
-    {
-      "ref": "tame-impala/triple-j-like-a-version",
-      "title": "Tame Impala, Triple J: Like A Version",
-      "brand": "Tame Impala",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 1000,
-      "alpha": 78,
-      "tier": "solid",
-      "platforms": [
-        "tiktok"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 73,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "only tiktok platforms"
-      ],
-      "tags": [
-        "#ad"
-      ],
-      "disclosure": [
-        "Add #ad to every post"
-      ],
-      "rules": [
-        "Add #ad to every post",
-        "Keep clips over 15 seconds",
-        "Clip audio must be the only sound in the post",
-        "Any page size can join",
-        "Post in English",
-        "No posting the same video on multiple accounts",
-        "No paid promotion or ads of any kind",
-        "Clip from the creator's channels",
-        "No nudity or sexual content",
-        "No hate or harassment",
-        "No reposts of other clips",
-        "No outside footage",
-        "The creator's channels"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/7992721?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/tame-impala/triple-j-like-a-version?via=mcp"
-    },
-    {
-      "ref": "let-him-mansplain-podcast/clipping",
-      "title": "Let Him Mansplain Podcast Clipping",
-      "brand": "Let Him Mansplain Podcast",
-      "board": "Content Rewards",
-      "rate": 1.25,
-      "budgetLeft": 10500,
-      "alpha": 68,
-      "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
@@ -367,32 +238,46 @@
       "footage": "after-join",
       "sources": [],
       "account": "Off Mic",
-      "score": 68,
+      "score": 83,
       "why": [
         "footage shown after joining"
       ],
-      "reject": [
-        "needs a dedicated page for this brand"
+      "reject": [],
+      "tags": [
+        "@harryjowsey",
+        "@hulu",
+        "#themob",
+        "#harryjowsey"
       ],
-      "tags": [],
       "disclosure": [],
       "rules": [
-        "New pages can join",
-        "Post from a dedicated page",
+        "Tag @harryjowsey and @hulu in the caption",
+        "Add #themob and #harryjowsey to the caption",
+        "Submit video on Whop with demographics for approval",
+        "B-roll allowed if appropriate, 3 seconds max at a time",
+        "At least 40% of the audience in US, UK, CA and AU",
+        "Audience proof: submit video demographics",
+        "Any page size can join",
+        "Views count from US, UK, CA and AU",
+        "No spam: no same video posted on many pages",
         "Use only the brand's footage",
+        "No nudity or sexual content",
+        "No violence",
         "The creator's channels"
       ],
-      "joinUrl": "https://clippingalpha.com/go/8531584?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/let-him-mansplain-podcast/clipping?via=mcp"
-    },
+      "joinUrl": "https://clippingalpha.com/go/8966991?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/harry-jowsey/shane-parton-boyfriend-material?via=mcp"
+    }
+  ],
+  "rejected": [
     {
       "ref": "pokemon/clipping",
       "title": "Pokemon Clipping!",
       "brand": "Pokemon",
       "board": "Content Rewards",
       "rate": 2.2,
-      "budgetLeft": 1793,
-      "alpha": 67,
+      "budgetLeft": 1781,
+      "alpha": 76,
       "tier": "solid",
       "platforms": [
         "instagram",
@@ -404,7 +289,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 67,
+      "score": 76,
       "why": [
         "footage shown after joining"
       ],
@@ -429,6 +314,96 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/8258271?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/pokemon/clipping?via=mcp"
+    },
+    {
+      "ref": "kim-constable/fan",
+      "title": "Kim Constable · FAN PAGE CLIPPING",
+      "brand": "Kim Constable",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 4500,
+      "alpha": 75,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 75,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "needs a dedicated page for this brand"
+      ],
+      "tags": [
+        "@kimconstableofficial"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @kimconstableofficial on TikTok, Instagram and YouTube",
+        "Caption must point back to Kim's YouTube channel",
+        "Pin your best-performing Kim Constable clip",
+        "Username must reference Kim, not imply official account",
+        "Any page size can join",
+        "Warm up new pages: Post at lower volume for a few days, engage in the niche, then scale up",
+        "No mixed-niche and personal accounts pages",
+        "Post from a dedicated page",
+        "Never repost the same clip twice on one account",
+        "No medical or financial claims",
+        "No misleading claims",
+        "No bought views or bots",
+        "@kimconstableofficial in the caption",
+        "Campaign link in bio",
+        "Misleading claims",
+        "Off topic content",
+        "The creator's channels",
+        "A dedicated page"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/8980626?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/kim-constable/fan?via=mcp"
+    },
+    {
+      "ref": "let-him-mansplain-podcast/clipping",
+      "title": "Let Him Mansplain Podcast Clipping",
+      "brand": "Let Him Mansplain Podcast",
+      "board": "Content Rewards",
+      "rate": 1.25,
+      "budgetLeft": 10477,
+      "alpha": 74,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Off Mic",
+      "score": 74,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "needs a dedicated page for this brand"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "New pages can join",
+        "Post from a dedicated page",
+        "Use only the brand's footage",
+        "The creator's channels"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/8531584?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/let-him-mansplain-podcast/clipping?via=mcp"
     },
     {
       "ref": "one-state/clipping",
@@ -554,7 +529,7 @@
       "board": "Content Rewards",
       "rate": 1.5,
       "budgetLeft": 1000,
-      "alpha": 35,
+      "alpha": 34,
       "tier": "low",
       "platforms": [
         "youtube"
@@ -564,7 +539,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 35,
+      "score": 34,
       "why": [
         "footage shown after joining",
         "pays from 1,000 views"
@@ -599,63 +574,12 @@
       "pageUrl": "https://clippingalpha.com/campaigns/silent-bushcraft/hakan-karahan?via=mcp"
     },
     {
-      "ref": "slime-mart/clipping",
-      "title": "[VIRAL V2] Slime Mart Clipping",
-      "brand": "Slime Mart",
-      "board": "Content Rewards",
-      "rate": 1.2,
-      "budgetLeft": 5000,
-      "alpha": 24,
-      "tier": "low",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 24,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "needs a dedicated page for this brand",
-        "needs the brand as profile picture"
-      ],
-      "tags": [
-        "@slimemart",
-        "@slimemartofficial",
-        "@SlimeMart_ZURU",
-        "#slimemart"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Tag @slimemart on TikTok",
-        "Tag @slimemartofficial on Instagram",
-        "Tag @SlimeMart_ZURU on YouTube",
-        "Add #slimemart to the caption",
-        "Credit a source creator by tagging them when sourcing clips outside the asset pack",
-        "Dedicated page username must include a variation of Slime Mart",
-        "Dedicated page bio must tag the official account and include a CTA",
-        "Reuse an official Slime Mart image as the profile picture",
-        "At least 30% of the audience in US",
-        "Any page size can join",
-        "No pages with gore, pornographic/OF (OnlyFans-style) content and violent content",
-        "Accounts need 25,000 followers"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/8755750?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/slime-mart/clipping?via=mcp"
-    },
-    {
-      "ref": "alex-trent/atomic-habits-book-riffs",
-      "title": "Alex Trent, Atomic Habits Book Riffs",
-      "brand": "Alex Trent",
+      "ref": "danesh-diamonds/clipping",
+      "title": "Duke Dennis Spends 100k on Grillz (ft. Kai Cenat)",
+      "brand": "Danesh Diamonds",
       "board": "Content Rewards",
       "rate": 1.5,
-      "budgetLeft": 616,
+      "budgetLeft": 696,
       "alpha": 24,
       "tier": "low",
       "platforms": [
@@ -675,22 +599,80 @@
       "reject": [
         "budget forecast to run out within 3 days"
       ],
-      "tags": [],
+      "tags": [
+        "#daneshdiamonds",
+        "@mentions"
+      ],
       "disclosure": [],
       "rules": [
-        "Keep clips 20 to 45 seconds",
-        "Open with the biggest take from the riff in the first 3 seconds",
-        "Show the quote for 10 seconds maximum after the take",
-        "Put B-roll over every cut",
-        "Use only the brand's footage",
-        "Add captions to every clip",
-        "Made for creators in Content Creator and Personal Brand",
-        "20 to 45 seconds",
-        "Captions on",
-        "Brand footage only"
+        "Add #daneshdiamonds to the caption",
+        "Hashtag everyone who appears in the clip",
+        "No @mentions in the caption",
+        "Danesh or the grillz must be on screen",
+        "Add an on-screen title saying what's happening",
+        "Views count from US",
+        "Clip from the creator's channels",
+        "No negative portrayal",
+        "Post on TikTok",
+        "Made for creators in Clip pages",
+        "#daneshdiamonds in the caption",
+        "Negative portrayal",
+        "The creator's channels",
+        "TikTok"
       ],
-      "joinUrl": "https://clippingalpha.com/go/8038661?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/alex-trent/atomic-habits-book-riffs?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/8709231?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/danesh-diamonds/clipping?via=mcp"
+    },
+    {
+      "ref": "danesh-diamonds/grillz",
+      "title": "Danesh Diamonds Grillz",
+      "brand": "Danesh Diamonds",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 1822,
+      "alpha": 23,
+      "tier": "low",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 2,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 13,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "budget forecast to run out within 3 days"
+      ],
+      "tags": [
+        "#daneshdiamonds"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Add #daneshdiamonds to the caption",
+        "Hashtag everyone who appears in the clip",
+        "No @ mentions in the caption",
+        "Use only newly released footage, not older clips",
+        "Add an on-screen title saying what is happening",
+        "Clip Danesh footage or Duke's Halloween party video",
+        "Use only the brand's footage",
+        "No reposts of other clips",
+        "No negative portrayal",
+        "Post on TikTok",
+        "Made for creators in clip pages",
+        "#daneshdiamonds in the caption",
+        "Reposts of other clips",
+        "Negative portrayal",
+        "Brand footage only",
+        "TikTok"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/8305695?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/danesh-diamonds/grillz?via=mcp"
     },
     {
       "ref": "ricky-hilfiger/clipping",
@@ -698,7 +680,7 @@
       "brand": "Ricky Hilfiger",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 1000,
+      "budgetLeft": 978,
       "alpha": 98,
       "tier": "alpha",
       "platforms": [
@@ -706,7 +688,7 @@
         "tiktok",
         "youtube"
       ],
-      "days": 36,
+      "days": 30,
       "minViews": 2000,
       "footage": "after-join",
       "sources": [],
@@ -747,7 +729,7 @@
       "brand": "PB Blake",
       "board": "Content Rewards",
       "rate": 1.25,
-      "budgetLeft": 7034,
+      "budgetLeft": 6139,
       "alpha": 96,
       "tier": "alpha",
       "platforms": [
@@ -755,7 +737,7 @@
         "tiktok",
         "youtube"
       ],
-      "days": 18,
+      "days": 8,
       "minViews": null,
       "footage": "youtube",
       "sources": [],
@@ -780,14 +762,13 @@
         "Tag @PBBlakeYT on YouTube",
         "Put youtube.com/@PBBlakeYT in your bio",
         "Page name must include \"PB Blake\"",
-        "Profile picture must be of PB Blake or brand",
+        "Profile picture must show the creator or brand",
+        "Keep likes visible for verification",
+        "Audience proof: visible likes on posts",
         "No mixed or personal content pages",
+        "No pages with blurry or low-effort posts, off-topic posts and unrelated viral content",
         "Post in English",
         "Post from a dedicated page",
-        "No re-uploading same video across accounts or spamming similar clips",
-        "No story posts and no paid promotion on any platform",
-        "Use only the brand's footage",
-        "Captions on",
         "@pb_blake in the caption",
         "@pbblake in the caption",
         "@PBBlakeYT in the caption",
@@ -795,8 +776,10 @@
         "Bought views or bots",
         "Reposts of other clips",
         "Off topic content",
-        "Low effort reuploads",
         "AI generated visuals",
+        "TikTok",
+        "Instagram",
+        "YouTube",
         "English",
         "A dedicated page"
       ],

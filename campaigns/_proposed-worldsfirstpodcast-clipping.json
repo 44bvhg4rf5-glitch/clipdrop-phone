@@ -3,7 +3,7 @@
   "type": "creator",
   "enabled": false,
   "account": "Off Mic",
-  "_scout": "Proposed by the scout on 2026-11-02. Alpha 90, $1.5/1K, $3981 left, ~? days. Join first: https://clippingalpha.com/go/8254066?via=mcp",
+  "_scout": "Proposed by the scout on 2026-11-03. Alpha 90, $1.5/1K, $3676 left, ~28 days. Join first: https://clippingalpha.com/go/8254066?via=mcp",
   "_rules": [
     "Tag @WorldsFirstPodcast on TikTok and Instagram",
     "Tag @WorldsFirstPod on YouTube",
@@ -38,6 +38,6 @@
     "@WorldsFirstPodcast",
     "@WorldsFirstPod"
   ],
-  "endsOn": null,
+  "endsOn": "2026-12-01",
   "postingNotes": "Payout from 2000 views"
 }

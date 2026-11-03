@@ -3,14 +3,14 @@
   "type": "creator",
   "enabled": false,
   "account": "Off Mic",
-  "_scout": "Proposed by the scout on 2026-11-02. Alpha 64, $1/1K, $2500 left, ~? days. Join first: https://clippingalpha.com/go/8862070?via=mcp",
+  "_scout": "Proposed by the scout on 2026-11-03. Alpha 68, $1/1K, $2362 left, ~14 days. Join first: https://clippingalpha.com/go/8862070?via=mcp",
   "_rules": [
     "Pick on-screen text lines from the provided list for the folder",
     "Meme clips: mention George Michael in caption or as hashtag",
-    "Use the campaign sound on every post",
+    "Put text on screen on every post, per folder TOS",
     "Accounts need 1,000 followers",
     "Post in English",
-    "Maximum 50 posts per account",
+    "Maximum 50 posts per account per day",
     "Use only the brand's footage",
     "No outside footage",
     "No negative portrayal",
@@ -54,6 +54,6 @@
   "captionLines": [],
   "hashtags": [],
   "mentions": [],
-  "endsOn": null,
+  "endsOn": "2026-11-17",
   "postingNotes": ""
 }
