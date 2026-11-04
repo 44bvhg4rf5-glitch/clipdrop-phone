@@ -26,7 +26,9 @@
       "HULU-Phony-260925-102-PhotoshopIsMyPassion-9x16-TT-V2-TEXTLESS-AD.mp4",
       "HULU-Phony-260925-102-WeridJoke-9x16-TT-V2-TEXTLESS-AD.mp4",
       "HULU-Phony-260925-103-CuckooCall-9x16-TT-V2-TEXTLESS-AD-.mp4",
-      "HULU-Phony-260925-103-GirlBonding-9x16-TT-V1-TEXTLESS-AD-.mp4"
+      "HULU-Phony-260925-103-GirlBonding-9x16-TT-V1-TEXTLESS-AD-.mp4",
+      "HULU-Phony-260925-NeedOnePerson-9x16-V1-JC-TXTLS.mp4",
+      "HULU-Phony-260925-Suspension-9x16-V1-CM-TXTLS.mp4"
     ]
   },
   "drops": [
@@ -3324,12 +3326,217 @@
           "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
         }
       ]
+    },
+    {
+      "date": "2026-11-04",
+      "tag": "clips-2026-11-04",
+      "upload": false,
+      "items": [
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260925-NeedOnePerson-9x16-V1-JC-TXTLS.mp4",
+          "file": "2026-11-04-hulu-phony-hulu-phony-260925-needoneperson-9x16-v1-jc-txtls.mp4",
+          "seconds": 75.7,
+          "hook": "He woke up and his mom was different",
+          "caption": "He's convinced his mom is an impostor 😳\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=phony-season-1-3-_s-fM_Lk",
+          "requiredTags": [
+            "#Phony",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260925-Suspension-9x16-V1-CM-TXTLS.mp4",
+          "file": "2026-11-04-hulu-phony-hulu-phony-260925-suspension-9x16-v1-cm-txtls.mp4",
+          "seconds": 62.6,
+          "hook": "Is she really his mom?",
+          "caption": "When your mom is also your principal 💀\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=phony-season-1-3-_s-fM_Lk",
+          "requiredTags": [
+            "#Phony",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1569",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1569.45,
+            "e": 1614.03
+          },
+          "file": "2026-11-04-hulu-the-mob-mob-102-dsm-1-1569-tiktok.mp4",
+          "seconds": 44.6,
+          "hook": "Celebrities backstabbing for $250,000",
+          "caption": "The Traitors producers really did it again 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1569",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1569.45,
+            "e": 1614.03
+          },
+          "file": "2026-11-04-hulu-the-mob-mob-102-dsm-1-1569-instagram.mp4",
+          "seconds": 44.6,
+          "hook": "Nobody trusts the don",
+          "caption": "The Traitors producers really did it again 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1569",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1569.45,
+            "e": 1614.03
+          },
+          "file": "2026-11-04-hulu-the-mob-mob-102-dsm-1-1569-youtube.mp4",
+          "seconds": 44.6,
+          "hook": "This vote changed everything",
+          "caption": "The Traitors producers really did it again 😳\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1796",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1796.27,
+            "e": 1838.16
+          },
+          "file": "2026-11-04-hulu-the-mob-mob-102-dsm-1-1796-tiktok.mp4",
+          "seconds": 41.9,
+          "hook": "Nobody trusts the don",
+          "caption": "Celebrities in a villa fighting over $250,000 💰\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1796",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1796.27,
+            "e": 1838.16
+          },
+          "file": "2026-11-04-hulu-the-mob-mob-102-dsm-1-1796-instagram.mp4",
+          "seconds": 41.9,
+          "hook": "This vote changed everything",
+          "caption": "Celebrities in a villa fighting over $250,000 💰\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-1796",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 1796.27,
+            "e": 1838.16
+          },
+          "file": "2026-11-04-hulu-the-mob-mob-102-dsm-1-1796-youtube.mp4",
+          "seconds": 41.9,
+          "hook": "He did NOT see that coming",
+          "caption": "Celebrities in a villa fighting over $250,000 💰\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
+        }
+      ]
     }
   ],
   "status": {
     "level": "ok",
-    "text": "8 clip(s) ready for 2026-11-03.",
-    "at": "2026-11-03T13:18:33.285Z"
+    "text": "8 clip(s) ready for 2026-11-04.",
+    "at": "2026-11-04T13:35:34.790Z"
   },
   "ranges": {
     "kevin-langue-crush": [
@@ -3579,6 +3786,16 @@
         "src": "mob_101_dsm_1.mp4",
         "s": 1339.97,
         "e": 1381.72
+      },
+      {
+        "src": "mob_102_dsm_1.mp4",
+        "s": 1569.45,
+        "e": 1614.03
+      },
+      {
+        "src": "mob_102_dsm_1.mp4",
+        "s": 1796.27,
+        "e": 1838.16
       }
     ]
   }
