@@ -199,10 +199,13 @@ function captionChunks(moment, start) {
  * over a blurred, darkened copy of itself — nothing cropped away) or 'crop'
  * (centre-crop to 9:16, for sources that are already close to vertical).
  */
-export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '', zoom = 1.3 }) {
+export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '', zoom = 1.3, exact = 0 }) {
   const st = PLATFORM_STYLE[platform] || PLATFORM_STYLE.tiktok;
-  const start = Math.max(0, moment.s - 0.25 + st.nudge);
-  const dur = moment.e - moment.s + 0.6;
+  // exact: a brief that fixes the length (Disney: "no more than 15 seconds",
+  // Vyro: "at least 15") gets exactly that many seconds, the moment centred in it.
+  const lead = exact ? Math.max(0.2, (exact - (moment.e - moment.s)) / 2) : 0.25;
+  const start = Math.max(0, moment.s - lead + st.nudge);
+  const dur = exact || moment.e - moment.s + 0.6;
   mkdirSync(work, { recursive: true });
   const txt = (name, t) => { const f = path.join(work, name); writeFileSync(f, t); return f; };
   const draws = [];
@@ -222,6 +225,6 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   const filter = `${base};[v0]${draws.join(',')}[v]`;
   await ffmpeg(['-ss', start.toFixed(2), '-t', dur.toFixed(2), '-i', video, '-filter_complex', filter,
     '-map', '[v]', '-map', '0:a?', '-r', '30', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p',
-    '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-movflags', '+faststart', '-y', out]);
+    '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', ...(exact ? ['-t', String(exact)] : []), '-movflags', '+faststart', '-y', out]);
   return out;
 }

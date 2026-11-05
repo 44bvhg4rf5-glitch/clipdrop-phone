@@ -3,7 +3,7 @@
   "type": "creator",
   "enabled": true,
   "account": "ReplayRoom",
-  "_brief": "Vyro, $2.00 CPM, 5,000 views per post minimum, $1,000 cap. Budget $5,400 (0 spent on 31 Oct). Ends 11 Nov 2026 14:00 UTC. TikTok, YouTube Shorts, Instagram Reels. Min 15s. Hashtag #themob + FTC #HuluPartner (or the platform's paid-partnership label). No collab posts or tagging. Footage: two full episodes on Frame.io. Read the full brief in the Vyro app after joining and send it to Claude.",
+  "_brief": "Vyro, $2.00 CPM, 5,000 views per post minimum, $1,000 cap. Full brief received 5 Nov 2026. Disney terms (which override Vyro): final piece no more than 15 seconds; Vyro: at least 15 seconds -> exactly 15.0s. Mandatory caption line, word for word. #themob + #HuluPartner only (no unaffiliated hashtags/logos). Footage only from the provided folders; keep each clip audio from its own moment; no licensed songs from the episodes; no music except the platform commercial library. No third-party IP (do NOT mention The Traitors or other shows). Nothing negative about Disney, Hulu, the show or contestants; do not misrepresent scenes. AI tools only if they do not train on uploads (our transcription runs locally on our own runner). No collab posts, no Story posts, no boosting, likes/comments on, one unique video per account.",
   "sources": [
     "https://f.io/23AUgRAW"
   ],
@@ -13,35 +13,33 @@
     "youtube"
   ],
   "perDay": 2,
-  "minSeconds": 20,
-  "maxSeconds": 45,
   "layout": "blurfill",
   "zoom": 1.3,
   "credit": "",
   "hooks": [
-    "They just turned on the don",
-    "From the people who made The Traitors",
-    "Celebrities backstabbing for $250,000",
-    "Nobody trusts the don",
-    "This vote changed everything",
-    "He did NOT see that coming",
+    "12 celebrities. 1 villa. $250,000.",
+    "Who would you trust in this villa?",
     "Parker Posey runs this villa",
-    "The most savage vote yet"
+    "Who would you pick as the don?",
+    "The don decides who gets paid",
+    "Celebrity alliances in an Italian villa"
   ],
   "captionLines": [
-    "The Traitors producers really did it again 😳",
-    "Celebrities in a villa fighting over $250,000 💰",
+    "12 celebrities, one Italian villa, up to $250,000 💰",
     "Who would you trust as the don? 👀",
-    "The backstabbing in this show is unreal 🔪",
-    "This vote changed everything 😭"
+    "Alliances in this villa change fast 😳",
+    "Parker Posey hosting this is everything 🇮🇹",
+    "Would you last a week in this villa? 🤔"
   ],
   "hashtags": [
     "#themob",
     "#HuluPartner"
   ],
   "endsOn": "2026-11-11",
-  "postingNotes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public.",
+  "postingNotes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public.",
   "_show": "Celebrity reality competition from The Traitors' producers: 12 celebrities (Harry Jowsey, Bruno Tonioli, Joe Gorga, Romeo Miller, Demi Engemann...) in an Italian villa, hosted by Parker Posey. The group picks a 'don' who decides who gets paid, stays or leaves; the others can overthrow them. Up to $250,000.",
   "quoteHooks": false,
-  "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7"
+  "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+  "exactSeconds": 15,
+  "requiredCaption": "Stream The Mob on Hulu and Hulu on Disney+ for bundle subscribers."
 }

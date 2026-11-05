@@ -246,7 +246,7 @@ async function makeDrop() {
         items.push({
           campaign: c.name, campaignId: c.id, source: name, file: path.basename(out),
           seconds: +secs.toFixed(1), hook: plain(hook),
-          caption: `${line}\n\n${(c.hashtags || []).join(' ')}`.trim(),
+          caption: [line, c.requiredCaption, (c.hashtags || []).join(' ')].filter(Boolean).join('\n\n').trim(),
           platforms: c.platforms || ['tiktok'], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '',
         });
         made++;
@@ -279,7 +279,9 @@ async function creatorDrop(c) {
     const name = path.basename(v);
     const used = ranges.filter((r) => r.src === name);
     log(`${c.name}: finding moments in ${name}`);
-    const found = await findMoments(v, ROOT, { min: c.minSeconds || 20, max: c.maxSeconds || 45, want, used });
+    // A fixed length (exactSeconds) looks for a spoken moment that fits inside it.
+    const lim = c.exactSeconds ? { min: c.exactSeconds - 5, max: c.exactSeconds - 0.6 } : { min: c.minSeconds || 20, max: c.maxSeconds || 45 };
+    const found = await findMoments(v, ROOT, { ...lim, want, used });
     per.push(...found.map((m) => ({ ...m, video: v, src: name })));
   }
   const best = per.sort((a, b) => b.score - a.score).slice(0, want);
@@ -294,12 +296,12 @@ async function creatorDrop(c) {
       const out = path.join(OUT, `${today()}-${c.id}-${momentId}-${platform}.mp4`);
       try {
         log(`${c.name}: ${m.src} @${m.s.toFixed(0)}s → ${platform} · ${hooks[pi % hooks.length]}`);
-        await renderMoment({ video: m.video, moment: m, hook: hooks[pi % hooks.length], platform, out, work, font: FONT, layout: c.layout || 'blurfill', credit: c.credit || '', zoom: c.zoom ?? 1.3 });
+        await renderMoment({ video: m.video, moment: m, hook: hooks[pi % hooks.length], platform, out, work, font: FONT, layout: c.layout || 'blurfill', credit: c.credit || '', zoom: c.zoom ?? 1.3, exact: c.exactSeconds || 0 });
         items.push({
           kind: 'creator', campaign: c.name, campaignId: c.id, source: m.src, moment: momentId,
           range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
-          seconds: +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
-          caption: `${captionBase}${c.credit ? ' ' + c.credit : ''}\n\n${(c.hashtags || []).join(' ')}`.trim(),
+          seconds: c.exactSeconds || +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
+          caption: [`${captionBase}${c.credit ? ' ' + c.credit : ''}`, c.requiredCaption, (c.hashtags || []).join(' ')].filter(Boolean).join('\n\n').trim(),
           platforms: [platform], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '',
         });
       } catch (e) { warn(`${momentId} ${platform}: render failed — ${e.message.split('\n')[0]}`); }
