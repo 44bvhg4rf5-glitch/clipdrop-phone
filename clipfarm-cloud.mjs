@@ -14,11 +14,11 @@
 // unaudited apps private, and Vyro has no submission API. Everything up to
 // that point is automatic. Nothing here costs money.
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync, statSync, copyFileSync } from 'node:fs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
-import { fetchSources, findMoments, hooksFor, renderMoment } from './clipfarm/creator.mjs';
+import { fetchSources, findMoments, hooksFor, renderMoment, transcript } from './clipfarm/creator.mjs';
 
 const run = promisify(execFile);
 const BIG = { maxBuffer: 64 * 1024 * 1024 };
@@ -273,11 +273,32 @@ async function creatorDrop(c) {
   log(`${c.name}: fetching creator footage`);
   const videos = await fetchSources(c.sources || [], path.join(CACHE, c.id), { fetchFrameIo, log, warn });
   if (!videos.length) throw new Error('no usable source videos (YouTube-only campaigns need the Mac)');
-  const want = c.perDay || 3;
-  const per = [];
+  // A transcript checked by a person (names spelt right: "Don", not "dawn")
+  // ships in campaigns/<id>.words/ and replaces the machine one.
   for (const v of videos) {
+    const fixed = path.join(CAMPAIGNS, `${c.id}.words`, `${path.basename(v)}.words.json`);
+    if (existsSync(fixed)) copyFileSync(fixed, v + '.words.json');
+  }
+  const want = c.perDay || 3;
+  // Hand-picked moments first (c.picks: { src, at, hook, caption }, reviewed by
+  // a person with text written for that exact moment), in order, each once.
+  const overlap = (a, b) => a.src === b.src && a.s < b.e && b.s < a.e;
+  const len = c.exactSeconds || 15;
+  const chosen = [];
+  for (const p of c.picks || []) {
+    if (chosen.length >= want) break;
+    const v = videos.find((x) => path.basename(x) === p.src);
+    const win = { src: p.src, s: p.at + 0.2, e: p.at + len - 0.2 };
+    if (!v || ranges.some((r) => overlap(r, win)) || chosen.some((q) => overlap(q, win))) continue;
+    const { segments } = await transcript(v, ROOT);
+    const segs = segments.filter((x) => x.end > p.at && x.start < p.at + len)
+      .map((x) => ({ ...x, words: (x.words || []).filter((w) => w.s >= p.at && w.e <= p.at + len) }));
+    chosen.push({ ...win, segments: segs, video: v, pick: p, score: 1e9 });
+  }
+  const per = [...chosen];
+  for (const v of chosen.length >= want ? [] : videos) {
     const name = path.basename(v);
-    const used = ranges.filter((r) => r.src === name);
+    const used = [...ranges, ...chosen].filter((r) => r.src === name);
     log(`${c.name}: finding moments in ${name}`);
     // A fixed length (exactSeconds) looks for a spoken moment that fits inside it.
     const lim = c.exactSeconds ? { min: c.exactSeconds - 5, max: c.exactSeconds - 0.6 } : { min: c.minSeconds || 20, max: c.maxSeconds || 45 };
@@ -289,9 +310,9 @@ async function creatorDrop(c) {
   const work = path.join(ROOT, '.produce', 'clips', c.id);
   const items = [];
   for (const [k, m] of best.entries()) {
-    const hooks = hooksFor(m, c.hooks || [], ranges.length + k, c.quoteHooks !== false);
+    const hooks = m.pick ? [].concat(m.pick.hooks || m.pick.hook) : hooksFor(m, c.hooks || [], ranges.length + k, c.quoteHooks !== false);
     const momentId = `${slugify(m.src.replace(/\.\w+$/, ''))}-${Math.round(m.s)}`;
-    const captionBase = (c.captionLines?.length ? c.captionLines[(ranges.length + k) % c.captionLines.length] : hooks[0].replace(/"/g, ''));
+    const captionBase = m.pick?.caption || (c.captionLines?.length ? c.captionLines[(ranges.length + k) % c.captionLines.length] : hooks[0].replace(/"/g, ''));
     for (const [pi, platform] of platforms.entries()) {
       const out = path.join(OUT, `${today()}-${c.id}-${momentId}-${platform}.mp4`);
       try {

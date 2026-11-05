@@ -68,7 +68,7 @@ export async function fetchSources(urls, dir, { fetchFrameIo, log, warn }) {
 
 // ── analysis ──────────────────────────────────────────────────
 
-async function transcript(video, root) {
+export async function transcript(video, root) {
   const out = video + '.words.json';
   if (!existsSync(out)) await run('python3', [path.join(root, 'clipfarm', 'transcribe.py'), video, out], BIG);
   return JSON.parse(readFileSync(out, 'utf8'));
@@ -175,7 +175,14 @@ function wrap(text, max) {
 
 /** Word groups (≤4 words, ≤1.6s) timed relative to the clip start. */
 function captionChunks(moment, start) {
-  const words = moment.segments.flatMap((s) => s.words).filter((w) => w.w);
+  // Whisper splits "D-O-N", "$100,000" and "1000%" into fragments ("-O",
+  // ",000.", "%"): glue each fragment back onto the word before it.
+  const words = [];
+  for (const w of moment.segments.flatMap((s) => s.words).filter((x) => x.w)) {
+    const prev = words[words.length - 1];
+    if (prev && /^[-,.%!?']/.test(w.w)) words[words.length - 1] = { ...prev, w: prev.w + w.w, e: w.e };
+    else words.push({ ...w });
+  }
   const chunks = [];
   let cur = [];
   for (const w of words) {
