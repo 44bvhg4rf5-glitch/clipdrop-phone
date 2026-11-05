@@ -232,6 +232,9 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   const filter = `${base};[v0]${draws.join(',')}[v]`;
   await ffmpeg(['-ss', start.toFixed(2), '-t', dur.toFixed(2), '-i', video, '-filter_complex', filter,
     '-map', '[v]', '-map', '0:a?', '-r', '30', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p',
+    // TV masters sit at -24 LUFS; phones play short video around -14, so a
+    // clip left at TV level sounds silent next to everything else in the feed.
+    '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11',
     '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', ...(exact ? ['-t', String(exact)] : []), '-movflags', '+faststart', '-y', out]);
   return out;
 }
