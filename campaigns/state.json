@@ -28,7 +28,9 @@
       "HULU-Phony-260925-103-CuckooCall-9x16-TT-V2-TEXTLESS-AD-.mp4",
       "HULU-Phony-260925-103-GirlBonding-9x16-TT-V1-TEXTLESS-AD-.mp4",
       "HULU-Phony-260925-NeedOnePerson-9x16-V1-JC-TXTLS.mp4",
-      "HULU-Phony-260925-Suspension-9x16-V1-CM-TXTLS.mp4"
+      "HULU-Phony-260925-Suspension-9x16-V1-CM-TXTLS.mp4",
+      "HULU-Phony-260930-103-TeachersNightOff-9x16-V1-TEXTLESS-AD.mp4",
+      "HULU-Phony-260930-SoCringe-9x16-V1-CM-TXTLS.mp4"
     ]
   },
   "drops": [
@@ -3531,12 +3533,295 @@
           "notes": "Join 'The Mob: Episode 1 and 2' on Vyro first. Likes & comments ON. No tags or collaborators. Never boost. Submit in Vyro the moment it's public."
         }
       ]
+    },
+    {
+      "date": "2026-11-05",
+      "tag": "clips-2026-11-05",
+      "upload": false,
+      "items": [
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260930-103-TeachersNightOff-9x16-V1-TEXTLESS-AD.mp4",
+          "file": "2026-11-05-hulu-phony-hulu-phony-260930-103-teachersnightoff-9x16-v1-tex.mp4",
+          "seconds": 49.7,
+          "hook": "He thinks his mom is an impostor",
+          "caption": "Something is NOT right with his mom 👀\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=phony-season-1-3-_s-fM_Lk",
+          "requiredTags": [
+            "#Phony",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "campaign": "Hulu · Phony (Ep 1–3)",
+          "campaignId": "hulu-phony",
+          "source": "HULU-Phony-260930-SoCringe-9x16-V1-CM-TXTLS.mp4",
+          "file": "2026-11-05-hulu-phony-hulu-phony-260930-socringe-9x16-v1-cm-txtls.mp4",
+          "seconds": 47.7,
+          "hook": "That is NOT his mom",
+          "caption": "Imagine waking up and your mom is… different 😭\n\n#Phony #HuluPartner",
+          "platforms": [
+            "tiktok",
+            "instagram",
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=phony-season-1-3-_s-fM_Lk",
+          "requiredTags": [
+            "#Phony",
+            "#HuluPartner"
+          ],
+          "notes": "Join 'Phony: Episodes 1-3' on Vyro first. Post each version on its platform. Likes & comments ON. No tags. Never boost. Submit in Vyro the moment it's public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-2021",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 2020.6000000000001,
+            "e": 2035.2
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-102-dsm-1-2021-tiktok.mp4",
+          "seconds": 15,
+          "hook": "Kiss the ring and the power goodbye",
+          "caption": "One vote and the ring is gone 💍 Would you vote for Joe?\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-2021",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 2020.6000000000001,
+            "e": 2035.2
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-102-dsm-1-2021-instagram.mp4",
+          "seconds": 15,
+          "hook": "Kiss the ring and the power goodbye",
+          "caption": "One vote and the ring is gone 💍 Would you vote for Joe?\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_102_dsm_1.mp4",
+          "moment": "mob-102-dsm-1-2021",
+          "range": {
+            "src": "mob_102_dsm_1.mp4",
+            "s": 2020.6000000000001,
+            "e": 2035.2
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-102-dsm-1-2021-youtube.mp4",
+          "seconds": 15,
+          "hook": "Kiss the ring and the power goodbye",
+          "caption": "One vote and the ring is gone 💍 Would you vote for Joe?\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1067",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1066.8,
+            "e": 1081.3999999999999
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-101-dsm-1-1067-tiktok.mp4",
+          "seconds": 15,
+          "hook": "Who gets to wear the Don's ring?",
+          "caption": "Parker Posey's timing 😭 Who would you make the Don?\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1067",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1066.8,
+            "e": 1081.3999999999999
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-101-dsm-1-1067-instagram.mp4",
+          "seconds": 15,
+          "hook": "Who gets to wear the Don's ring?",
+          "caption": "Parker Posey's timing 😭 Who would you make the Don?\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1067",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1066.8,
+            "e": 1081.3999999999999
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-101-dsm-1-1067-youtube.mp4",
+          "seconds": 15,
+          "hook": "Who gets to wear the Don's ring?",
+          "caption": "Parker Posey's timing 😭 Who would you make the Don?\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1861",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1861.2,
+            "e": 1875.8
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-101-dsm-1-1861-tiktok.mp4",
+          "seconds": 15,
+          "hook": "POV: hiding the Don's envelope",
+          "caption": "The fake cry to hide the envelope 😭\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "tiktok"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1861",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1861.2,
+            "e": 1875.8
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-101-dsm-1-1861-instagram.mp4",
+          "seconds": 15,
+          "hook": "POV: hiding the Don's envelope",
+          "caption": "The fake cry to hide the envelope 😭\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        },
+        {
+          "kind": "creator",
+          "campaign": "Hulu · The Mob (Ep 1–2)",
+          "campaignId": "hulu-the-mob",
+          "source": "mob_101_dsm_1.mp4",
+          "moment": "mob-101-dsm-1-1861",
+          "range": {
+            "src": "mob_101_dsm_1.mp4",
+            "s": 1861.2,
+            "e": 1875.8
+          },
+          "file": "2026-11-05-hulu-the-mob-mob-101-dsm-1-1861-youtube.mp4",
+          "seconds": 15,
+          "hook": "POV: hiding the Don's envelope",
+          "caption": "The fake cry to hide the envelope 😭\n\nStream The Mob on Hulu and Hulu on Disney+ for bundle subscribers.\n\n#themob #HuluPartner",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "https://app.vyro.com/campaigns?c=the-mob-episode-1-and-2-vn5s92J7",
+          "requiredTags": [
+            "#themob",
+            "#HuluPartner"
+          ],
+          "notes": "Keep the caption exactly as given (the Hulu line is mandatory). Likes & comments ON. No collab posts, no Stories, no tags, never boost. If you hear a SONG in the clip, do not post it (licensed music is banned). Use the platform sounds library only if you add music. Submit in Vyro the moment it is public."
+        }
+      ]
     }
   ],
   "status": {
     "level": "ok",
-    "text": "8 clip(s) ready for 2026-11-04.",
-    "at": "2026-11-04T13:35:34.790Z"
+    "text": "11 clip(s) ready for 2026-11-05.",
+    "at": "2026-11-05T06:55:30.616Z"
   },
   "ranges": {
     "kevin-langue-crush": [
@@ -3796,6 +4081,21 @@
         "src": "mob_102_dsm_1.mp4",
         "s": 1796.27,
         "e": 1838.16
+      },
+      {
+        "src": "mob_102_dsm_1.mp4",
+        "s": 2020.6000000000001,
+        "e": 2035.2
+      },
+      {
+        "src": "mob_101_dsm_1.mp4",
+        "s": 1066.8,
+        "e": 1081.3999999999999
+      },
+      {
+        "src": "mob_101_dsm_1.mp4",
+        "s": 1861.2,
+        "e": 1875.8
       }
     ]
   }
