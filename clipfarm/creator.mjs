@@ -206,7 +206,7 @@ function captionChunks(moment, start) {
  * over a blurred, darkened copy of itself — nothing cropped away) or 'crop'
  * (centre-crop to 9:16, for sources that are already close to vertical).
  */
-export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '', zoom = 1.3, exact = 0 }) {
+export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '', zoom = 1.3, exact = 0, context = '' }) {
   const st = PLATFORM_STYLE[platform] || PLATFORM_STYLE.tiktok;
   // exact: a brief that fixes the length (Disney: "no more than 15 seconds",
   // Vyro: "at least 15") gets exactly that many seconds, the moment centred in it.
@@ -216,8 +216,18 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   mkdirSync(work, { recursive: true });
   const txt = (name, t) => { const f = path.join(work, name); writeFileSync(f, t); return f; };
   const draws = [];
-  wrap(hook, 22).forEach((l, i) => draws.push(
-    `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`hook-${platform}-${i}.txt`, l)}:fontsize=64:fontcolor=white:borderw=6:bordercolor=black@0.85:x=(w-text_w)/2:y=${st.hookAt + i * 78}`));
+  const hookLines = wrap(hook, 22);
+  const ctxLines = wrap(noEmoji(context), 36).slice(0, 2);
+  // Hook + context must sit above the footage (which starts ~485px down at
+  // the usual zoom), so the block moves up when the context line is there.
+  const block = hookLines.length * 78 + (ctxLines.length ? 14 + ctxLines.length * 50 : 0);
+  const top = Math.max(170, Math.min(st.hookAt, 470 - block));
+  hookLines.forEach((l, i) => draws.push(
+    `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`hook-${platform}-${i}.txt`, l)}:fontsize=64:fontcolor=white:borderw=6:bordercolor=black@0.85:x=(w-text_w)/2:y=${top + i * 78}`));
+  // One quieter line under the hook that sets the scene, so someone who has
+  // never seen the show knows what they're watching in the first second.
+  ctxLines.forEach((l, i) => draws.push(
+    `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`ctx-${platform}-${i}.txt`, l)}:fontsize=40:fontcolor=0xFFE27A:borderw=4:bordercolor=black@0.85:x=(w-text_w)/2:y=${top + hookLines.length * 78 + 14 + i * 50}`));
   // expansion=none everywhere: drawtext otherwise treats % as a template code
   // and silently drops lines like "5% stake".
   captionChunks(moment, start).forEach((c, i) => draws.push(

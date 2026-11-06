@@ -48,190 +48,218 @@
       "src": "mob_102_dsm_1.mp4",
       "at": 2020.4,
       "hook": "Kiss the ring and the power goodbye",
-      "caption": "One vote and the ring is gone 💍 Would you vote for Joe?"
+      "caption": "One vote and the ring is gone 💍 Would you vote for Joe?",
+      "context": "Tonight the family votes on whether Joe stays Don"
     },
     {
       "id": "demi-me",
       "src": "mob_101_dsm_1.mp4",
       "at": 1431.3,
       "hook": "Demi's pitch to the Don",
-      "caption": "Demi said what she said 😂"
+      "caption": "Demi said what she said 😂",
+      "context": "The Don asks who earned the cash on the first job"
     },
     {
       "id": "who-wears-it",
       "src": "mob_101_dsm_1.mp4",
       "at": 1066.6,
       "hook": "Who gets to wear the Don's ring?",
-      "caption": "Parker Posey's timing 😭 Who would you make the Don?"
+      "caption": "Parker Posey's timing 😭 Who would you make the Don?",
+      "context": "Parker Posey reveals who becomes the Don"
     },
     {
       "id": "fake-cry",
       "src": "mob_101_dsm_1.mp4",
       "at": 1861,
       "hook": "POV: hiding the Don's envelope",
-      "caption": "The fake cry to hide the envelope 😭"
+      "caption": "The fake cry to hide the envelope 😭",
+      "context": "Demi got a secret envelope of cash from the Don"
     },
     {
       "id": "marinara",
       "src": "mob_101_dsm_1.mp4",
       "at": 1158,
       "hook": "$100,000 smothered in marinara",
-      "caption": "$100,000 smothered in marinara sauce 🍝 Share it or keep it all?"
+      "caption": "$100,000 smothered in marinara sauce 🍝 Share it or keep it all?",
+      "context": "Parker Posey reveals the final prize"
     },
     {
       "id": "toenail",
       "src": "mob_102_dsm_1.mp4",
       "at": 825.5,
       "hook": "Would you drink their house wine?",
-      "caption": "The house blend comes with extras 🍷😂"
+      "caption": "The house blend comes with extras 🍷😂",
+      "context": "The family has to make wine for the Don"
     },
     {
       "id": "don-eats",
       "src": "mob_101_dsm_1.mp4",
       "at": 1613.6,
       "hook": "The Don eats first",
-      "caption": "The Don eats first 🍝 Fair or greedy?"
+      "caption": "The Don eats first 🍝 Fair or greedy?",
+      "context": "As Don, Joe decides who gets paid"
     },
     {
       "id": "the-door",
       "src": "mob_101_dsm_1.mp4",
       "at": 2379.5,
       "hook": "Who walks through that door?",
-      "caption": "The wait before the door opens 😳"
+      "caption": "The wait before the door opens 😳",
+      "context": "Only the safe ones walk through that door"
     },
     {
       "id": "gelato",
       "src": "mob_102_dsm_1.mp4",
       "at": 179.8,
       "hook": "Parker Posey's exit line",
-      "caption": "Parker Posey ending the night with gelato 🍨 Iconic"
+      "caption": "Parker Posey ending the night with gelato 🍨 Iconic",
+      "context": "Host Parker Posey ends the family meeting"
     },
     {
       "id": "cut-a-deal",
       "src": "mob_101_dsm_1.mp4",
       "at": 2199.3,
       "hook": "Did she cut a deal with the Don?",
-      "caption": "Did she cut a deal with the Don? 👀"
+      "caption": "Did she cut a deal with the Don? 👀",
+      "context": "Demi got a secret envelope from the Don"
     },
     {
       "id": "trunk",
       "src": "mob_101_dsm_1.mp4",
       "at": 589.8,
       "hook": "They opened the trunk and...",
-      "caption": "Never know who's in the trunk 😂"
+      "caption": "Never know who's in the trunk 😂",
+      "context": "First job: search the cars for the cash"
     },
     {
       "id": "secret-envelope",
       "src": "mob_101_dsm_1.mp4",
       "at": 1829,
       "hook": "The Don's secret envelope",
-      "caption": "A secret envelope from the Don 🤫"
+      "caption": "A secret envelope from the Don 🤫",
+      "context": "The Don hands out the cash in private"
     },
     {
       "id": "fishes",
       "src": "mob_102_dsm_1.mp4",
       "at": 618,
       "hook": "Weakest link sleeps with the fishes",
-      "caption": "Start whining and get to work 🍇😂"
+      "caption": "Start whining and get to work 🍇😂",
+      "context": "Parker Posey sets the second job"
     },
     {
       "id": "harry-pitch",
       "src": "mob_101_dsm_1.mp4",
       "at": 1316.2,
       "hook": "Harry's pitch to the Don",
-      "caption": "Harry making his case to the Don 😂 Convinced?"
+      "caption": "Harry making his case to the Don 😂 Convinced?",
+      "context": "Harry's crew lost the first job"
     },
     {
       "id": "risk-power",
       "src": "mob_102_dsm_1.mp4",
       "at": 1992.4,
       "hook": "The Don could lose it all tonight",
-      "caption": "First loyalty pledge 😳 Does Joe keep the ring?"
+      "caption": "First loyalty pledge 😳 Does Joe keep the ring?",
+      "context": "Tonight the family can vote out the Don"
     },
     {
       "id": "bait",
       "src": "mob_102_dsm_1.mp4",
       "at": 1701.9,
       "hook": "The envelope is bait",
-      "caption": "Another envelope… or bait? 👀"
+      "caption": "Another envelope… or bait? 👀",
+      "context": "Joe gives Demi another envelope"
     },
     {
       "id": "don-lock",
       "src": "mob_101_dsm_1.mp4",
       "at": 898,
       "hook": "Who cracked the D-O-N lock?",
-      "caption": "D-O-N 😂 Who would've cracked it first?"
+      "caption": "D-O-N 😂 Who would've cracked it first?",
+      "context": "One lock left between them and the cash"
     },
     {
       "id": "power-taken",
       "src": "mob_102_dsm_1.mp4",
       "at": 153.1,
       "hook": "Power is taken, not given",
-      "caption": "Power is taken, not given 👑"
+      "caption": "Power is taken, not given 👑",
+      "context": "Parker Posey warns the family"
     },
     {
       "id": "cut-tonight",
       "src": "mob_101_dsm_1.mp4",
       "at": 1143,
       "hook": "The Don has to cut someone tonight",
-      "caption": "First family meeting and someone's out 😳 Who would you cut?"
+      "caption": "First family meeting and someone's out 😳 Who would you cut?",
+      "context": "The Don decides who gets paid and who goes"
     },
     {
       "id": "joe-don",
       "src": "mob_101_dsm_1.mp4",
       "at": 1085.9,
       "hook": "Joe Gorga is now the Don",
-      "caption": "Joe Gorga as the Don… thoughts? 👀"
+      "caption": "Joe Gorga as the Don… thoughts? 👀",
+      "context": "Joe's crew won, so he becomes the Don"
     },
     {
       "id": "regime",
       "src": "mob_102_dsm_1.mp4",
       "at": 1871,
       "hook": "Is it time for a new Don?",
-      "caption": "Regime change in the villa? 👀"
+      "caption": "Regime change in the villa? 👀",
+      "context": "Some of the family want a new Don"
     },
     {
       "id": "door2",
       "src": "mob_102_dsm_1.mp4",
       "at": 2389.5,
       "hook": "Only one of them walks back in",
-      "caption": "Aida or Bruno… who walks in? 😳"
+      "caption": "Aida or Bruno… who walks in? 😳",
+      "context": "Aida or Bruno: one of them is going home"
     },
     {
       "id": "feet",
       "src": "mob_102_dsm_1.mp4",
       "at": 756.5,
       "hook": "How many feet have been in here?",
-      "caption": "Fresh from the grapes 🍇😂"
+      "caption": "Fresh from the grapes 🍇😂",
+      "context": "The family stomps grapes for the Don"
     },
     {
       "id": "don-no-work",
       "src": "mob_102_dsm_1.mp4",
       "at": 540.6,
       "hook": "The Don doesn't have to work",
-      "caption": "The Don doesn't even have to work 😂 Fair?"
+      "caption": "The Don doesn't even have to work 😂 Fair?",
+      "context": "Parker Posey sets the wine job"
     },
     {
       "id": "first-job",
       "src": "mob_101_dsm_1.mp4",
       "at": 267.6,
       "hook": "Their first job: blow up the cars",
-      "caption": "Their first job for the family 💥"
+      "caption": "Their first job for the family 💥",
+      "context": "Celebrities, an Italian villa and $250,000"
     },
     {
       "id": "ring",
       "src": "mob_101_dsm_1.mp4",
       "at": 1051.8,
       "hook": "The ring with absolute power",
-      "caption": "Respect, loyalty and absolute power 💍 Would you want the ring?"
+      "caption": "Respect, loyalty and absolute power 💍 Would you want the ring?",
+      "context": "Parker Posey reveals the Don's ring"
     },
     {
       "id": "winery",
       "src": "mob_102_dsm_1.mp4",
       "at": 483.5,
       "hook": "Parker Posey's winery problem",
-      "caption": "Parker Posey keeps the good stuff for herself 🍷"
+      "caption": "Parker Posey keeps the good stuff for herself 🍷",
+      "context": "Parker Posey sets the wine job"
     }
   ],
-  "_picks": "27 moments chosen by reading both episodes (5 Nov 2026), best first; each posts once, then the job falls back to automatic picks. Times are seconds into the episode; every clip is exactly 15s from there."
+  "_picks": "27 moments chosen by reading both episodes (5 Nov 2026), best first; each posts once, then the job falls back to automatic picks. Times are seconds into the episode; every clip is exactly 15s from there.",
+  "context": "12 celebrities. 1 villa. The Don decides who gets paid."
 }

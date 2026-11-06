@@ -301,7 +301,7 @@ async function creatorDrop(c) {
     const used = [...ranges, ...chosen].filter((r) => r.src === name);
     log(`${c.name}: finding moments in ${name}`);
     // A fixed length (exactSeconds) looks for a spoken moment that fits inside it.
-    const lim = c.exactSeconds ? { min: c.exactSeconds - 5, max: c.exactSeconds - 0.6 } : { min: c.minSeconds || 20, max: c.maxSeconds || 45 };
+    const lim = c.exactSeconds ? { min: c.exactSeconds - 5, max: c.exactSeconds - 0.6 } : { min: c.minSeconds || 20, max: c.maxSeconds || 35 };
     const found = await findMoments(v, ROOT, { ...lim, want, used });
     per.push(...found.map((m) => ({ ...m, video: v, src: name })));
   }
@@ -317,7 +317,7 @@ async function creatorDrop(c) {
       const out = path.join(OUT, `${today()}-${c.id}-${momentId}-${platform}.mp4`);
       try {
         log(`${c.name}: ${m.src} @${m.s.toFixed(0)}s → ${platform} · ${hooks[pi % hooks.length]}`);
-        await renderMoment({ video: m.video, moment: m, hook: hooks[pi % hooks.length], platform, out, work, font: FONT, layout: c.layout || 'blurfill', credit: c.credit || '', zoom: c.zoom ?? 1.3, exact: c.exactSeconds || 0 });
+        await renderMoment({ video: m.video, moment: m, hook: hooks[pi % hooks.length], platform, out, work, font: FONT, layout: c.layout || 'blurfill', credit: c.credit || '', zoom: c.zoom ?? 1.3, exact: c.exactSeconds || 0, context: m.pick?.context || c.context || '' });
         items.push({
           kind: 'creator', campaign: c.name, campaignId: c.id, source: m.src, moment: momentId,
           range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
