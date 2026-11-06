@@ -1,0 +1,38 @@
+{
+  "name": "John Morgan (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Off Mic",
+  "_scout": "Proposed by the scout on 2026-11-06. Alpha 79, $3/1K, $892 left, ~5 days. Join first: https://clippingalpha.com/go/9516066?via=mcp",
+  "_rules": [
+    "Tag @rawlawmedia in the caption",
+    "Feature both John Morgan and the host in clips",
+    "Submit the posted clip link for payment review",
+    "Use only the brand's footage",
+    "Keep the brand logo on screen",
+    "@rawlawmedia in the caption",
+    "Brand logo on screen",
+    "Brand footage only"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [
+    "@rawlawmedia"
+  ],
+  "endsOn": "2026-11-11",
+  "postingNotes": ""
+}

@@ -1,0 +1,36 @@
+{
+  "name": "MIKE MEW (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "ReplayRoom",
+  "_scout": "Proposed by the scout on 2026-11-06. Alpha 97, $1.5/1K, $2828 left, ~49 days. Join first: https://clippingalpha.com/go/8931717?via=mcp",
+  "_rules": [
+    "Clip from the creator's channels",
+    "Put the campaign link in your bio",
+    "Add captions to every clip",
+    "Post on TikTok, Instagram and YouTube",
+    "The creator's channels",
+    "TikTok",
+    "Instagram",
+    "YouTube"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [],
+  "endsOn": "2026-12-25",
+  "postingNotes": ""
+}

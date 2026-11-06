@@ -1,0 +1,35 @@
+{
+  "name": "Rolling Stone (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Off Mic",
+  "_scout": "Proposed by the scout on 2026-11-06. Alpha 97, $2/1K, $1300 left, ~4 days. Join first: https://clippingalpha.com/go/3465267?via=mcp",
+  "_rules": [
+    "No reposts of other clips",
+    "No misleading claims",
+    "Post on TikTok and Instagram",
+    "Made for creators in Music Pages, Podcast Pages and Movie Pages",
+    "Use the five official interview YouTube links given in the brief as clip sources",
+    "The creator's channels",
+    "TikTok",
+    "Instagram"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [],
+  "endsOn": "2026-11-10",
+  "postingNotes": ""
+}
