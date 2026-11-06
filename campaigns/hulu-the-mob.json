@@ -49,7 +49,8 @@
       "at": 2020.4,
       "hook": "Kiss the ring and the power goodbye",
       "caption": "One vote and the ring is gone 💍 Would you vote for Joe?",
-      "context": "Tonight the family votes on whether Joe stays Don"
+      "context": "Tonight the family votes on whether Joe stays Don",
+      "pin": "Would you vote for Joe? 👇"
     },
     {
       "id": "demi-me",
@@ -57,7 +58,8 @@
       "at": 1431.3,
       "hook": "Demi's pitch to the Don",
       "caption": "Demi said what she said 😂",
-      "context": "The Don asks who earned the cash on the first job"
+      "context": "The Don asks who earned the cash on the first job",
+      "pin": "Was Demi the MVP of the first job? 👇"
     },
     {
       "id": "who-wears-it",
@@ -65,7 +67,8 @@
       "at": 1066.6,
       "hook": "Who gets to wear the Don's ring?",
       "caption": "Parker Posey's timing 😭 Who would you make the Don?",
-      "context": "Parker Posey reveals who becomes the Don"
+      "context": "Parker Posey reveals who becomes the Don",
+      "pin": "Who would you make the Don? 👇"
     },
     {
       "id": "fake-cry",
@@ -73,7 +76,8 @@
       "at": 1861,
       "hook": "POV: hiding the Don's envelope",
       "caption": "The fake cry to hide the envelope 😭",
-      "context": "Demi got a secret envelope of cash from the Don"
+      "context": "Demi got a secret envelope of cash from the Don",
+      "pin": "Would you keep the envelope a secret? 🤫👇"
     },
     {
       "id": "marinara",
@@ -81,7 +85,8 @@
       "at": 1158,
       "hook": "$100,000 smothered in marinara",
       "caption": "$100,000 smothered in marinara sauce 🍝 Share it or keep it all?",
-      "context": "Parker Posey reveals the final prize"
+      "context": "Parker Posey reveals the final prize",
+      "pin": "Share the $100,000 or keep it all? 👇"
     },
     {
       "id": "toenail",
@@ -89,7 +94,8 @@
       "at": 825.5,
       "hook": "Would you drink their house wine?",
       "caption": "The house blend comes with extras 🍷😂",
-      "context": "The family has to make wine for the Don"
+      "context": "The family has to make wine for the Don",
+      "pin": "Would you drink it? 🍷👇"
     },
     {
       "id": "don-eats",
@@ -97,7 +103,8 @@
       "at": 1613.6,
       "hook": "The Don eats first",
       "caption": "The Don eats first 🍝 Fair or greedy?",
-      "context": "As Don, Joe decides who gets paid"
+      "context": "As Don, Joe decides who gets paid",
+      "pin": "Fair or greedy? 👇"
     },
     {
       "id": "the-door",
@@ -105,7 +112,8 @@
       "at": 2379.5,
       "hook": "Who walks through that door?",
       "caption": "The wait before the door opens 😳",
-      "context": "Only the safe ones walk through that door"
+      "context": "Only the safe ones walk through that door",
+      "pin": "Who did you think was walking in? 👀👇"
     },
     {
       "id": "gelato",
@@ -113,7 +121,8 @@
       "at": 179.8,
       "hook": "Parker Posey's exit line",
       "caption": "Parker Posey ending the night with gelato 🍨 Iconic",
-      "context": "Host Parker Posey ends the family meeting"
+      "context": "Host Parker Posey ends the family meeting",
+      "pin": "Parker Posey is the best host on TV. Agree? 👇"
     },
     {
       "id": "cut-a-deal",
@@ -121,7 +130,8 @@
       "at": 2199.3,
       "hook": "Did she cut a deal with the Don?",
       "caption": "Did she cut a deal with the Don? 👀",
-      "context": "Demi got a secret envelope from the Don"
+      "context": "Demi got a secret envelope from the Don",
+      "pin": "Would you keep the Don's secret? 🤫👇"
     },
     {
       "id": "trunk",
@@ -129,7 +139,8 @@
       "at": 589.8,
       "hook": "They opened the trunk and...",
       "caption": "Never know who's in the trunk 😂",
-      "context": "First job: search the cars for the cash"
+      "context": "First job: search the cars for the cash",
+      "pin": "Who would you want to find in the trunk? 😂👇"
     },
     {
       "id": "secret-envelope",
@@ -137,7 +148,8 @@
       "at": 1829,
       "hook": "The Don's secret envelope",
       "caption": "A secret envelope from the Don 🤫",
-      "context": "The Don hands out the cash in private"
+      "context": "The Don hands out the cash in private",
+      "pin": "Would you take the envelope? 💰👇"
     },
     {
       "id": "fishes",
@@ -145,7 +157,8 @@
       "at": 618,
       "hook": "Weakest link sleeps with the fishes",
       "caption": "Start whining and get to work 🍇😂",
-      "context": "Parker Posey sets the second job"
+      "context": "Parker Posey sets the second job",
+      "pin": "Runner, stomper or bottler: which job are you taking? 🍇👇"
     },
     {
       "id": "harry-pitch",
@@ -153,7 +166,8 @@
       "at": 1316.2,
       "hook": "Harry's pitch to the Don",
       "caption": "Harry making his case to the Don 😂 Convinced?",
-      "context": "Harry's crew lost the first job"
+      "context": "Harry's crew lost the first job",
+      "pin": "Did Harry convince you? 👇"
     },
     {
       "id": "risk-power",
@@ -161,7 +175,8 @@
       "at": 1992.4,
       "hook": "The Don could lose it all tonight",
       "caption": "First loyalty pledge 😳 Does Joe keep the ring?",
-      "context": "Tonight the family can vote out the Don"
+      "context": "Tonight the family can vote out the Don",
+      "pin": "Keep Joe as Don or vote for someone new? 👇"
     },
     {
       "id": "bait",
@@ -169,7 +184,8 @@
       "at": 1701.9,
       "hook": "The envelope is bait",
       "caption": "Another envelope… or bait? 👀",
-      "context": "Joe gives Demi another envelope"
+      "context": "Joe gives Demi another envelope",
+      "pin": "Gift or bait? 👇"
     },
     {
       "id": "don-lock",
@@ -177,7 +193,8 @@
       "at": 898,
       "hook": "Who cracked the D-O-N lock?",
       "caption": "D-O-N 😂 Who would've cracked it first?",
-      "context": "One lock left between them and the cash"
+      "context": "One lock left between them and the cash",
+      "pin": "How fast would you have cracked it? 🔐👇"
     },
     {
       "id": "power-taken",
@@ -185,7 +202,8 @@
       "at": 153.1,
       "hook": "Power is taken, not given",
       "caption": "Power is taken, not given 👑",
-      "context": "Parker Posey warns the family"
+      "context": "Parker Posey warns the family",
+      "pin": "Who in the villa wants the power most? 👇"
     },
     {
       "id": "cut-tonight",
@@ -193,7 +211,8 @@
       "at": 1143,
       "hook": "The Don has to cut someone tonight",
       "caption": "First family meeting and someone's out 😳 Who would you cut?",
-      "context": "The Don decides who gets paid and who goes"
+      "context": "The Don decides who gets paid and who goes",
+      "pin": "Who would you cut first? 👇"
     },
     {
       "id": "joe-don",
@@ -201,7 +220,8 @@
       "at": 1085.9,
       "hook": "Joe Gorga is now the Don",
       "caption": "Joe Gorga as the Don… thoughts? 👀",
-      "context": "Joe's crew won, so he becomes the Don"
+      "context": "Joe's crew won, so he becomes the Don",
+      "pin": "Would you make Joe the Don? 👇"
     },
     {
       "id": "regime",
@@ -209,7 +229,8 @@
       "at": 1871,
       "hook": "Is it time for a new Don?",
       "caption": "Regime change in the villa? 👀",
-      "context": "Some of the family want a new Don"
+      "context": "Some of the family want a new Don",
+      "pin": "Is it time for a new Don? 👇"
     },
     {
       "id": "door2",
@@ -217,7 +238,8 @@
       "at": 2389.5,
       "hook": "Only one of them walks back in",
       "caption": "Aida or Bruno… who walks in? 😳",
-      "context": "Aida or Bruno: one of them is going home"
+      "context": "Aida or Bruno: one of them is going home",
+      "pin": "Aida or Bruno: who walks back in? 👇"
     },
     {
       "id": "feet",
@@ -225,7 +247,8 @@
       "at": 756.5,
       "hook": "How many feet have been in here?",
       "caption": "Fresh from the grapes 🍇😂",
-      "context": "The family stomps grapes for the Don"
+      "context": "The family stomps grapes for the Don",
+      "pin": "Would you still drink it? 🍷😂👇"
     },
     {
       "id": "don-no-work",
@@ -233,7 +256,8 @@
       "at": 540.6,
       "hook": "The Don doesn't have to work",
       "caption": "The Don doesn't even have to work 😂 Fair?",
-      "context": "Parker Posey sets the wine job"
+      "context": "Parker Posey sets the wine job",
+      "pin": "Should the Don have to work too? 👇"
     },
     {
       "id": "first-job",
@@ -241,7 +265,8 @@
       "at": 267.6,
       "hook": "Their first job: blow up the cars",
       "caption": "Their first job for the family 💥",
-      "context": "Celebrities, an Italian villa and $250,000"
+      "context": "Celebrities, an Italian villa and $250,000",
+      "pin": "Would you join this family? 👇"
     },
     {
       "id": "ring",
@@ -249,7 +274,8 @@
       "at": 1051.8,
       "hook": "The ring with absolute power",
       "caption": "Respect, loyalty and absolute power 💍 Would you want the ring?",
-      "context": "Parker Posey reveals the Don's ring"
+      "context": "Parker Posey reveals the Don's ring",
+      "pin": "Would you kiss the ring? 💍👇"
     },
     {
       "id": "winery",
@@ -257,7 +283,8 @@
       "at": 483.5,
       "hook": "Parker Posey's winery problem",
       "caption": "Parker Posey keeps the good stuff for herself 🍷",
-      "context": "Parker Posey sets the wine job"
+      "context": "Parker Posey sets the wine job",
+      "pin": "Red or white? 🍷👇"
     }
   ],
   "_picks": "27 moments chosen by reading both episodes (5 Nov 2026), best first; each posts once, then the job falls back to automatic picks. Times are seconds into the episode; every clip is exactly 15s from there.",

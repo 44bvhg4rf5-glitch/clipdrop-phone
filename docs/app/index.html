@@ -223,6 +223,7 @@ function clipCard(d, it) {
     <details><summary>Preview</summary><video preload="none" controls playsinline src="${esc(url)}"></video></details>
     <label>Caption</label><textarea rows="3" readonly>${esc(it.caption)}</textarea>
     <div class="row"><a class="btn" href="${esc(url)}">Download</a><button class="btn ghost" type="button" data-copy="${esc(it.caption)}">Copy caption</button></div>
+    ${it.pin ? `<label>Pin this comment (gets people talking)</label><div class="row"><span class="muted">${esc(it.pin)}</span><button class="btn ghost" type="button" data-copy="${esc(it.pin)}">Copy comment</button></div>` : ''}
     <label>Posted? Paste the post's link</label>
     <div class="row" style="margin-top:0"><input type="url" inputmode="url" placeholder="https://…" data-link="${esc(it.file)}"><button class="btn" type="button" data-post="${esc(it.file)}" data-tag="${esc(d.tag)}">Save &amp; check</button></div>
     ${posts.map(postStatus).join('')}
