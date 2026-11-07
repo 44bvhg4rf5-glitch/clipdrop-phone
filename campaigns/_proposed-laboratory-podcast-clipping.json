@@ -1,0 +1,46 @@
+{
+  "name": "Laboratory Podcast (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Off Mic",
+  "_scout": "Proposed by the scout on 2026-11-07. Alpha 43, $1/1K, $1000 left, ~? days. Join first: https://clippingalpha.com/go/10145318?via=mcp",
+  "_rules": [
+    "Tag @Iamplaz, @thelaboratorywithplaz and @maverickapproach on Instagram",
+    "Tag @iAmplaz414 and @maverickapproachpod on TikTok",
+    "On YouTube, tag only the show account on YouTube",
+    "At least 40% of the audience in US, UK, CA and AU",
+    "Views count from US, UK, CA and AU",
+    "Posts must stay public for at least 30 days",
+    "Use only the brand's footage",
+    "No reposts of other clips",
+    "No other platform watermarks",
+    "Keep posts live 30 days",
+    "Post vertical 9:16 video",
+    "Pay stops at $250 a clip"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [
+    "@Iamplaz",
+    "@thelaboratorywithplaz",
+    "@maverickapproach",
+    "@iAmplaz414",
+    "@maverickapproachpod"
+  ],
+  "endsOn": null,
+  "postingNotes": ""
+}
