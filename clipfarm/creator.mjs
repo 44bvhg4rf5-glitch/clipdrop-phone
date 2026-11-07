@@ -238,7 +238,7 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
     : `[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24:2,eq=brightness=-0.18[bg];`
       // Wide shots are shown zoomed (centre kept, edges trimmed) so people
       // aren't tiny on a phone; zoom 1 shows the full width.
-      + `[b]scale=${Math.round(1080 * zoom / 2) * 2}:-2,crop=1080:ih[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2-80,setsar=1[v0]`;
+      + `[b]scale=${Math.round(1080 * zoom / 2) * 2}:-2,crop=1080:ih[fg];[bg][fg]overlay=(W-w)/2:max((H-h)/2-80\\,${top + block + 24}),setsar=1[v0]`;
   const filter = `${base};[v0]${draws.join(',')}[v]`;
   await ffmpeg(['-ss', start.toFixed(2), '-t', dur.toFixed(2), '-i', video, '-filter_complex', filter,
     '-map', '[v]', '-map', '0:a?', '-r', '30', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p',
