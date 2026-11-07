@@ -206,7 +206,7 @@ function captionChunks(moment, start) {
  * over a blurred, darkened copy of itself — nothing cropped away) or 'crop'
  * (centre-crop to 9:16, for sources that are already close to vertical).
  */
-export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '', zoom = 1.3, exact = 0, context = '' }) {
+export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '', zoom = 1.3, exact = 0, context = '', ask = '' }) {
   const st = PLATFORM_STYLE[platform] || PLATFORM_STYLE.tiktok;
   // exact: a brief that fixes the length (Disney: "no more than 15 seconds",
   // Vyro: "at least 15") gets exactly that many seconds, the moment centred in it.
@@ -232,6 +232,13 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   // and silently drops lines like "5% stake".
   captionChunks(moment, start).forEach((c, i) => draws.push(
     `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`cap-${platform}-${i}.txt`, c.text.toUpperCase())}:fontsize=${Math.min(76, Math.floor(980 / Math.max(1, c.text.length * 0.66)))}:fontcolor=${st.colour}:borderw=7:bordercolor=black:x=(w-text_w)/2:y=1290:enable='between(t,${c.s.toFixed(2)},${c.e.toFixed(2)})'`));
+  // The comment question, on screen for the last 3 seconds: people answer a
+  // question they can see far more often than one buried in the caption.
+  if (ask) {
+    const askAt = Math.max(0, dur - 3);
+    wrap(noEmoji(ask), 26).slice(0, 2).forEach((l, i) => draws.push(
+      `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`ask-${platform}-${i}.txt`, l)}:fontsize=54:fontcolor=0xFFE27A:borderw=6:bordercolor=black:box=1:boxcolor=black@0.45:boxborderw=14:x=(w-text_w)/2:y=${1420 + i * 70}:enable='gte(t,${askAt.toFixed(2)})'`));
+  }
   if (credit) draws.push(`drawtext=fontfile=${font}:expansion=none:textfile=${txt(`credit-${platform}.txt`, credit)}:fontsize=36:fontcolor=white@0.85:borderw=3:bordercolor=black@0.7:x=(w-text_w)/2:y=1620`);
   const base = layout === 'crop'
     ? `[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[v0]`
