@@ -53,15 +53,6 @@
       "pin": "Would you vote for Joe? 👇"
     },
     {
-      "id": "demi-me",
-      "src": "mob_101_dsm_1.mp4",
-      "at": 1431.3,
-      "hook": "Demi's pitch to the Don",
-      "caption": "Demi said what she said 😂",
-      "context": "The Don asks who earned the cash on the first job",
-      "pin": "Was Demi the MVP of the first job? 👇"
-    },
-    {
       "id": "who-wears-it",
       "src": "mob_101_dsm_1.mp4",
       "at": 1066.6,
@@ -134,15 +125,6 @@
       "pin": "Would you keep the Don's secret? 🤫👇"
     },
     {
-      "id": "trunk",
-      "src": "mob_101_dsm_1.mp4",
-      "at": 589.8,
-      "hook": "They opened the trunk and...",
-      "caption": "Never know who's in the trunk 😂",
-      "context": "First job: search the cars for the cash",
-      "pin": "Who would you want to find in the trunk? 😂👇"
-    },
-    {
       "id": "secret-envelope",
       "src": "mob_101_dsm_1.mp4",
       "at": 1829,
@@ -150,87 +132,6 @@
       "caption": "A secret envelope from the Don 🤫",
       "context": "The Don hands out the cash in private",
       "pin": "Would you take the envelope? 💰👇"
-    },
-    {
-      "id": "fishes",
-      "src": "mob_102_dsm_1.mp4",
-      "at": 618,
-      "hook": "Weakest link sleeps with the fishes",
-      "caption": "Start whining and get to work 🍇😂",
-      "context": "Parker Posey sets the second job",
-      "pin": "Runner, stomper or bottler: which job are you taking? 🍇👇"
-    },
-    {
-      "id": "harry-pitch",
-      "src": "mob_101_dsm_1.mp4",
-      "at": 1316.2,
-      "hook": "Harry's pitch to the Don",
-      "caption": "Harry making his case to the Don 😂 Convinced?",
-      "context": "Harry's crew lost the first job",
-      "pin": "Did Harry convince you? 👇"
-    },
-    {
-      "id": "risk-power",
-      "src": "mob_102_dsm_1.mp4",
-      "at": 1992.4,
-      "hook": "The Don could lose it all tonight",
-      "caption": "First loyalty pledge 😳 Does Joe keep the ring?",
-      "context": "Tonight the family can vote out the Don",
-      "pin": "Keep Joe as Don or vote for someone new? 👇"
-    },
-    {
-      "id": "bait",
-      "src": "mob_102_dsm_1.mp4",
-      "at": 1701.9,
-      "hook": "The envelope is bait",
-      "caption": "Another envelope… or bait? 👀",
-      "context": "Joe gives Demi another envelope",
-      "pin": "Gift or bait? 👇"
-    },
-    {
-      "id": "don-lock",
-      "src": "mob_101_dsm_1.mp4",
-      "at": 898,
-      "hook": "Who cracked the D-O-N lock?",
-      "caption": "D-O-N 😂 Who would've cracked it first?",
-      "context": "One lock left between them and the cash",
-      "pin": "How fast would you have cracked it? 🔐👇"
-    },
-    {
-      "id": "power-taken",
-      "src": "mob_102_dsm_1.mp4",
-      "at": 153.1,
-      "hook": "Power is taken, not given",
-      "caption": "Power is taken, not given 👑",
-      "context": "Parker Posey warns the family",
-      "pin": "Who in the villa wants the power most? 👇"
-    },
-    {
-      "id": "cut-tonight",
-      "src": "mob_101_dsm_1.mp4",
-      "at": 1143,
-      "hook": "The Don has to cut someone tonight",
-      "caption": "First family meeting and someone's out 😳 Who would you cut?",
-      "context": "The Don decides who gets paid and who goes",
-      "pin": "Who would you cut first? 👇"
-    },
-    {
-      "id": "joe-don",
-      "src": "mob_101_dsm_1.mp4",
-      "at": 1085.9,
-      "hook": "Joe Gorga is now the Don",
-      "caption": "Joe Gorga as the Don… thoughts? 👀",
-      "context": "Joe's crew won, so he becomes the Don",
-      "pin": "Would you make Joe the Don? 👇"
-    },
-    {
-      "id": "regime",
-      "src": "mob_102_dsm_1.mp4",
-      "at": 1871,
-      "hook": "Is it time for a new Don?",
-      "caption": "Regime change in the villa? 👀",
-      "context": "Some of the family want a new Don",
-      "pin": "Is it time for a new Don? 👇"
     },
     {
       "id": "door2",
@@ -242,6 +143,78 @@
       "pin": "Aida or Bruno: who walks back in? 👇"
     },
     {
+      "id": "harry-pitch",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 1316.2,
+      "hook": "Harry's pitch to the Don",
+      "caption": "Harry making his case to the Don 😂 Convinced?",
+      "context": "Harry's crew lost the first job",
+      "pin": "Did Harry convince you? 👇"
+    },
+    {
+      "id": "trunk",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 589.8,
+      "hook": "They opened the trunk and...",
+      "caption": "Never know who's in the trunk 😂",
+      "context": "First job: search the cars for the cash",
+      "pin": "Who would you want to find in the trunk? 😂👇"
+    },
+    {
+      "id": "bait",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 1701.9,
+      "hook": "The envelope is bait",
+      "caption": "Another envelope… or bait? 👀",
+      "context": "Joe gives Demi another envelope",
+      "pin": "Gift or bait? 👇"
+    },
+    {
+      "id": "risk-power",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 1992.4,
+      "hook": "The Don could lose it all tonight",
+      "caption": "First loyalty pledge 😳 Does Joe keep the ring?",
+      "context": "Tonight the family can vote out the Don",
+      "pin": "Keep Joe as Don or vote for someone new? 👇"
+    },
+    {
+      "id": "regime",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 1871,
+      "hook": "Is it time for a new Don?",
+      "caption": "Regime change in the villa? 👀",
+      "context": "Some of the family want a new Don",
+      "pin": "Is it time for a new Don? 👇"
+    },
+    {
+      "id": "don-lock",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 898,
+      "hook": "Who cracked the D-O-N lock?",
+      "caption": "D-O-N 😂 Who would've cracked it first?",
+      "context": "One lock left between them and the cash",
+      "pin": "How fast would you have cracked it? 🔐👇"
+    },
+    {
+      "id": "joe-don",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 1085.9,
+      "hook": "Joe Gorga is now the Don",
+      "caption": "Joe Gorga as the Don… thoughts? 👀",
+      "context": "Joe's crew won, so he becomes the Don",
+      "pin": "Would you make Joe the Don? 👇"
+    },
+    {
+      "id": "cut-tonight",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 1143,
+      "hook": "The Don has to cut someone tonight",
+      "caption": "First family meeting and someone's out 😳 Who would you cut?",
+      "context": "The Don decides who gets paid and who goes",
+      "pin": "Who would you cut first? 👇"
+    },
+    {
       "id": "feet",
       "src": "mob_102_dsm_1.mp4",
       "at": 756.5,
@@ -249,6 +222,33 @@
       "caption": "Fresh from the grapes 🍇😂",
       "context": "The family stomps grapes for the Don",
       "pin": "Would you still drink it? 🍷😂👇"
+    },
+    {
+      "id": "demi-me",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 1431.3,
+      "hook": "Demi's pitch to the Don",
+      "caption": "Demi said what she said 😂",
+      "context": "The Don asks who earned the cash on the first job",
+      "pin": "Was Demi the MVP of the first job? 👇"
+    },
+    {
+      "id": "fishes",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 618,
+      "hook": "Weakest link sleeps with the fishes",
+      "caption": "Start whining and get to work 🍇😂",
+      "context": "Parker Posey sets the second job",
+      "pin": "Runner, stomper or bottler: which job are you taking? 🍇👇"
+    },
+    {
+      "id": "power-taken",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 153.1,
+      "hook": "Power is taken, not given",
+      "caption": "Power is taken, not given 👑",
+      "context": "Parker Posey warns the family",
+      "pin": "Who in the villa wants the power most? 👇"
     },
     {
       "id": "don-no-work",
@@ -287,7 +287,7 @@
       "pin": "Red or white? 🍷👇"
     }
   ],
-  "_picks": "27 moments chosen by reading both episodes (5 Nov 2026), best first; each posts once, then the job falls back to automatic picks. Times are seconds into the episode; every clip is exactly 15s from there.",
+  "_picks": "27 moments chosen by reading both episodes (5 Nov 2026), best first; each posts once, then the job falls back to automatic picks. Times are seconds into the episode; every clip is exactly 15s from there. Reordered 7 Nov from first results: contestant drama/suspense (door reveal 600 views, 7% likes) beats host monologues (gelato 427 views, under 1% likes), so Parker Posey speeches go last.",
   "context": "12 celebrities. 1 villa. The Don decides who gets paid.",
   "cta": "Follow for a new moment from The Mob every day 🍝"
 }
