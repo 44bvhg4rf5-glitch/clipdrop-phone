@@ -207,7 +207,7 @@ async function makeDrop() {
   // week's pack the day before the current one runs out (so tomorrow's 5am
   // alert has its clips), and otherwise stands down.
   let days = Math.max(1, Math.min(14, parseInt(process.env.CLIP_DAYS || '1', 10) || 1));
-  if (!only && !process.env.CLIP_DAYS && state.packUntil && process.env.CLIP_FORCE !== 'true') {
+  if (!only && days === 1 && state.packUntil && process.env.CLIP_FORCE !== 'true') {
     if (state.packUntil > addDays(today(), 1)) return setStatus('ok', `This week's pack covers every day up to ${state.packUntil}.`);
     days = 7;
   }
