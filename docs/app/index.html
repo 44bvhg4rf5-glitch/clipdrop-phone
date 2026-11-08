@@ -133,12 +133,16 @@ async function load() {
 const views = {
   today() {
     const drops = (data.clips?.drops || []).slice().reverse();
-    const recent = drops.filter((d) => d.date >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)).slice(0, 4);
+    const todayIso = new Date().toISOString().slice(0, 10);
+    // A week pack stays on screen until its last day; daily drops for two days.
+    const recent = drops.filter((d) => (d.pack && d.pack.to >= todayIso) || d.date >= new Date(Date.now() - 2 * 864e5).toISOString().slice(0, 10)).slice(0, 4);
     const st = data.clips?.status;
     let h = st ? `<div class="status">${esc(st.text)}</div>` : '';
     if (!recent.length) return h + '<p class="empty">No clips in the last two days.<br>New ones arrive at 7am, or upload a video.</p>';
     for (const d of recent) {
-      h += `<h2>${d.upload ? 'Your upload' : 'Clips'} · ${esc(d.date)}</h2>`;
+      h += d.pack
+        ? `<h2>Week pack · ${esc(d.pack.from)} to ${esc(d.pack.to)}</h2><p class="muted">Schedule each clip for the day and time on it.</p>`
+        : `<h2>${d.upload ? 'Your upload' : 'Clips'} · ${esc(d.date)}</h2>`;
       for (const it of d.items) h += clipCard(d, it);
     }
     return h;
