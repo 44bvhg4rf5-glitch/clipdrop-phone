@@ -306,12 +306,16 @@ async function creatorDrop(c, pack = null) {
   for (const p of c.picks || []) {
     if (chosen.length >= want) break;
     const v = videos.find((x) => path.basename(x) === p.src);
-    const win = { src: p.src, s: p.at + 0.2, e: p.at + len - 0.2 };
+    // c.useLong switches to each pick's longer cut (p.long: whole sentences
+    // either side, checked clean) where the brief allows clips over 15s.
+    const at = c.useLong && p.long ? p.long.at : p.at;
+    const L = c.useLong && p.long ? p.long.len : len;
+    const win = { src: p.src, s: at + 0.2, e: at + L - 0.2 };
     if (!v || ranges.some((r) => overlap(r, win)) || chosen.some((q) => overlap(q, win))) continue;
     const { segments } = await transcript(v, ROOT);
-    const segs = segments.filter((x) => x.end > p.at && x.start < p.at + len)
-      .map((x) => ({ ...x, words: (x.words || []).filter((w) => w.s >= p.at && w.e <= p.at + len) }));
-    chosen.push({ ...win, segments: segs, video: v, pick: p, score: 1e9 });
+    const segs = segments.filter((x) => x.end > at && x.start < at + L)
+      .map((x) => ({ ...x, words: (x.words || []).filter((w) => w.s >= at && w.e <= at + L) }));
+    chosen.push({ ...win, segments: segs, video: v, pick: p, score: 1e9, len: L });
   }
   const per = [...chosen];
   for (const v of chosen.length >= want ? [] : videos) {
@@ -338,11 +342,11 @@ async function creatorDrop(c, pack = null) {
       const out = path.join(OUT, `${stamp}-${c.id}-${momentId}-${platform}.mp4`);
       try {
         log(`${c.name}: ${m.src} @${m.s.toFixed(0)}s → ${platform} · ${hooks[pi % hooks.length]}`);
-        await renderMoment({ video: m.video, moment: m, hook: hooks[pi % hooks.length], platform, out, work, font: FONT, layout: c.layout || 'blurfill', credit: c.credit || '', zoom: c.zoom ?? 1.3, exact: c.exactSeconds || 0, context: m.pick?.context || c.context || '', ask: (m.pick?.pin || '').replace(/\s*👇\s*$/, '') });
+        await renderMoment({ video: m.video, moment: m, hook: hooks[pi % hooks.length], platform, out, work, font: FONT, layout: c.layout || 'blurfill', credit: c.credit || '', zoom: c.zoom ?? 1.3, exact: m.len || c.exactSeconds || 0, context: m.pick?.context || c.context || '', ask: (m.pick?.pin || '').replace(/\s*👇\s*$/, '') });
         items.push({
           kind: 'creator', campaign: c.name, campaignId: c.id, source: m.src, moment: momentId,
           range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
-          seconds: c.exactSeconds || +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
+          seconds: m.len || c.exactSeconds || +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
           caption: [`${captionBase}${c.credit ? ' ' + c.credit : ''}${c.cta ? '\n' + c.cta : ''}`, c.requiredCaption, (c.hashtags || []).join(' ')].filter(Boolean).join('\n\n').trim(),
           platforms: [platform], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '', pin: m.pick?.pin || '', ...slot,
         });

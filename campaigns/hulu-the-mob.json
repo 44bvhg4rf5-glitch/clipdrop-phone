@@ -50,7 +50,11 @@
       "hook": "Kiss the ring and the power goodbye",
       "caption": "One vote and the ring is gone 💍 Would you vote for Joe?",
       "context": "Tonight the family votes on whether Joe stays Don",
-      "pin": "Would you vote for Joe? 👇"
+      "pin": "Would you vote for Joe? 👇",
+      "long": {
+        "at": 2014.8,
+        "len": 27.8
+      }
     },
     {
       "id": "who-wears-it",
@@ -59,7 +63,11 @@
       "hook": "Who gets to wear the Don's ring?",
       "caption": "Parker Posey's timing 😭 Who would you make the Don?",
       "context": "Parker Posey reveals who becomes the Don",
-      "pin": "Who would you make the Don? 👇"
+      "pin": "Who would you make the Don? 👇",
+      "long": {
+        "at": 1066.8,
+        "len": 27.1
+      }
     },
     {
       "id": "fake-cry",
@@ -68,7 +76,11 @@
       "hook": "POV: hiding the Don's envelope",
       "caption": "The fake cry to hide the envelope 😭",
       "context": "Demi got a secret envelope of cash from the Don",
-      "pin": "Would you keep the envelope a secret? 🤫👇"
+      "pin": "Would you keep the envelope a secret? 🤫👇",
+      "long": {
+        "at": 1850.4,
+        "len": 27.0
+      }
     },
     {
       "id": "marinara",
@@ -77,7 +89,11 @@
       "hook": "$100,000 smothered in marinara",
       "caption": "$100,000 smothered in marinara sauce 🍝 Share it or keep it all?",
       "context": "Parker Posey reveals the final prize",
-      "pin": "Share the $100,000 or keep it all? 👇"
+      "pin": "Share the $100,000 or keep it all? 👇",
+      "long": {
+        "at": 1145.3,
+        "len": 27.6
+      }
     },
     {
       "id": "toenail",
@@ -95,7 +111,11 @@
       "hook": "The Don eats first",
       "caption": "The Don eats first 🍝 Fair or greedy?",
       "context": "As Don, Joe decides who gets paid",
-      "pin": "Fair or greedy? 👇"
+      "pin": "Fair or greedy? 👇",
+      "long": {
+        "at": 1603.0,
+        "len": 27.4
+      }
     },
     {
       "id": "the-door",
@@ -104,7 +124,11 @@
       "hook": "Who walks through that door?",
       "caption": "The wait before the door opens 😳",
       "context": "Only the safe ones walk through that door",
-      "pin": "Who did you think was walking in? 👀👇"
+      "pin": "Who did you think was walking in? 👀👇",
+      "long": {
+        "at": 2369.5,
+        "len": 24.9
+      }
     },
     {
       "id": "gelato",
@@ -122,7 +146,11 @@
       "hook": "Did she cut a deal with the Don?",
       "caption": "Did she cut a deal with the Don? 👀",
       "context": "Demi got a secret envelope from the Don",
-      "pin": "Would you keep the Don's secret? 🤫👇"
+      "pin": "Would you keep the Don's secret? 🤫👇",
+      "long": {
+        "at": 2195.2,
+        "len": 24.4
+      }
     },
     {
       "id": "secret-envelope",
@@ -131,7 +159,11 @@
       "hook": "The Don's secret envelope",
       "caption": "A secret envelope from the Don 🤫",
       "context": "The Don hands out the cash in private",
-      "pin": "Would you take the envelope? 💰👇"
+      "pin": "Would you take the envelope? 💰👇",
+      "long": {
+        "at": 1825.8,
+        "len": 26.1
+      }
     },
     {
       "id": "door2",
@@ -140,7 +172,11 @@
       "hook": "Only one of them walks back in",
       "caption": "Aida or Bruno… who walks in? 😳",
       "context": "Aida or Bruno: one of them is going home",
-      "pin": "Aida or Bruno: who walks back in? 👇"
+      "pin": "Aida or Bruno: who walks back in? 👇",
+      "long": {
+        "at": 2379.9,
+        "len": 28.1
+      }
     },
     {
       "id": "harry-pitch",
@@ -149,7 +185,11 @@
       "hook": "Harry's pitch to the Don",
       "caption": "Harry making his case to the Don 😂 Convinced?",
       "context": "Harry's crew lost the first job",
-      "pin": "Did Harry convince you? 👇"
+      "pin": "Did Harry convince you? 👇",
+      "long": {
+        "at": 1316.2,
+        "len": 26.8
+      }
     },
     {
       "id": "word-with-don",
@@ -158,7 +198,11 @@
       "hook": "When the Don asks for a word...",
       "context": "The Don can whack anyone in the family",
       "caption": "Nobody wants to hear 'can we have a word' 😳",
-      "pin": "Would you go with the Don? 👀👇"
+      "pin": "Would you go with the Don? 👀👇",
+      "long": {
+        "at": 1743.7,
+        "len": 27.2
+      }
     },
     {
       "id": "bait",
@@ -167,7 +211,11 @@
       "hook": "The envelope is bait",
       "caption": "Another envelope… or bait? 👀",
       "context": "Joe gives Demi another envelope",
-      "pin": "Gift or bait? 👇"
+      "pin": "Gift or bait? 👇",
+      "long": {
+        "at": 1696.9,
+        "len": 26.0
+      }
     },
     {
       "id": "who-else-money",
@@ -176,7 +224,11 @@
       "hook": "The Don's secret is out",
       "context": "The family finds out who got the money",
       "caption": "Family meeting just got awkward 😳",
-      "pin": "Should Joe have kept it secret? 👇"
+      "pin": "Should Joe have kept it secret? 👇",
+      "long": {
+        "at": 2268.6,
+        "len": 29.2
+      }
     },
     {
       "id": "keeping-two",
@@ -194,7 +246,11 @@
       "hook": "The Don could lose it all tonight",
       "caption": "First loyalty pledge 😳 Does Joe keep the ring?",
       "context": "Tonight the family can vote out the Don",
-      "pin": "Keep Joe as Don or vote for someone new? 👇"
+      "pin": "Keep Joe as Don or vote for someone new? 👇",
+      "long": {
+        "at": 1989.1,
+        "len": 25.1
+      }
     },
     {
       "id": "harry-bella",
@@ -203,7 +259,11 @@
       "hook": "It's between Harry and Bella",
       "context": "Whoever walks through that door is safe",
       "caption": "Two left. One door. 😳",
-      "pin": "Harry or Bella: who walks in? 👇"
+      "pin": "Harry or Bella: who walks in? 👇",
+      "long": {
+        "at": 2255.6,
+        "len": 27.0
+      }
     },
     {
       "id": "money-questions",
@@ -212,7 +272,11 @@
       "hook": "Where did the money go?",
       "context": "The family questions the Don about the cash",
       "caption": "The family wants answers 👀",
-      "pin": "Should the Don have to share? 👇"
+      "pin": "Should the Don have to share? 👇",
+      "long": {
+        "at": 17.1,
+        "len": 25.7
+      }
     },
     {
       "id": "rob-bank",
@@ -221,7 +285,11 @@
       "hook": "Bruno and Demi team up",
       "context": "Two players making an alliance",
       "caption": "Let's rob a bank 😂🏦",
-      "pin": "Would you trust this alliance? 👇"
+      "pin": "Would you trust this alliance? 👇",
+      "long": {
+        "at": 420.4,
+        "len": 27.0
+      }
     },
     {
       "id": "regime",
@@ -230,7 +298,11 @@
       "hook": "Is it time for a new Don?",
       "caption": "Regime change in the villa? 👀",
       "context": "Some of the family want a new Don",
-      "pin": "Is it time for a new Don? 👇"
+      "pin": "Is it time for a new Don? 👇",
+      "long": {
+        "at": 1861.7,
+        "len": 28.7
+      }
     },
     {
       "id": "joe-smart",
@@ -239,7 +311,11 @@
       "hook": "The Don's master plan",
       "context": "Joe hands out cash to buy loyalty",
       "caption": "Buying loyalty one envelope at a time 💰",
-      "pin": "Smart move or a mistake? 👇"
+      "pin": "Smart move or a mistake? 👇",
+      "long": {
+        "at": 1971.1,
+        "len": 27.2
+      }
     },
     {
       "id": "trunk",
@@ -248,7 +324,11 @@
       "hook": "They opened the trunk and...",
       "caption": "Never know who's in the trunk 😂",
       "context": "First job: search the cars for the cash",
-      "pin": "Who would you want to find in the trunk? 😂👇"
+      "pin": "Who would you want to find in the trunk? 😂👇",
+      "long": {
+        "at": 579.4,
+        "len": 25.7
+      }
     },
     {
       "id": "don-lock",
@@ -257,7 +337,11 @@
       "hook": "Who cracked the D-O-N lock?",
       "caption": "D-O-N 😂 Who would've cracked it first?",
       "context": "One lock left between them and the cash",
-      "pin": "How fast would you have cracked it? 🔐👇"
+      "pin": "How fast would you have cracked it? 🔐👇",
+      "long": {
+        "at": 897.8,
+        "len": 26.3
+      }
     },
     {
       "id": "joe-don",
@@ -266,7 +350,11 @@
       "hook": "Joe Gorga is now the Don",
       "caption": "Joe Gorga as the Don… thoughts? 👀",
       "context": "Joe's crew won, so he becomes the Don",
-      "pin": "Would you make Joe the Don? 👇"
+      "pin": "Would you make Joe the Don? 👇",
+      "long": {
+        "at": 1078.6,
+        "len": 26.9
+      }
     },
     {
       "id": "cut-tonight",
@@ -275,7 +363,11 @@
       "hook": "The Don has to cut someone tonight",
       "caption": "First family meeting and someone's out 😳 Who would you cut?",
       "context": "The Don decides who gets paid and who goes",
-      "pin": "Who would you cut first? 👇"
+      "pin": "Who would you cut first? 👇",
+      "long": {
+        "at": 1131.0,
+        "len": 27.1
+      }
     },
     {
       "id": "capo-harry",
@@ -284,7 +376,11 @@
       "hook": "In Harry we trust",
       "context": "Each crew picks a capo for the first job",
       "caption": "Harry stepping up as capo 😎",
-      "pin": "Would you make Harry your capo? 👇"
+      "pin": "Would you make Harry your capo? 👇",
+      "long": {
+        "at": 310.7,
+        "len": 27.1
+      }
     },
     {
       "id": "cannoli",
@@ -302,7 +398,11 @@
       "hook": "This is a pretty ruthless game",
       "context": "Celebrities, an Italian villa, one Don",
       "caption": "Enough family drama to require therapy 😂",
-      "pin": "Who would you trust in this villa? 👇"
+      "pin": "Who would you trust in this villa? 👇",
+      "long": {
+        "at": 55.1,
+        "len": 25.2
+      }
     },
     {
       "id": "feet",
@@ -320,7 +420,11 @@
       "hook": "Demi's pitch to the Don",
       "caption": "Demi said what she said 😂",
       "context": "The Don asks who earned the cash on the first job",
-      "pin": "Was Demi the MVP of the first job? 👇"
+      "pin": "Was Demi the MVP of the first job? 👇",
+      "long": {
+        "at": 1431.2,
+        "len": 27.0
+      }
     },
     {
       "id": "fishes",
@@ -329,7 +433,11 @@
       "hook": "Weakest link sleeps with the fishes",
       "caption": "Start whining and get to work 🍇😂",
       "context": "Parker Posey sets the second job",
-      "pin": "Runner, stomper or bottler: which job are you taking? 🍇👇"
+      "pin": "Runner, stomper or bottler: which job are you taking? 🍇👇",
+      "long": {
+        "at": 616.8,
+        "len": 26.8
+      }
     },
     {
       "id": "power-taken",
@@ -347,7 +455,11 @@
       "hook": "The Don doesn't have to work",
       "caption": "The Don doesn't even have to work 😂 Fair?",
       "context": "Parker Posey sets the wine job",
-      "pin": "Should the Don have to work too? 👇"
+      "pin": "Should the Don have to work too? 👇",
+      "long": {
+        "at": 540.5,
+        "len": 26.7
+      }
     },
     {
       "id": "first-job",
@@ -356,7 +468,11 @@
       "hook": "Their first job: blow up the cars",
       "caption": "Their first job for the family 💥",
       "context": "Celebrities, an Italian villa and $250,000",
-      "pin": "Would you join this family? 👇"
+      "pin": "Would you join this family? 👇",
+      "long": {
+        "at": 257.8,
+        "len": 27.2
+      }
     },
     {
       "id": "ring",
@@ -365,7 +481,11 @@
       "hook": "The ring with absolute power",
       "caption": "Respect, loyalty and absolute power 💍 Would you want the ring?",
       "context": "Parker Posey reveals the Don's ring",
-      "pin": "Would you kiss the ring? 💍👇"
+      "pin": "Would you kiss the ring? 💍👇",
+      "long": {
+        "at": 1041.6,
+        "len": 27.3
+      }
     },
     {
       "id": "winery",
@@ -379,5 +499,7 @@
   ],
   "_picks": "27 moments chosen by reading both episodes (5 Nov 2026), best first; each posts once, then the job falls back to automatic picks. Times are seconds into the episode; every clip is exactly 15s from there. Reordered 7 Nov from first results: contestant drama/suspense (door reveal 600 views, 7% likes) beats host monologues (gelato 427 views, under 1% likes), so Parker Posey speeches go last.",
   "context": "12 celebrities. 1 villa. The Don decides who gets paid.",
-  "cta": "Follow for a new moment from The Mob every day 🍝"
+  "cta": "Follow for a new moment from The Mob every day 🍝",
+  "useLong": false,
+  "_long": "Each pick's 'long' cut (22-32s, whole sentences, no swearing/violence/other-show names) is ready. Set useLong true ONLY if Vyro/Hulu confirm clips may run over 15 seconds: Disney's terms in the brief cap the piece at 15s."
 }
