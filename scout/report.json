@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-07T11:55:04.635Z",
+  "at": "2026-11-08T12:08:55.390Z",
   "total": 512,
   "checked": 30,
   "picks": [
@@ -9,15 +9,15 @@
       "brand": "Roja Nû",
       "board": "Clipster",
       "rate": 1.5,
-      "budgetLeft": 1799,
-      "alpha": 97,
+      "budgetLeft": 1777,
+      "alpha": 96,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 17,
+      "days": 29,
       "minViews": null,
       "footage": "downloadable",
       "sources": [
@@ -32,7 +32,7 @@
         "https://f.io/XRiid3EJ"
       ],
       "account": "ReplayRoom",
-      "score": 117,
+      "score": 116,
       "why": [
         "footage on frameio"
       ],
@@ -72,72 +72,25 @@
       "pageUrl": "https://clippingalpha.com/campaigns/roja-nu/haps?via=mcp"
     },
     {
-      "ref": "lady-a/bigger-picture",
-      "title": "Lady A, Bigger Picture, Clipping",
-      "brand": "Lady A",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 4033,
-      "alpha": 99,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok"
-      ],
-      "days": null,
-      "minViews": 2000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 99,
-      "why": [
-        "footage shown after joining",
-        "pays from 2,000 views"
-      ],
-      "reject": [],
-      "tags": [
-        "#BiggerPicture",
-        "#LadyA"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #BiggerPicture and #LadyA to the caption",
-        "Keep hashtags relevant: song, artist, mood",
-        "Keep clips over 8 seconds",
-        "Use the client lines first for on-screen text",
-        "With talking footage, voice first, song underneath",
-        "2,000 views before payout",
-        "Any page size can join",
-        "Post in English",
-        "Each clip posted once per platform",
-        "Keep likes and comments on",
-        "No spam posting, story boosts, paid boosts or collab posts",
-        "No posts about illness, death or dying",
-        "The named sound"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/7977806?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/lady-a/bigger-picture?via=mcp"
-    },
-    {
       "ref": "dirty-honey/clipping",
       "title": "Dirty Honey, Clipping",
       "brand": "Dirty Honey",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 1825,
-      "alpha": 93,
+      "budgetLeft": 1752,
+      "alpha": 95,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": null,
+      "days": 35,
       "minViews": 2000,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 98,
+      "score": 100,
       "why": [
         "footage shown after joining",
         "pays from 2,000 views"
@@ -167,45 +120,51 @@
       "pageUrl": "https://clippingalpha.com/campaigns/dirty-honey/clipping?via=mcp"
     },
     {
-      "ref": "john-morgan/raw-law-media-podcast",
-      "title": "John Morgan x Raw Law Media, Podcast Clips",
-      "brand": "John Morgan",
+      "ref": "lady-a/bigger-picture",
+      "title": "Lady A, Bigger Picture, Clipping",
+      "brand": "Lady A",
       "board": "Content Rewards",
-      "rate": 3,
-      "budgetLeft": 853,
-      "alpha": 79,
-      "tier": "solid",
+      "rate": 2,
+      "budgetLeft": 4028,
+      "alpha": 98,
+      "tier": "alpha",
       "platforms": [
         "instagram",
-        "tiktok",
-        "youtube"
+        "tiktok"
       ],
-      "days": 8,
-      "minViews": null,
+      "days": null,
+      "minViews": 2000,
       "footage": "after-join",
       "sources": [],
-      "account": "Off Mic",
-      "score": 79,
+      "account": "ReplayRoom",
+      "score": 98,
       "why": [
-        "footage shown after joining"
+        "footage shown after joining",
+        "pays from 2,000 views"
       ],
       "reject": [],
       "tags": [
-        "@rawlawmedia"
+        "#BiggerPicture",
+        "#LadyA"
       ],
       "disclosure": [],
       "rules": [
-        "Tag @rawlawmedia in the caption",
-        "Feature both John Morgan and the host in clips",
-        "Submit the posted clip link for payment review",
-        "Use only the brand's footage",
-        "Keep the brand logo on screen",
-        "@rawlawmedia in the caption",
-        "Brand logo on screen",
-        "Brand footage only"
+        "Add #BiggerPicture and #LadyA to the caption",
+        "Keep hashtags relevant: song, artist, mood",
+        "Keep clips over 8 seconds",
+        "Use the client lines first for on-screen text",
+        "With talking footage, voice first, song underneath",
+        "2,000 views before payout",
+        "Any page size can join",
+        "Post in English",
+        "Each clip posted once per platform",
+        "Keep likes and comments on",
+        "No spam posting, story boosts, paid boosts or collab posts",
+        "No posts about illness, death or dying",
+        "The named sound"
       ],
-      "joinUrl": "https://clippingalpha.com/go/9516066?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/john-morgan/raw-law-media-podcast?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/7977806?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/lady-a/bigger-picture?via=mcp"
     },
     {
       "ref": "laboratory-podcast/clipping",
@@ -213,20 +172,20 @@
       "brand": "Laboratory Podcast",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 1000,
-      "alpha": 43,
+      "budgetLeft": 930,
+      "alpha": 46,
       "tier": "fair",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": null,
+      "days": 19,
       "minViews": null,
       "footage": "after-join",
       "sources": [],
       "account": "Off Mic",
-      "score": 43,
+      "score": 46,
       "why": [
         "footage shown after joining"
       ],
@@ -255,6 +214,44 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/10145318?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/laboratory-podcast/clipping?via=mcp"
+    },
+    {
+      "ref": "make-fun/clipping",
+      "title": "make.fun: make money with AI agents in contests",
+      "brand": "make.fun",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 1000,
+      "alpha": 66,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "The Deal Room",
+      "score": 66,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Say make.fun out loud in the clip",
+        "Use the words \"make.fun\"",
+        "Audience proof: Paid per 1,000 verified views (method unspecified)",
+        "Use only the brand's footage",
+        "Post on TikTok, Instagram, YouTube and X",
+        "Made for creators in AI, coding and tech side hustles",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/10594002?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/make-fun/clipping?via=mcp"
     }
   ],
   "rejected": [
@@ -264,8 +261,8 @@
       "brand": "Social Media Justice",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 20833,
-      "alpha": 85,
+      "budgetLeft": 20695,
+      "alpha": 91,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -277,7 +274,7 @@
       "footage": "youtube",
       "sources": [],
       "account": "Off Mic",
-      "score": 90,
+      "score": 96,
       "why": [],
       "reject": [
         "footage is YouTube only (cloud can't download it)"
@@ -296,8 +293,8 @@
       "brand": "IShowSpeed",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 8000,
-      "alpha": 64,
+      "budgetLeft": 7976,
+      "alpha": 73,
       "tier": "solid",
       "platforms": [
         "instagram",
@@ -309,7 +306,7 @@
       "footage": "youtube",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 69,
+      "score": 78,
       "why": [],
       "reject": [
         "footage is YouTube only (cloud can't download it)"
@@ -325,6 +322,39 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/10166718?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/ishowspeed/expedia?via=mcp"
+    },
+    {
+      "ref": "bitline/crypto-in-vegas",
+      "title": "Crypto in Vegas",
+      "brand": "Bitline",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 1000,
+      "alpha": 67,
+      "tier": "solid",
+      "platforms": [
+        "instagram"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "The Deal Room",
+      "score": 62,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "only instagram platforms"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Use only the brand's footage",
+        "Get approval before you post"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/10394378?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/bitline/crypto-in-vegas?via=mcp"
     },
     {
       "ref": "pervasive/cropdust",
@@ -387,8 +417,8 @@
       "brand": "Lo Lauren",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 1000,
-      "alpha": 18,
+      "budgetLeft": 997,
+      "alpha": 20,
       "tier": "low",
       "platforms": [
         "tiktok"
@@ -398,7 +428,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 18,
+      "score": 20,
       "why": [
         "footage shown after joining",
         "pays from 2,000 views"
@@ -429,29 +459,80 @@
       "pageUrl": "https://clippingalpha.com/campaigns/lo-lauren/white-flag-movie-tv-dance?via=mcp"
     },
     {
+      "ref": "love-reading/clipping",
+      "title": "LOVE READING [SLIDESHOW]",
+      "brand": "Love Reading",
+      "board": "Clipster",
+      "rate": 1.5,
+      "budgetLeft": 1657,
+      "alpha": 97,
+      "tier": "alpha",
+      "platforms": [
+        "tiktok"
+      ],
+      "days": 10,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 92,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "only tiktok platforms"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "CTA in the description driving viewers to the link in bio",
+        "CTA required in description, e.g. \"Get your love reading, link in bio\"",
+        "Put karinaemin.com/quiz in your bio",
+        "Present the love reading in at least one slideshow",
+        "Show the love reading no later than the 5th slide",
+        "Make a slideshow showing what a love reading can reveal",
+        "Any page size can join",
+        "Post in English",
+        "Maximum 100 posts per account",
+        "No nudity or sexual content",
+        "No misleading claims",
+        "No negative portrayal",
+        "Captions on",
+        "A call to action",
+        "Campaign link in bio",
+        "Misleading claims",
+        "Brand footage only",
+        "TikTok",
+        "English"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/832028?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/love-reading/clipping?via=mcp"
+    },
+    {
       "ref": "pb-blake/clipping",
       "title": "PB Blake Official Clipping Campaign",
       "brand": "PB Blake",
       "board": "Content Rewards",
       "rate": 1.25,
-      "budgetLeft": 3487,
-      "alpha": 95,
+      "budgetLeft": 3197,
+      "alpha": 96,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 4,
+      "days": 9,
       "minViews": null,
       "footage": "youtube",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 90,
+      "score": 101,
       "why": [],
       "reject": [
         "bans AI-generated content",
         "needs a dedicated page for this brand",
+        "needs the brand as profile picture",
         "footage is YouTube only (cloud can't download it)"
       ],
       "tags": [
@@ -465,19 +546,19 @@
         "Tag @pbblake on Instagram",
         "Tag @PBBlakeYT on YouTube",
         "Put youtube.com/@PBBlakeYT in your bio",
-        "Blake must be on screen at least half of every clip",
-        "Audience proof: likes must stay visible for verification",
-        "No mixed or personal content pages",
+        "Page name must include \"PB Blake\"",
+        "Profile picture must be of PB Blake",
+        "Blake on screen at least 50% of each clip",
+        "No pages with mixed or personal content",
         "Post in English",
         "Post from a dedicated page",
-        "No posting the same video across multiple accounts or spamming similar clips",
-        "No story posts or paid boosting of campaign content",
-        "Use only the brand's footage",
+        "No stories or paid boosting of campaign content on any platform",
+        "No same video across multiple accounts or repeated spam clips",
+        "Captions on",
         "@pb_blake in the caption",
         "@pbblake in the caption",
         "@PBBlakeYT in the caption",
         "Campaign link in bio",
-        "Outside footage",
         "Off topic content",
         "Reposts of other clips",
         "Bought views or bots",
