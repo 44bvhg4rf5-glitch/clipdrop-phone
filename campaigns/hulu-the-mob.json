@@ -152,13 +152,13 @@
       "pin": "Did Harry convince you? 👇"
     },
     {
-      "id": "trunk",
+      "id": "word-with-don",
       "src": "mob_101_dsm_1.mp4",
-      "at": 589.8,
-      "hook": "They opened the trunk and...",
-      "caption": "Never know who's in the trunk 😂",
-      "context": "First job: search the cars for the cash",
-      "pin": "Who would you want to find in the trunk? 😂👇"
+      "at": 1745.5,
+      "hook": "When the Don asks for a word...",
+      "context": "The Don can whack anyone in the family",
+      "caption": "Nobody wants to hear 'can we have a word' 😳",
+      "pin": "Would you go with the Don? 👀👇"
     },
     {
       "id": "bait",
@@ -170,6 +170,24 @@
       "pin": "Gift or bait? 👇"
     },
     {
+      "id": "who-else-money",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 2277.5,
+      "hook": "The Don's secret is out",
+      "context": "The family finds out who got the money",
+      "caption": "Family meeting just got awkward 😳",
+      "pin": "Should Joe have kept it secret? 👇"
+    },
+    {
+      "id": "keeping-two",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 1458.5,
+      "hook": "The Don keeps two for himself",
+      "context": "Only four envelopes came back from the job",
+      "caption": "This is the mob 💰",
+      "pin": "Would you keep two? 💰👇"
+    },
+    {
       "id": "risk-power",
       "src": "mob_102_dsm_1.mp4",
       "at": 1992.4,
@@ -179,6 +197,33 @@
       "pin": "Keep Joe as Don or vote for someone new? 👇"
     },
     {
+      "id": "harry-bella",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 2261.2,
+      "hook": "It's between Harry and Bella",
+      "context": "Whoever walks through that door is safe",
+      "caption": "Two left. One door. 😳",
+      "pin": "Harry or Bella: who walks in? 👇"
+    },
+    {
+      "id": "money-questions",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 23.2,
+      "hook": "Where did the money go?",
+      "context": "The family questions the Don about the cash",
+      "caption": "The family wants answers 👀",
+      "pin": "Should the Don have to share? 👇"
+    },
+    {
+      "id": "rob-bank",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 428.6,
+      "hook": "Bruno and Demi team up",
+      "context": "Two players making an alliance",
+      "caption": "Let's rob a bank 😂🏦",
+      "pin": "Would you trust this alliance? 👇"
+    },
+    {
       "id": "regime",
       "src": "mob_102_dsm_1.mp4",
       "at": 1871,
@@ -186,6 +231,24 @@
       "caption": "Regime change in the villa? 👀",
       "context": "Some of the family want a new Don",
       "pin": "Is it time for a new Don? 👇"
+    },
+    {
+      "id": "joe-smart",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 1983.0,
+      "hook": "The Don's master plan",
+      "context": "Joe hands out cash to buy loyalty",
+      "caption": "Buying loyalty one envelope at a time 💰",
+      "pin": "Smart move or a mistake? 👇"
+    },
+    {
+      "id": "trunk",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 589.8,
+      "hook": "They opened the trunk and...",
+      "caption": "Never know who's in the trunk 😂",
+      "context": "First job: search the cars for the cash",
+      "pin": "Who would you want to find in the trunk? 😂👇"
     },
     {
       "id": "don-lock",
@@ -213,6 +276,33 @@
       "caption": "First family meeting and someone's out 😳 Who would you cut?",
       "context": "The Don decides who gets paid and who goes",
       "pin": "Who would you cut first? 👇"
+    },
+    {
+      "id": "capo-harry",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 322.9,
+      "hook": "In Harry we trust",
+      "context": "Each crew picks a capo for the first job",
+      "caption": "Harry stepping up as capo 😎",
+      "pin": "Would you make Harry your capo? 👇"
+    },
+    {
+      "id": "cannoli",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 103.6,
+      "hook": "Split the money or take it all?",
+      "context": "The final Don decides who gets the cash",
+      "caption": "This is not for the weak 😳",
+      "pin": "Share it or take the whole cannoli? 👇"
+    },
+    {
+      "id": "ruthless",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 64.6,
+      "hook": "This is a pretty ruthless game",
+      "context": "Celebrities, an Italian villa, one Don",
+      "caption": "Enough family drama to require therapy 😂",
+      "pin": "Who would you trust in this villa? 👇"
     },
     {
       "id": "feet",

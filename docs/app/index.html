@@ -219,6 +219,7 @@ function clipCard(d, it) {
   return `<div class="card ${done ? 'posted' : ''}" data-file="${esc(it.file)}">
     <div class="eyebrow">Post on ${esc(it.account || 'ReplayRoom')} · ${esc(plats.join(', '))}</div>
     <div class="title">${esc(it.campaign)}</div>
+    ${it.postDate ? `<p class="meta"><b>📅 ${esc(new Date(it.postDate + 'T12:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }))} · ${esc(it.postTime)}</b> · ${esc((it.platforms || [])[0] || '')}</p>` : ''}
     <p class="meta">"${esc(it.hook)}" · ${esc(it.seconds)}s</p>
     <details><summary>Preview</summary><video preload="none" controls playsinline src="${esc(url)}"></video></details>
     <label>Caption</label><textarea rows="3" readonly>${esc(it.caption)}</textarea>

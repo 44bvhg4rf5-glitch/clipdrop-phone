@@ -13,6 +13,10 @@ on:
         description: 'Make clips even if today''s are already made'
         type: boolean
         default: false
+      days:
+        description: 'Days of clips to make at once (7 = a week pack to schedule)'
+        type: string
+        default: '1'
 
 permissions:
   contents: write
@@ -63,6 +67,7 @@ jobs:
         continue-on-error: true
         env:
           CLIP_FORCE: ${{ inputs.force }}
+          CLIP_DAYS: ${{ inputs.days }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node clipfarm-cloud.mjs
       - name: Keep diagnostics
@@ -79,7 +84,7 @@ jobs:
         run: |
           TAG=$(node -p "require('./out/clips/manifest.json').tag")
           gh release view "$TAG" >/dev/null 2>&1 && gh release delete "$TAG" --yes --cleanup-tag
-          gh release create "$TAG" out/clips/*.mp4 --title "Clips $(date -u +%Y-%m-%d)" --notes "Daily clip drop"
+          gh release create "$TAG" out/clips/*.mp4 --title "Clips $TAG" --notes "Clip drop"
           GITHUB_REPOSITORY=${{ github.repository }} node clipfarm-cloud.mjs --publish
       - name: Save state and page
         if: always()

@@ -1,10 +1,13 @@
 name: Posting reminders
 
-# 12:00, 16:00 and 20:00 UTC (= UK time in winter; an hour later on the clock
-# in summer). Only sends if there are clips today.
+# Once a day, books today's "time to post" alerts on ntfy for the exact posting
+# times (ntfy delivers them at the time given), so a late-starting GitHub job
+# can't make a reminder late. Times are UK clock times. Slots come from the
+# clips themselves (a week pack labels each clip with its day and time);
+# a plain daily drop uses 12:00, 17:00 and 22:00.
 on:
   schedule:
-    - cron: '0 12,16,20 * * *'
+    - cron: '0 4 * * *'
   workflow_dispatch:
 
 permissions:
@@ -19,7 +22,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { ref: main, sparse-checkout: 'campaigns/state.json
-            notify.sh' }
-      - run: |
-          N=$(node -e "const s=require('./campaigns/state.json');const d=(s.drops||[]).filter(x=>x.date===new Date().toISOString().slice(0,10));console.log(d.reduce((a,x)=>a+x.items.length,0))")
-          [ "$N" -gt 0 ] && ./notify.sh "Time to post" "Post your next clip, then paste the link in the app ($N clips today)" || echo "no clips today"
+            remind.mjs' }
+      - run: node remind.mjs

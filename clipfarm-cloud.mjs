@@ -199,6 +199,16 @@ async function makeDrop() {
   if (!only && state.drops.some((d) => d.date === today() && !d.upload) && process.env.CLIP_FORCE !== 'true') {
     return setStatus('ok', 'Today\'s clips are already made.');
   }
+  // A week pack (CLIP_DAYS > 1) makes several days of clips in one go, each
+  // labelled with the day and time to post it, so a whole week can be
+  // scheduled in one sitting. Daily runs stand down until it runs out.
+  const days = Math.max(1, Math.min(14, parseInt(process.env.CLIP_DAYS || '1', 10) || 1));
+  if (!only && days === 1 && state.packUntil && state.packUntil >= today() && process.env.CLIP_FORCE !== 'true') {
+    return setStatus('ok', `This week's pack covers every day up to ${state.packUntil}.`);
+  }
+  const addDays = (d, n) => new Date(Date.parse(d + 'T12:00:00Z') + n * 864e5).toISOString().slice(0, 10);
+  const packStart = days > 1 ? (state.drops.some((d) => d.date === today() && !d.upload) ? addDays(today(), 1) : today()) : null;
+  const pack = packStart ? { from: packStart, to: addDays(packStart, days - 1), addDays } : null;
 
   rmSync(OUT, { recursive: true, force: true });
   mkdirSync(OUT, { recursive: true });
@@ -207,7 +217,7 @@ async function makeDrop() {
 
   for (const c of live) {
     if (c.type === 'creator') {
-      const got = await creatorDrop(c).catch((e) => { warn(`${c.name}: ${e.message}`); return []; });
+      const got = await creatorDrop(c, pack).catch((e) => { warn(`${c.name}: ${e.message}`); return []; });
       if (!got.length) exhausted++;
       items.push(...got);
       continue;
@@ -259,8 +269,8 @@ async function makeDrop() {
       ? setStatus('ok', 'Every live campaign is used up. Send Claude a new campaign to add.')
       : setStatus('error', 'No clips could be made today — see the run log.');
   }
-  const tag = process.env.CLIP_TAG || `clips-${today()}`;
-  writeJson(path.join(OUT, 'manifest.json'), { date: today(), tag, upload: !!only, items });
+  const tag = process.env.CLIP_TAG || (pack ? `pack-${pack.from}` : `clips-${today()}`);
+  writeJson(path.join(OUT, 'manifest.json'), { date: today(), tag, upload: !!only, items, ...(pack ? { pack: { from: pack.from, to: pack.to } } : {}) });
   setStatus('ok', `${items.length} clip(s) made for ${today()}.`);
 }
 
@@ -268,7 +278,7 @@ async function makeDrop() {
  * A creator campaign: fetch its long videos, find the day's best unused
  * moments, and render one distinct edit per allowed platform for each.
  */
-async function creatorDrop(c) {
+async function creatorDrop(c, pack = null) {
   const ranges = state.ranges?.[c.id] || [];
   log(`${c.name}: fetching creator footage`);
   const videos = await fetchSources(c.sources || [], path.join(CACHE, c.id), { fetchFrameIo, log, warn });
@@ -279,7 +289,9 @@ async function creatorDrop(c) {
     const fixed = path.join(CAMPAIGNS, `${c.id}.words`, `${path.basename(v)}.words.json`);
     if (existsSync(fixed)) copyFileSync(fixed, v + '.words.json');
   }
-  const want = c.perDay || 3;
+  const perDay = c.perDay || 3;
+  const want = pack ? perDay * (Date.parse(pack.to) - Date.parse(pack.from) + 864e5) / 864e5 : perDay;
+  const slots = c.slots || ['12:00', '17:00', '22:00'];
   // Hand-picked moments first (c.picks: { src, at, hook, caption }, reviewed by
   // a person with text written for that exact moment), in order, each once.
   const overlap = (a, b) => a.src === b.src && a.s < b.e && b.s < a.e;
@@ -305,7 +317,8 @@ async function creatorDrop(c) {
     const found = await findMoments(v, ROOT, { ...lim, want, used });
     per.push(...found.map((m) => ({ ...m, video: v, src: name })));
   }
-  const best = per.sort((a, b) => b.score - a.score).slice(0, want);
+  // Hand picks keep their written order (best first); automatic ones follow by score.
+  const best = [...per.filter((m) => m.pick), ...per.filter((m) => !m.pick).sort((a, b) => b.score - a.score)].slice(0, want);
   const platforms = (c.platforms || ['tiktok']).filter((p) => ['tiktok', 'instagram', 'youtube'].includes(p));
   const work = path.join(ROOT, '.produce', 'clips', c.id);
   const items = [];
@@ -313,8 +326,10 @@ async function creatorDrop(c) {
     const hooks = m.pick ? [].concat(m.pick.hooks || m.pick.hook) : hooksFor(m, c.hooks || [], ranges.length + k, c.quoteHooks !== false);
     const momentId = `${slugify(m.src.replace(/\.\w+$/, ''))}-${Math.round(m.s)}`;
     const captionBase = m.pick?.caption || (c.captionLines?.length ? c.captionLines[(ranges.length + k) % c.captionLines.length] : hooks[0].replace(/"/g, ''));
+    const slot = pack ? { postDate: pack.addDays(pack.from, Math.floor(k / perDay)), postTime: slots[k % perDay % slots.length] } : {};
     for (const [pi, platform] of platforms.entries()) {
-      const out = path.join(OUT, `${today()}-${c.id}-${momentId}-${platform}.mp4`);
+      const stamp = pack ? `${slot.postDate}-${slot.postTime.replace(':', '')}` : today();
+      const out = path.join(OUT, `${stamp}-${c.id}-${momentId}-${platform}.mp4`);
       try {
         log(`${c.name}: ${m.src} @${m.s.toFixed(0)}s → ${platform} · ${hooks[pi % hooks.length]}`);
         await renderMoment({ video: m.video, moment: m, hook: hooks[pi % hooks.length], platform, out, work, font: FONT, layout: c.layout || 'blurfill', credit: c.credit || '', zoom: c.zoom ?? 1.3, exact: c.exactSeconds || 0, context: m.pick?.context || c.context || '', ask: (m.pick?.pin || '').replace(/\s*👇\s*$/, '') });
@@ -323,7 +338,7 @@ async function creatorDrop(c) {
           range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
           seconds: c.exactSeconds || +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
           caption: [`${captionBase}${c.credit ? ' ' + c.credit : ''}${c.cta ? '\n' + c.cta : ''}`, c.requiredCaption, (c.hashtags || []).join(' ')].filter(Boolean).join('\n\n').trim(),
-          platforms: [platform], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '', pin: m.pick?.pin || '',
+          platforms: [platform], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '', pin: m.pick?.pin || '', ...slot,
         });
       } catch (e) { warn(`${momentId} ${platform}: render failed — ${e.message.split('\n')[0]}`); }
     }
@@ -400,6 +415,7 @@ async function main() {
           if (!r.some((x) => x.src === it.range.src && x.s === it.range.s)) r.push(it.range);
         } else (state.used[it.campaignId] ||= []).includes(it.source) || state.used[it.campaignId].push(it.source);
       }
+      if (m.pack) state.packUntil = m.pack.to;
       state.drops = state.drops.slice(-30);
       setStatus('ok', `${m.items.length} clip(s) ready for ${m.date}.`);
     }
