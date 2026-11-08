@@ -240,7 +240,20 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
       `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`ask-${platform}-${i}.txt`, l)}:fontsize=54:fontcolor=0xFFE27A:borderw=6:bordercolor=black:box=1:boxcolor=black@0.45:boxborderw=14:x=(w-text_w)/2:y=${1420 + i * 70}:enable='gte(t,${askAt.toFixed(2)})'`));
   }
   if (credit) draws.push(`drawtext=fontfile=${font}:expansion=none:textfile=${txt(`credit-${platform}.txt`, credit)}:fontsize=36:fontcolor=white@0.85:borderw=3:bordercolor=black@0.7:x=(w-text_w)/2:y=1620`);
-  const base = layout === 'crop'
+  // 'track': a tall crop (1080 wide, ~70% of the screen high) that follows the
+  // faces shot by shot (clipfarm/faces.py), so people fill the frame the way
+  // native vertical video does, instead of a small letterboxed TV picture.
+  let tracked = null;
+  if (layout === 'track') {
+    const H = 1344, W = Math.round((H * 16) / 9 / 2) * 2;
+    let shots = [];
+    try { shots = JSON.parse((await run('python3', [path.join(import.meta.dirname, 'faces.py'), video, start.toFixed(2), dur.toFixed(2)])).stdout); } catch { shots = []; }
+    const xOf = (cx) => Math.round(Math.min(Math.max(cx * W - 540, 0), W - 1080));
+    const expr = shots.length ? shots.slice(0, -1).reduceRight((acc, sh) => `if(lt(t\\,${sh.e})\\,${xOf(sh.cx)}\\,${acc})`, String(xOf(shots[shots.length - 1].cx))) : String(xOf(0.5));
+    tracked = `[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24:2,eq=brightness=-0.18[bg];`
+      + `[b]scale=-2:${H},crop=1080:${H}:${expr}:0[fg];[bg][fg]overlay=0:${top + block + 24},setsar=1[v0]`;
+  }
+  const base = tracked ? tracked : layout === 'crop'
     ? `[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[v0]`
     : `[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24:2,eq=brightness=-0.18[bg];`
       // Wide shots are shown zoomed (centre kept, edges trimmed) so people

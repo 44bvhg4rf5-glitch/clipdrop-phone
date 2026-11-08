@@ -13,7 +13,7 @@
     "youtube"
   ],
   "perDay": 3,
-  "layout": "blurfill",
+  "layout": "track",
   "zoom": 1.6,
   "credit": "",
   "hooks": [
