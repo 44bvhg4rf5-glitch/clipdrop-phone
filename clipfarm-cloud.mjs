@@ -196,18 +196,24 @@ async function makeDrop() {
   const only = process.env.CLIP_ONLY ? [{ id: path.basename(process.env.CLIP_ONLY).replace(/\.json$/, ''), ...readJson(process.env.CLIP_ONLY, {}) }] : null;
   const live = only || campaigns().filter((c) => !c.endsOn || c.endsOn >= today());
   if (!live.length) return setStatus('ok', 'No live campaigns. Send Claude a new Vyro campaign to add.');
-  if (!only && state.drops.some((d) => d.date === today() && !d.upload) && process.env.CLIP_FORCE !== 'true') {
+  if (!only && !state.packUntil && state.drops.some((d) => d.date === today() && !d.upload) && process.env.CLIP_FORCE !== 'true') {
     return setStatus('ok', 'Today\'s clips are already made.');
   }
   // A week pack (CLIP_DAYS > 1) makes several days of clips in one go, each
   // labelled with the day and time to post it, so a whole week can be
   // scheduled in one sitting. Daily runs stand down until it runs out.
-  const days = Math.max(1, Math.min(14, parseInt(process.env.CLIP_DAYS || '1', 10) || 1));
-  if (!only && days === 1 && state.packUntil && state.packUntil >= today() && process.env.CLIP_FORCE !== 'true') {
-    return setStatus('ok', `This week's pack covers every day up to ${state.packUntil}.`);
-  }
   const addDays = (d, n) => new Date(Date.parse(d + 'T12:00:00Z') + n * 864e5).toISOString().slice(0, 10);
-  const packStart = days > 1 ? (state.drops.some((d) => d.date === today() && !d.upload) ? addDays(today(), 1) : today()) : null;
+  // Once week packs are in use they roll on: the scheduled run makes the next
+  // week's pack the day before the current one runs out (so tomorrow's 5am
+  // alert has its clips), and otherwise stands down.
+  let days = Math.max(1, Math.min(14, parseInt(process.env.CLIP_DAYS || '1', 10) || 1));
+  if (!only && !process.env.CLIP_DAYS && state.packUntil && process.env.CLIP_FORCE !== 'true') {
+    if (state.packUntil > addDays(today(), 1)) return setStatus('ok', `This week's pack covers every day up to ${state.packUntil}.`);
+    days = 7;
+  }
+  const packStart = days === 1 ? null
+    : state.packUntil && state.packUntil >= today() ? addDays(state.packUntil, 1)
+    : state.drops.some((d) => d.date === today() && !d.upload) ? addDays(today(), 1) : today();
   const pack = packStart ? { from: packStart, to: addDays(packStart, days - 1), addDays } : null;
 
   rmSync(OUT, { recursive: true, force: true });

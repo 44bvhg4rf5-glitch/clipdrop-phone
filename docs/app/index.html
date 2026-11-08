@@ -187,6 +187,35 @@ const views = {
     }
     return h;
   },
+  // Opened from the 5am notification (#plan=2026-11-09): the day's clips in
+  // posting order, each platform's file, caption and pinned comment, ready to
+  // schedule in one sitting.
+  plan() {
+    const date = decodeURIComponent((location.hash.match(/plan=([^&]+)/) || [])[1] || '') || new Date().toISOString().slice(0, 10);
+    const drops = (data.clips?.drops || []).slice().reverse();
+    const its = [];
+    for (const d of drops) for (const it of d.items) if (it.postDate === date) its.push({ d, it });
+    if (!its.length) for (const d of drops.filter((x) => x.date === date && !x.pack)) d.items.forEach((it) => its.push({ d, it }));
+    const when = new Date(date + 'T12:00:00Z').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+    if (!its.length) return `<p class="empty">No clips for ${esc(when)} yet.</p>`;
+    const names = { tiktok: 'TikTok', instagram: 'Instagram', youtube: 'YouTube' };
+    const where = { tiktok: 'https://www.tiktok.com/tiktokstudio/upload', instagram: 'https://www.instagram.com/', youtube: 'https://studio.youtube.com/' };
+    const slots = new Map();
+    for (const x of its) { const k = x.it.postTime || x.it.moment || x.it.file; (slots.get(k) || slots.set(k, []).get(k)).push(x); }
+    let h = `<div class="card"><div class="eyebrow">Today's plan</div><div class="title">${esc(when)}</div>
+      <p class="meta">${slots.size} clip${slots.size > 1 ? 's' : ''}. For each one: download the version for each platform, paste the caption, set the time, schedule. Then pin the comment once it's live.</p>
+      <div class="row">${Object.entries(where).map(([k, u]) => `<a class="btn ghost" href="${u}">${names[k]}${k === 'tiktok' ? ' Studio' : k === 'youtube' ? ' Studio' : ''}</a>`).join('')}</div></div>`;
+    for (const [k, group] of slots) {
+      const first = group[0].it;
+      h += `<div class="card"><div class="eyebrow">${first.postTime ? `🕒 Schedule for ${esc(first.postTime)}` : 'Post today'}</div><div class="title">"${esc(first.hook)}"</div>
+        <details><summary>Preview</summary><video preload="none" controls playsinline src="${esc(REL + group[0].d.tag + '/' + first.file)}"></video></details>
+        <label>Caption</label><textarea rows="4" readonly>${esc(first.caption)}</textarea>
+        <div class="row"><button class="btn ghost" type="button" data-copy="${esc(first.caption)}">Copy caption</button>${first.pin ? `<button class="btn ghost" type="button" data-copy="${esc(first.pin)}">Copy pinned comment</button>` : ''}</div>
+        <label>Download</label><div class="row">${group.map(({ d, it }) => `<a class="btn" href="${esc(REL + d.tag + '/' + it.file)}">${esc(names[(it.platforms || [])[0]] || 'Video')}</a>`).join('')}</div>
+        ${first.postTime ? '<p class="meta">YouTube: first line of the caption as the title, the whole caption as the description.</p>' : ''}</div>`;
+    }
+    return h;
+  },
   // Opened from the "Posted" notification (#submit=2026-11-09T12:00): one
   // moment, every platform's post, a box for each link and the Vyro button.
   submit() {
@@ -360,9 +389,10 @@ async function setTopic(topic) {
 
 // ── wiring ───────────────────────────────────────────────────
 let tab = store.get('rr_tab', 'today');
-const titles = { today: 'Today', scout: 'Scout', upload: 'Upload', koala: 'Pip & Willow', settings: 'Settings', submit: 'Submit links' };
-if (location.hash.startsWith('#submit')) tab = 'submit';
-window.addEventListener('hashchange', () => { if (location.hash.startsWith('#submit')) { tab = 'submit'; render(); } });
+const titles = { today: 'Today', scout: 'Scout', upload: 'Upload', koala: 'Pip & Willow', settings: 'Settings', submit: 'Submit links', plan: "Today's plan" };
+const routeTab = () => (location.hash.startsWith('#submit') ? 'submit' : location.hash.startsWith('#plan') ? 'plan' : null);
+if (routeTab()) tab = routeTab();
+window.addEventListener('hashchange', () => { if (routeTab()) { tab = routeTab(); render(); } });
 function render() {
   $('#viewTitle').textContent = titles[tab];
   document.querySelectorAll('#tabs button').forEach((b) => b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'));

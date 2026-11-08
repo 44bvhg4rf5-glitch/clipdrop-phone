@@ -1,14 +1,18 @@
 name: Posting reminders
 
-# Once a day, books today's "time to post" alerts on ntfy for the exact posting
-# times (ntfy delivers them at the time given), so a late-starting GitHub job
-# can't make a reminder late. Times are UK clock times. Slots come from the
-# clips themselves (a week pack labels each clip with its day and time);
-# a plain daily drop uses 12:00, 17:00 and 22:00.
+# Once a day, books TOMORROW's alerts on ntfy for exact UK times (ntfy delivers
+# each at the time given): the 5am "today's plan" and a "Posted: submit on
+# Vyro" two minutes after each slot. Booking a day ahead means a late-starting
+# GitHub job can never make an alert late. See remind.mjs.
 on:
   schedule:
     - cron: '0 4 * * *'
   workflow_dispatch:
+    inputs:
+      day:
+        description: 'tomorrow (normal) or today (catch-up)'
+        type: string
+        default: 'tomorrow'
 
 permissions:
   contents: read
@@ -24,3 +28,5 @@ jobs:
         with: { ref: main, sparse-checkout: 'campaigns/state.json
             remind.mjs' }
       - run: node remind.mjs
+        env:
+          DAY: ${{ inputs.day }}
