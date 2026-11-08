@@ -14,6 +14,7 @@ video, start, dur = sys.argv[1], float(sys.argv[2]), float(sys.argv[3])
 cap = cv2.VideoCapture(video)
 cap.set(cv2.CAP_PROP_POS_MSEC, start * 1000)
 det = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+side = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_profileface.xml')
 step = 0.25
 samples = []  # (t, hist, faces[(cx, w)])
 t = 0.0
@@ -26,7 +27,11 @@ while t <= dur:
     gray = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
     hist = cv2.calcHist([small], [0, 1, 2], None, [8, 8, 8], [0, 256] * 3)
     cv2.normalize(hist, hist)
-    found = det.detectMultiScale(gray, scaleFactor=1.15, minNeighbors=6, minSize=(28, 28))
+    found = list(det.detectMultiScale(gray, scaleFactor=1.15, minNeighbors=6, minSize=(28, 28)))
+    # Reality TV is full of people talking side-on: look for profiles both ways.
+    found += list(side.detectMultiScale(gray, scaleFactor=1.15, minNeighbors=6, minSize=(28, 28)))
+    flip = cv2.flip(gray, 1)
+    found += [(640 - x - w, y, w, h) for (x, y, w, h) in side.detectMultiScale(flip, scaleFactor=1.15, minNeighbors=6, minSize=(28, 28))]
     faces = [((x + w / 2) / 640, w / 640) for (x, y, w, h) in found]
     samples.append((t, hist, faces))
     t += step
