@@ -113,8 +113,8 @@ async function runWorkflow(file, inputs = {}) {
 const data = { clips: null, scout: null, koala: null, ledger: null, campaigns: [], posts: {} };
 async function load() {
   $('#sync').textContent = 'Refreshing…';
-  const [clips, scout, koala, ledger] = await Promise.allSettled([raw('campaigns/state.json'), raw('scout/report.json'), raw('koala/state.json'), raw('koala/ledger.json')]);
-  data.clips = clips.value || null; data.scout = scout.value || null; data.koala = koala.value || null; data.ledger = ledger.value || null;
+  const [clips, scout, koala, ledger, accounts] = await Promise.allSettled([raw('campaigns/state.json'), raw('scout/report.json'), raw('koala/state.json'), raw('koala/ledger.json'), raw('accounts.json')]);
+  data.clips = clips.value || null; data.scout = scout.value || null; data.koala = koala.value || null; data.ledger = ledger.value || null; data.accounts = accounts.value || {};
   if (token()) {
     try { data.campaigns = (await gh(`/contents/campaigns?ref=main`)).map((f) => f.name); } catch {}
     try {
@@ -184,6 +184,35 @@ const views = {
       h += `<div class="card"><div class="title">${esc(e.title)}</div><p class="meta">${esc(e.date)}</p>
         <div class="row"><a class="btn" href="${REL}${esc(e.tag)}/${esc(e.full)}">Full episode</a><a class="btn ghost" href="${REL}${esc(e.tag)}/${esc(e.short)}">Short cut</a>
         <button class="btn ghost" type="button" data-copy="${esc(e.caption)}">Copy caption</button></div></div>`;
+    }
+    return h;
+  },
+  // Opened from the "Posted" notification (#submit=2026-11-09T12:00): one
+  // moment, every platform's post, a box for each link and the Vyro button.
+  submit() {
+    const key = decodeURIComponent((location.hash.match(/submit=([^&]+)/) || [])[1] || '');
+    const [date, time] = key.split('T');
+    const drops = (data.clips?.drops || []).slice().reverse();
+    let found = null;
+    for (const d of drops) { const its = d.items.filter((it) => it.postDate === date && it.postTime === time); if (its.length) { found = { d, its }; break; } }
+    if (!found) return '<p class="empty">Couldn\'t find that post. Pull to refresh, or use the Today tab.</p>';
+    const { d, its } = found;
+    const first = its[0];
+    const prof = { tiktok: (h) => `https://www.tiktok.com/@${h}`, instagram: (h) => `https://www.instagram.com/${h}/`, youtube: (h) => `https://www.youtube.com/@${h}/shorts` };
+    const names = { tiktok: 'TikTok', instagram: 'Instagram', youtube: 'YouTube' };
+    const handles = data.accounts?.[first.account || 'ReplayRoom'] || {};
+    const when = new Date(date + 'T12:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+    let h = `<div class="card"><div class="eyebrow">📅 ${esc(when)} · ${esc(time)} · ${esc(first.account || 'ReplayRoom')}</div><div class="title">"${esc(first.hook)}"</div>
+      <p class="meta">For each platform: open your profile, copy the new post's link, paste it below. Then submit each one on Vyro.</p>
+      ${first.submitUrl ? `<div class="row"><a class="btn" href="${esc(first.submitUrl)}">Open the Vyro campaign</a></div>` : ''}</div>`;
+    for (const it of its) {
+      const pl = (it.platforms || [])[0];
+      const posts = data.posts[it.file] || [];
+      const handle = handles[pl];
+      h += `<div class="card ${posts.length ? 'posted' : ''}"><div class="title">${esc(names[pl] || pl)}</div>
+        <div class="row">${handle ? `<a class="btn ghost" href="${esc(prof[pl](handle))}">Open my ${esc(names[pl] || pl)}</a>` : `<span class="muted">Tell Claude your ${esc(names[pl] || pl)} handle to get a button here.</span>`}${it.pin ? `<button class="btn ghost" type="button" data-copy="${esc(it.pin)}">Copy pinned comment</button>` : ''}</div>
+        <div class="row"><input type="url" inputmode="url" placeholder="Paste the ${esc(names[pl] || pl)} link" data-link="${esc(it.file)}"><button class="btn" type="button" data-post="${esc(it.file)}" data-tag="${esc(d.tag)}">Save</button></div>
+        ${posts.map(postStatus).join('')}</div>`;
     }
     return h;
   },
@@ -331,7 +360,9 @@ async function setTopic(topic) {
 
 // ── wiring ───────────────────────────────────────────────────
 let tab = store.get('rr_tab', 'today');
-const titles = { today: 'Today', scout: 'Scout', upload: 'Upload', koala: 'Pip & Willow', settings: 'Settings' };
+const titles = { today: 'Today', scout: 'Scout', upload: 'Upload', koala: 'Pip & Willow', settings: 'Settings', submit: 'Submit links' };
+if (location.hash.startsWith('#submit')) tab = 'submit';
+window.addEventListener('hashchange', () => { if (location.hash.startsWith('#submit')) { tab = 'submit'; render(); } });
 function render() {
   $('#viewTitle').textContent = titles[tab];
   document.querySelectorAll('#tabs button').forEach((b) => b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'));
@@ -343,7 +374,7 @@ async function copy(text, btn) {
 }
 document.addEventListener('click', async (e) => {
   const b = e.target.closest('button,a'); if (!b) return;
-  if (b.dataset.tab) { tab = b.dataset.tab; store.set('rr_tab', tab); render(); return; }
+  if (b.dataset.tab) { tab = b.dataset.tab; store.set('rr_tab', tab); if (location.hash) history.replaceState(null, '', location.pathname); render(); return; }
   if (b.dataset.copy !== undefined) { copy(b.dataset.copy, b); return; }
   if (b.dataset.copylink) { copy(b.dataset.copylink); return; }
   try {

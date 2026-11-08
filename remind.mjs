@@ -30,12 +30,20 @@ for (const d of state.drops || []) {
 }
 const now = Date.now() / 1000;
 for (const [t, hooks] of [...slots].sort()) {
-  const at = ukToUnix(ukDate, t);
+  // Two minutes after the slot: the scheduled posts are live by then.
+  const at = ukToUnix(ukDate, t) + 120;
   if (at < now + 60) { console.log(`${t}: already past`); continue; }
+  const app = 'https://44bvhg4rf5-glitch.github.io/clipdrop-phone/app/';
+  const scheduled = [...state.drops].some((d) => (d.items || []).some((it) => it.postDate === ukDate && it.postTime === t));
   const r = await fetch(`https://ntfy.sh/${topic}`, {
     method: 'POST',
-    headers: { Title: `Time to post (${t})`, At: String(at), Tags: 'clapper', Click: 'https://44bvhg4rf5-glitch.github.io/clipdrop-phone/app/' },
-    body: `Post "${[...hooks][0]}" now, then submit the link on Vyro and paste it in the app.`,
+    headers: {
+      Title: scheduled ? `Posted (${t}): submit on Vyro` : `Time to post (${t})`, At: String(at), Tags: 'clapper',
+      Click: scheduled ? `${app}#submit=${ukDate}T${t}` : app,
+    },
+    body: scheduled
+      ? `"${[...hooks][0]}" is live. Tap for your TikTok, Instagram and YouTube links, then submit each on Vyro.`
+      : `Post "${[...hooks][0]}" now, then submit the link on Vyro and paste it in the app.`,
   });
   console.log(`${t}: booked (${r.status})`);
 }
