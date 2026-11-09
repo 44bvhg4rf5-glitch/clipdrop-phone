@@ -207,7 +207,8 @@ const views = {
       <div class="row">${Object.entries(where).map(([k, u]) => `<a class="btn ghost" href="${u}">${names[k]}${k === 'tiktok' ? ' Studio' : k === 'youtube' ? ' Studio' : ''}</a>`).join('')}</div></div>`;
     for (const [k, group] of slots) {
       const first = group[0].it;
-      h += `<div class="card"><div class="eyebrow">${first.postTime ? `🕒 Schedule for ${esc(first.postTime)}` : 'Post today'}</div><div class="title">"${esc(first.hook)}"</div>
+      const night = first.nextDay ? ` overnight: set the date to ${esc(new Date(first.liveDate + 'T12:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }))} (US prime time)` : '';
+      h += `<div class="card"><div class="eyebrow">${first.postTime ? `🕒 Schedule for ${esc(first.postTime)}${night}` : 'Post today'}</div><div class="title">"${esc(first.hook)}"</div>
         <details><summary>Preview</summary><video preload="none" controls playsinline src="${esc(REL + group[0].d.tag + '/' + first.file)}"></video></details>
         <label>Caption</label><textarea rows="4" readonly>${esc(first.caption)}</textarea>
         <div class="row"><button class="btn ghost" type="button" data-copy="${esc(first.caption)}">Copy caption</button>${first.pin ? `<button class="btn ghost" type="button" data-copy="${esc(first.pin)}">Copy pinned comment</button>` : ''}</div>

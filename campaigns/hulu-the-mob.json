@@ -12,7 +12,7 @@
     "instagram",
     "youtube"
   ],
-  "perDay": 3,
+  "perDay": 4,
   "layout": "track",
   "zoom": 1.6,
   "credit": "",
@@ -266,17 +266,13 @@
       }
     },
     {
-      "id": "money-questions",
-      "src": "mob_102_dsm_1.mp4",
-      "at": 23.2,
-      "hook": "Where did the money go?",
-      "context": "The family questions the Don about the cash",
-      "caption": "The family wants answers 👀",
-      "pin": "Should the Don have to share? 👇",
-      "long": {
-        "at": 17.1,
-        "len": 25.7
-      }
+      "id": "whack-bella",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 2403.3,
+      "hook": "The Don's first decision",
+      "context": "Tonight one of them leaves the family",
+      "caption": "Nobody saw this coming 😳",
+      "pin": "Right call or wrong call? 👇"
     },
     {
       "id": "rob-bank",
@@ -318,6 +314,15 @@
       }
     },
     {
+      "id": "decided-whack",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 2300.1,
+      "hook": "The Don has decided",
+      "context": "First family meeting: someone is going home",
+      "caption": "The first family meeting 😬",
+      "pin": "Who do you think is going? 👇"
+    },
+    {
       "id": "trunk",
       "src": "mob_101_dsm_1.mp4",
       "at": 589.8,
@@ -328,19 +333,6 @@
       "long": {
         "at": 579.4,
         "len": 25.7
-      }
-    },
-    {
-      "id": "don-lock",
-      "src": "mob_101_dsm_1.mp4",
-      "at": 898,
-      "hook": "Who cracked the D-O-N lock?",
-      "caption": "D-O-N 😂 Who would've cracked it first?",
-      "context": "One lock left between them and the cash",
-      "pin": "How fast would you have cracked it? 🔐👇",
-      "long": {
-        "at": 897.8,
-        "len": 26.3
       }
     },
     {
@@ -368,6 +360,15 @@
         "at": 1131.0,
         "len": 27.1
       }
+    },
+    {
+      "id": "still-don",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 211.2,
+      "hook": "Joe's still the Don... for now",
+      "context": "Tomorrow the family can vote him out",
+      "caption": "Kiss the ring and you can go 💍",
+      "pin": "Would you vote to keep Joe? 👇"
     },
     {
       "id": "capo-harry",
@@ -405,6 +406,15 @@
       }
     },
     {
+      "id": "not-happy",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 1034.2,
+      "hook": "Eight envelopes. Only four came back.",
+      "context": "The Don wants to know what happened",
+      "caption": "The Don is NOT happy 😳",
+      "pin": "Who do you think slacked off? 👇"
+    },
+    {
       "id": "feet",
       "src": "mob_102_dsm_1.mp4",
       "at": 756.5,
@@ -412,19 +422,6 @@
       "caption": "Fresh from the grapes 🍇😂",
       "context": "The family stomps grapes for the Don",
       "pin": "Would you still drink it? 🍷😂👇"
-    },
-    {
-      "id": "demi-me",
-      "src": "mob_101_dsm_1.mp4",
-      "at": 1431.3,
-      "hook": "Demi's pitch to the Don",
-      "caption": "Demi said what she said 😂",
-      "context": "The Don asks who earned the cash on the first job",
-      "pin": "Was Demi the MVP of the first job? 👇",
-      "long": {
-        "at": 1431.2,
-        "len": 27.0
-      }
     },
     {
       "id": "fishes",
@@ -447,6 +444,15 @@
       "caption": "Power is taken, not given 👑",
       "context": "Parker Posey warns the family",
       "pin": "Who in the villa wants the power most? 👇"
+    },
+    {
+      "id": "no-clue",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 1346.9,
+      "hook": "Bruno is honest about it",
+      "context": "The judge is now the one competing",
+      "caption": "Not a clue, honey 😂",
+      "pin": "Bruno or Demi: who carried that job? 👇"
     },
     {
       "id": "don-no-work",
@@ -488,6 +494,54 @@
       }
     },
     {
+      "id": "harry-gift",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 1586.0,
+      "hook": "The Don gives Harry a gift",
+      "context": "Joe keeps Harry under his wing",
+      "caption": "A gift from the Don 🎁",
+      "pin": "Smart move from Joe? 👇"
+    },
+    {
+      "id": "money-questions",
+      "src": "mob_102_dsm_1.mp4",
+      "at": 23.2,
+      "hook": "Where did the money go?",
+      "context": "The family questions the Don about the cash",
+      "caption": "The family wants answers 👀",
+      "pin": "Should the Don have to share? 👇",
+      "long": {
+        "at": 17.1,
+        "len": 25.7
+      }
+    },
+    {
+      "id": "don-lock",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 898,
+      "hook": "Who cracked the D-O-N lock?",
+      "caption": "D-O-N 😂 Who would've cracked it first?",
+      "context": "One lock left between them and the cash",
+      "pin": "How fast would you have cracked it? 🔐👇",
+      "long": {
+        "at": 897.8,
+        "len": 26.3
+      }
+    },
+    {
+      "id": "demi-me",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 1431.3,
+      "hook": "Demi's pitch to the Don",
+      "caption": "Demi said what she said 😂",
+      "context": "The Don asks who earned the cash on the first job",
+      "pin": "Was Demi the MVP of the first job? 👇",
+      "long": {
+        "at": 1431.2,
+        "len": 27.0
+      }
+    },
+    {
       "id": "winery",
       "src": "mob_102_dsm_1.mp4",
       "at": 483.5,
@@ -495,11 +549,44 @@
       "caption": "Parker Posey keeps the good stuff for herself 🍷",
       "context": "Parker Posey sets the wine job",
       "pin": "Red or white? 🍷👇"
+    },
+    {
+      "id": "double-edged",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 1200.4,
+      "hook": "Being the first Don is risky",
+      "context": "The first Don has to whack someone early",
+      "caption": "Power comes with enemies 👑",
+      "pin": "Would you want to be the first Don? 👇"
+    },
+    {
+      "id": "relief-door",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 2083.9,
+      "hook": "If you're not in the room, you're gone",
+      "context": "The first family meeting begins",
+      "caption": "The relief of walking in 😮‍💨",
+      "pin": "Who do you think is missing? 👇"
+    },
+    {
+      "id": "ring-pinky",
+      "src": "mob_101_dsm_1.mp4",
+      "at": 702.4,
+      "hook": "They found the ring",
+      "context": "First job: crack the lock box",
+      "caption": "Kiss the pinky 💍😂",
+      "pin": "What do you think the ring is for? 👇"
     }
   ],
   "_picks": "27 moments chosen by reading both episodes (5 Nov 2026), best first; each posts once, then the job falls back to automatic picks. Times are seconds into the episode; every clip is exactly 15s from there. Reordered 7 Nov from first results: contestant drama/suspense (door reveal 600 views, 7% likes) beats host monologues (gelato 427 views, under 1% likes), so Parker Posey speeches go last.",
   "context": "12 celebrities. 1 villa. The Don decides who gets paid.",
   "cta": "Follow for a new moment from The Mob every day 🍝",
   "useLong": false,
-  "_long": "Each pick's 'long' cut (22-32s, whole sentences, no swearing/violence/other-show names) is ready. Set useLong true ONLY if Vyro/Hulu confirm clips may run over 15 seconds: Disney's terms in the brief cap the piece at 15s."
+  "_long": "Each pick's 'long' cut (22-32s, whole sentences, no swearing/violence/other-show names) is ready. Set useLong true ONLY if Vyro/Hulu confirm clips may run over 15 seconds: Disney's terms in the brief cap the piece at 15s.",
+  "slots": [
+    "12:00",
+    "17:00",
+    "22:00",
+    "01:00"
+  ]
 }

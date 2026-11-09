@@ -336,7 +336,10 @@ async function creatorDrop(c, pack = null) {
     const hooks = m.pick ? [].concat(m.pick.hooks || m.pick.hook) : hooksFor(m, c.hooks || [], ranges.length + k, c.quoteHooks !== false);
     const momentId = `${slugify(m.src.replace(/\.\w+$/, ''))}-${Math.round(m.s)}`;
     const captionBase = m.pick?.caption || (c.captionLines?.length ? c.captionLines[(ranges.length + k) % c.captionLines.length] : hooks[0].replace(/"/g, ''));
+    // A slot before 05:00 is that day's overnight post (e.g. 01:00 = US prime
+    // time): it goes live early the NEXT morning, so it's scheduled the day before.
     const slot = pack ? { postDate: pack.addDays(pack.from, Math.floor(k / perDay)), postTime: slots[k % perDay % slots.length] } : {};
+    if (pack && slot.postTime < '05:00') { slot.nextDay = true; slot.liveDate = pack.addDays(slot.postDate, 1); }
     for (const [pi, platform] of platforms.entries()) {
       const stamp = pack ? `${slot.postDate}-${slot.postTime.replace(':', '')}` : today();
       const out = path.join(OUT, `${stamp}-${c.id}-${momentId}-${platform}.mp4`);
