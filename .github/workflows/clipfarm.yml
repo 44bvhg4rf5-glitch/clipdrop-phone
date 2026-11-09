@@ -17,6 +17,10 @@ on:
         description: 'Days of clips to make at once (7 = a week pack to schedule)'
         type: string
         default: '1'
+      followup:
+        description: 'Moment id of a clip that is taking off: make what-happened-next / right-before clips'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -68,6 +72,7 @@ jobs:
         env:
           CLIP_FORCE: ${{ inputs.force }}
           CLIP_DAYS: ${{ inputs.days }}
+          CLIP_FOLLOWUP: ${{ inputs.followup }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node clipfarm-cloud.mjs
       - name: Keep diagnostics

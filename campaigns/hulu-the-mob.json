@@ -235,9 +235,20 @@
       "src": "mob_102_dsm_1.mp4",
       "at": 1458.5,
       "hook": "The Don keeps two for himself",
-      "context": "Only four envelopes came back from the job",
+      "context": "Joe Gorga: only four envelopes came back",
       "caption": "This is the mob 💰",
-      "pin": "Fair or greedy? 👇"
+      "pin": "Fair or greedy? 👇",
+      "hooks": [
+        "Would you keep two envelopes?",
+        "The Don just kept the cash for himself",
+        "POV: you are the Don and the money is short"
+      ],
+      "ytTitle": "Joe Gorga keeps two envelopes for himself | The Mob",
+      "styles": [
+        "question",
+        "statement",
+        "pov"
+      ]
     },
     {
       "id": "risk-power",
@@ -245,47 +256,91 @@
       "at": 1992.4,
       "hook": "The Don could lose it all tonight",
       "caption": "First loyalty pledge 😳 Does Joe keep the ring?",
-      "context": "Tonight the family can vote out the Don",
+      "context": "Parker Posey explains the loyalty vote",
       "pin": "Keep Joe or vote him out? 👇",
       "long": {
         "at": 1989.1,
         "len": 25.1
-      }
+      },
+      "hooks": [
+        "Will Joe lose the ring tonight?",
+        "Tonight the family can vote out the Don",
+        "POV: you are the Don on vote night"
+      ],
+      "ytTitle": "Parker Posey warns Joe Gorga he could lose it all | The Mob",
+      "styles": [
+        "question",
+        "statement",
+        "pov"
+      ]
     },
     {
       "id": "harry-bella",
       "src": "mob_101_dsm_1.mp4",
       "at": 2261.2,
       "hook": "It's between Harry and Bella",
-      "context": "Whoever walks through that door is safe",
+      "context": "Harry Jowsey or Bella: one of them is gone",
       "caption": "Two left. One door. 😳",
       "pin": "Harry or Bella: who walks in? 👇",
       "long": {
         "at": 2255.6,
         "len": 27.0
-      }
+      },
+      "hooks": [
+        "Harry or Bella: who walks in?",
+        "Only one of them walks through that door",
+        "POV: waiting to see who survived"
+      ],
+      "ytTitle": "Harry Jowsey or Bella: who survives the first cut? | The Mob (Part 1)",
+      "styles": [
+        "question",
+        "statement",
+        "pov"
+      ]
     },
     {
       "id": "whack-bella",
       "src": "mob_101_dsm_1.mp4",
       "at": 2403.3,
       "hook": "The Don's first decision",
-      "context": "Tonight one of them leaves the family",
+      "context": "Joe Gorga explains his first decision",
       "caption": "Nobody saw this coming 😳",
-      "pin": "Right call or wrong call? 👇"
+      "pin": "Right call or wrong call? 👇",
+      "hooks": [
+        "Did the Don make the right call?",
+        "The Don's first decision shocked everyone",
+        "POV: the Don just made his first cut"
+      ],
+      "ytTitle": "Joe Gorga's first decision as the Don | The Mob (Part 2)",
+      "styles": [
+        "question",
+        "statement",
+        "pov"
+      ]
     },
     {
       "id": "rob-bank",
       "src": "mob_102_dsm_1.mp4",
       "at": 428.6,
       "hook": "Bruno and Demi team up",
-      "context": "Two players making an alliance",
+      "context": "Bruno Tonioli and Demi make a pact",
       "caption": "Let's rob a bank 😂🏦",
       "pin": "Trust this alliance: yes or no? 👇",
       "long": {
         "at": 420.4,
         "len": 27.0
-      }
+      },
+      "hooks": [
+        "Would you trust this alliance?",
+        "Bruno Tonioli and Demi just teamed up",
+        "POV: you found your alliance on day two"
+      ],
+      "ytTitle": "Bruno Tonioli and Demi team up | The Mob",
+      "styles": [
+        "question",
+        "statement",
+        "pov"
+      ]
     },
     {
       "id": "regime",
@@ -588,5 +643,6 @@
     "17:00",
     "22:00",
     "01:00"
-  ]
+  ],
+  "endsAt": "2026-11-11T14:00:00Z"
 }

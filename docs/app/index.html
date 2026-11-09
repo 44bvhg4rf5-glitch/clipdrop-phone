@@ -142,7 +142,7 @@ const views = {
     for (const d of recent) {
       h += d.pack
         ? `<h2>Week pack · ${esc(d.pack.from)} to ${esc(d.pack.to)}</h2><p class="muted">Schedule each clip for the day and time on it.</p>`
-        : `<h2>${d.upload ? 'Your upload' : 'Clips'} · ${esc(d.date)}</h2>`;
+        : `<h2>${d.followup ? 'Follow-ups for a clip that took off' : d.upload ? 'Your upload' : 'Clips'} · ${esc(d.date)}</h2>`;
       for (const it of d.items) h += clipCard(d, it);
     }
     return h;

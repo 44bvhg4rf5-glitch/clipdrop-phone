@@ -193,6 +193,7 @@ async function duration(f) {
 async function makeDrop() {
   // CLIP_ONLY=<config path>: a one-off run (an upload from the app) that
   // processes just that config and publishes under its own tag.
+  if (process.env.CLIP_FOLLOWUP) return followupDrop(process.env.CLIP_FOLLOWUP.trim());
   const only = process.env.CLIP_ONLY ? [{ id: path.basename(process.env.CLIP_ONLY).replace(/\.json$/, ''), ...readJson(process.env.CLIP_ONLY, {}) }] : null;
   const live = only || campaigns().filter((c) => !c.endsOn || c.endsOn >= today());
   if (!live.length) return setStatus('ok', 'No live campaigns. Send Claude a new Vyro campaign to add.');
@@ -288,6 +289,40 @@ async function makeDrop() {
  * A creator campaign: fetch its long videos, find the day's best unused
  * moments, and render one distinct edit per allowed platform for each.
  */
+const UNSAFE = /\*|shit|bitch|\bass\b|balls|\bhell\b|screw|piss|damn|fuck|soprano|godfather|goodfellas|rihanna|\bcher\b|jersey|bachelor|spice girls|mormon|tony|neck|kill|suicide/i;
+
+/**
+ * Double down on a clip that's taking off (CLIP_FOLLOWUP=<pick id>): cut the
+ * moments either side of it — what happened next, and right before — so the
+ * people who just watched it find more of the same story on the profile.
+ */
+async function followupDrop(id) {
+  const c = campaigns().find((x) => (x.picks || []).some((p) => p.id === id));
+  if (!c) return setStatus('error', `No campaign has a moment called "${id}".`);
+  if (c.endsOn && c.endsOn < today()) return setStatus('error', `${c.name} has ended: its footage can't be posted any more.`);
+  const p = c.picks.find((x) => x.id === id);
+  const len = c.exactSeconds || 15;
+  const mk = (dir, n) => {
+    const next = dir === 'next';
+    return {
+      id: `${id}-${dir}${n}`, src: p.src, at: +(p.at + (next ? 1 : -1) * len * n).toFixed(1), mustBeClean: true,
+      hooks: next ? ['What happened next?', 'Here is what happened next', 'POV: you had to know what happened next']
+        : ['How did it get to this?', 'Right before the moment everyone saw', 'POV: the moment before it all kicked off'],
+      caption: next ? 'What happened next 👀 (the clip everyone watched is on my page)' : 'The moment right before 😳 (the clip everyone watched is on my page)',
+      ytTitle: p.ytTitle ? `${p.ytTitle.replace(/ \| .*$/, '')}: ${next ? 'what happened next' : 'right before'} | ${c.name.replace(/^Hulu · /, '').replace(/ \(.*\)$/, '')}` : undefined,
+      context: p.context, pin: p.pin,
+    };
+  };
+  const tmp = { ...c, perDay: 2, picks: [mk('next', 1), mk('before', 1), mk('next', 2), mk('before', 2)] };
+  rmSync(OUT, { recursive: true, force: true });
+  mkdirSync(OUT, { recursive: true });
+  const items = await creatorDrop(tmp, null);
+  if (!items.length) return setStatus('error', `No clean follow-up moments next to "${id}".`);
+  const tag = `followup-${today()}-${id}`;
+  writeJson(path.join(OUT, 'manifest.json'), { date: today(), tag, upload: true, followup: id, items });
+  setStatus('ok', `${items.length / (c.platforms || ['tiktok']).length} follow-up clip(s) for "${p.hook}" are ready.`);
+}
+
 async function creatorDrop(c, pack = null) {
   const ranges = state.ranges?.[c.id] || [];
   log(`${c.name}: fetching creator footage`);
@@ -319,6 +354,10 @@ async function creatorDrop(c, pack = null) {
     const { segments } = await transcript(v, ROOT);
     const segs = segments.filter((x) => x.end > at && x.start < at + L)
       .map((x) => ({ ...x, words: (x.words || []).filter((w) => w.s >= at && w.e <= at + L) }));
+    // Follow-ups are cut by the system, not read by a person: skip any window
+    // with swearing, violence or another show's name in it.
+    if (p.mustBeClean && UNSAFE.test(segs.flatMap((x) => x.words).map((w) => w.w).join(' '))) { log(`${p.id}: not clean, skipped`); continue; }
+    if (p.mustBeClean && segs.flatMap((x) => x.words).length < 8) { log(`${p.id}: too little said, skipped`); continue; }
     chosen.push({ ...win, segments: segs, video: v, pick: p, score: 1e9, len: L });
   }
   const per = [...chosen];
@@ -339,12 +378,22 @@ async function creatorDrop(c, pack = null) {
   for (const [k, m] of best.entries()) {
     const hooks = m.pick ? [].concat(m.pick.hooks || m.pick.hook) : hooksFor(m, c.hooks || [], ranges.length + k, c.quoteHooks !== false);
     const momentId = `${slugify(m.src.replace(/\.\w+$/, ''))}-${Math.round(m.s)}`;
-    const captionBase = m.pick?.caption || (c.captionLines?.length ? c.captionLines[(ranges.length + k) % c.captionLines.length] : hooks[0].replace(/"/g, ''));
+    const captionBase0 = m.pick?.caption || (c.captionLines?.length ? c.captionLines[(ranges.length + k) % c.captionLines.length] : hooks[0].replace(/"/g, ''));
+    // Hook test: a pick can carry one hook per platform, each a different style
+    // (question / statement / POV), so every post teaches us which style holds.
+    const styles = m.pick?.hooks ? (m.pick.styles || ['question', 'statement', 'pov']) : [];
     // A slot before 05:00 is that day's overnight post (e.g. 01:00 = US prime
     // time): it goes live early the NEXT morning, so it's scheduled the day before.
     const slot = pack ? { postDate: pack.addDays(pack.from, Math.floor(k / perDay)), postTime: slots[k % perDay % slots.length] } : {};
     if (pack && slot.postTime < '05:00') { slot.nextDay = true; slot.liveDate = pack.addDays(slot.postDate, 1); }
+    // Past a campaign's end (endsAt, UTC) its footage licence is gone: stop.
+    if (pack && c.endsAt) {
+      const live = `${slot.nextDay ? slot.liveDate : slot.postDate}T${slot.postTime}:00Z`;
+      if (live >= c.endsAt) { log(`${c.name}: ${live} is after the campaign ends — stopping here`); break; }
+    }
     for (const [pi, platform] of platforms.entries()) {
+      // YouTube is a search engine: its title (the caption's first line) names the cast.
+      const captionBase = platform === 'youtube' && m.pick?.ytTitle ? m.pick.ytTitle : captionBase0;
       const stamp = pack ? `${slot.postDate}-${slot.postTime.replace(':', '')}` : today();
       const out = path.join(OUT, `${stamp}-${c.id}-${momentId}-${platform}.mp4`);
       try {
@@ -355,7 +404,7 @@ async function creatorDrop(c, pack = null) {
           range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
           seconds: m.len || c.exactSeconds || +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
           caption: [`${captionBase}${c.credit ? ' ' + c.credit : ''}${c.cta ? '\n' + (platform === 'youtube' ? c.cta.replace(/^Follow\b/, 'Subscribe') : c.cta) : ''}`, c.requiredCaption, (c.hashtags || []).join(' ')].filter(Boolean).join('\n\n').trim(),
-          platforms: [platform], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '', pin: m.pick?.pin || '', ...slot,
+          platforms: [platform], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '', pin: m.pick?.pin || '', ...(styles.length ? { hookStyle: styles[pi % styles.length] } : {}), ...slot,
         });
       } catch (e) { warn(`${momentId} ${platform}: render failed — ${e.message.split('\n')[0]}`); }
     }
