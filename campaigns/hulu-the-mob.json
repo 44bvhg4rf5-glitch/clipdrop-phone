@@ -237,7 +237,7 @@
       "hook": "The Don keeps two for himself",
       "context": "Only four envelopes came back from the job",
       "caption": "This is the mob 💰",
-      "pin": "Would you keep two? 💰👇"
+      "pin": "Fair or greedy? 👇"
     },
     {
       "id": "risk-power",
@@ -246,7 +246,7 @@
       "hook": "The Don could lose it all tonight",
       "caption": "First loyalty pledge 😳 Does Joe keep the ring?",
       "context": "Tonight the family can vote out the Don",
-      "pin": "Keep Joe as Don or vote for someone new? 👇",
+      "pin": "Keep Joe or vote him out? 👇",
       "long": {
         "at": 1989.1,
         "len": 25.1
@@ -281,7 +281,7 @@
       "hook": "Bruno and Demi team up",
       "context": "Two players making an alliance",
       "caption": "Let's rob a bank 😂🏦",
-      "pin": "Would you trust this alliance? 👇",
+      "pin": "Trust this alliance: yes or no? 👇",
       "long": {
         "at": 420.4,
         "len": 27.0
@@ -294,7 +294,7 @@
       "hook": "Is it time for a new Don?",
       "caption": "Regime change in the villa? 👀",
       "context": "Some of the family want a new Don",
-      "pin": "Is it time for a new Don? 👇",
+      "pin": "New Don: yes or no? 👇",
       "long": {
         "at": 1861.7,
         "len": 28.7
@@ -307,7 +307,7 @@
       "hook": "The Don's master plan",
       "context": "Joe hands out cash to buy loyalty",
       "caption": "Buying loyalty one envelope at a time 💰",
-      "pin": "Smart move or a mistake? 👇",
+      "pin": "Smart or risky? 👇",
       "long": {
         "at": 1971.1,
         "len": 27.2
@@ -320,7 +320,7 @@
       "hook": "The Don has decided",
       "context": "First family meeting: someone is going home",
       "caption": "The first family meeting 😬",
-      "pin": "Who do you think is going? 👇"
+      "pin": "Who goes: Harry or Bella? 👇"
     },
     {
       "id": "trunk",
@@ -329,7 +329,7 @@
       "hook": "They opened the trunk and...",
       "caption": "Never know who's in the trunk 😂",
       "context": "First job: search the cars for the cash",
-      "pin": "Who would you want to find in the trunk? 😂👇",
+      "pin": "Would you have opened it? Yes or no 👇",
       "long": {
         "at": 579.4,
         "len": 25.7
@@ -342,7 +342,7 @@
       "hook": "Joe Gorga is now the Don",
       "caption": "Joe Gorga as the Don… thoughts? 👀",
       "context": "Joe's crew won, so he becomes the Don",
-      "pin": "Would you make Joe the Don? 👇",
+      "pin": "Good Don or bad Don? 👇",
       "long": {
         "at": 1078.6,
         "len": 26.9
@@ -355,7 +355,7 @@
       "hook": "The Don has to cut someone tonight",
       "caption": "First family meeting and someone's out 😳 Who would you cut?",
       "context": "The Don decides who gets paid and who goes",
-      "pin": "Who would you cut first? 👇",
+      "pin": "Cut the weakest or the biggest threat? 👇",
       "long": {
         "at": 1131.0,
         "len": 27.1
@@ -368,7 +368,7 @@
       "hook": "Joe's still the Don... for now",
       "context": "Tomorrow the family can vote him out",
       "caption": "Kiss the ring and you can go 💍",
-      "pin": "Would you vote to keep Joe? 👇"
+      "pin": "Keep Joe or vote him out? 👇"
     },
     {
       "id": "capo-harry",
@@ -377,7 +377,7 @@
       "hook": "In Harry we trust",
       "context": "Each crew picks a capo for the first job",
       "caption": "Harry stepping up as capo 😎",
-      "pin": "Would you make Harry your capo? 👇",
+      "pin": "Would you follow Harry? Yes or no 👇",
       "long": {
         "at": 310.7,
         "len": 27.1
@@ -390,7 +390,7 @@
       "hook": "Split the money or take it all?",
       "context": "The final Don decides who gets the cash",
       "caption": "This is not for the weak 😳",
-      "pin": "Share it or take the whole cannoli? 👇"
+      "pin": "Share it or keep it all? 👇"
     },
     {
       "id": "ruthless",
@@ -399,7 +399,7 @@
       "hook": "This is a pretty ruthless game",
       "context": "Celebrities, an Italian villa, one Don",
       "caption": "Enough family drama to require therapy 😂",
-      "pin": "Who would you trust in this villa? 👇",
+      "pin": "Who is the biggest threat in the villa? 👇",
       "long": {
         "at": 55.1,
         "len": 25.2
@@ -421,7 +421,7 @@
       "hook": "How many feet have been in here?",
       "caption": "Fresh from the grapes 🍇😂",
       "context": "The family stomps grapes for the Don",
-      "pin": "Would you still drink it? 🍷😂👇"
+      "pin": "Would you drink it? Yes or no 🍷👇"
     },
     {
       "id": "fishes",
@@ -430,7 +430,7 @@
       "hook": "Weakest link sleeps with the fishes",
       "caption": "Start whining and get to work 🍇😂",
       "context": "Parker Posey sets the second job",
-      "pin": "Runner, stomper or bottler: which job are you taking? 🍇👇",
+      "pin": "Runner or stomper? 🍇👇",
       "long": {
         "at": 616.8,
         "len": 26.8
@@ -443,7 +443,7 @@
       "hook": "Power is taken, not given",
       "caption": "Power is taken, not given 👑",
       "context": "Parker Posey warns the family",
-      "pin": "Who in the villa wants the power most? 👇"
+      "pin": "Who wants the power most? 👇"
     },
     {
       "id": "no-clue",
@@ -461,7 +461,7 @@
       "hook": "The Don doesn't have to work",
       "caption": "The Don doesn't even have to work 😂 Fair?",
       "context": "Parker Posey sets the wine job",
-      "pin": "Should the Don have to work too? 👇",
+      "pin": "Should the Don work too? Yes or no 👇",
       "long": {
         "at": 540.5,
         "len": 26.7
@@ -474,7 +474,7 @@
       "hook": "Their first job: blow up the cars",
       "caption": "Their first job for the family 💥",
       "context": "Celebrities, an Italian villa and $250,000",
-      "pin": "Would you join this family? 👇",
+      "pin": "Would you join this family? Yes or no 👇",
       "long": {
         "at": 257.8,
         "len": 27.2
@@ -487,7 +487,7 @@
       "hook": "The ring with absolute power",
       "caption": "Respect, loyalty and absolute power 💍 Would you want the ring?",
       "context": "Parker Posey reveals the Don's ring",
-      "pin": "Would you kiss the ring? 💍👇",
+      "pin": "Would you kiss the ring? Yes or no 💍👇",
       "long": {
         "at": 1041.6,
         "len": 27.3
@@ -557,7 +557,7 @@
       "hook": "Being the first Don is risky",
       "context": "The first Don has to whack someone early",
       "caption": "Power comes with enemies 👑",
-      "pin": "Would you want to be the first Don? 👇"
+      "pin": "Would you want to be the first Don? Yes or no 👇"
     },
     {
       "id": "relief-door",
