@@ -3,7 +3,7 @@
   "type": "creator",
   "enabled": false,
   "account": "ReplayRoom",
-  "_scout": "Proposed by the scout on 2026-11-08. Alpha 96, $1.5/1K, $1777 left, ~29 days. Join first: https://clippingalpha.com/go/7126694?via=mcp",
+  "_scout": "Proposed by the scout on 2026-11-09. Alpha 96, $1.5/1K, $1745 left, ~35 days. Join first: https://clippingalpha.com/go/7126694?via=mcp",
   "_rules": [
     "Tag @haps.film on TikTok and Instagram",
     "Tag @HAPS_FILM on YouTube",
@@ -31,13 +31,13 @@
     "1,000 followers or more"
   ],
   "sources": [
-    "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/5c468e59-e85a-44ed-8c44-4c13214e792f",
     "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/11c1ab6e-d964-466f-be35-81bcf8a1130a",
-    "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/9fc91b3b-69ac-4903-9f17-cad7abd03d59",
-    "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/d34ba651-e1d9-4979-b390-6f603fed5794",
+    "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/5c468e59-e85a-44ed-8c44-4c13214e792f",
     "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/9bde7fcd-5cf2-420d-8b0c-21150c595db5",
-    "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/1defbff8-316f-4b0c-ba95-4ddfb2158a65",
     "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/4c565f2d-4634-413e-94ed-5288359f9a3d",
+    "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/d34ba651-e1d9-4979-b390-6f603fed5794",
+    "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/9fc91b3b-69ac-4903-9f17-cad7abd03d59",
+    "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/1defbff8-316f-4b0c-ba95-4ddfb2158a65",
     "https://next.frame.io/share/daa4744c-be0e-481a-97f3-8a00959fe55e/view/97dc9639-6cf2-4bde-b803-969187327efb",
     "https://f.io/XRiid3EJ"
   ],
@@ -60,6 +60,6 @@
     "@haps.film",
     "@HAPS_FILM"
   ],
-  "endsOn": "2026-12-07",
+  "endsOn": "2026-12-14",
   "postingNotes": ""
 }

@@ -1,16 +1,17 @@
 {
-  "name": "make.fun (Content Rewards)",
+  "name": "Parrot (Content Rewards)",
   "type": "creator",
   "enabled": false,
   "account": "The Deal Room",
-  "_scout": "Proposed by the scout on 2026-11-08. Alpha 66, $2/1K, $1000 left, ~? days. Join first: https://clippingalpha.com/go/10594002?via=mcp",
+  "_scout": "Proposed by the scout on 2026-11-09. Alpha 95, $1.5/1K, $4681 left, ~22 days. Join first: https://clippingalpha.com/go/7634108?via=mcp",
   "_rules": [
-    "Say make.fun out loud in the clip",
-    "Use the words \"make.fun\"",
-    "Audience proof: Paid per 1,000 verified views (method unspecified)",
+    "Tag the brand's account in the post",
     "Use only the brand's footage",
-    "Post on TikTok, Instagram, YouTube and X",
-    "Made for creators in AI, coding and tech side hustles",
+    "Get approval before you post",
+    "No bought views or bots",
+    "Add captions to every clip",
+    "Captions on",
+    "Bought views or bots",
     "Brand footage only"
   ],
   "sources": [],
@@ -30,6 +31,6 @@
   "captionLines": [],
   "hashtags": [],
   "mentions": [],
-  "endsOn": null,
+  "endsOn": "2026-12-01",
   "postingNotes": ""
 }
