@@ -215,6 +215,10 @@ async function makeDrop() {
     : state.packUntil && state.packUntil >= today() ? addDays(state.packUntil, 1)
     : state.drops.some((d) => d.date === today() && !d.upload) ? addDays(today(), 1) : today();
   const pack = packStart ? { from: packStart, to: addDays(packStart, days - 1), addDays } : null;
+  // A pack only uses campaigns still running on its first day, and never
+  // schedules a campaign past its end date (its footage licence ends with it).
+  if (pack) for (let i = live.length - 1; i >= 0; i--) if (live[i].endsOn && live[i].endsOn < pack.from) live.splice(i, 1);
+  if (!live.length) return setStatus('ok', 'No campaign runs into the next pack. Join a new one and send Claude its footage link.');
 
   rmSync(OUT, { recursive: true, force: true });
   mkdirSync(OUT, { recursive: true });
