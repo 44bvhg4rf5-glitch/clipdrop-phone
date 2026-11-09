@@ -354,7 +354,7 @@ async function creatorDrop(c, pack = null) {
           kind: 'creator', campaign: c.name, campaignId: c.id, source: m.src, moment: momentId,
           range: { src: m.src, s: m.s, e: m.e }, file: path.basename(out),
           seconds: m.len || c.exactSeconds || +(m.e - m.s).toFixed(1), hook: hooks[pi % hooks.length],
-          caption: [`${captionBase}${c.credit ? ' ' + c.credit : ''}${c.cta ? '\n' + c.cta : ''}`, c.requiredCaption, (c.hashtags || []).join(' ')].filter(Boolean).join('\n\n').trim(),
+          caption: [`${captionBase}${c.credit ? ' ' + c.credit : ''}${c.cta ? '\n' + (platform === 'youtube' ? c.cta.replace(/^Follow\b/, 'Subscribe') : c.cta) : ''}`, c.requiredCaption, (c.hashtags || []).join(' ')].filter(Boolean).join('\n\n').trim(),
           platforms: [platform], account: c.account || 'ReplayRoom', submitUrl: c.submitUrl || '', requiredTags: c.hashtags || [], notes: c.postingNotes || '', pin: m.pick?.pin || '', ...slot,
         });
       } catch (e) { warn(`${momentId} ${platform}: render failed — ${e.message.split('\n')[0]}`); }
