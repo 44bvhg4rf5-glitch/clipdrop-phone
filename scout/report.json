@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-09T14:15:41.980Z",
-  "total": 504,
+  "at": "2026-11-10T13:44:57.181Z",
+  "total": 503,
   "checked": 30,
   "picks": [
     {
@@ -9,7 +9,7 @@
       "brand": "Roja Nû",
       "board": "Clipster",
       "rate": 1.5,
-      "budgetLeft": 1745,
+      "budgetLeft": 1692,
       "alpha": 96,
       "tier": "alpha",
       "platforms": [
@@ -17,7 +17,7 @@
         "tiktok",
         "youtube"
       ],
-      "days": 35,
+      "days": 49,
       "minViews": null,
       "footage": "downloadable",
       "sources": [
@@ -72,61 +72,13 @@
       "pageUrl": "https://clippingalpha.com/campaigns/roja-nu/haps?via=mcp"
     },
     {
-      "ref": "dirty-honey/clipping",
-      "title": "Dirty Honey, Clipping",
-      "brand": "Dirty Honey",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 1730,
-      "alpha": 95,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 49,
-      "minViews": 2000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 100,
-      "why": [
-        "footage shown after joining",
-        "pays from 2,000 views"
-      ],
-      "reject": [],
-      "tags": [
-        "#dirtyhoney",
-        "#performance"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #dirtyhoney and #performance to the caption",
-        "Keep captions short and in English",
-        "Keep clips over 8 seconds",
-        "Add short lowercase on screen text to every clip",
-        "Keep the clip's original live audio, no added music",
-        "Start the clip on the strongest moment, no slow intros",
-        "Audience proof: Screen record video analytics: watch time, view graphs, locations",
-        "2,000 views before payout",
-        "Post in English",
-        "Post each clip once per platform",
-        "No story boosts or paid boosts",
-        "No collab posts",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/10185484?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/dirty-honey/clipping?via=mcp"
-    },
-    {
       "ref": "lady-a/bigger-picture",
       "title": "Lady A, Bigger Picture, Clipping",
       "brand": "Lady A",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 4025,
-      "alpha": 98,
+      "budgetLeft": 4011,
+      "alpha": 97,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -137,7 +89,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 98,
+      "score": 97,
       "why": [
         "footage shown after joining",
         "pays from 2,000 views"
@@ -167,24 +119,76 @@
       "pageUrl": "https://clippingalpha.com/campaigns/lady-a/bigger-picture?via=mcp"
     },
     {
-      "ref": "rolling-stone/don-toliver-and-malcolm-todd",
-      "title": "Rolling Stone x Don Toliver & Malcolm Todd",
-      "brand": "Rolling Stone",
+      "ref": "call-of-duty/mw4-dmz-intel-briefing",
+      "title": "Call of Duty, MW4 DMZ Intel Briefing Clipping",
+      "brand": "Call of Duty",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 832,
+      "budgetLeft": 29837,
       "alpha": 95,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": 3,
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 90,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [],
+      "tags": [
+        "@callofduty",
+        "#Ad",
+        "#Advertisement"
+      ],
+      "disclosure": [
+        "Add #Ad or #Advertisement to every post"
+      ],
+      "rules": [
+        "Tag @callofduty on TikTok and Instagram",
+        "Use one of the given free trial lines, e.g. free to play until November 11th",
+        "Add #Ad or #Advertisement to every post",
+        "Keep clips over 10 seconds",
+        "Disclosure hashtag must use same font, size, and color as the caption",
+        "Direct questions to the Clipping Culture team, not the client",
+        "Audience proof: Likes must be visible",
+        "Any page size can join",
+        "Post in English",
+        "Do not post the same video more than 5 times",
+        "Use only the brand's footage",
+        "No nudity or sexual content",
+        "Brand footage only",
+        "TikTok",
+        "Instagram"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11045701?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/call-of-duty/mw4-dmz-intel-briefing?via=mcp"
+    },
+    {
+      "ref": "vi-city/podcast",
+      "title": "Vi City Podcast Clips",
+      "brand": "Vi City",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 1000,
+      "alpha": 66,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
       "minViews": null,
       "footage": "after-join",
       "sources": [],
       "account": "Off Mic",
-      "score": 80,
+      "score": 66,
       "why": [
         "footage shown after joining"
       ],
@@ -192,66 +196,13 @@
       "tags": [],
       "disclosure": [],
       "rules": [
-        "No reposts of other clips",
-        "No misleading claims",
-        "Post on TikTok and Instagram",
-        "Made for creators in Music Pages, Podcast Pages and Movie Pages",
-        "Use the five official interview YouTube links given in the brief as clip sources",
-        "The creator's channels",
-        "TikTok",
-        "Instagram"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/3465267?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/rolling-stone/don-toliver-and-malcolm-todd?via=mcp"
-    },
-    {
-      "ref": "laboratory-podcast/clipping",
-      "title": "The Laboratory Podcast Clipping",
-      "brand": "Laboratory Podcast",
-      "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 731,
-      "alpha": 45,
-      "tier": "fair",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 5,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Off Mic",
-      "score": 35,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [],
-      "tags": [
-        "@Iamplaz",
-        "@thelaboratorywithplaz",
-        "@maverickapproach",
-        "@iAmplaz414",
-        "@maverickapproachpod"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Tag @Iamplaz, @thelaboratorywithplaz and @maverickapproach on Instagram",
-        "Tag @iAmplaz414 and @maverickapproachpod on TikTok",
-        "On YouTube, tag only the show account on YouTube",
-        "At least 40% of the audience in US, UK, CA and AU",
-        "Views count from US, UK, CA and AU",
-        "Posts must stay public for at least 30 days",
         "Use only the brand's footage",
-        "No reposts of other clips",
-        "No other platform watermarks",
-        "Keep posts live 30 days",
-        "Post vertical 9:16 video",
-        "Pay stops at $250 a clip"
+        "Post on TikTok, Instagram and YouTube",
+        "Made for creators in podcast clipping and short-form editing",
+        "Brand footage only"
       ],
-      "joinUrl": "https://clippingalpha.com/go/10145318?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/laboratory-podcast/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/11158658?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/vi-city/podcast?via=mcp"
     },
     {
       "ref": "parrot/clipping",
@@ -259,20 +210,20 @@
       "brand": "Parrot",
       "board": "Content Rewards",
       "rate": 1.5,
-      "budgetLeft": 4681,
-      "alpha": 95,
+      "budgetLeft": 3792,
+      "alpha": 97,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 22,
+      "days": 10,
       "minViews": null,
       "footage": "after-join",
       "sources": [],
       "account": "The Deal Room",
-      "score": 95,
+      "score": 97,
       "why": [
         "footage shown after joining"
       ],
@@ -291,95 +242,71 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/7634108?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/parrot/clipping?via=mcp"
-    }
-  ],
-  "rejected": [
-    {
-      "ref": "social-media-justice/clipping",
-      "title": "$20,000 Social Media Justice Clipping Campaign",
-      "brand": "Social Media Justice",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 20342,
-      "alpha": 91,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 82,
-      "minViews": null,
-      "footage": "youtube",
-      "sources": [],
-      "account": "Off Mic",
-      "score": 96,
-      "why": [],
-      "reject": [
-        "footage is YouTube only (cloud can't download it)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Put the campaign link in your bio"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/10130018?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/social-media-justice/clipping?via=mcp"
     },
     {
-      "ref": "ishowspeed/expedia",
-      "title": "$8,000 Expedia x IShowSpeed Campaign",
-      "brand": "IShowSpeed",
+      "ref": "brightfunded/futures",
+      "title": "BrightFunded Futures Clips",
+      "brand": "BrightFunded",
       "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 7974,
-      "alpha": 73,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "youtube",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 78,
-      "why": [],
-      "reject": [
-        "footage is YouTube only (cloud can't download it)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Use only the brand's footage",
-        "No outside footage",
-        "Made for creators in Streamer and Personal Brand",
-        "Outside footage",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/10166718?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/ishowspeed/expedia?via=mcp"
-    },
-    {
-      "ref": "bitline/crypto-in-vegas",
-      "title": "Crypto in Vegas",
-      "brand": "Bitline",
-      "board": "Content Rewards",
-      "rate": 1,
+      "rate": 1.5,
       "budgetLeft": 1000,
-      "alpha": 67,
+      "alpha": 64,
       "tier": "solid",
       "platforms": [
-        "instagram"
+        "instagram",
+        "tiktok",
+        "youtube"
       ],
       "days": null,
       "minViews": null,
       "footage": "after-join",
       "sources": [],
       "account": "The Deal Room",
-      "score": 62,
+      "score": 64,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Audience must be young male, 18+",
+        "Use only the brand's footage",
+        "Get approval before you post",
+        "Post vertical 9:16 video",
+        "Keep the brand logo on screen",
+        "Post on TikTok, Instagram and YouTube",
+        "Made for creators in trading content, finance content and money-mindset content",
+        "Vertical 9:16",
+        "Brand logo on screen",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11275274?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/brightfunded/futures?via=mcp"
+    }
+  ],
+  "rejected": [
+    {
+      "ref": "bitline/crypto-in-vegas",
+      "title": "Crypto in Vegas",
+      "brand": "Bitline",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 799,
+      "alpha": 71,
+      "tier": "solid",
+      "platforms": [
+        "instagram"
+      ],
+      "days": 10,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "The Deal Room",
+      "score": 66,
       "why": [
         "footage shown after joining"
       ],
@@ -394,6 +321,95 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/10394378?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/bitline/crypto-in-vegas?via=mcp"
+    },
+    {
+      "ref": "miles-jeppson/backyard-concert",
+      "title": "Miles Jeppson, \"Backyard Concert\"",
+      "brand": "Miles Jeppson",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 1000,
+      "alpha": 70,
+      "tier": "solid",
+      "platforms": [
+        "tiktok"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 65,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "only tiktok platforms"
+      ],
+      "tags": [
+        "#ad"
+      ],
+      "disclosure": [
+        "Add #ad to every post"
+      ],
+      "rules": [
+        "Write your own caption matching what happens in the clip",
+        "Keep captions genuine, like a real fan would write",
+        "Add #ad to every post",
+        "Keep clips over 15 seconds",
+        "Link the provided TikTok audio and set it to 1% or lower volume",
+        "Any page size can join",
+        "Post in English",
+        "Use only the brand's footage",
+        "No nudity or sexual content",
+        "No violence",
+        "No hate or harassment",
+        "No low effort reuploads",
+        "The named sound"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11113551?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/miles-jeppson/backyard-concert?via=mcp"
+    },
+    {
+      "ref": "sidepiece/can-i-ride-mv-car-boat-party-more",
+      "title": "SIDEPIECE, Can I Ride, MV/Car/Boat/Party/More",
+      "brand": "Sidepiece",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 1000,
+      "alpha": 33,
+      "tier": "low",
+      "platforms": [
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 28,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "only youtube platforms"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Keep clips under 15 seconds",
+        "Hook must land within the first 2 seconds",
+        "Multiple posts allowed",
+        "Pay stops at $200 a clip",
+        "Post on TikTok, Instagram and YouTube",
+        "Made for creators in house/EDM, festival and car culture",
+        "The named sound",
+        "TikTok",
+        "Instagram",
+        "YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11254407?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/sidepiece/can-i-ride-mv-car-boat-party-more?via=mcp"
     },
     {
       "ref": "santa-cruz-medicinals/clipping",
@@ -451,7 +467,7 @@
       "brand": "Rifino",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 1000,
+      "budgetLeft": 982,
       "alpha": 18,
       "tier": "low",
       "platforms": [
@@ -485,16 +501,15 @@
       "pageUrl": "https://clippingalpha.com/campaigns/rifino/clipping?via=mcp"
     },
     {
-      "ref": "carrie-underwood/favorite-time-of-year",
-      "title": "Carrie Underwood, Favorite Time Of Year",
-      "brand": "Carrie Underwood",
+      "ref": "dolla/ugly",
+      "title": "DOLLA, Ugly Clipping Campaign",
+      "brand": "DOLLA",
       "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 133,
-      "alpha": 0,
+      "rate": 1.5,
+      "budgetLeft": 1035,
+      "alpha": 17,
       "tier": "low",
       "platforms": [
-        "instagram",
         "tiktok"
       ],
       "days": null,
@@ -502,93 +517,74 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": -5,
+      "score": 12,
       "why": [
         "footage shown after joining"
       ],
       "reject": [
-        "under $300 of budget left"
+        "only tiktok platforms"
       ],
-      "tags": [
-        "#ad"
-      ],
-      "disclosure": [
-        "Add #ad to every post"
-      ],
+      "tags": [],
+      "disclosure": [],
       "rules": [
-        "Keep captions genuine, like a real fan",
-        "Add #ad to every post",
-        "Never mislabel the content",
-        "Mix moments from several films, not one film only",
-        "Any page size can join",
-        "Post in English",
-        "Same video may not be posted more than 5 times",
-        "No nudity or sexual content",
-        "No violence",
-        "No hate or harassment",
-        "No outside footage",
-        "No low effort reuploads",
+        "Audience in MY and ID",
+        "Views count from MY and ID",
+        "Use only the brand's footage",
+        "Use the sound \"UGLY official sound\"",
+        "Post only one of the three clip or edit options, not more than one",
+        "Use the UGLY official TikTok sound at the linked music URL",
         "The named sound",
-        "Brand footage only",
-        "TikTok",
-        "Instagram"
+        "Brand footage only"
       ],
-      "joinUrl": "https://clippingalpha.com/go/10147179?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/carrie-underwood/favorite-time-of-year?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/11251057?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/dolla/ugly?via=mcp"
     },
     {
-      "ref": "minefort/roblox-style-games-inside-minecraft",
-      "title": "Roblox-style games inside Minecraft",
-      "brand": "Minefort",
-      "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 1000,
-      "alpha": 59,
+      "ref": "duel/clipping-2",
+      "title": "Duel [CLIPPING]",
+      "brand": "Duel",
+      "board": "Clipster",
+      "rate": 1,
+      "budgetLeft": 9061,
+      "alpha": 40,
       "tier": "fair",
       "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
+        "instagram"
       ],
-      "days": null,
+      "days": 8,
       "minViews": null,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 59,
+      "score": 35,
       "why": [
         "footage shown after joining"
       ],
       "reject": [
-        "bans AI clipping/editing tools",
-        "bans AI-generated content"
+        "only instagram platforms"
       ],
-      "tags": [
-        "#minecraft",
-        "#minefort",
-        "#minecraftserver"
-      ],
+      "tags": [],
       "disclosure": [],
       "rules": [
-        "Add #minecraft, #minefort and #minecraftserver to the caption",
-        "Keep clips 20 to 45 seconds",
-        "Hook in the first 3 seconds of the video",
-        "Use the words \"Minefort\"",
-        "Any page size can join",
-        "Post in English, German and French",
-        "No nudity or sexual content",
-        "No politics or religion",
-        "No competitor brands",
-        "No bought views or bots",
-        "No AI generated visuals",
-        "Post vertical 9:16 video",
-        "A call to action",
-        "TikTok",
-        "Instagram",
-        "YouTube"
+        "Add own text/caption of high quality",
+        "Keep clips over 7 seconds",
+        "Only posts that stay up get paid",
+        "Max earnings per creator: 4000",
+        "Max 150 posts per account",
+        "Accounts need 100 followers",
+        "Max 50 posts per account per day",
+        "Max 150 posts per account total",
+        "Use only the brand's footage",
+        "No outside footage",
+        "Add captions to every clip",
+        "Over 7 seconds",
+        "Captions on",
+        "Outside footage",
+        "Brand footage only",
+        "100 followers or more"
       ],
-      "joinUrl": "https://clippingalpha.com/go/10831916?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/minefort/roblox-style-games-inside-minecraft?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/11047062?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/duel/clipping-2?via=mcp"
     },
     {
       "ref": "love-reading/clipping",
@@ -596,13 +592,13 @@
       "brand": "Love Reading",
       "board": "Clipster",
       "rate": 1.5,
-      "budgetLeft": 1587,
+      "budgetLeft": 1416,
       "alpha": 97,
       "tier": "alpha",
       "platforms": [
         "tiktok"
       ],
-      "days": 13,
+      "days": 8,
       "minViews": null,
       "footage": "after-join",
       "sources": [],

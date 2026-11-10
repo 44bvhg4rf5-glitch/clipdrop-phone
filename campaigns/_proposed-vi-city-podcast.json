@@ -1,0 +1,32 @@
+{
+  "name": "Vi City (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Off Mic",
+  "_scout": "Proposed by the scout on 2026-11-10. Alpha 66, $1.5/1K, $1000 left, ~? days. Join first: https://clippingalpha.com/go/11158658?via=mcp",
+  "_rules": [
+    "Use only the brand's footage",
+    "Post on TikTok, Instagram and YouTube",
+    "Made for creators in podcast clipping and short-form editing",
+    "Brand footage only"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [],
+  "endsOn": null,
+  "postingNotes": ""
+}
