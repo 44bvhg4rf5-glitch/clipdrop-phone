@@ -209,10 +209,10 @@ const views = {
       const first = group[0].it;
       const night = first.nextDay ? ` overnight: set the date to ${esc(new Date(first.liveDate + 'T12:00:00Z').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }))} (US prime time)` : '';
       h += `<div class="card"><div class="eyebrow">${first.postTime ? `🕒 Schedule for ${esc(first.postTime)}${night}` : 'Post today'}</div><div class="title">"${esc(first.hook)}"</div>
-        <details><summary>Preview</summary><video preload="none" controls playsinline src="${esc(REL + group[0].d.tag + '/' + first.file)}"></video></details>
+        <details><summary>Preview</summary><video preload="none" controls playsinline src="${esc(fileUrl(group[0].d, first))}"></video></details>
         <label>Caption</label><textarea rows="4" readonly>${esc(first.caption)}</textarea>
         <div class="row"><button class="btn ghost" type="button" data-copy="${esc(first.caption)}">Copy caption</button>${first.pin ? `<button class="btn ghost" type="button" data-copy="${esc(first.pin)}">Copy pinned comment</button>` : ''}</div>
-        <label>Download</label><div class="row">${group.map(({ d, it }) => `<a class="btn" href="${esc(REL + d.tag + '/' + it.file)}">${esc(names[(it.platforms || [])[0]] || 'Video')}</a>`).join('')}</div>
+        <label>Download</label><div class="row">${group.map(({ d, it }) => `<a class="btn" href="${esc(fileUrl(d, it))}">${esc(names[(it.platforms || [])[0]] || 'Video')}</a>`).join('')}</div>
         ${first.postTime ? '<p class="meta">YouTube: first line of the caption as the title, the whole caption as the description.</p>' : ''}</div>`;
     }
     return h;
@@ -274,8 +274,10 @@ const views = {
   },
 };
 
+// A drop rendered outside the daily job lives on the site (d.base), not in a release.
+const fileUrl = (d, it) => (d.base ? d.base + it.file : `${REL}${d.tag}/${it.file}`);
 function clipCard(d, it) {
-  const url = `${REL}${d.tag}/${it.file}`;
+  const url = fileUrl(d, it);
   const posts = data.posts[it.file] || [];
   const plats = it.platforms || [];
   const done = posts.length >= plats.length && plats.length;

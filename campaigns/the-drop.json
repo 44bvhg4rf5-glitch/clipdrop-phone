@@ -1,0 +1,20 @@
+{
+  "name": "The Drop: A Snowfall Saga",
+  "type": "creator",
+  "enabled": false,
+  "account": "ReplayRoom",
+  "platforms": [
+    "tiktok"
+  ],
+  "_note": "Rendered locally (the Frame.io folder is 9.6GB, too big for the daily cloud run). Clips live in docs/packs/pack-drop-2026-11-11.",
+  "_brief": "Vyro,  CPM, 5K views min, ,000 cap per post. TikTok only. Min 12s, no max. Caption must include: Stream All Episodes of The Drop: A Snowfall Saga on Hulu + #TheDropPartner. Footage only from the provided folder (edit bank + scenepack). Music only from TikTok Commercial Music Library, no on-screen lyrics. Do not change the audio. No third-party IP, nothing negative/misleading, no new plots, no logos/hashtags not affiliated. No collabs/tags, no Stories, no AI-branded accounts, no boosting, likes/comments on. AI tools must not train on uploads. FX licence only during the campaign.",
+  "sources": [
+    "https://f.io/ax_-WKIg"
+  ],
+  "requiredCaption": "Stream All Episodes of The Drop: A Snowfall Saga on Hulu",
+  "hashtags": [
+    "#TheDropPartner"
+  ],
+  "cta": "Follow for more from The Drop every day 🎤",
+  "skipped": "Sample 3 (explicit lyrics), Sample 4 (11.3s, under 12s), silent scenepack clips (04,07,39,42), clips with heavy swearing"
+}
