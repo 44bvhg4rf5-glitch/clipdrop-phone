@@ -212,13 +212,11 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   const st = PLATFORM_STYLE[platform] || PLATFORM_STYLE.tiktok;
   // Subtitles and the end question normally sit at fixed heights; with the
   // picture letterboxed they go just below it, so text never covers the scene.
-  let capY = 1290, askY = 1420;
+  let capY = 1290, askY = 1420, ph = 0;
   if (layout === 'letterbox') {
     const { stdout } = await run('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', video]);
     const [vw, vh] = stdout.trim().split(',').map(Number);
-    const ph = Math.round((1080 * vh) / vw / 2) * 2;
-    capY = Math.round((1920 - ph) / 2 + ph + 24);
-    askY = Math.min(1920 - 220, capY + 120);
+    ph = Math.round((1080 * vh) / vw / 2) * 2;
   }
   // exact: a brief that fixes the length (Disney: "no more than 15 seconds",
   // Vyro: "at least 15") gets exactly that many seconds, the moment centred in it.
@@ -234,6 +232,9 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   // the usual zoom), so the block moves up when the context line is there.
   const block = hookLines.length * 78 + (ctxLines.length ? 14 + ctxLines.length * 50 : 0);
   const top = Math.max(170, Math.min(st.hookAt, 470 - block));
+  // Letterbox: the picture starts below the hook block, so text never sits on it.
+  const padY = ph ? Math.max(Math.round((1920 - ph) / 2), top + block + 24) : 0;
+  if (ph) { capY = padY + ph + 24; askY = Math.min(1920 - 200, capY + 110); }
   hookLines.forEach((l, i) => draws.push(
     `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`hook-${platform}-${i}.txt`, l)}:fontsize=64:fontcolor=white:borderw=6:bordercolor=black@0.85:x=(w-text_w)/2:y=${top + i * 78}`));
   // One quieter line under the hook that sets the scene, so someone who has
@@ -269,7 +270,7 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   // change), scaled to the full width and centred on plain black; text sits only
   // in the black bars. For briefs that forbid reframing (e.g. CONCESSIONS).
   const letterbox = layout === 'letterbox'
-    ? `[0:v]scale=1080:-2:flags=lanczos,pad=1080:1920:0:(oh-ih)/2:black,setsar=1[v0]`
+    ? `[0:v]scale=1080:-2:flags=lanczos,pad=1080:1920:0:${Math.min(padY, 1920 - ph)}:black,setsar=1[v0]`
     : null;
   const base = letterbox ? letterbox : tracked ? tracked : layout === 'crop'
     ? `[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[v0]`

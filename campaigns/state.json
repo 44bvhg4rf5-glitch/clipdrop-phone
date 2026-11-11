@@ -5858,6 +5858,301 @@
         "from": "2026-11-14",
         "to": "2026-11-16"
       }
+    },
+    {
+      "date": "2026-11-11",
+      "tag": "pack-conc-2026-11-11",
+      "base": "https://44bvhg4rf5-glitch.github.io/clipdrop-phone/packs/pack-conc-2026-11-11/",
+      "pack": {
+        "from": "2026-11-11",
+        "to": "2026-11-13"
+      },
+      "items": [
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "ogg-late",
+          "file": "2026-11-11-2200-concessions-ogg-late-instagram.mp4",
+          "seconds": 35.9,
+          "hook": "No late admission. No exceptions. 😂",
+          "caption": "Steven Ogg takes 'no late admission' very seriously 😂 This scene from CONCESSIONS. Check out @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Turn ON 'Add paid partnership label' if offered. Likes & comments ON. Don't tag or collab anyone. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Would you let them in? Yes or no 👇",
+          "postDate": "2026-11-11",
+          "postTime": "22:00"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "ogg-late",
+          "file": "2026-11-11-2200-concessions-ogg-late-youtube.mp4",
+          "seconds": 35.7,
+          "hook": "No late admission. No exceptions. 😂",
+          "caption": "Steven Ogg will NOT let you in late 😂 | CONCESSIONS #shorts\n\nSteven Ogg takes 'no late admission' very seriously 😂 This scene from CONCESSIONS. Check out @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Title = first line. Tick 'Paid promotion' under Show more. Likes & comments ON. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Would you let them in? Yes or no 👇",
+          "postDate": "2026-11-11",
+          "postTime": "22:00"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "rex-fan",
+          "file": "2026-11-11-0100-concessions-rex-fan-instagram.mp4",
+          "seconds": 41.9,
+          "hook": "When a fan spots Rex Fuel",
+          "caption": "Michael Madsen as Rex Fuel in CONCESSIONS 🎥 Find the movie through @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Turn ON 'Add paid partnership label' if offered. Likes & comments ON. Don't tag or collab anyone. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "What's your favourite Michael Madsen role? 👇",
+          "postDate": "2026-11-11",
+          "postTime": "01:00",
+          "nextDay": true,
+          "liveDate": "2026-11-12"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "rex-fan",
+          "file": "2026-11-11-0100-concessions-rex-fan-youtube.mp4",
+          "seconds": 41.8,
+          "hook": "When a fan spots Rex Fuel",
+          "caption": "Michael Madsen meets a huge fan in CONCESSIONS 🎬 #shorts\n\nMichael Madsen as Rex Fuel in CONCESSIONS 🎥 Find the movie through @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Title = first line. Tick 'Paid promotion' under Show more. Likes & comments ON. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "What's your favourite Michael Madsen role? 👇",
+          "postDate": "2026-11-11",
+          "postTime": "01:00",
+          "nextDay": true,
+          "liveDate": "2026-11-12"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "pirates",
+          "file": "2026-11-12-1200-concessions-pirates-instagram.mp4",
+          "seconds": 37.6,
+          "hook": "The most underrated movie franchise?",
+          "caption": "Movie hot take from CONCESSIONS 🍿 Agree or disagree? Check out @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Turn ON 'Add paid partnership label' if offered. Likes & comments ON. Don't tag or collab anyone. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Was he right about Pirates of the Caribbean? Agree or disagree 👇",
+          "postDate": "2026-11-12",
+          "postTime": "12:00"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "pirates",
+          "file": "2026-11-12-1200-concessions-pirates-youtube.mp4",
+          "seconds": 37.5,
+          "hook": "The most underrated movie franchise?",
+          "caption": "This movie hot take started a debate 🏴‍☠️ | CONCESSIONS #shorts\n\nMovie hot take from CONCESSIONS 🍿 Agree or disagree? Check out @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Title = first line. Tick 'Paid promotion' under Show more. Likes & comments ON. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Was he right about Pirates of the Caribbean? Agree or disagree 👇",
+          "postDate": "2026-11-12",
+          "postTime": "12:00"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "ogg-ron",
+          "file": "2026-11-12-1700-concessions-ogg-ron-instagram.mp4",
+          "seconds": 31.1,
+          "hook": "Steven Ogg's 'Italian muscle relaxer' 😂",
+          "caption": "Steven Ogg in CONCESSIONS 😂 You need to see this movie. Head to @concessionsmovie and check their bio link!\n\n#concessionsclips #ad",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Turn ON 'Add paid partnership label' if offered. Likes & comments ON. Don't tag or collab anyone. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Would you trust him? Yes or no 👇",
+          "postDate": "2026-11-12",
+          "postTime": "17:00"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "ogg-ron",
+          "file": "2026-11-12-1700-concessions-ogg-ron-youtube.mp4",
+          "seconds": 31.0,
+          "hook": "Steven Ogg's 'Italian muscle relaxer' 😂",
+          "caption": "Steven Ogg's stress relief is something else 😂 | CONCESSIONS #shorts\n\nSteven Ogg in CONCESSIONS 😂 You need to see this movie. Head to @concessionsmovie and check their bio link!\n\n#concessionsclips #ad",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Title = first line. Tick 'Paid promotion' under Show more. Likes & comments ON. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Would you trust him? Yes or no 👇",
+          "postDate": "2026-11-12",
+          "postTime": "17:00"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "caught",
+          "file": "2026-11-12-2200-concessions-caught-instagram.mp4",
+          "seconds": 79.0,
+          "hook": "Caught recording in the cinema",
+          "caption": "Caught red handed 🎥 This scene from CONCESSIONS. Check out @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Turn ON 'Add paid partnership label' if offered. Likes & comments ON. Don't tag or collab anyone. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Guilty or innocent? 👇",
+          "postDate": "2026-11-12",
+          "postTime": "22:00"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "caught",
+          "file": "2026-11-12-2200-concessions-caught-youtube.mp4",
+          "seconds": 78.8,
+          "hook": "Caught recording in the cinema",
+          "caption": "Caught filming in the cinema 🎥 | CONCESSIONS #shorts\n\nCaught red handed 🎥 This scene from CONCESSIONS. Check out @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Title = first line. Tick 'Paid promotion' under Show more. Likes & comments ON. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Guilty or innocent? 👇",
+          "postDate": "2026-11-12",
+          "postTime": "22:00"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "madsen-seat",
+          "file": "2026-11-12-0100-concessions-madsen-seat-instagram.mp4",
+          "seconds": 31.9,
+          "hook": "Michael Madsen shoots his shot 😂",
+          "caption": "Michael Madsen in CONCESSIONS 🎥 Find the movie through @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "instagram"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Turn ON 'Add paid partnership label' if offered. Likes & comments ON. Don't tag or collab anyone. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Smooth move or not? 👇",
+          "postDate": "2026-11-12",
+          "postTime": "01:00",
+          "nextDay": true,
+          "liveDate": "2026-11-13"
+        },
+        {
+          "kind": "scene",
+          "campaign": "CONCESSIONS (ClipHouse)",
+          "campaignId": "concessions",
+          "moment": "madsen-seat",
+          "file": "2026-11-12-0100-concessions-madsen-seat-youtube.mp4",
+          "seconds": 31.7,
+          "hook": "Michael Madsen shoots his shot 😂",
+          "caption": "Michael Madsen shoots his shot at the movies 😂 | CONCESSIONS #shorts\n\nMichael Madsen in CONCESSIONS 🎥 Find the movie through @concessionsmovie, link in bio!\n\n#concessionsclips #ad",
+          "platforms": [
+            "youtube"
+          ],
+          "account": "ReplayRoom",
+          "submitUrl": "",
+          "requiredTags": [
+            "#concessionsclips",
+            "#ad"
+          ],
+          "notes": "Title = first line. Tick 'Paid promotion' under Show more. Likes & comments ON. Never boost. Submit the link in ClipHouse once it's live.",
+          "pin": "Smooth move or not? 👇",
+          "postDate": "2026-11-12",
+          "postTime": "01:00",
+          "nextDay": true,
+          "liveDate": "2026-11-13"
+        }
+      ]
     }
   ],
   "status": {
