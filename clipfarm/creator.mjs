@@ -208,6 +208,16 @@ function captionChunks(moment, start) {
  */
 export async function renderMoment({ video, moment, hook, platform, out, work, font, layout = 'blurfill', credit = '', zoom = 1.3, exact = 0, context = '', ask = '' }) {
   const st = PLATFORM_STYLE[platform] || PLATFORM_STYLE.tiktok;
+  // Subtitles and the end question normally sit at fixed heights; with the
+  // picture letterboxed they go just below it, so text never covers the scene.
+  let capY = 1290, askY = 1420;
+  if (layout === 'letterbox') {
+    const { stdout } = await run('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', video]);
+    const [vw, vh] = stdout.trim().split(',').map(Number);
+    const ph = Math.round((1080 * vh) / vw / 2) * 2;
+    capY = Math.round((1920 - ph) / 2 + ph + 24);
+    askY = Math.min(1920 - 220, capY + 120);
+  }
   // exact: a brief that fixes the length (Disney: "no more than 15 seconds",
   // Vyro: "at least 15") gets exactly that many seconds, the moment centred in it.
   const lead = exact ? Math.max(0.2, (exact - (moment.e - moment.s)) / 2) : 0.25;
@@ -231,13 +241,13 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
   // expansion=none everywhere: drawtext otherwise treats % as a template code
   // and silently drops lines like "5% stake".
   captionChunks(moment, start).forEach((c, i) => draws.push(
-    `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`cap-${platform}-${i}.txt`, c.text.toUpperCase())}:fontsize=${Math.min(76, Math.floor(980 / Math.max(1, c.text.length * 0.66)))}:fontcolor=${st.colour}:borderw=7:bordercolor=black:x=(w-text_w)/2:y=1290:enable='between(t,${c.s.toFixed(2)},${c.e.toFixed(2)})'`));
+    `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`cap-${platform}-${i}.txt`, c.text.toUpperCase())}:fontsize=${Math.min(76, Math.floor(980 / Math.max(1, c.text.length * 0.66)))}:fontcolor=${st.colour}:borderw=7:bordercolor=black:x=(w-text_w)/2:y=${capY}:enable='between(t,${c.s.toFixed(2)},${c.e.toFixed(2)})'`));
   // The comment question, on screen for the last 3 seconds: people answer a
   // question they can see far more often than one buried in the caption.
   if (ask) {
     const askAt = Math.max(0, dur - 3);
     wrap(noEmoji(ask), 26).slice(0, 2).forEach((l, i) => draws.push(
-      `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`ask-${platform}-${i}.txt`, l)}:fontsize=54:fontcolor=0xFFE27A:borderw=6:bordercolor=black:box=1:boxcolor=black@0.45:boxborderw=14:x=(w-text_w)/2:y=${1420 + i * 70}:enable='gte(t,${askAt.toFixed(2)})'`));
+      `drawtext=fontfile=${font}:expansion=none:textfile=${txt(`ask-${platform}-${i}.txt`, l)}:fontsize=54:fontcolor=0xFFE27A:borderw=6:bordercolor=black:box=1:boxcolor=black@0.45:boxborderw=14:x=(w-text_w)/2:y=${askY + i * 70}:enable='gte(t,${askAt.toFixed(2)})'`));
   }
   if (credit) draws.push(`drawtext=fontfile=${font}:expansion=none:textfile=${txt(`credit-${platform}.txt`, credit)}:fontsize=36:fontcolor=white@0.85:borderw=3:bordercolor=black@0.7:x=(w-text_w)/2:y=1620`);
   // 'track': a tall crop (1080 wide, ~70% of the screen high) that follows the
@@ -253,7 +263,13 @@ export async function renderMoment({ video, moment, hook, platform, out, work, f
     tracked = `[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24:2,eq=brightness=-0.18[bg];`
       + `[b]scale=-2:${H},crop=1080:${H}:${expr}:0[fg];[bg][fg]overlay=0:${top + block + 24},setsar=1[v0]`;
   }
-  const base = tracked ? tracked : layout === 'crop'
+  // 'letterbox': the picture exactly as supplied (no crop, zoom, blur or colour
+  // change), scaled to the full width and centred on plain black; text sits only
+  // in the black bars. For briefs that forbid reframing (e.g. CONCESSIONS).
+  const letterbox = layout === 'letterbox'
+    ? `[0:v]scale=1080:-2:flags=lanczos,pad=1080:1920:0:(oh-ih)/2:black,setsar=1[v0]`
+    : null;
+  const base = letterbox ? letterbox : tracked ? tracked : layout === 'crop'
     ? `[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[v0]`
     : `[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=24:2,eq=brightness=-0.18[bg];`
       // Wide shots are shown zoomed (centre kept, edges trimmed) so people
