@@ -40,7 +40,9 @@ export async function fetchSources(urls, dir, { fetchFrameIo, log, warn }) {
       if (/f\.io|frame\.io/i.test(url)) { await fetchFrameIo(url, dir); continue; }
       if (/drive\.google\.com/i.test(url)) {
         const folder = /\/folders\//.test(url);
-        await run('gdown', folder ? ['--folder', url, '-O', dir, '--remaining-ok'] : ['--fuzzy', url, '-O', dir + '/'], BIG);
+        // Newer gdown dropped --remaining-ok: try with it, then without.
+        if (folder) await run('gdown', ['--folder', url, '-O', dir, '--remaining-ok'], BIG).catch(() => run('gdown', ['--folder', url, '-O', dir], BIG));
+        else await run('gdown', ['--fuzzy', url, '-O', dir + '/'], BIG);
         continue;
       }
       if (/dropbox\.com/i.test(url)) {
