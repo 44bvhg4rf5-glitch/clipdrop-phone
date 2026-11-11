@@ -1,0 +1,51 @@
+{
+  "name": "Aspire with Emma Grede (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Off Mic",
+  "_scout": "Proposed by the scout on 2026-11-11. Alpha 95, $1.75/1K, $8646 left, ~4 days. Join first: https://clippingalpha.com/go/11307126?via=mcp",
+  "_rules": [
+    "Tag @aspirewithemmagrede and @emmagrede on TikTok",
+    "Add #aspirewithemmagrede on TikTok",
+    "Pick one CTA per post, rotate three options",
+    "Open caption with a strong hook, opinion, or question",
+    "Add #ad to every post",
+    "Any page size can join",
+    "Post in English",
+    "Do not post the same video more than 5 times",
+    "No same video spam across multiple accounts",
+    "Use only the brand's footage",
+    "No nudity or sexual content",
+    "No hate or harassment",
+    "Outside footage",
+    "The creator's channels",
+    "TikTok",
+    "Instagram",
+    "YouTube"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [
+    "#aspirewithemmagrede",
+    "#ad"
+  ],
+  "mentions": [
+    "@aspirewithemmagrede",
+    "@emmagrede"
+  ],
+  "endsOn": "2026-11-15",
+  "postingNotes": "Add #ad to every post"
+}

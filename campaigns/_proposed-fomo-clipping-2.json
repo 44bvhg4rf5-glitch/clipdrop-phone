@@ -1,0 +1,43 @@
+{
+  "name": "FOMO (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Off Mic",
+  "_scout": "Proposed by the scout on 2026-11-11. Alpha 79, $2/1K, $9821 left, ~37 days. Join first: https://clippingalpha.com/go/11057289?via=mcp",
+  "_rules": [
+    "Tag @fomo in the caption",
+    "Missing the @fomo mention means no payout",
+    "Write captions like a clip page, not like an ad",
+    "Keep clips over 8 seconds",
+    "Focus-video footage must be the point of the clip, not an add-on",
+    "At least 40% of the audience in US, UK, CA and AU",
+    "Any page size can join",
+    "Views count from US, UK, CA and AU",
+    "No slop reposting: the same clip must not be spammed with zero variation",
+    "Same pages as other FOMO campaigns may be used",
+    "Use only the brand's footage",
+    "No outside footage",
+    "Brand footage only"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [
+    "@fomo"
+  ],
+  "endsOn": "2026-12-18",
+  "postingNotes": ""
+}
