@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-12T21:28:19.858Z",
-  "total": 509,
+  "at": "2026-11-12T21:34:59.095Z",
+  "total": 508,
   "checked": 30,
   "picks": [
     {
@@ -54,7 +54,7 @@
       "brand": "Marlon",
       "board": "Content Rewards",
       "rate": 2.5,
-      "budgetLeft": 4340,
+      "budgetLeft": 4339,
       "alpha": 84,
       "tier": "alpha",
       "platforms": [
@@ -131,7 +131,7 @@
       "board": "Content Rewards",
       "rate": 1.75,
       "budgetLeft": 3000,
-      "alpha": 88,
+      "alpha": 89,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -143,7 +143,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "Off Mic",
-      "score": 98,
+      "score": 99,
       "why": [
         "footage shown after joining",
         "long-form source: our clips are our own picks"
@@ -164,7 +164,7 @@
       "board": "Content Rewards",
       "rate": 2,
       "budgetLeft": 7840,
-      "alpha": 91,
+      "alpha": 92,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -176,7 +176,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "Off Mic",
-      "score": 91,
+      "score": 92,
       "why": [
         "footage shown after joining"
       ],
@@ -238,18 +238,16 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/11158658?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/vi-city/podcast?via=mcp"
-    }
-  ],
-  "rejected": [
+    },
     {
-      "ref": "wa-chaa/rza-grandmaster-collection-clippin",
-      "title": "Wa-Chaa x The RZA, Grandmaster Collection Clippin",
-      "brand": "Wa-Chaa",
+      "ref": "clip-farm/clipping",
+      "title": "Jake Paul How to Make Money With AI",
+      "brand": "Clip Farm",
       "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 10394,
-      "alpha": 95,
-      "tier": "alpha",
+      "rate": 0.75,
+      "budgetLeft": 1200,
+      "alpha": 44,
+      "tier": "fair",
       "platforms": [
         "instagram",
         "tiktok",
@@ -259,43 +257,34 @@
       "minViews": null,
       "footage": "after-join",
       "sources": [],
-      "account": "ReplayRoom",
-      "score": 95,
+      "account": "The Deal Room",
+      "score": 44,
       "why": [
         "footage shown after joining"
       ],
-      "reject": [
-        "requires #ad in every caption"
-      ],
-      "tags": [
-        "@wachaaworldwide",
-        "#ad"
-      ],
-      "disclosure": [
-        "Add #ad to every post"
-      ],
+      "reject": [],
+      "tags": [],
+      "disclosure": [],
       "rules": [
-        "Tag @wachaaworldwide on TikTok",
-        "Write your own caption around the required tag",
-        "Write like a genuine fan",
-        "Add #ad to every post",
-        "Keep original audio clearly audible over any background music",
-        "Any page size can join",
-        "Post in English",
-        "Do not post the same video more than 5 times",
-        "No spam posting the same video across multiple accounts",
+        "Write \"Jake Paul On YouTube\" in the caption",
+        "Keep clips over 10 seconds",
+        "Watch the source video before clipping",
+        "Pick the most knowledgeable moments about AI tools and advice",
+        "Make clips informational and highlight Jake's insights from the video",
+        "At least 40% of the audience in US, UK, CA and AU",
+        "Audience proof: analytics screenshot showing 40%+ Tier-1 audience",
+        "No networks and large meme pages pages",
+        "Views count from US, UK, CA and AU",
         "Use only the brand's footage",
-        "No nudity or sexual content",
-        "No violence",
-        "Outside footage",
-        "Brand footage only",
-        "TikTok",
-        "Instagram",
-        "YouTube"
+        "No outside footage",
+        "No reposts of other clips",
+        "The creator's channels"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11371320?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/wa-chaa/rza-grandmaster-collection-clippin?via=mcp"
-    },
+      "joinUrl": "https://clippingalpha.com/go/11958599?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/clip-farm/clipping?via=mcp"
+    }
+  ],
+  "rejected": [
     {
       "ref": "sega/metaphor-refantazio-trailer",
       "title": "SEGA, Metaphor ReFantazio Trailer Clipping",
@@ -303,7 +292,7 @@
       "board": "Content Rewards",
       "rate": 2,
       "budgetLeft": 12000,
-      "alpha": 89,
+      "alpha": 90,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -315,12 +304,12 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 89,
+      "score": 90,
       "why": [
         "footage shown after joining"
       ],
       "reject": [
-        "requires #ad in every caption",
+        "requires #ad-style tag in captions",
         "needs 50%+ US audience (a UK account rarely clears it)"
       ],
       "tags": [
@@ -350,6 +339,61 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/11993351?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/sega/metaphor-refantazio-trailer?via=mcp"
+    },
+    {
+      "ref": "sega/football-manager-27-trailer",
+      "title": "SEGA, Football Manager 27 Trailer Clipping",
+      "brand": "SEGA",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 19981,
+      "alpha": 89,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 89,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "requires #ad-style tag in captions",
+        "needs 50%+ US audience (a UK account rarely clears it)"
+      ],
+      "tags": [
+        "@footballmanager",
+        "#ad"
+      ],
+      "disclosure": [
+        "Start the caption with #ad"
+      ],
+      "rules": [
+        "Tag @footballmanager in the caption",
+        "Caption is otherwise up to you, written around the required parts",
+        "Caption must match the clip",
+        "Start the caption with #ad",
+        "Keep clips over 10 seconds",
+        "On-screen text, if used, must match the clip",
+        "Agree to keep the post FTC compliant",
+        "Send questions to Clipping Culture team, not the client",
+        "At least 50% of the audience in US and CA",
+        "Audience proof: We will verify this with OAuth.",
+        "Any page size can join",
+        "One account per clipper",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11371301?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/sega/football-manager-27-trailer?via=mcp"
     },
     {
       "ref": "lany/stuck",
@@ -401,14 +445,14 @@
       "pageUrl": "https://clippingalpha.com/campaigns/lany/stuck?via=mcp"
     },
     {
-      "ref": "sega/football-manager-27-trailer",
-      "title": "SEGA, Football Manager 27 Trailer Clipping",
-      "brand": "SEGA",
+      "ref": "wa-chaa/rza-grandmaster-collection-clippin",
+      "title": "Wa-Chaa x The RZA, Grandmaster Collection Clippin",
+      "brand": "Wa-Chaa",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 19981,
-      "alpha": 88,
-      "tier": "alpha",
+      "budgetLeft": 10392,
+      "alpha": 79,
+      "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
@@ -419,41 +463,41 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 88,
+      "score": 79,
       "why": [
         "footage shown after joining"
       ],
       "reject": [
-        "requires #ad in every caption",
-        "needs 50%+ US audience (a UK account rarely clears it)"
+        "requires #ad-style tag in captions"
       ],
       "tags": [
-        "@footballmanager",
+        "@wachaaworldwide",
         "#ad"
       ],
       "disclosure": [
-        "Start the caption with #ad"
+        "Add #ad to every post"
       ],
       "rules": [
-        "Tag @footballmanager in the caption",
-        "Caption is otherwise up to you, written around the required parts",
-        "Caption must match the clip",
-        "Start the caption with #ad",
-        "Keep clips over 10 seconds",
-        "On-screen text, if used, must match the clip",
-        "Agree to keep the post FTC compliant",
-        "Send questions to Clipping Culture team, not the client",
-        "At least 50% of the audience in US and CA",
-        "Audience proof: We will verify this with OAuth.",
+        "Tag @wachaaworldwide on TikTok",
+        "Write your own caption around the required tag",
+        "Write like a genuine fan",
+        "Add #ad to every post",
+        "Keep original audio clearly audible over any background music",
         "Any page size can join",
-        "One account per clipper",
+        "Post in English",
+        "Do not post the same video more than 5 times",
+        "No spam posting the same video across multiple accounts",
+        "Use only the brand's footage",
+        "No nudity or sexual content",
+        "No violence",
+        "Outside footage",
         "Brand footage only",
         "TikTok",
         "Instagram",
         "YouTube"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11371301?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/sega/football-manager-27-trailer?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/11371320?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/wa-chaa/rza-grandmaster-collection-clippin?via=mcp"
     },
     {
       "ref": "concessions-movie/clipping",
@@ -479,7 +523,7 @@
         "footage shown after joining"
       ],
       "reject": [
-        "requires #ad in every caption",
+        "requires #ad-style tag in captions",
         "needs 50%+ US audience (a UK account rarely clears it)"
       ],
       "tags": [
@@ -729,7 +773,7 @@
         "footage shown after joining"
       ],
       "reject": [
-        "requires #ad in every caption",
+        "requires #ad-style tag in captions",
         "only tiktok platforms"
       ],
       "tags": [
@@ -831,62 +875,6 @@
       "pageUrl": "https://clippingalpha.com/campaigns/traxnyc-podcast-2/rabbi-mirachi?via=mcp"
     },
     {
-      "ref": "sega/football-manager-27-spanish",
-      "title": "SEGA, Football Manager 27 Spanish Clipping",
-      "brand": "SEGA",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 3400,
-      "alpha": 46,
-      "tier": "fair",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 12,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 46,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "requires #ad in every caption"
-      ],
-      "tags": [
-        "@footballmanager",
-        "#ad"
-      ],
-      "disclosure": [
-        "Add #ad to every post"
-      ],
-      "rules": [
-        "Tag @footballmanager in the caption",
-        "Make the caption match the clip",
-        "Add #ad to every post",
-        "Keep clips over 10 seconds",
-        "Direct questions to the Clipping Culture team, not the client",
-        "At least 50% of the audience in MX and AR",
-        "Audience proof: We will verify this with OAuth.",
-        "Any page size can join",
-        "Views count from MX and AR",
-        "Post in Spanish",
-        "Do not post the same video more than 5 times",
-        "Use only the brand's footage",
-        "Captions on",
-        "Brand footage only",
-        "TikTok",
-        "Instagram",
-        "YouTube",
-        "Spanish"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11371412?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/sega/football-manager-27-spanish?via=mcp"
-    },
-    {
       "ref": "loaded-tea-shop/clipping",
       "title": "The Loaded Tea Shop (UBER)",
       "brand": "Loaded Tea Shop",
@@ -941,7 +929,7 @@
       "brand": "MIKE MEW",
       "board": "Content Rewards",
       "rate": 1.5,
-      "budgetLeft": 2346,
+      "budgetLeft": 2345,
       "alpha": 96,
       "tier": "alpha",
       "platforms": [
@@ -977,59 +965,6 @@
       "pageUrl": "https://clippingalpha.com/campaigns/mike-mew/dr?via=mcp"
     },
     {
-      "ref": "call-of-duty/mw4-dmz-intel-briefing",
-      "title": "Call of Duty, MW4 DMZ Intel Briefing Clipping",
-      "brand": "Call of Duty",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 27755,
-      "alpha": 95,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok"
-      ],
-      "days": 36,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 90,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "requires #ad in every caption"
-      ],
-      "tags": [
-        "@callofduty",
-        "#Ad",
-        "#Advertisement"
-      ],
-      "disclosure": [
-        "Add #Ad or #Advertisement to every post"
-      ],
-      "rules": [
-        "Tag @callofduty on TikTok and Instagram",
-        "Use one of the given free trial lines, e.g. free to play until November 11th",
-        "Add #Ad or #Advertisement to every post",
-        "Keep clips over 10 seconds",
-        "Disclosure hashtag must use same font, size, and color as the caption",
-        "Direct questions to the Clipping Culture team, not the client",
-        "Audience proof: Likes must be visible",
-        "Any page size can join",
-        "Post in English",
-        "Do not post the same video more than 5 times",
-        "Use only the brand's footage",
-        "No nudity or sexual content",
-        "Brand footage only",
-        "TikTok",
-        "Instagram"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11045701?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/call-of-duty/mw4-dmz-intel-briefing?via=mcp"
-    },
-    {
       "ref": "call-of-duty/warzone",
       "title": "Call of Duty, Warzone Season 1 Clipping",
       "brand": "Call of Duty",
@@ -1052,7 +987,7 @@
         "footage shown after joining"
       ],
       "reject": [
-        "requires #ad in every caption",
+        "requires #ad-style tag in captions",
         "budget forecast to run out within 3 days"
       ],
       "tags": [
@@ -1089,7 +1024,7 @@
       "board": "Content Rewards",
       "rate": 2,
       "budgetLeft": 1595,
-      "alpha": 94,
+      "alpha": 95,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -1101,7 +1036,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 99,
+      "score": 100,
       "why": [
         "footage shown after joining",
         "pays from 2,000 views"
@@ -1131,6 +1066,39 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/10185484?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/dirty-honey/clipping?via=mcp"
+    },
+    {
+      "ref": "social-media-justice/clipping",
+      "title": "$20,000 Social Media Justice Clipping Campaign",
+      "brand": "Social Media Justice",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 20480,
+      "alpha": 91,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 38,
+      "minViews": null,
+      "footage": "youtube",
+      "sources": [],
+      "account": "Off Mic",
+      "score": 96,
+      "why": [],
+      "reject": [
+        "caption must push a link in bio",
+        "footage is YouTube only (cloud can't download it)"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Put the campaign link in your bio"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/10130018?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/social-media-justice/clipping?via=mcp"
     }
   ]
 }
