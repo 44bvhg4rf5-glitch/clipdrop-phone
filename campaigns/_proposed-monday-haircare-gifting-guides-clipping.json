@@ -1,0 +1,43 @@
+{
+  "name": "MONDAY Haircare Gifting Guides (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "ReplayRoom",
+  "_scout": "Proposed by the scout on 2026-11-12. Alpha 95, $3/1K, $5000 left, ~? days. Join first: https://clippingalpha.com/go/11814044?via=mcp",
+  "_rules": [
+    "Tag @mondayhaircare on TikTok and Instagram",
+    "Add #mondayhaircare to the caption",
+    "Caption must include a CTA telling people to buy on Amazon",
+    "Soft CTA must say Monday Haircare is your favorite recommendation",
+    "Credit outside creators by tagging them in your post",
+    "Slideshows must be 8 slides or fewer",
+    "Audience must be women",
+    "At least 30% of the audience in US",
+    "Warm up new pages: Have TikTok accounts warmed up and ready before posting",
+    "No toys and non-niche related content pages",
+    "No pages with gore, pornographic/OF (OnlyFans-style) content and violent content",
+    "Accounts need 10,000 followers"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [
+    "#mondayhaircare"
+  ],
+  "mentions": [
+    "@mondayhaircare"
+  ],
+  "endsOn": null,
+  "postingNotes": ""
+}

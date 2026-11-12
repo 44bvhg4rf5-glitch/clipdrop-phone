@@ -1,19 +1,18 @@
 {
-  "name": "Let Him Mansplain Podcast (Content Rewards)",
+  "name": "Booty King (Content Rewards)",
   "type": "creator",
   "enabled": false,
-  "account": "Off Mic",
-  "_scout": "Proposed by the scout on 2026-11-12. Alpha 93, $1.25/1K, $9349 left, ~55 days. Join first: https://clippingalpha.com/go/8531584?via=mcp",
+  "account": "ReplayRoom",
+  "_scout": "Proposed by the scout on 2026-11-12. Alpha 79, $1.5/1K, $1000 left, ~? days. Join first: https://clippingalpha.com/go/11973041?via=mcp",
   "_rules": [
-    "New pages can join",
+    "Make streamer style clips",
     "Use only the brand's footage",
-    "The creator's channels"
+    "Brand footage only"
   ],
   "sources": [],
   "platforms": [
     "instagram",
-    "tiktok",
-    "youtube"
+    "tiktok"
   ],
   "perDay": 2,
   "minSeconds": 20,
@@ -26,6 +25,6 @@
   "captionLines": [],
   "hashtags": [],
   "mentions": [],
-  "endsOn": "2027-01-06",
+  "endsOn": null,
   "postingNotes": ""
 }
