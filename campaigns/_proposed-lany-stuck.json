@@ -3,19 +3,19 @@
   "type": "creator",
   "enabled": false,
   "account": "ReplayRoom",
-  "_scout": "Proposed by the scout on 2026-11-11. Alpha 89, $1.5/1K, $4123 left, ~79 days. Join first: https://clippingalpha.com/go/11474723?via=mcp",
+  "_scout": "Proposed by the scout on 2026-11-12. Alpha 91, $1.5/1K, $3666 left, ~8 days. Join first: https://clippingalpha.com/go/11474723?via=mcp",
   "_rules": [
     "Add #lany to the caption",
-    "Keep captions short, in the same mood as the on screen text",
-    "Approved lines go on screen, sized to hide the video's original text",
+    "Keep captions short, matching the on-screen text mood",
     "Keep clips over 8 seconds",
-    "On screen text must fully cover the video's original text",
+    "Attach official sound muted, keep clip audio",
+    "Audience proof: Screen record single-video analytics: watch time, view graphs, locations",
     "2,000 views before payout",
+    "Post in English",
     "Post each clip once per platform",
-    "Keep likes and comments ON",
+    "Keep likes and comments on",
     "No spam posting, story boosts, paid boosts or collab posts",
     "Use only the brand's footage",
-    "No nudity or sexual content",
     "No misleading claims",
     "Brand footage only"
   ],
@@ -38,6 +38,6 @@
     "#lany"
   ],
   "mentions": [],
-  "endsOn": "2027-01-29",
+  "endsOn": "2026-11-20",
   "postingNotes": "Payout from 2000 views"
 }
