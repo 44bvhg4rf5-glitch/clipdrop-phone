@@ -80,7 +80,12 @@ const DEALBREAKERS = [
 // campaign (Nov 2026) had all of these and got 0 views on YouTube and
 // Instagram; both platforms hold back near-identical re-uploads.
 const ACCOUNT_RISKS = [
-  [/(^|[^\w])#ad\b/i, 'requires #ad in every caption'],
+  // Any "this is an ad" wording in the caption or on screen. Branded partner
+  // tags (#TheDropPartner) and the platforms' own paid-promotion switches are
+  // fine: The Drop runs with both on TikTok.
+  [/(^|[^\w])#(ad|ads|advert|advertisement|sponsored|spon|paidad|paidpartnership|paid)\b/i, 'requires #ad-style tag in captions'],
+  [/\b(label|mark|disclose|flag)\w*\b[^.]{0,40}\bas (an? )?(ad|advert|advertisement|sponsored)\b/i, 'requires labelling posts as an ad'],
+  [/(["'\u201c]|\bwith\s+)(ad|sponsored)\s*[:|]/i, 'requires an "Ad:" caption prefix'],
   [/\b(logo|watermark|banner|end ?card|lower third|cta)\b[^.]{0,40}\b(on[- ]screen|in the video|visible|keep|must stay|burned)\b|\bkeep (the )?(brand )?(logo|banner|watermark)\b/i, 'brand logo/banner must stay on screen'],
   [/\blink in (your |their |its |the )?bio\b|\b(campaign |brand )?link in (your )?(bio|profile)\b/i, 'caption must push a link in bio'],
   [/\b(use|post) (the )?(approved |official )?(clips?|footage|videos?) as (provided|supplied|is)\b|\bdo not alter\b|\bno (cropping|trimming|cutting|edits)\b/i, 'clips must be posted as supplied (same file as every other clipper)'],
