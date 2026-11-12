@@ -9,7 +9,11 @@
 // For every open campaign it reads the brief and the footage list, then:
 //   1. rejects what our pipeline must not or cannot do (briefs that ban AI or
 //      repurposing tools, demand a dedicated page per brand, or only offer
-//      YouTube footage, which the cloud cannot download);
+//      YouTube footage, which the cloud cannot download), and what put our
+//      accounts at risk (ACCOUNT_RISKS: learnt from CONCESSIONS, Nov 2026,
+//      where every YouTube and Instagram post sat at 0 views: identical
+//      pre-cut files every clipper posts, a burned-in "now available on"
+//      banner, #ad + "link in bio" captions, 50% US audience);
 //   2. scores the rest (ClippingAlpha's Alpha Score, plus our own fit:
 //      downloadable footage, all three platforms, low payout threshold, days
 //      of budget left);
@@ -72,6 +76,18 @@ const DEALBREAKERS = [
   [/\bface ?cam|on[- ]camera|your (own )?face\b/i, 'needs you on camera'],
 ];
 
+// Briefs that make our posts look like everyone else's ads. The CONCESSIONS
+// campaign (Nov 2026) had all of these and got 0 views on YouTube and
+// Instagram; both platforms hold back near-identical re-uploads.
+const ACCOUNT_RISKS = [
+  [/(^|[^\w])#ad\b/i, 'requires #ad in every caption'],
+  [/\b(logo|watermark|banner|end ?card|lower third|cta)\b[^.]{0,40}\b(on[- ]screen|in the video|visible|keep|must stay|burned)\b|\bkeep (the )?(brand )?(logo|banner|watermark)\b/i, 'brand logo/banner must stay on screen'],
+  [/\blink in (your |their |its |the )?bio\b|\b(campaign |brand )?link in (your )?(bio|profile)\b/i, 'caption must push a link in bio'],
+  [/\b(use|post) (the )?(approved |official )?(clips?|footage|videos?) as (provided|supplied|is)\b|\bdo not alter\b|\bno (cropping|trimming|cutting|edits)\b/i, 'clips must be posted as supplied (same file as every other clipper)'],
+  [/\b([5-9]\d)\s?%[^.]{0,30}\b(us|usa|u\.s\.|united states|american)\b|\b(us|usa|united states)\b[^.]{0,25}\b([5-9]\d)\s?%/i, 'needs 50%+ US audience (a UK account rarely clears it)'],
+];
+const MAX_MIN_VIEWS = 1500;   // our posts get ~700 (TikTok) to ~1,100 (YouTube)
+
 const ACCOUNTS = [
   ['The Deal Room', /\b(financ|trading|trader|invest|money|business|startup|founder|ceo|shark tank|crypto|stock|real estate|entrepreneur|fintech|sales)\b/i],
   ['Off Mic', /\b(podcast|pod\b|interview|talk ?show|conversation|q&a|ama)\b/i],
@@ -88,7 +104,7 @@ function sourceKind(url = '') {
 }
 const DOWNLOADABLE = new Set(['frameio', 'drive', 'dropbox', 'file']);
 
-function judge(c, brief, assets) {
+export function judge(c, brief, assets) {
   const why = [], reject = [];
   const lines = [
     ...(brief.checklist || []).map((x) => x.text),
@@ -97,6 +113,7 @@ function judge(c, brief, assets) {
   ].filter(Boolean);
   const text = lines.join('. ');
   for (const [re, label] of DEALBREAKERS) if (re.test(text)) reject.push(label);
+  for (const [re, label] of ACCOUNT_RISKS) if (re.test(text)) reject.push(label);
 
   const urls = [
     ...(assets.videos || []).map((v) => v.url || v.sourceUrl),
@@ -118,12 +135,18 @@ function judge(c, brief, assets) {
   if (days !== null && days < 3) reject.push('budget forecast to run out within 3 days');
   if ((c.budgetLeftUsd || 0) < 300) reject.push('under $300 of budget left');
   if (c.region && !/global|uk|gb|united kingdom|worldwide/i.test(c.region)) why.push(`audience: ${c.region}`);
+  if (c.region && /^\s*(us|usa|united states)( only)?\s*$/i.test(c.region)) reject.push('US-only audience');
+  if (minViews && minViews > MAX_MIN_VIEWS) reject.push(`pays only from ${minViews.toLocaleString('en-GB')} views (ours get ~700-1,100)`);
+  const longForm = /\b(podcast|episode|stream|vod|full (video|interview)|long[- ]form|your own moments|find (the )?best moments)\b/i.test(`${c.title} ${text}`);
+  const preCut = /\b(pre-?cut|ready-?made|provided|supplied) (clips|edits|videos)\b/i.test(text);
 
   let score = c.alphaScore || 0;
   if (footage === 'downloadable') score += 15; else if (footage === 'after-join') score -= 5;
   if (plats.length === 3) score += 5;
   if (minViews && minViews <= 3000) { score += 5; why.push(`pays from ${minViews.toLocaleString('en-GB')} views`); }
   if (days !== null && days < 7) score -= 10;
+  if (longForm) { score += 10; why.push('long-form source: our clips are our own picks'); }
+  if (preCut) { score -= 15; why.push('pre-cut clips: everyone posts the same files'); }
   const topic = `${c.title} ${c.brand} ${c.niche || ''} ${text.slice(0, 400)}`;
   const account = ACCOUNTS.find(([, re]) => re.test(topic))[0];
 
@@ -236,4 +259,4 @@ async function main() {
   for (const p of picks) log(`  ${p.account} · ${p.title} · score ${p.score} · ${p.footage}`);
 }
 
-main().catch((e) => { console.error('scout failed:', e.message); process.exit(1); });
+if (process.argv[1] === import.meta.filename) main().catch((e) => { console.error('scout failed:', e.message); process.exit(1); });
