@@ -96,7 +96,7 @@ const MAX_MIN_VIEWS = 1500;   // our posts get ~700 (TikTok) to ~1,100 (YouTube)
 const ACCOUNTS = [
   ['The Deal Room', /\b(financ|trading|trader|invest|money|business|startup|founder|ceo|shark tank|crypto|stock|real estate|entrepreneur|fintech|sales)\b/i],
   ['Off Mic', /\b(podcast|pod\b|interview|talk ?show|conversation|q&a|ama)\b/i],
-  ['ReplayRoom', /./],
+  ['ReplayRoom', /./],   // film & TV; anything else that lands here is flagged off-topic below
 ];
 
 function sourceKind(url = '') {
@@ -154,6 +154,8 @@ export function judge(c, brief, assets) {
   if (preCut) { score -= 15; why.push('pre-cut clips: everyone posts the same files'); }
   const topic = `${c.title} ${c.brand} ${c.niche || ''} ${text.slice(0, 400)}`;
   const account = ACCOUNTS.find(([, re]) => re.test(topic))[0];
+  const filmTv = c.niche === 'film-and-tv' || /\b(film|movie|tv|series|episode|season|trailer|netflix|hulu|prime video|hbo|apple tv|disney|paramount|peacock)\b/i.test(topic);
+  if (account === 'ReplayRoom' && !filmTv) reject.push('not film/TV (ReplayRoom is a film & TV page)');
 
   const tags = [...new Set((text.match(/[#@][A-Za-z0-9_.]{2,40}/g) || []).map((t) => t.replace(/[.]$/, '')))];
   const disclosure = (brief.checklist || []).filter((x) => x.kind === 'disclosure').map((x) => x.text);
@@ -232,8 +234,11 @@ async function main() {
   // last 3 days, since the first 48 hours of a campaign hold the most budget.
   const best = await tool('search_campaigns', { type: 'clipping', open_join_only: true, limit: 25 });
   const fresh = await tool('search_campaigns', { type: 'clipping', open_join_only: true, limit: 25, new_within_hours: 72 }).catch(() => ({ campaigns: [] }));
+  // ReplayRoom is a film & TV page: the general lists rarely surface those, so
+  // search the niche directly too (newest first: early posts get the budget).
+  const film = await tool('search_campaigns', { type: 'clipping', niche: 'film-and-tv', platforms: ['youtube', 'instagram'], open_join_only: true, limit: 25, sort: 'newest' }).catch(() => ({ campaigns: [] }));
   const seen = new Set();
-  const found = { total: best.total, campaigns: [...(fresh.campaigns || []), ...(best.campaigns || [])].filter((c) => !seen.has(c.campaignId) && seen.add(c.campaignId)) };
+  const found = { total: best.total, campaigns: [...(film.campaigns || []), ...(fresh.campaigns || []), ...(best.campaigns || [])].filter((c) => !seen.has(c.campaignId) && seen.add(c.campaignId)) };
   const camps = (found.campaigns || []).filter((c) => c.state === 'live' && !c.membersOnly && (c.platforms || []).some((p) => OUR.includes(p)));
   log(`${found.total} live, ${camps.length} candidates`);
 
