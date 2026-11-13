@@ -1,0 +1,37 @@
+{
+  "name": "Vookum (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "The Deal Room",
+  "_scout": "Proposed by the scout on 2026-11-13. Alpha 73, $1.5/1K, $5000 left, ~? days. Join first: https://clippingalpha.com/go/12064495?via=mcp",
+  "_rules": [
+    "Clips are approved within 24 hours",
+    "Clip from the creator's channels",
+    "Pay stops at $400 a clip",
+    "Post on TikTok, Instagram and YouTube",
+    "Made for creators in luxury watches and business",
+    "The creator's channels",
+    "TikTok",
+    "Instagram",
+    "YouTube"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [],
+  "endsOn": null,
+  "postingNotes": ""
+}
