@@ -1,85 +1,51 @@
 {
-  "at": "2026-11-13T13:23:55.941Z",
-  "total": 515,
+  "at": "2026-11-13T17:58:50.713Z",
+  "total": 517,
   "checked": 30,
   "picks": [
     {
-      "ref": "monday-haircare-gifting-guides/clipping",
-      "title": "MONDAY Haircare Gifting Guides Clipping",
-      "brand": "MONDAY Haircare Gifting Guides",
+      "ref": "musk/clipping",
+      "title": "Musk",
+      "brand": "Musk",
       "board": "Content Rewards",
-      "rate": 3,
-      "budgetLeft": 5000,
-      "alpha": 95,
-      "tier": "alpha",
+      "rate": 1,
+      "budgetLeft": 1500,
+      "alpha": 69,
+      "tier": "solid",
       "platforms": [
         "instagram",
-        "tiktok"
+        "tiktok",
+        "youtube"
       ],
       "days": null,
       "minViews": null,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 90,
+      "score": 69,
       "why": [
         "footage shown after joining"
       ],
       "reject": [],
       "tags": [
-        "@mondayhaircare",
-        "#mondayhaircare"
+        "#BleeckerStreetPartner",
+        "#MUSKmovie"
       ],
       "disclosure": [],
       "rules": [
-        "Tag @mondayhaircare on TikTok",
-        "Add #mondayhaircare to the caption",
-        "Soft CTA must say MONDAY Haircare is your favorite recommendation",
-        "Vary captions across posts so content doesn't repeat",
-        "Slideshows must be 8 slides or less",
-        "Below 1k TikTok followers: use soft CTA recommending MONDAY on Amazon",
-        "Audience must be women",
-        "At least 30% of the audience in US",
-        "Warm up new pages: Have TikTok accounts warmed up before posting",
-        "No pages with gore, pornographic/OF (OnlyFans-style) content and violent content",
-        "Accounts need 10,000 followers",
-        "Views count from US"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11814044?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/monday-haircare-gifting-guides/clipping?via=mcp"
-    },
-    {
-      "ref": "booty-king/high-volume",
-      "title": "Booty King Clips, High Volume",
-      "brand": "Booty King",
-      "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 2541,
-      "alpha": 79,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 74,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Make streamer style clips",
+        "Add #BleeckerStreetPartner and #MUSKmovie to the caption",
+        "May adapt suggested captions if message, availability info, and hashtags are preserved",
+        "Use only approved MUSK artwork or film footage for thumbnails and covers",
+        "Prioritize compelling Robert De Niro moments from approved footage",
+        "Use the words \"available to rent or buy\"",
         "Use only the brand's footage",
+        "No outside footage",
+        "No misleading claims",
+        "End with the call to action",
         "Brand footage only"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11973041?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/booty-king/high-volume?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12205804?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/musk/clipping?via=mcp"
     },
     {
       "ref": "apex-habits/clipping",
@@ -88,7 +54,7 @@
       "board": "Content Rewards",
       "rate": 2.5,
       "budgetLeft": 1000,
-      "alpha": 75,
+      "alpha": 74,
       "tier": "solid",
       "platforms": [
         "instagram",
@@ -99,7 +65,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 70,
+      "score": 69,
       "why": [
         "footage shown after joining"
       ],
@@ -116,6 +82,36 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/12144461?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/apex-habits/clipping?via=mcp"
+    },
+    {
+      "ref": "cliphaus/amazon-prime-video-canada",
+      "title": "AMAZON PRIME VIDEO CANADA",
+      "brand": "ClipHaus",
+      "board": "Content Rewards",
+      "rate": 0.65,
+      "budgetLeft": 3294,
+      "alpha": 59,
+      "tier": "fair",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 31,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 59,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [],
+      "tags": [],
+      "disclosure": [],
+      "rules": [],
+      "joinUrl": "https://clippingalpha.com/go/4145074?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/cliphaus/amazon-prime-video-canada?via=mcp"
     },
     {
       "ref": "genius-bimbos-podcast/clipping",
@@ -149,6 +145,104 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/11632619?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/genius-bimbos-podcast/clipping?via=mcp"
+    },
+    {
+      "ref": "clip-farm/first-press-jake-makler-podcast",
+      "title": "First Press Jake Makler Podcast",
+      "brand": "Clip Farm",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 4000,
+      "alpha": 80,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": 1500,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Off Mic",
+      "score": 95,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,500 views",
+        "long-form source: our clips are our own picks"
+      ],
+      "reject": [],
+      "tags": [
+        "@firstpress_povc",
+        "@firstpress"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @firstpress_povc on TikTok",
+        "Tag @firstpress-povc on YouTube",
+        "Write your own short, clear English recap of the clip",
+        "Say what the clip teaches",
+        "Open a Whop or Discord ticket for payout approval",
+        "Submit each video on Whop",
+        "At least 40% of the audience in US, UK, CA and AU",
+        "1,500 views before payout",
+        "Views count from US, UK, CA and AU",
+        "Post in English",
+        "No posting the same video on many pages",
+        "No paid ads or boost/promote tools",
+        "The creator's channels"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12261569?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/clip-farm/first-press-jake-makler-podcast?via=mcp"
+    },
+    {
+      "ref": "clip-farm/first-press-willie-litvack-podcast",
+      "title": "First Press Willie Litvack Podcast",
+      "brand": "Clip Farm",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 4000,
+      "alpha": 80,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": 1500,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Off Mic",
+      "score": 95,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,500 views",
+        "long-form source: our clips are our own picks"
+      ],
+      "reject": [],
+      "tags": [
+        "@firstpress_povc",
+        "@firstpress"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @firstpress_povc on TikTok",
+        "Tag @firstpress-povc on YouTube",
+        "At least 40% of the audience in US, UK, CA and AU",
+        "1,500 views before payout",
+        "Views count from US, UK, CA and AU",
+        "Post in English",
+        "No spamming the same video across many pages",
+        "Use only the brand's footage",
+        "No nudity or sexual content",
+        "No violence",
+        "No outside footage",
+        "No bought views or bots",
+        "The creator's channels"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12261570?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/clip-farm/first-press-willie-litvack-podcast?via=mcp"
     },
     {
       "ref": "vookum/clipping",
@@ -189,50 +283,6 @@
       ],
       "joinUrl": "https://clippingalpha.com/go/12064495?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/vookum/clipping?via=mcp"
-    },
-    {
-      "ref": "clip-farm/clipping",
-      "title": "Jake Paul How to Make Money With AI",
-      "brand": "Clip Farm",
-      "board": "Content Rewards",
-      "rate": 0.75,
-      "budgetLeft": 1200,
-      "alpha": 46,
-      "tier": "fair",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "The Deal Room",
-      "score": 46,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Write \"Jake Paul On YouTube\" in the caption",
-        "Keep clips over 10 seconds",
-        "Make clips informational and highlight Jake's insights from the video",
-        "At least 40% of the audience in US, UK, CA and AU",
-        "Audience proof: Analytics screenshot showing 40%+ Tier-1 audience",
-        "No networks and large meme pages pages",
-        "Views count from US, UK, CA and AU",
-        "Use only the brand's footage",
-        "No outside footage",
-        "No reposts of other clips",
-        "Add captions to every clip",
-        "Post on TikTok, Instagram and YouTube",
-        "The creator's channels"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11958599?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/clip-farm/clipping?via=mcp"
     }
   ],
   "rejected": [
@@ -242,8 +292,8 @@
       "brand": "SEGA",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 11997,
-      "alpha": 95,
+      "budgetLeft": 11988,
+      "alpha": 94,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -255,7 +305,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 95,
+      "score": 94,
       "why": [
         "footage shown after joining"
       ],
@@ -292,233 +342,25 @@
       "pageUrl": "https://clippingalpha.com/campaigns/sega/metaphor-refantazio-trailer?via=mcp"
     },
     {
-      "ref": "wa-chaa/rza-grandmaster-collection-clippin",
-      "title": "Wa-Chaa x The RZA, Grandmaster Collection Clippin",
-      "brand": "Wa-Chaa",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 10328,
-      "alpha": 95,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 95,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "requires #ad-style tag in captions"
-      ],
-      "tags": [
-        "@wachaaworldwide",
-        "#ad"
-      ],
-      "disclosure": [
-        "Add #ad to every post"
-      ],
-      "rules": [
-        "Tag @wachaaworldwide on TikTok",
-        "Write your own caption around the required tag",
-        "Write like a genuine fan",
-        "Add #ad to every post",
-        "Keep original audio clearly audible over any background music",
-        "Any page size can join",
-        "Post in English",
-        "Do not post the same video more than 5 times",
-        "No spam posting the same video across multiple accounts",
-        "Use only the brand's footage",
-        "No nudity or sexual content",
-        "No violence",
-        "Outside footage",
-        "Brand footage only",
-        "TikTok",
-        "Instagram",
-        "YouTube"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11371320?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/wa-chaa/rza-grandmaster-collection-clippin?via=mcp"
-    },
-    {
-      "ref": "sega/football-manager-27-trailer",
-      "title": "SEGA, Football Manager 27 Trailer Clipping",
-      "brand": "SEGA",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 19643,
-      "alpha": 92,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 92,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "requires #ad-style tag in captions",
-        "needs 50%+ US audience (a UK account rarely clears it)"
-      ],
-      "tags": [
-        "@footballmanager",
-        "#ad"
-      ],
-      "disclosure": [
-        "Start the caption with #ad"
-      ],
-      "rules": [
-        "Tag @footballmanager in the caption",
-        "Caption is otherwise up to you, written around the required parts",
-        "Caption must match the clip",
-        "Start the caption with #ad",
-        "Keep clips over 10 seconds",
-        "On-screen text, if used, must match the clip",
-        "Agree to keep the post FTC compliant",
-        "Send questions to Clipping Culture team, not the client",
-        "At least 50% of the audience in US and CA",
-        "Audience proof: We will verify this with OAuth.",
-        "Any page size can join",
-        "One account per clipper",
-        "Brand footage only",
-        "TikTok",
-        "Instagram",
-        "YouTube"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11371301?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/sega/football-manager-27-trailer?via=mcp"
-    },
-    {
-      "ref": "lany/stuck",
-      "title": "LANY, 'Stuck'",
-      "brand": "LANY",
-      "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 3004,
-      "alpha": 92,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 6,
-      "minViews": 2000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 87,
-      "why": [
-        "footage shown after joining",
-        "pays from 2,000 views"
-      ],
-      "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [
-        "#lany"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #lany to the caption",
-        "Keep captions short, matching the on-screen text mood",
-        "Keep clips over 8 seconds",
-        "Attach official sound muted, keep clip audio",
-        "Audience proof: Screen record single-video analytics: watch time, view graphs, locations",
-        "2,000 views before payout",
-        "Post in English",
-        "Post each clip once per platform",
-        "Keep likes and comments on",
-        "No spam posting, story boosts, paid boosts or collab posts",
-        "Use only the brand's footage",
-        "No misleading claims",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11474723?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/lany/stuck?via=mcp"
-    },
-    {
-      "ref": "loaded-tea-shop/clipping-2",
-      "title": "The Loaded Tea Shop (MICHAEL JACKSON)",
-      "brand": "Loaded Tea Shop",
-      "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 49921,
-      "alpha": 81,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 81,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "brand logo/banner must stay on screen"
-      ],
-      "tags": [
-        "#TheLoadedTeaShop"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #TheLoadedTeaShop to the caption",
-        "Caption must be relevant to the clip and in English only",
-        "Keep the watermark on screen for the whole video",
-        "Watermark must be transparent and clearly visible",
-        "Never cover, crop, or blur the watermark",
-        "At least 40% of the audience in US, UK, CA and AU",
-        "Any page size can join",
-        "Views count from US, UK, CA and AU",
-        "Post in English",
-        "No posting the same video on many pages",
-        "No paid ads or boost/promote tools",
-        "Use only the brand's footage",
-        "Brand logo on screen",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11426921?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/loaded-tea-shop/clipping-2?via=mcp"
-    },
-    {
       "ref": "concessions-movie/clipping",
       "title": "Concessions Movie [Clipping Campaign]",
       "brand": "Concessions Movie",
       "board": "Content Rewards",
       "rate": 1.25,
-      "budgetLeft": 2432,
-      "alpha": 79,
-      "tier": "alpha",
+      "budgetLeft": 2425,
+      "alpha": 76,
+      "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 60,
+      "days": 61,
       "minViews": null,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 79,
+      "score": 76,
       "why": [
         "footage shown after joining"
       ],
@@ -556,20 +398,459 @@
       "pageUrl": "https://clippingalpha.com/campaigns/concessions-movie/clipping?via=mcp"
     },
     {
-      "ref": "elvis-guetta/clipping",
-      "title": "Elvis Guetta Clipping",
-      "brand": "Elvis Guetta",
+      "ref": "wicker/movie",
+      "title": "Wicker Movie Clipping",
+      "brand": "Wicker",
+      "board": "Clipstake",
+      "rate": 4,
+      "budgetLeft": 1143,
+      "alpha": 39,
+      "tier": "low",
+      "platforms": [
+        "instagram"
+      ],
+      "days": 46,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 34,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "requires #ad-style tag in captions",
+        "only instagram platforms"
+      ],
+      "tags": [
+        "#sponsored",
+        "#ad"
+      ],
+      "disclosure": [
+        "Add #sponsored to every post"
+      ],
+      "rules": [
+        "Write \"Wicker. Out in Australian cinemas November 5th.\" in the caption",
+        "Add #sponsored to every post",
+        "Keep clips over 10 seconds",
+        "Audience in AU and NZ",
+        "Views count from AU and NZ",
+        "Use only the brand's footage",
+        "No outside footage",
+        "No low effort reuploads",
+        "Post on Instagram",
+        "Over 10 seconds",
+        "#ad on every post",
+        "Outside footage",
+        "Low effort reuploads",
+        "Bought views or bots",
+        "Brand footage only",
+        "Instagram",
+        "AU",
+        "NZ"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/8627868?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/wicker/movie?via=mcp"
+    },
+    {
+      "ref": "clouted/she-listens-alone",
+      "title": "She Listens Alone",
+      "brand": "Clouted",
       "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 1956,
-      "alpha": 77,
-      "tier": "solid",
+      "rate": 1,
+      "budgetLeft": 60,
+      "alpha": 0,
+      "tier": "low",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 10,
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 0,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "under $300 of budget left"
+      ],
+      "tags": [
+        "@shelistensalone",
+        "@shelistensalonemovie",
+        "@SheListensAloneFilm"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @shelistensalone on Instagram",
+        "Tag @shelistensalonemovie on TikTok",
+        "Tag @SheListensAloneFilm on YouTube",
+        "Write \"Coming Soon\" in the caption",
+        "Keep clips over 15 seconds",
+        "No pages with spam accounts or low-effort repost pages",
+        "Use only the brand's footage",
+        "No reposts of other clips",
+        "No outside footage",
+        "Add captions to every clip",
+        "End with the call to action",
+        "Post on TikTok, Instagram and YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/6844237?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/clouted/she-listens-alone?via=mcp"
+    },
+    {
+      "ref": "space-cadet/movie-trailer",
+      "title": "Space Cadet: Movie Trailer Clipping",
+      "brand": "Space Cadet",
+      "board": "Content Rewards",
+      "rate": 3,
+      "budgetLeft": 7430,
+      "alpha": 10,
+      "tier": "low",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 5,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "requires #ad-style tag in captions",
+        "needs 50%+ US audience (a UK account rarely clears it)"
+      ],
+      "tags": [
+        "@realkidkoala",
+        "#SpaceCadetMovie",
+        "#ad"
+      ],
+      "disclosure": [
+        "Add #ad to every post"
+      ],
+      "rules": [
+        "Tag @realkidkoala in the caption",
+        "Add #SpaceCadetMovie to the caption",
+        "Caption must end with the required line, nothing after it",
+        "Old caption line still counts for already-posted clips",
+        "Write \"Buy tickets now #SpaceCadetMovie @realkidkoala #ad\" in the caption",
+        "Add #ad to every post",
+        "Join the Eclipse Whop community before clipping",
+        "Brand may ask for your Spark Ads code",
+        "Use the words \"in theaters Friday\" and \"go see it this weekend\"",
+        "At least 70% of the audience in US",
+        "Audience proof: Screen recording of analytics with country breakdown, sent in Whop chat",
+        "Views count from US",
+        "A call to action",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "US"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/4998756?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/space-cadet/movie-trailer?via=mcp"
+    },
+    {
+      "ref": "honey-hunters-of-the-himalayas/doc",
+      "title": "Honey Hunters of the Himalayas, Doc Clips",
+      "brand": "Honey Hunters of the Himalayas",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 1926,
+      "alpha": 94,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 6,
+      "minViews": 1000,
+      "footage": "youtube",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 94,
+      "why": [
+        "pays from 1,000 views"
+      ],
+      "reject": [
+        "caption must push a link in bio",
+        "footage is YouTube only (cloud can't download it)"
+      ],
+      "tags": [
+        "@realmadhoney",
+        "#madhoney",
+        "#honeyhunters",
+        "#nepal",
+        "#cliffhoney",
+        "#himalayanhoney"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @realmadhoney on TikTok, Instagram, YouTube and X",
+        "Add #madhoney, #honeyhunters and #nepal on TikTok, Instagram, YouTube and X",
+        "Keep captions relevant, natural, and curiosity-driven",
+        "Write \"mad honey\" in the caption",
+        "Write \"Small amounts only. Not for everyone.\" in the caption",
+        "Put realmadhoney.com/clip in your bio",
+        "Keep clips 10 to 45 seconds",
+        "Submit a screen recording of the clip's analytics at 1,000 views",
+        "Recording must show viewer countries and age demographics",
+        "Use the words \"mad honey\"",
+        "1,000 views before payout",
+        "Any page size can join",
+        "Over 10 seconds",
+        "@realmadhoney in the caption",
+        "#madhoney in the caption",
+        "#honeyhunters in the caption",
+        "#nepal in the caption",
+        "#cliffhoney in the caption",
+        "#himalayanhoney in the caption",
+        "Campaign link in bio",
+        "Bought views or bots",
+        "Outside footage",
+        "Reposts of other clips",
+        "Misleading claims",
+        "Off topic content",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "YouTube",
+        "X"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/192691?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/honey-hunters-of-the-himalayas/doc?via=mcp"
+    },
+    {
+      "ref": "wa-chaa/rza-grandmaster-collection-clippin",
+      "title": "Wa-Chaa x The RZA, Grandmaster Collection Clippin",
+      "brand": "Wa-Chaa",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 10320,
+      "alpha": 95,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 95,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "requires #ad-style tag in captions",
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [
+        "@wachaaworldwide",
+        "#ad"
+      ],
+      "disclosure": [
+        "Add #ad to every post"
+      ],
+      "rules": [
+        "Tag @wachaaworldwide on TikTok",
+        "Write your own caption around the required tag",
+        "Write like a genuine fan",
+        "Add #ad to every post",
+        "Keep original audio clearly audible over any background music",
+        "Any page size can join",
+        "Post in English",
+        "Do not post the same video more than 5 times",
+        "No spam posting the same video across multiple accounts",
+        "Use only the brand's footage",
+        "No nudity or sexual content",
+        "No violence",
+        "Outside footage",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11371320?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/wa-chaa/rza-grandmaster-collection-clippin?via=mcp"
+    },
+    {
+      "ref": "monday-haircare-gifting-guides/clipping",
+      "title": "MONDAY Haircare Gifting Guides Clipping",
+      "brand": "MONDAY Haircare Gifting Guides",
+      "board": "Content Rewards",
+      "rate": 3,
+      "budgetLeft": 5000,
+      "alpha": 95,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 90,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [
+        "@mondayhaircare",
+        "#mondayhaircare"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @mondayhaircare on TikTok",
+        "Add #mondayhaircare to the caption",
+        "Soft CTA must say MONDAY Haircare is your favorite recommendation",
+        "Vary captions across posts so content doesn't repeat",
+        "Slideshows must be 8 slides or less",
+        "Below 1k TikTok followers: use soft CTA recommending MONDAY on Amazon",
+        "Audience must be women",
+        "At least 30% of the audience in US",
+        "Warm up new pages: Have TikTok accounts warmed up before posting",
+        "No pages with gore, pornographic/OF (OnlyFans-style) content and violent content",
+        "Accounts need 10,000 followers",
+        "Views count from US"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11814044?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/monday-haircare-gifting-guides/clipping?via=mcp"
+    },
+    {
+      "ref": "sega/football-manager-27-trailer",
+      "title": "SEGA, Football Manager 27 Trailer Clipping",
+      "brand": "SEGA",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 19610,
+      "alpha": 93,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 93,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "requires #ad-style tag in captions",
+        "needs 50%+ US audience (a UK account rarely clears it)"
+      ],
+      "tags": [
+        "@footballmanager",
+        "#ad"
+      ],
+      "disclosure": [
+        "Start the caption with #ad"
+      ],
+      "rules": [
+        "Tag @footballmanager in the caption",
+        "Caption is otherwise up to you, written around the required parts",
+        "Caption must match the clip",
+        "Start the caption with #ad",
+        "Keep clips over 10 seconds",
+        "On-screen text, if used, must match the clip",
+        "Agree to keep the post FTC compliant",
+        "Send questions to Clipping Culture team, not the client",
+        "At least 50% of the audience in US and CA",
+        "Audience proof: We will verify this with OAuth.",
+        "Any page size can join",
+        "One account per clipper",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11371301?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/sega/football-manager-27-trailer?via=mcp"
+    },
+    {
+      "ref": "loaded-tea-shop/clipping-2",
+      "title": "The Loaded Tea Shop (MICHAEL JACKSON)",
+      "brand": "Loaded Tea Shop",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 49067,
+      "alpha": 89,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 89,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "brand logo/banner must stay on screen",
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [
+        "#TheLoadedTeaShop"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Add #TheLoadedTeaShop to the caption",
+        "Caption must be relevant to the clip, English only",
+        "Minimum payout threshold is $2.00",
+        "Keep watermark on screen for the whole video",
+        "Watermark must be transparent and clearly visible, .com not cut off",
+        "At least 40% of the audience in US, UK, CA and AU",
+        "Any page size can join",
+        "Views count from US, UK, CA and AU",
+        "Post in English",
+        "No posting the same video on many pages",
+        "No paid ads or boost/promote tools",
+        "Use only the brand's footage",
+        "Brand logo on screen",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11426921?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/loaded-tea-shop/clipping-2?via=mcp"
+    },
+    {
+      "ref": "lany/stuck",
+      "title": "LANY, 'Stuck'",
+      "brand": "LANY",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 2923,
+      "alpha": 87,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 6,
       "minViews": 2000,
       "footage": "after-join",
       "sources": [],
@@ -580,7 +861,174 @@
         "pays from 2,000 views"
       ],
       "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)"
+        "pays only from 2,000 views (ours get ~700-1,100)",
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [
+        "#lany"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Add #lany to the caption",
+        "Keep captions short, matching the on-screen text mood",
+        "Keep clips over 8 seconds",
+        "Attach official sound muted, keep clip audio",
+        "Audience proof: Screen record single-video analytics: watch time, view graphs, locations",
+        "2,000 views before payout",
+        "Post in English",
+        "Post each clip once per platform",
+        "Keep likes and comments on",
+        "No spam posting, story boosts, paid boosts or collab posts",
+        "Use only the brand's footage",
+        "No misleading claims",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11474723?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/lany/stuck?via=mcp"
+    },
+    {
+      "ref": "booty-king/high-volume",
+      "title": "Booty King Clips, High Volume",
+      "brand": "Booty King",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 2467,
+      "alpha": 79,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "days": 29,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 74,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Make streamer style clips",
+        "Use only the brand's footage",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11973041?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/booty-king/high-volume?via=mcp"
+    },
+    {
+      "ref": "austin-millz/clipping-2",
+      "title": "Austin Millz Clips",
+      "brand": "Austin Millz",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 1401,
+      "alpha": 75,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "days": 28,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 70,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [
+        "@AustinMillz",
+        "@DJSoda",
+        "#austinmillz"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @AustinMillz on TikTok and Instagram",
+        "Tag @DJSoda in the caption",
+        "Add #austinmillz on TikTok and Instagram",
+        "Keep clips over 10 seconds",
+        "Only authentic views count toward rewards",
+        "Post in English",
+        "Content must showcase Austin Millz and guests in a positive light",
+        "Get approval before you post",
+        "Stay on the campaign topic",
+        "No negative portrayal",
+        "Keep posts live 30 days",
+        "Post vertical 9:16 video",
+        "The creator's channels"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11670479?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/austin-millz/clipping-2?via=mcp"
+    },
+    {
+      "ref": "olivier-kennedy/clipping",
+      "title": "Olivier Kennedy X ViralClips®",
+      "brand": "Olivier Kennedy",
+      "board": "Content Rewards",
+      "rate": 1.7,
+      "budgetLeft": 3000,
+      "alpha": 71,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": null,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 71,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [],
+      "joinUrl": "https://clippingalpha.com/go/11967593?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/olivier-kennedy/clipping?via=mcp"
+    },
+    {
+      "ref": "elvis-guetta/clipping",
+      "title": "Elvis Guetta Clipping",
+      "brand": "Elvis Guetta",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 1507,
+      "alpha": 67,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 4,
+      "minViews": 2000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 62,
+      "why": [
+        "footage shown after joining",
+        "pays from 2,000 views"
+      ],
+      "reject": [
+        "pays only from 2,000 views (ours get ~700-1,100)",
+        "not film/TV (ReplayRoom is a film & TV page)"
       ],
       "tags": [
         "#elvisguetta",
@@ -607,13 +1055,13 @@
       "pageUrl": "https://clippingalpha.com/campaigns/elvis-guetta/clipping?via=mcp"
     },
     {
-      "ref": "loaded-tea-shop/clipping-3",
-      "title": "The Loaded Tea Shop (COP)",
-      "brand": "Loaded Tea Shop",
+      "ref": "clouted/alysa-liu",
+      "title": "Alysa Liu",
+      "brand": "Clouted",
       "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 49963,
-      "alpha": 63,
+      "rate": 0.75,
+      "budgetLeft": 995,
+      "alpha": 65,
       "tier": "solid",
       "platforms": [
         "instagram",
@@ -625,444 +1073,31 @@
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 63,
+      "score": 65,
       "why": [
         "footage shown after joining"
       ],
       "reject": [
-        "brand logo/banner must stay on screen"
-      ],
-      "tags": [
-        "#TheLoadedTeaShop"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #TheLoadedTeaShop to the caption",
-        "Caption must be relevant to what happens in the clip, English only",
-        "Watermark must stay transparent, visible, whole video, never covered",
-        "Payout threshold is $2.00 minimum per clip",
-        "At least 40% of the audience in US, UK, CA and AU",
-        "Any page size can join",
-        "Views count from US, UK, CA and AU",
-        "Post in English",
-        "No posting the same video on many pages (spam)",
-        "Use only the brand's footage",
-        "No nudity or sexual content",
-        "No violence",
-        "Brand logo on screen",
-        "Outside footage",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11426926?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/loaded-tea-shop/clipping-3?via=mcp"
-    },
-    {
-      "ref": "ikee-motola/clipping",
-      "title": "Ikee Motola Clipping",
-      "brand": "Ikee Motola",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 2300,
-      "alpha": 62,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 62,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "caption must push a link in bio"
+        "not film/TV (ReplayRoom is a film & TV page)"
       ],
       "tags": [],
       "disclosure": [],
       "rules": [
-        "Use only the brand's footage",
-        "Put the campaign link in your bio",
-        "Made for creators in Kick/Twitch streaming, entertaining content and lifestyle"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12015821?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/ikee-motola/clipping?via=mcp"
-    },
-    {
-      "ref": "movietone-news/pilot",
-      "title": "Movietone News Pilot",
-      "brand": "Movietone News",
-      "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 2000,
-      "alpha": 59,
-      "tier": "fair",
-      "platforms": [
-        "instagram"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 54,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "only instagram platforms"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Use only the brand's footage",
-        "Get approval before you post",
+        "Use only properly licensed or permitted music",
+        "Keep Alysa Liu or Spike Jonze's photography as the central focus",
+        "No reposts of other clips",
+        "No outside footage",
         "Add captions to every clip",
-        "Made for creators in history, vintage footage and documentaries",
-        "Captions on",
-        "Brand footage only"
+        "Post on Instagram, TikTok and YouTube",
+        "Edits must feel organic and inspiring, not like a traditional advertisement",
+        "Best performing format is the Spike Jonze old versus new photos comparison",
+        "Highlight Alysa Liu's confidence, creativity, achievements and personal growth",
+        "Use Spike Jonze cinematic storytelling and vintage skateboarding aesthetic as style",
+        "Build the narrative with strong hooks, meaningful moments, pacing and transitions",
+        "Content must feel authentic and celebratory, not promotional"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11470176?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/movietone-news/pilot?via=mcp"
-    },
-    {
-      "ref": "sega/football-manager-27-spanish",
-      "title": "SEGA, Football Manager 27 Spanish Clipping",
-      "brand": "SEGA",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 3284,
-      "alpha": 47,
-      "tier": "fair",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 12,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 47,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "requires #ad-style tag in captions"
-      ],
-      "tags": [
-        "@footballmanager",
-        "#ad"
-      ],
-      "disclosure": [
-        "Add #ad to every post"
-      ],
-      "rules": [
-        "Tag @footballmanager in the caption",
-        "Make the caption match the clip",
-        "Add #ad to every post",
-        "Keep clips over 10 seconds",
-        "Direct questions to the Clipping Culture team, not the client",
-        "At least 50% of the audience in MX and AR",
-        "Audience proof: We will verify this with OAuth.",
-        "Any page size can join",
-        "Views count from MX and AR",
-        "Post in Spanish",
-        "Do not post the same video more than 5 times",
-        "Use only the brand's footage",
-        "Captions on",
-        "Brand footage only",
-        "TikTok",
-        "Instagram",
-        "YouTube",
-        "Spanish"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11371412?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/sega/football-manager-27-spanish?via=mcp"
-    },
-    {
-      "ref": "loaded-tea-shop/clipping",
-      "title": "The Loaded Tea Shop (UBER)",
-      "brand": "Loaded Tea Shop",
-      "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 50000,
-      "alpha": 45,
-      "tier": "fair",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 45,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "brand logo/banner must stay on screen"
-      ],
-      "tags": [
-        "#TheLoadedTeaShop"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #TheLoadedTeaShop to the caption",
-        "Caption must be relevant to the clip and in English only",
-        "Submit your video on Whop",
-        "Submit demographics once clip hits minimum payout",
-        "At least 40% of the audience in US, UK, CA and AU",
-        "Any page size can join",
-        "Views count from US, UK, CA and AU",
-        "Post in English",
-        "No posting the same video on many pages",
-        "Use only the brand's footage",
-        "No nudity or sexual content",
-        "No violence",
-        "Brand logo on screen",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11426919?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/loaded-tea-shop/clipping?via=mcp"
-    },
-    {
-      "ref": "call-of-duty/mw4-dmz-intel-briefing",
-      "title": "Call of Duty, MW4 DMZ Intel Briefing Clipping",
-      "brand": "Call of Duty",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 26546,
-      "alpha": 95,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok"
-      ],
-      "days": 22,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 90,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "requires #ad-style tag in captions"
-      ],
-      "tags": [
-        "@callofduty",
-        "#Ad",
-        "#Advertisement"
-      ],
-      "disclosure": [
-        "Add #Ad or #Advertisement to every post"
-      ],
-      "rules": [
-        "Tag @callofduty on TikTok and Instagram",
-        "Use one of the given free trial lines, caption or on-screen",
-        "Caption must match the clip",
-        "Add #Ad or #Advertisement to every post",
-        "Keep clips over 10 seconds",
-        "On-screen text must match what is shown on screen",
-        "Use the words \"DMZ Free Trial\"",
-        "Any page size can join",
-        "Post in English",
-        "Do not post the same video more than 5 times",
-        "No same video posted on multiple accounts",
-        "Use only the brand's footage",
-        "Brand footage only",
-        "TikTok",
-        "Instagram"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/11045701?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/call-of-duty/mw4-dmz-intel-briefing?via=mcp"
-    },
-    {
-      "ref": "call-of-duty/warzone",
-      "title": "Call of Duty, Warzone Season 1 Clipping",
-      "brand": "Call of Duty",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 14615,
-      "alpha": 95,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok"
-      ],
-      "days": 2,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 80,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "requires #ad-style tag in captions",
-        "budget forecast to run out within 3 days"
-      ],
-      "tags": [
-        "@callofduty",
-        "#ad"
-      ],
-      "disclosure": [
-        "Add #ad to every post"
-      ],
-      "rules": [
-        "Tag @callofduty on TikTok and Instagram",
-        "Up to 3 extra hashtags about the content allowed",
-        "Write \"Season 1 out now\" in the caption",
-        "Add #ad to every post",
-        "Any page size can join",
-        "Post in English",
-        "Same video may be posted at most 5 times",
-        "No spam posting the same video across multiple accounts",
-        "Use only the brand's footage",
-        "No nudity or sexual content",
-        "No violence",
-        "No hate or harassment",
-        "Brand footage only",
-        "TikTok",
-        "Instagram"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/10206100?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/call-of-duty/warzone?via=mcp"
-    },
-    {
-      "ref": "mike-mew/dr",
-      "title": "Dr. Mike Mew, Official Clipping Campaign",
-      "brand": "MIKE MEW",
-      "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 2125,
-      "alpha": 95,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 15,
-      "minViews": null,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 95,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "caption must push a link in bio"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Clip from the creator's channels",
-        "Put the campaign link in your bio",
-        "Add captions to every clip",
-        "Post on TikTok, Instagram and YouTube",
-        "The creator's channels",
-        "TikTok",
-        "Instagram",
-        "YouTube"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/8931717?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/mike-mew/dr?via=mcp"
-    },
-    {
-      "ref": "social-media-justice/clipping",
-      "title": "$20,000 Social Media Justice Clipping Campaign",
-      "brand": "Social Media Justice",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 19928,
-      "alpha": 94,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 28,
-      "minViews": null,
-      "footage": "youtube",
-      "sources": [],
-      "account": "Off Mic",
-      "score": 99,
-      "why": [],
-      "reject": [
-        "caption must push a link in bio",
-        "footage is YouTube only (cloud can't download it)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Put the campaign link in your bio"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/10130018?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/social-media-justice/clipping?via=mcp"
-    },
-    {
-      "ref": "dirty-honey/clipping",
-      "title": "Dirty Honey, Clipping",
-      "brand": "Dirty Honey",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 1586,
-      "alpha": 94,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 42,
-      "minViews": 2000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 99,
-      "why": [
-        "footage shown after joining",
-        "pays from 2,000 views"
-      ],
-      "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [
-        "#dirtyhoney",
-        "#performance"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #dirtyhoney and #performance to the caption",
-        "Keep captions short and in English",
-        "Keep clips over 8 seconds",
-        "Add short lowercase on screen text to every clip",
-        "Keep the clip's original live audio, no added music",
-        "Start the clip on the strongest moment, no slow intros",
-        "Audience proof: Screen record video analytics: watch time, view graphs, locations",
-        "2,000 views before payout",
-        "Post in English",
-        "Post each clip once per platform",
-        "No story boosts or paid boosts",
-        "No collab posts",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/10185484?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/dirty-honey/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12133257?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/clouted/alysa-liu?via=mcp"
     }
   ]
 }

@@ -1,18 +1,15 @@
 {
-  "name": "Booty King (Content Rewards)",
+  "name": "ClipHaus (Content Rewards)",
   "type": "creator",
   "enabled": false,
   "account": "ReplayRoom",
-  "_scout": "Proposed by the scout on 2026-11-13. Alpha 79, $1.5/1K, $2541 left, ~? days. Join first: https://clippingalpha.com/go/11973041?via=mcp",
-  "_rules": [
-    "Make streamer style clips",
-    "Use only the brand's footage",
-    "Brand footage only"
-  ],
+  "_scout": "Proposed by the scout on 2026-11-13. Alpha 59, $0.65/1K, $3294 left, ~31 days. Join first: https://clippingalpha.com/go/4145074?via=mcp",
+  "_rules": [],
   "sources": [],
   "platforms": [
     "instagram",
-    "tiktok"
+    "tiktok",
+    "youtube"
   ],
   "perDay": 2,
   "minSeconds": 20,
@@ -25,6 +22,6 @@
   "captionLines": [],
   "hashtags": [],
   "mentions": [],
-  "endsOn": null,
+  "endsOn": "2026-12-14",
   "postingNotes": ""
 }
