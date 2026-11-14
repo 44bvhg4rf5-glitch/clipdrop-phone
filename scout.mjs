@@ -74,6 +74,7 @@ const DEALBREAKERS = [
   [/\bprofile picture\b/i, 'needs the brand as profile picture'],
   [/\bfollow the example (edit|style)\b|\bmatch the style of the reference\b|\bdon'?t stray from the example style\b/i, 'requires copying a specific edit style'],
   [/\bface ?cam|on[- ]camera|your (own )?face\b/i, 'needs you on camera'],
+  [/\bfilm your own\b|\byour own footage\b|\bugc\b/i, 'needs you to film your own footage (UGC)'],
 ];
 
 // Briefs that make our posts look like everyone else's ads. The CONCESSIONS
