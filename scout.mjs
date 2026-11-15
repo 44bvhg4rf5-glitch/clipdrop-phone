@@ -121,6 +121,9 @@ export function judge(c, brief, assets) {
   const text = lines.join('. ');
   for (const [re, label] of DEALBREAKERS) if (re.test(text)) reject.push(label);
   for (const [re, label] of ACCOUNT_RISKS) if (re.test(text)) reject.push(label);
+  // Music promos ("use the sound ...") want edits made from films, anime or game trailers
+  // that nobody has licensed to us: not footage we may post.
+  if (/\b(use|link|add|attach) (the )?(official |named |provided )?(sound|audio|song)\b|\bthe named sound\b|\bofficial audio only\b/i.test(text)) reject.push('music promo: needs film, anime or game footage we have no rights to');
 
   const urls = [
     ...(assets.videos || []).map((v) => v.url || v.sourceUrl),
@@ -152,6 +155,8 @@ export function judge(c, brief, assets) {
   const preCut = /\b(pre-?cut|ready-?made|provided|supplied) (clips|edits|videos)\b/i.test(text);
 
   let score = c.alphaScore || 0;
+  // Pool campaigns split a fixed pot by share of views: no payout floor, but no set rate either.
+  if (c.payModel === 'pot_split') { score = Math.max(score, 55); why.push('pool split by views: no payout floor, pay per view unknown'); }
   if (footage === 'downloadable') score += 15; else if (footage === 'after-join') score -= 5;
   if (plats.length === 3) score += 5;
   if (minViews && minViews <= 3000) { score += 5; why.push(`pays from ${minViews.toLocaleString('en-GB')} views`); }
@@ -159,7 +164,9 @@ export function judge(c, brief, assets) {
   if (longForm) { score += 10; why.push('long-form source: our clips are our own picks'); }
   if (preCut) { score -= 15; why.push('pre-cut clips: everyone posts the same files'); }
   const topic = `${c.title} ${c.brand} ${c.niche || ''} ${text.slice(0, 400)}`;
-  const account = ['gaming', 'streams'].includes(c.niche) ? 'Gaming' : ACCOUNTS.find(([, re]) => re.test(topic))[0];
+  // The index files some brand promos under "gaming": only trust that label when the words agree.
+  const gamingWords = ACCOUNTS.find(([a]) => a === 'Gaming')[1].test(`${c.title} ${c.brand} ${text.slice(0, 400)}`);
+  const account = c.niche === 'streams' || gamingWords ? 'Gaming' : ACCOUNTS.filter(([a]) => a !== 'Gaming').find(([, re]) => re.test(topic))[0];
   const filmTv = c.niche === 'film-and-tv' || /\b(film|movie|tv|series|episode|season|trailer|netflix|hulu|prime video|hbo|apple tv|disney|paramount|peacock)\b/i.test(topic);
   if (account === 'ReplayRoom' && !filmTv) reject.push('not film/TV (ReplayRoom is a film & TV page)');
 
@@ -180,7 +187,7 @@ function draftConfig(p) {
   return [id, {
     name: `${p.brand} (${p.board})`,
     type: 'creator', enabled: false, account: p.account,
-    _scout: `Proposed by the scout on ${new Date().toISOString().slice(0, 10)}. Alpha ${p.alpha}, $${p.rate}/1K, $${p.budgetLeft} left, ~${p.days ?? '?'} days. Join first: ${p.joinUrl}`,
+    _scout: `Proposed by the scout on ${new Date().toISOString().slice(0, 10)}. Alpha ${p.alpha}, ${p.rate == null ? 'pool split by views' : `$${p.rate}/1K`}, $${p.budgetLeft} left, ~${p.days ?? '?'} days. Join first: ${p.joinUrl}`,
     _rules: p.rules,
     sources: p.sources,
     platforms: p.platforms, perDay: 2, minSeconds: 20, maxSeconds: 45, layout: 'blurfill', zoom: 1.3,
@@ -200,7 +207,7 @@ function page(report) {
   <article>
     <div class="top"><span class="acct">${esc(p.account)}</span><span class="score">${p.score}</span></div>
     <h3>${esc(p.title)}</h3>
-    <p class="meta">${esc(p.board)} · $${esc(p.rate)}/1K · $${esc(p.budgetLeft.toLocaleString('en-GB'))} left${p.days !== null ? ` · ~${p.days} days` : ''} · ${esc(p.platforms.join(', '))}</p>
+    <p class="meta">${esc(p.board)} · ${p.rate == null ? 'pool split by views' : `$${esc(p.rate)}/1K`} · $${esc(p.budgetLeft.toLocaleString('en-GB'))} left${p.days !== null ? ` · ~${p.days} days` : ''} · ${esc(p.platforms.join(', '))}</p>
     ${p.why.length ? `<p class="why">✓ ${p.why.map(esc).join(' · ')}</p>` : ''}
     ${p.disclosure.length || p.tags.length ? `<p class="rules"><b>Must include:</b> ${esc([...p.disclosure, ...p.tags].join(' · '))}</p>` : ''}
     <a class="btn" href="${esc(p.joinUrl)}">Open &amp; join</a>
@@ -247,12 +254,22 @@ async function main() {
   const gaming = await tool('search_campaigns', { type: 'clipping', niche: 'gaming', platforms: OUR, open_join_only: true, limit: 25, sort: 'newest' }).catch(() => ({ campaigns: [] }));
   const streams = await tool('search_campaigns', { type: 'clipping', niche: 'streams', platforms: OUR, open_join_only: true, limit: 25, sort: 'budget_left' }).catch(() => ({ campaigns: [] }));
   const seen = new Set();
-  const found = { total: best.total, campaigns: [...(film.campaigns || []), ...(gaming.campaigns || []), ...(streams.campaigns || []), ...(fresh.campaigns || []), ...(best.campaigns || [])].filter((c) => !seen.has(c.campaignId) && seen.add(c.campaignId)) };
-  const camps = (found.campaigns || []).filter((c) => c.state === 'live' && !c.membersOnly && (c.platforms || []).some((p) => OUR.includes(p)));
+  // Take from each list in turn, so every page's niche gets judged before the depth runs out.
+  const usable = (c) => c.state === 'live' && !c.membersOnly && (c.platforms || []).some((p) => OUR.includes(p));
+  const lists = [film, gaming, streams, fresh, best].map((r) => (r.campaigns || []).filter(usable));
+  const DEPTH = Number(process.env.SCOUT_DEPTH || 80);
+  const camps = [];
+  for (let i = 0; camps.length < DEPTH && lists.some((l) => i < l.length); i++) {
+    for (const l of lists) {
+      const c = l[i];
+      if (c && !seen.has(c.campaignId) && camps.length < DEPTH) { seen.add(c.campaignId); camps.push(c); }
+    }
+  }
+  const found = { total: best.total, campaigns: camps };
   log(`${found.total} live, ${camps.length} candidates`);
 
   const judged = [];
-  for (const c of camps.slice(0, Number(process.env.SCOUT_DEPTH || 30))) {
+  for (const c of camps) {
     const ref = `${c.brandSlug}/${c.seriesSlug}`;
     try {
       const [brief, assets] = [await tool('get_brief', { campaign: ref }), await tool('get_assets', { campaign: ref })];
