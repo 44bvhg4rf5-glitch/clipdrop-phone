@@ -1,0 +1,61 @@
+{
+  "name": "Boxed (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Off Mic",
+  "_scout": "Proposed by the scout on 2026-11-15. Alpha 94, $1/1K, $5292 left, ~11 days. Join first: https://clippingalpha.com/go/192265?via=mcp",
+  "_rules": [
+    "Tag @boxedhq on TikTok, Instagram and YouTube",
+    "Add #boxedgg to the caption",
+    "Write \"BOXED\" in the caption",
+    "Sack Summit clips: add the matching player code caption",
+    "Use the words \"BOXED\"",
+    "At least 40% of the audience in US, CA and UK",
+    "Audience proof: Submit account / video demographics",
+    "Any page size can join",
+    "No pages with NSFW, violent, or off-topic videos",
+    "Views count from US, CA and UK",
+    "No posting the same video across many pages",
+    "No paid ads or boost/promote tools, bots or fake views",
+    "Vertical 9:16",
+    "Captions on",
+    "@boxedhq in the caption",
+    "#boxedgg in the caption",
+    "Outside footage",
+    "Reposts of other clips",
+    "Bought views or bots",
+    "Off topic content",
+    "Low effort reuploads",
+    "The creator's channels",
+    "TikTok",
+    "Instagram",
+    "YouTube",
+    "US",
+    "CA",
+    "UK",
+    "Approval before posting"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [
+    "#boxedgg"
+  ],
+  "mentions": [
+    "@boxedhq"
+  ],
+  "endsOn": "2026-11-26",
+  "postingNotes": "Payout from 1000 views"
+}
