@@ -96,6 +96,7 @@ const MAX_MIN_VIEWS = 1500;   // our posts get ~700 (TikTok) to ~1,100 (YouTube)
 
 const ACCOUNTS = [
   ['The Deal Room', /\b(financ|trading|trader|invest|money|business|startup|founder|ceo|shark tank|crypto|stock|real estate|entrepreneur|fintech|sales)\b/i],
+  ['Gaming', /\b(gta|grand theft auto|gaming|gameplay|video ?game|streamer|twitch|kick\.com|fortnite|roblox|warzone|call of duty|minecraft)\b/i],
   ['Off Mic', /\b(podcast|pod\b|interview|talk ?show|conversation|q&a|ama)\b/i],
   ['ReplayRoom', /./],   // film & TV; anything else that lands here is flagged off-topic below
 ];
@@ -158,7 +159,7 @@ export function judge(c, brief, assets) {
   if (longForm) { score += 10; why.push('long-form source: our clips are our own picks'); }
   if (preCut) { score -= 15; why.push('pre-cut clips: everyone posts the same files'); }
   const topic = `${c.title} ${c.brand} ${c.niche || ''} ${text.slice(0, 400)}`;
-  const account = ACCOUNTS.find(([, re]) => re.test(topic))[0];
+  const account = ['gaming', 'streams'].includes(c.niche) ? 'Gaming' : ACCOUNTS.find(([, re]) => re.test(topic))[0];
   const filmTv = c.niche === 'film-and-tv' || /\b(film|movie|tv|series|episode|season|trailer|netflix|hulu|prime video|hbo|apple tv|disney|paramount|peacock)\b/i.test(topic);
   if (account === 'ReplayRoom' && !filmTv) reject.push('not film/TV (ReplayRoom is a film & TV page)');
 
@@ -242,8 +243,11 @@ async function main() {
   // ReplayRoom is a film & TV page: the general lists rarely surface those, so
   // search the niche directly too (newest first: early posts get the budget).
   const film = await tool('search_campaigns', { type: 'clipping', niche: 'film-and-tv', platforms: ['youtube', 'instagram'], open_join_only: true, limit: 25, sort: 'newest' }).catch(() => ({ campaigns: [] }));
+  // The gaming page: GTA 6 launches 19 Nov 2026; streamer pools pay to clip their streams.
+  const gaming = await tool('search_campaigns', { type: 'clipping', niche: 'gaming', platforms: OUR, open_join_only: true, limit: 25, sort: 'newest' }).catch(() => ({ campaigns: [] }));
+  const streams = await tool('search_campaigns', { type: 'clipping', niche: 'streams', platforms: OUR, open_join_only: true, limit: 25, sort: 'budget_left' }).catch(() => ({ campaigns: [] }));
   const seen = new Set();
-  const found = { total: best.total, campaigns: [...(film.campaigns || []), ...(fresh.campaigns || []), ...(best.campaigns || [])].filter((c) => !seen.has(c.campaignId) && seen.add(c.campaignId)) };
+  const found = { total: best.total, campaigns: [...(film.campaigns || []), ...(gaming.campaigns || []), ...(streams.campaigns || []), ...(fresh.campaigns || []), ...(best.campaigns || [])].filter((c) => !seen.has(c.campaignId) && seen.add(c.campaignId)) };
   const camps = (found.campaigns || []).filter((c) => c.state === 'live' && !c.membersOnly && (c.platforms || []).some((p) => OUR.includes(p)));
   log(`${found.total} live, ${camps.length} candidates`);
 
@@ -258,7 +262,7 @@ async function main() {
     } catch (e) { log(`skip ${ref}: ${e.message}`); }
   }
   const ok = judged.filter((p) => !p.reject.length).sort((a, b) => b.score - a.score);
-  const picks = ['ReplayRoom', 'Off Mic', 'The Deal Room'].flatMap((a) => ok.filter((p) => p.account === a).slice(0, 3));
+  const picks = ['ReplayRoom', 'Off Mic', 'Gaming', 'The Deal Room'].flatMap((a) => ok.filter((p) => p.account === a).slice(0, 3));
   const rejected = judged.filter((p) => p.reject.length);
   const report = { at: new Date().toISOString(), total: found.total, checked: judged.length, picks, rejected };
 
