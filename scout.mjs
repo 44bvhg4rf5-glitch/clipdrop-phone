@@ -136,7 +136,11 @@ export function judge(c, brief, assets) {
   const plats = (c.platforms || []).filter((p) => OUR.includes(p));
   if (plats.length < 2) reject.push(`only ${plats.join('/') || 'other'} platforms`);
   const payoutLine = (brief.checklist || []).find((x) => x.kind === 'payout')?.text || '';
-  const minViews = Number((payoutLine.match(/([\d,]+)\s*views/) || [])[1]?.replace(/,/g, '')) || null;
+  // Content Rewards states the floor as a minimum payout in dollars ($10 at
+  // $1 per 1k = 10,000 views a clip), not as views: convert it.
+  const minPayout = brief.join?.minPayoutUsd || 0;
+  const payoutViews = minPayout && c.ratePer1kUsd ? Math.round((minPayout / c.ratePer1kUsd) * 1000) : 0;
+  const minViews = Math.max(Number((payoutLine.match(/([\d,]+)\s*views/) || [])[1]?.replace(/,/g, '')) || 0, brief.join?.minViews || 0, payoutViews) || null;
   const days = c.drainP50 ? (Date.parse(c.drainP50) - Date.now()) / 864e5 : null;
   if (days !== null && days < 3) reject.push('budget forecast to run out within 3 days');
   if ((c.budgetLeftUsd || 0) < 300) reject.push('under $300 of budget left');
