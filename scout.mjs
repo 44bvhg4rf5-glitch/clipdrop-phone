@@ -170,7 +170,9 @@ export function judge(c, brief, assets) {
   if (preCut) { score -= 15; why.push('pre-cut clips: everyone posts the same files'); }
   const topic = `${c.title} ${c.brand} ${c.niche || ''} ${text.slice(0, 400)}`;
   // The index files some brand promos under "gaming": only trust that label when the words agree.
-  const gamingWords = ACCOUNTS.find(([a]) => a === 'Gaming')[1].test(`${c.title} ${c.brand} ${text.slice(0, 400)}`);
+  const words = `${c.title} ${c.brand} ${text.slice(0, 400)}`;
+  const gamingWords = ACCOUNTS.find(([a]) => a === 'Gaming')[1].test(words)
+    || (c.niche === 'gaming' && /\b(games?|warcraft|blizzard|sega|playstation|xbox|nintendo|esports)\b/i.test(words));
   const account = c.niche === 'streams' || gamingWords ? 'Gaming' : ACCOUNTS.filter(([a]) => a !== 'Gaming').find(([, re]) => re.test(topic))[0];
   const filmTv = c.niche === 'film-and-tv' || /\b(film|movie|tv|series|episode|season|trailer|netflix|hulu|prime video|hbo|apple tv|disney|paramount|peacock)\b/i.test(topic);
   if (account === 'ReplayRoom' && !filmTv) reject.push('not film/TV (ReplayRoom is a film & TV page)');
