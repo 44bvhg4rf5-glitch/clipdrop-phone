@@ -156,7 +156,12 @@ export function judge(c, brief, assets) {
 
   let score = c.alphaScore || 0;
   // Pool campaigns split a fixed pot by share of views: no payout floor, but no set rate either.
-  if (c.payModel === 'pot_split') { score = Math.max(score, 55); why.push('pool split by views: no payout floor, pay per view unknown'); }
+  // (Checked 15 Nov 2026: the streamer pools pay nothing until a clipper's approved clips pass a
+  // total-view minimum of 500,000 to 2,000,000, and finished pools worked out at about
+  // $0.06-$0.13 per 1,000 views. Not for a small page.)
+  if (c.payModel === 'pot_split') reject.push('pool split by views: pays nothing below 500k-2M total views, about $0.10 per 1,000 above it');
+  // A campaign that only counts UK viewers suits a UK page: say so.
+  if (c.region && /^\s*(uk|gb|united kingdom)\s*$/i.test(c.region)) { score += 15; why.push('counts UK viewers only: a UK page qualifies'); }
   if (footage === 'downloadable') score += 15; else if (footage === 'after-join') score -= 5;
   if (plats.length === 3) score += 5;
   if (minViews && minViews <= 3000) { score += 5; why.push(`pays from ${minViews.toLocaleString('en-GB')} views`); }
