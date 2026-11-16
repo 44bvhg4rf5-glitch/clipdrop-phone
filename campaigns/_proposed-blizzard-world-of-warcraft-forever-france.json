@@ -1,0 +1,48 @@
+{
+  "name": "Blizzard (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Gaming",
+  "_scout": "Proposed by the scout on 2026-11-16. Alpha 37, $4/1K, $7520 left, ~? days. Join first: https://clippingalpha.com/go/9215495?via=mcp",
+  "_rules": [
+    "Tag @WorldofWarcraftFR on YouTube",
+    "Disclosure tags on their own line after post text",
+    "Up to 3 related hashtags after the disclosure tags",
+    "Add #Sponsorisé or #blizzardpartner to every post",
+    "Keep clips over 10 seconds",
+    "Music allowed if original audio stays clearly audible",
+    "Message that the game is released, not coming soon",
+    "Audience in FR",
+    "Audience proof: Likes must be visible",
+    "Any page size can join",
+    "Views count from FR",
+    "Post in French",
+    "Brand footage only",
+    "TikTok",
+    "YouTube",
+    "FR"
+  ],
+  "sources": [],
+  "platforms": [
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [
+    "#Sponsoris",
+    "#blizzardpartner"
+  ],
+  "mentions": [
+    "@WorldofWarcraftFR"
+  ],
+  "endsOn": null,
+  "postingNotes": "Add #Sponsorisé or #blizzardpartner to every post · Payout from 250 views"
+}
