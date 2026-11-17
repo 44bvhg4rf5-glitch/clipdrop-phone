@@ -1,0 +1,41 @@
+{
+  "name": "ERLING HAALAND ViQueens Movie (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "ReplayRoom",
+  "_scout": "Proposed by the scout on 2026-11-17. Alpha 59, $1/1K, $982 left, ~48 days. Join first: https://clippingalpha.com/go/12543869?via=mcp",
+  "_rules": [
+    "Use a strong on-screen text hook in the first 1-2 seconds, short and readable",
+    "Use captions and relevant hashtags where appropriate",
+    "Post in English",
+    "Use only the brand's footage",
+    "No misleading claims",
+    "No outside footage",
+    "Post vertical 9:16 video",
+    "Post on TikTok, Instagram and YouTube",
+    "Keep clips natural and organic, not like a traditional advertisement",
+    "Follow platform or legal disclosure requirements when they apply",
+    "Contact Eclipto Media before posting if unsure a clip fits",
+    "Haaland appears near the end of the trailer",
+    "Brand footage only"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [],
+  "endsOn": "2027-01-04",
+  "postingNotes": "Follow platform or legal disclosure requirements when they apply · Payout from 1000 views"
+}
