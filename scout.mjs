@@ -90,6 +90,9 @@ const ACCOUNT_RISKS = [
   [/\b(logo|watermark|banner|end ?card|lower third|cta)\b[^.]{0,40}\b(on[- ]screen|in the video|visible|keep|must stay|burned)\b|\bkeep (the )?(brand )?(logo|banner|watermark)\b/i, 'brand logo/banner must stay on screen'],
   [/\blink in (your |their |its |the )?bio\b|\b(campaign |brand )?link in (your )?(bio|profile)\b/i, 'caption must push a link in bio'],
   [/\b(use|post) (the )?(approved |official )?(clips?|footage|videos?) as (provided|supplied|is)\b|\bdo not alter\b|\bno (cropping|trimming|cutting|edits)\b/i, 'clips must be posted as supplied (same file as every other clipper)'],
+  // TikTok's own verdict on The Lowdown's supplied edits (18 Nov 2026): 8 of 9 marked
+  // "Unoriginal ... ineligible for recommendation", and the account's reach fell 700 -> 20.
+  [/\b(pre-?made|ready-?made|ready[- ]to[- ]post|done[- ]for[- ]you)\b[^.]{0,30}\b(edits?|clips?|videos?)\b|\brepost(s|ing)?\b[^.]{0,40}\b(edits?|clips?|videos?|content|campaign)\b|\b(provided|supplied) edits\b/i, 'supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)'],
   [/\b([5-9]\d)\s?%[^.]{0,30}\b(us|usa|u\.s\.|united states|american)\b|\b(us|usa|united states)\b[^.]{0,25}\b([5-9]\d)\s?%/i, 'needs 50%+ US audience (a UK account rarely clears it)'],
 ];
 const MAX_MIN_VIEWS = 1500;   // our posts get ~700 (TikTok) to ~1,100 (YouTube)
