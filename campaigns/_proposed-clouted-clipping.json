@@ -3,12 +3,12 @@
   "type": "creator",
   "enabled": false,
   "account": "ReplayRoom",
-  "_scout": "Proposed by the scout on 2026-11-17. Alpha 44, $0.5/1K, $1415 left, ~42 days. Join first: https://clippingalpha.com/go/10996316?via=mcp",
+  "_scout": "Proposed by the scout on 2026-11-18. Alpha 50, $0.5/1K, $1041 left, ~6 days. Join first: https://clippingalpha.com/go/10996316?via=mcp",
   "_rules": [
     "Add #SilverSailPartner and #OnceUponATimeInTexas to the caption",
     "Captions may be rewritten but must keep required hashtags and release info",
     "Write \"Coming to digital November 17\" in the caption",
-    "Thumbnails and covers must use only approved artwork or footage",
+    "Thumbnails and covers must only use approved film artwork or footage",
     "Use only the brand's footage",
     "No outside footage",
     "Add captions to every clip",
@@ -37,6 +37,6 @@
     "#OnceUponATimeInTexas"
   ],
   "mentions": [],
-  "endsOn": "2026-12-29",
+  "endsOn": "2026-11-24",
   "postingNotes": "Payout from 1000 views"
 }
