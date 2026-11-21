@@ -1,7 +1,7 @@
 {
-  "at": "2026-11-20T14:21:10.618Z",
-  "total": 540,
-  "checked": 56,
+  "at": "2026-11-21T13:44:16.728Z",
+  "total": 541,
+  "checked": 55,
   "picks": [
     {
       "ref": "clouted/rythim-is-a-dancer",
@@ -9,20 +9,20 @@
       "brand": "Clouted",
       "board": "Content Rewards",
       "rate": 1.25,
-      "budgetLeft": 3333,
-      "alpha": 67,
+      "budgetLeft": 3238,
+      "alpha": 76,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": null,
+      "days": 34,
       "minViews": 400,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 72,
+      "score": 81,
       "why": [
         "footage shown after joining",
         "pays from 400 views"
@@ -58,8 +58,8 @@
       "brand": "Clip Farm",
       "board": "Content Rewards",
       "rate": 1.5,
-      "budgetLeft": 11718,
-      "alpha": 84,
+      "budgetLeft": 11697,
+      "alpha": 82,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -67,14 +67,14 @@
         "youtube"
       ],
       "days": null,
-      "minViews": 1500,
+      "minViews": 1000,
       "footage": "after-join",
       "sources": [],
       "account": "Off Mic",
-      "score": 99,
+      "score": 97,
       "why": [
         "footage shown after joining",
-        "pays from 1,500 views",
+        "pays from 1,000 views",
         "long-form source: our clips are our own picks"
       ],
       "reject": [],
@@ -88,19 +88,58 @@
         "Tag @firstpress_povc on TikTok",
         "Tag @firstpress-povc on YouTube",
         "Tag @pressonventures on Instagram",
-        "Write your own short, clear English caption recapping what the clip teaches",
-        "No hype, no clickbait in the caption",
+        "Write your own short, clear recap relevant to the clip, in English only",
+        "Caption must say what the clip teaches",
         "Clip must teach one clear idea",
-        "Make clips that drive viewers to watch the full episodes",
+        "Submit your video on Whop",
+        "Open a Whop or Discord ticket for approval",
         "At least 40% of the audience in US, UK, CA and AU",
-        "1,500 views before payout",
+        "Audience proof: Submit video demographics once the clip hits min payout",
+        "1,000 views before payout",
         "Views count from US, UK, CA and AU",
-        "Post in English",
-        "Do not post the same video on many pages",
         "Brand footage only"
       ],
       "joinUrl": "https://clippingalpha.com/go/12261570?via=mcp",
       "pageUrl": "https://clippingalpha.com/campaigns/clip-farm/first-press-willie-litvack-podcast?via=mcp"
+    },
+    {
+      "ref": "reelsbuilder/thecube-supercomputing-2026-dell-vultr-penguin",
+      "title": "theCUBE Supercomputing 2026: Dell, Vultr, Penguin",
+      "brand": "ReelsBuilder",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 2281,
+      "alpha": 70,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 27,
+      "minViews": 1500,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Off Mic",
+      "score": 75,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,500 views"
+      ],
+      "reject": [],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Keep clips 20 to 60 seconds",
+        "Use only the brand's footage",
+        "Get approval before you post",
+        "Post vertical 9:16 video",
+        "Add captions to every clip",
+        "Made for creators in AI infrastructure, cloud and enterprise tech",
+        "The creator's channels"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12543985?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/reelsbuilder/thecube-supercomputing-2026-dell-vultr-penguin?via=mcp"
     },
     {
       "ref": "bobby-van-riper/clipping",
@@ -108,7 +147,7 @@
       "brand": "Bobby Van Riper",
       "board": "Content Rewards",
       "rate": 1.5,
-      "budgetLeft": 979,
+      "budgetLeft": 960,
       "alpha": 79,
       "tier": "solid",
       "platforms": [
@@ -148,14 +187,14 @@
       "brand": "AI Game Maker",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 946,
+      "budgetLeft": 912,
       "alpha": 72,
       "tier": "solid",
       "platforms": [
         "tiktok",
         "youtube"
       ],
-      "days": 79,
+      "days": 46,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
@@ -198,19 +237,19 @@
       "brand": "Kiki Kramer",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 9905,
-      "alpha": 98,
+      "budgetLeft": 9730,
+      "alpha": 97,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": null,
+      "days": 77,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 98,
+      "score": 97,
       "why": [
         "footage shown after joining",
         "pays from 1,000 views"
@@ -253,19 +292,19 @@
       "brand": "Call of Duty",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 15356,
+      "budgetLeft": 13132,
       "alpha": 99,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": 7,
+      "days": 4,
       "minViews": 3000,
       "footage": "after-join",
       "sources": [],
       "account": "Gaming",
-      "score": 99,
+      "score": 89,
       "why": [
         "footage shown after joining",
         "pays from 3,000 views"
@@ -308,14 +347,14 @@
       "brand": "Clavicular",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 2932,
+      "budgetLeft": 2800,
       "alpha": 87,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": 7,
+      "days": 13,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
@@ -361,7 +400,7 @@
       "brand": "Mumford & Sons",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 12345,
+      "budgetLeft": 12126,
       "alpha": 95,
       "tier": "alpha",
       "platforms": [
@@ -369,7 +408,7 @@
         "tiktok",
         "youtube"
       ],
-      "days": null,
+      "days": 60,
       "minViews": 2000,
       "footage": "after-join",
       "sources": [],
@@ -414,8 +453,8 @@
       "brand": "Genius Bimbos Podcast",
       "board": "Content Rewards",
       "rate": 1.75,
-      "budgetLeft": 1702,
-      "alpha": 92,
+      "budgetLeft": 1456,
+      "alpha": 89,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -427,7 +466,7 @@
       "footage": "after-join",
       "sources": [],
       "account": "Off Mic",
-      "score": 97,
+      "score": 94,
       "why": [
         "footage shown after joining",
         "pays from 2,000 views",
@@ -452,7 +491,7 @@
       "brand": "DJ Tunez",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 4122,
+      "budgetLeft": 4117,
       "alpha": 95,
       "tier": "alpha",
       "platforms": [
@@ -503,14 +542,14 @@
       "brand": "ForgeGUI",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 11230,
+      "budgetLeft": 11115,
       "alpha": 79,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": 52,
+      "days": 62,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
@@ -543,31 +582,30 @@
       "pageUrl": "https://clippingalpha.com/campaigns/forgegui/showcase?via=mcp"
     },
     {
-      "ref": "cliphaus/yair-brachiyahu",
-      "title": "YAIR BRACHIYAHU",
-      "brand": "ClipHaus",
+      "ref": "sypherpk/clipping",
+      "title": "SypherPK $7,500 Clipping Campaign",
+      "brand": "SypherPK",
       "board": "Content Rewards",
-      "rate": 0.95,
-      "budgetLeft": 1299,
-      "alpha": 81,
+      "rate": 2,
+      "budgetLeft": 6926,
+      "alpha": 80,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 8,
-      "minViews": 3000,
+      "days": 44,
+      "minViews": 10000,
       "footage": "after-join",
       "sources": [],
       "account": "Gaming",
-      "score": 86,
+      "score": 80,
       "why": [
-        "footage shown after joining",
-        "pays from 3,000 views"
+        "footage shown after joining"
       ],
       "reject": [
-        "pays only from 3,000 views (ours get ~700-1,100)"
+        "pays only from 10,000 views (ours get ~700-1,100)"
       ],
       "tags": [],
       "disclosure": [],
@@ -576,16 +614,16 @@
         "Made for creators in Streamer and Personal Brand",
         "The creator's channels"
       ],
-      "joinUrl": "https://clippingalpha.com/go/4187168?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/cliphaus/yair-brachiyahu?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12543897?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/sypherpk/clipping?via=mcp"
     },
     {
-      "ref": "the-clip-ship/clipping-2",
-      "title": "Lainey Wilson at the 60th CMA Awards Performance",
-      "brand": "The Clip Ship",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 937,
+      "ref": "kash-doll/clipping",
+      "title": "Kash Doll [CLIPPING]",
+      "brand": "Kash Doll",
+      "board": "Clipster",
+      "rate": 1.5,
+      "budgetLeft": 1364,
       "alpha": 95,
       "tier": "alpha",
       "platforms": [
@@ -593,43 +631,153 @@
         "tiktok",
         "youtube"
       ],
-      "days": 9,
-      "minViews": 2000,
-      "footage": "after-join",
-      "sources": [],
+      "days": 3,
+      "minViews": 1500,
+      "footage": "downloadable",
+      "sources": [
+        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/bab1d92f-4735-494c-bb67-a4deb0555c31",
+        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/6c837faa-a99a-4967-a501-9837e7beb9b3",
+        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/0e940504-7acb-4bdb-ba41-424b8cf5ea16",
+        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/4ef02305-aca3-436d-937e-81d0261afeac",
+        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/fe20890e-5d80-4f1b-9b43-c01fa921f75e",
+        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/014b253a-3158-47d5-ae1a-2b131752590d",
+        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/bf217590-990c-4915-b538-3189da0d2ac8",
+        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/ec79d1b4-db79-4ef5-8497-ff980cafc46f",
+        "https://f.io/LIjJiJo3"
+      ],
       "account": "ReplayRoom",
-      "score": 100,
+      "score": 110,
       "why": [
-        "footage shown after joining",
-        "pays from 2,000 views"
+        "footage on frameio",
+        "pays from 1,500 views"
       ],
       "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)",
-        "not film/TV (ReplayRoom is a film & TV page)"
+        "music promo: needs film, anime or game footage we have no rights to"
       ],
-      "tags": [
-        "@laineywilson",
-        "#CMAawards",
-        "#LaineyWilson"
-      ],
+      "tags": [],
       "disclosure": [],
       "rules": [
-        "Tag @laineywilson in the caption",
-        "Add #CMAawards and #LaineyWilson to the caption",
-        "Performance clips must name the song in the caption",
-        "Keep clips over 10 seconds",
-        "2,000 views before payout",
+        "All on-screen text must be in English",
+        "On-screen text must stay positive about Kash Doll",
+        "Verse clips and performance clip can be used too",
+        "Max earnings 1200 USD per creator",
         "Post in English",
-        "Keep likes and comments on",
-        "No spam posting, boost stories, paid promotion",
+        "Max 50 posts per account",
         "Use only the brand's footage",
         "No outside footage",
         "No negative portrayal",
-        "Add captions to every clip",
-        "A call to action"
+        "Use the sound the brief names",
+        "Post on TikTok, Instagram and YouTube",
+        "Creators earn $1500 for every 1M views",
+        "The named sound",
+        "Outside footage",
+        "Negative portrayal",
+        "Brand footage only",
+        "Instagram",
+        "English"
       ],
-      "joinUrl": "https://clippingalpha.com/go/12544061?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/the-clip-ship/clipping-2?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12543958?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/kash-doll/clipping?via=mcp"
+    },
+    {
+      "ref": "newsdaddy/dylan-page-gta-vi-marathon",
+      "title": "$5,000 Dylan Page GTA VI Marathon Campaign",
+      "brand": "NewsDaddy",
+      "board": "Content Rewards",
+      "rate": 1.2,
+      "budgetLeft": 5000,
+      "alpha": 74,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": 3333,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Gaming",
+      "score": 74,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "pays only from 3,333 views (ours get ~700-1,100)"
+      ],
+      "tags": [
+        "#DylanPage"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Add #DylanPage to the caption",
+        "Clips must show Dylan on screen",
+        "Clip from the creator's channels",
+        "Post on TikTok, Instagram, X and YouTube",
+        "#DylanPage in the caption",
+        "The creator's channels",
+        "TikTok",
+        "Instagram",
+        "X",
+        "YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12544008?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/newsdaddy/dylan-page-gta-vi-marathon?via=mcp"
+    },
+    {
+      "ref": "bbno/ava-animation",
+      "title": "bbno$ x Ava, Animation Clipping",
+      "brand": "bbno$",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 1411,
+      "alpha": 95,
+      "tier": "alpha",
+      "platforms": [
+        "tiktok"
+      ],
+      "days": 12,
+      "minViews": 1000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 95,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,000 views"
+      ],
+      "reject": [
+        "requires #ad-style tag in captions",
+        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
+        "music promo: needs film, anime or game footage we have no rights to",
+        "only tiktok platforms"
+      ],
+      "tags": [
+        "#ad"
+      ],
+      "disclosure": [
+        "Add #ad to every post"
+      ],
+      "rules": [
+        "Caption must praise the animation as one of Ava's best, in your own words",
+        "Keep it genuine, like a real fan",
+        "Add #ad to every post",
+        "Post in English",
+        "Do not post the same video more than 5 times",
+        "No paid promotion, boosts or ads of any kind",
+        "Use only the brand's footage",
+        "No nudity or sexual content",
+        "No violence",
+        "No controversial content",
+        "No outside footage",
+        "No reposts of other clips",
+        "Captions on",
+        "The named sound",
+        "Brand footage only",
+        "TikTok"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12544108?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/bbno/ava-animation?via=mcp"
     },
     {
       "ref": "sega/clipping",
@@ -637,7 +785,7 @@
       "brand": "SEGA",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 14483,
+      "budgetLeft": 13781,
       "alpha": 93,
       "tier": "alpha",
       "platforms": [
@@ -645,12 +793,12 @@
         "tiktok",
         "youtube"
       ],
-      "days": 6,
+      "days": 8,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 88,
+      "score": 98,
       "why": [
         "footage shown after joining",
         "pays from 1,000 views"
@@ -689,110 +837,93 @@
       "pageUrl": "https://clippingalpha.com/campaigns/sega/clipping?via=mcp"
     },
     {
-      "ref": "goddard/lilies-anime-movie-tv-film-gaming",
-      "title": "Goddard, Lilies, Anime/Movie/TV/Film/Gaming",
-      "brand": "Goddard",
+      "ref": "milktatz-crowncards/clipping",
+      "title": "MILKTATZ CrownCards Clipping",
+      "brand": "MILKTATZ.CROWNCARDS",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 445,
-      "alpha": 72,
+      "budgetLeft": 305,
+      "alpha": 73,
       "tier": "solid",
       "platforms": [
-        "instagram",
-        "tiktok"
+        "youtube"
       ],
-      "days": 11,
+      "days": 5,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
-      "account": "Gaming",
-      "score": 72,
+      "account": "ReplayRoom",
+      "score": 63,
       "why": [
         "footage shown after joining",
         "pays from 1,000 views"
       ],
       "reject": [
-        "music promo: needs film, anime or game footage we have no rights to"
+        "caption must push a link in bio",
+        "only youtube platforms",
+        "not film/TV (ReplayRoom is a film & TV page)"
       ],
-      "tags": [
-        "@goddarduk"
-      ],
+      "tags": [],
       "disclosure": [],
       "rules": [
-        "Tag @goddarduk in the caption",
-        "Keep clips under 15 seconds",
-        "Show a hook within the first 2 seconds",
-        "Use the sound \"Goddard's Lilies (ft. Jazmine Johnson)\"",
-        "Pay stops at $200 a clip",
-        "Post on TikTok and Instagram",
-        "Made for creators in anime edits, sad/emotional edits and fantasy film and gaming clips",
-        "@goddarduk in the caption",
-        "The named sound",
-        "TikTok",
-        "Instagram"
+        "Keep clips 15 to 45 seconds",
+        "Reside in a CrownCards-supported country and sign up",
+        "Use only the brand's footage",
+        "No bought views or bots",
+        "Put the campaign link in your bio",
+        "Post on YouTube",
+        "15 to 45 seconds",
+        "The creator's channels",
+        "YouTube"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11237856?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/goddard/lilies-anime-movie-tv-film-gaming?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/9295675?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/milktatz-crowncards/clipping?via=mcp"
     },
     {
-      "ref": "the-clip-ship/clipping",
-      "title": "Zach Top at the 60th CMA Awards Performance",
-      "brand": "The Clip Ship",
+      "ref": "cliphaus/yair-brachiyahu",
+      "title": "YAIR BRACHIYAHU",
+      "brand": "ClipHaus",
       "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 2879,
-      "alpha": 95,
-      "tier": "alpha",
+      "rate": 0.95,
+      "budgetLeft": 1173,
+      "alpha": 79,
+      "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 38,
-      "minViews": 2000,
+      "days": 8,
+      "minViews": 3000,
       "footage": "after-join",
       "sources": [],
-      "account": "ReplayRoom",
-      "score": 100,
+      "account": "Gaming",
+      "score": 84,
       "why": [
         "footage shown after joining",
-        "pays from 2,000 views"
+        "pays from 3,000 views"
       ],
       "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)",
-        "not film/TV (ReplayRoom is a film & TV page)"
+        "pays only from 3,000 views (ours get ~700-1,100)"
       ],
-      "tags": [
-        "#CMAawards",
-        "#ZachTop",
-        "#Moonshine"
-      ],
+      "tags": [],
       "disclosure": [],
       "rules": [
-        "Add #CMAawards, #ZachTop and #Moonshine to the caption",
-        "Keep clips over 10 seconds",
-        "Use given text lines word for word or same voice",
-        "Open the clip on the strongest moment",
-        "Audience proof: screen recording of video analytics after 2,000 views",
-        "2,000 views before payout",
-        "Post in English",
-        "No spam posting, boosting, paid promotion or collab posts",
-        "Keep likes and comments on",
-        "Use only the brand's footage",
-        "No competitor brands",
-        "No outside footage"
+        "Clip from the creator's channels",
+        "Made for creators in Streamer and Personal Brand",
+        "The creator's channels"
       ],
-      "joinUrl": "https://clippingalpha.com/go/12544060?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/the-clip-ship/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/4187168?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/cliphaus/yair-brachiyahu?via=mcp"
     },
     {
-      "ref": "sega/metaphor-refantazio-trailer",
-      "title": "SEGA, Metaphor ReFantazio Trailer Clipping",
-      "brand": "SEGA",
+      "ref": "dr-guillaume-dulude/psychology",
+      "title": "Dr. Guillaume Dulude, Psychology Clipping",
+      "brand": "Dr. Guillaume Dulude",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 10708,
-      "alpha": 85,
+      "budgetLeft": 10498,
+      "alpha": 92,
       "tier": "alpha",
       "platforms": [
         "instagram",
@@ -803,8 +934,296 @@
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
+      "account": "Off Mic",
+      "score": 97,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,000 views"
+      ],
+      "reject": [
+        "requires #ad-style tag in captions",
+        "needs 50%+ US audience (a UK account rarely clears it)"
+      ],
+      "tags": [
+        "@dr.guillaume.dulude",
+        "@guillaume.dulude",
+        "@DrGuillaumeDulude",
+        "#ad"
+      ],
+      "disclosure": [
+        "Add #ad to every post"
+      ],
+      "rules": [
+        "Tag @dr.guillaume.dulude on TikTok",
+        "Tag @guillaume.dulude on Instagram",
+        "Tag @DrGuillaumeDulude on YouTube",
+        "Add #ad to every post",
+        "Keep clips over 10 seconds",
+        "At least 50% of the audience in US, UK and AU",
+        "Any page size can join",
+        "Views count from US, UK and AU",
+        "Post in English",
+        "Do not post the same video more than 5 times",
+        "No nudity or sexual content",
+        "No violence",
+        "The creator's channels",
+        "TikTok",
+        "Instagram",
+        "YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12544095?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/dr-guillaume-dulude/psychology?via=mcp"
+    },
+    {
+      "ref": "wa-chaa/rza-grandmaster-collection-clippin",
+      "title": "Wa-Chaa x The RZA, Grandmaster Collection Clippin",
+      "brand": "Wa-Chaa",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 6711,
+      "alpha": 97,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 12,
+      "minViews": 1000,
+      "footage": "after-join",
+      "sources": [],
       "account": "ReplayRoom",
-      "score": 90,
+      "score": 102,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,000 views"
+      ],
+      "reject": [
+        "requires #ad-style tag in captions",
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [
+        "@wachaaworldwide",
+        "#ad"
+      ],
+      "disclosure": [
+        "Add #ad to every post"
+      ],
+      "rules": [
+        "Tag @wachaaworldwide on TikTok",
+        "Accuracy rules apply to captions, on-screen text, and titles",
+        "Add #ad to every post",
+        "Any page size can join",
+        "Post in English",
+        "No paid promotion or ads of any kind",
+        "Do not post the same video more than 5 times",
+        "Use only the brand's footage",
+        "No nudity or sexual content",
+        "No violence",
+        "No controversial content",
+        "No outside footage",
+        "Outside footage",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "YouTube"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11371320?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/wa-chaa/rza-grandmaster-collection-clippin?via=mcp"
+    },
+    {
+      "ref": "theburntpeanut/funkopop-collab",
+      "title": "TheBurntPeanut x FunkoPop Collab",
+      "brand": "TheBurntPeanut",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 11971,
+      "alpha": 88,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": 2000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 93,
+      "why": [
+        "footage shown after joining",
+        "pays from 2,000 views"
+      ],
+      "reject": [
+        "pays only from 2,000 views (ours get ~700-1,100)"
+      ],
+      "tags": [
+        "@funko",
+        "@OriginalFunko",
+        "@theburntpeanut"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @funko on Instagram and TikTok",
+        "Tag @OriginalFunko on YouTube",
+        "Tag @theburntpeanut on TikTok, Instagram and YouTube",
+        "Write caption in your own words, short, clear, English only",
+        "Add the Funko Pop image if the Pop is not showing",
+        "At least 40% of the audience in US, UK, CA and AU",
+        "2,000 views before payout",
+        "Any page size can join",
+        "No pages with NSFW, violent and off-topic",
+        "Views count from US, UK, CA and AU",
+        "Post in English",
+        "Use only the brand's footage",
+        "A call to action",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12544001?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/theburntpeanut/funkopop-collab?via=mcp"
+    },
+    {
+      "ref": "austin-millz/clipping-2",
+      "title": "Austin Millz Clips",
+      "brand": "Austin Millz",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 1003,
+      "alpha": 77,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "days": 28,
+      "minViews": 5000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Gaming",
+      "score": 72,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "pays only from 5,000 views (ours get ~700-1,100)"
+      ],
+      "tags": [
+        "@AustinMillz",
+        "@DJSoda",
+        "#austinmillz"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @AustinMillz and @DJSoda on TikTok and Instagram",
+        "Add #austinmillz on TikTok and Instagram",
+        "Keep clips over 10 seconds",
+        "Follow platform guidelines and applicable copyright rules",
+        "Post in English",
+        "Do not submit the same or nearly identical moment repeatedly",
+        "Keep it family friendly",
+        "Get approval before you post",
+        "Stay on the campaign topic",
+        "No negative portrayal",
+        "Keep posts live 30 days",
+        "Post vertical 9:16 video",
+        "The creator's channels"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11670479?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/austin-millz/clipping-2?via=mcp"
+    },
+    {
+      "ref": "backyard-breaks/clipping",
+      "title": "Backyard Breaks [Clipping Campaign]",
+      "brand": "Backyard Breaks",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 10752,
+      "alpha": 96,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 20,
+      "minViews": 1500,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 101,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,500 views"
+      ],
+      "reject": [
+        "needs a dedicated page for this brand",
+        "caption must push a link in bio",
+        "needs 50%+ US audience (a UK account rarely clears it)",
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [
+        "@backyardbreaks",
+        "#BackyardBreaks",
+        "#BBPulls",
+        "#Whatnot"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @backyardbreaks in the caption",
+        "Add #BackyardBreaks, #BBPulls and #Whatnot to the caption",
+        "Put whatnot.com/invite/backyardbuzz in your bio",
+        "Keep clips over 15 seconds",
+        "Username must contain Backyard Breaks or BYB",
+        "On-screen text must not cover the card",
+        "At least 50% of the audience in US",
+        "Audience proof: screen recording of analytics via proof form, one per clip",
+        "1,500 views before payout",
+        "Views count from US",
+        "Post in English",
+        "Post from a dedicated page",
+        "Over 15 seconds",
+        "@backyardbreaks in the caption",
+        "#BackyardBreaks in the caption",
+        "#BBPulls in the caption",
+        "#Whatnot in the caption",
+        "A call to action",
+        "Campaign link in bio",
+        "Bought views or bots",
+        "Outside footage",
+        "Negative portrayal",
+        "Misleading claims",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "YouTube",
+        "English",
+        "US",
+        "A dedicated page"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/34?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/backyard-breaks/clipping?via=mcp"
+    },
+    {
+      "ref": "sega/metaphor-refantazio-trailer",
+      "title": "SEGA, Metaphor ReFantazio Trailer Clipping",
+      "brand": "SEGA",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 10555,
+      "alpha": 84,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 86,
+      "minViews": 1000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 89,
       "why": [
         "footage shown after joining",
         "pays from 1,000 views"
@@ -841,105 +1260,172 @@
       "pageUrl": "https://clippingalpha.com/campaigns/sega/metaphor-refantazio-trailer?via=mcp"
     },
     {
-      "ref": "austin-millz/clipping-2",
-      "title": "Austin Millz Clips",
-      "brand": "Austin Millz",
+      "ref": "goddard/lilies-anime-movie-tv-film-gaming",
+      "title": "Goddard, Lilies, Anime/Movie/TV/Film/Gaming",
+      "brand": "Goddard",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 1039,
-      "alpha": 78,
+      "budgetLeft": 436,
+      "alpha": 70,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": 30,
-      "minViews": 5000,
+      "days": 11,
+      "minViews": 1000,
       "footage": "after-join",
       "sources": [],
       "account": "Gaming",
-      "score": 73,
+      "score": 70,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,000 views"
+      ],
+      "reject": [
+        "music promo: needs film, anime or game footage we have no rights to"
+      ],
+      "tags": [
+        "@goddarduk"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @goddarduk in the caption",
+        "Keep clips under 15 seconds",
+        "Show a hook within the first 2 seconds",
+        "Use the sound \"Goddard's Lilies (ft. Jazmine Johnson)\"",
+        "Pay stops at $200 a clip",
+        "Post on TikTok and Instagram",
+        "Made for creators in anime edits, sad/emotional edits and fantasy film and gaming clips",
+        "@goddarduk in the caption",
+        "The named sound",
+        "TikTok",
+        "Instagram"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11237856?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/goddard/lilies-anime-movie-tv-film-gaming?via=mcp"
+    },
+    {
+      "ref": "hamden-sisters/clipping",
+      "title": "$5,000 Hamden Sisters Campaign",
+      "brand": "Hamden Sisters",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 3808,
+      "alpha": 72,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "days": 14,
+      "minViews": 10000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Gaming",
+      "score": 67,
       "why": [
         "footage shown after joining"
       ],
       "reject": [
-        "pays only from 5,000 views (ours get ~700-1,100)"
+        "bans AI-generated content",
+        "needs a dedicated page for this brand",
+        "caption must push a link in bio",
+        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
+        "needs 50%+ US audience (a UK account rarely clears it)",
+        "pays only from 10,000 views (ours get ~700-1,100)"
       ],
       "tags": [
-        "@AustinMillz",
-        "@DJSoda",
-        "#austinmillz"
+        "@LaurenHamden",
+        "#LaurenHamden"
       ],
       "disclosure": [],
       "rules": [
-        "Tag @AustinMillz and @DJSoda on TikTok and Instagram",
-        "Add #austinmillz on TikTok and Instagram",
-        "Keep clips over 10 seconds",
-        "Follow platform guidelines and applicable copyright rules",
+        "Tag @LaurenHamden in the caption",
+        "Add #LaurenHamden to the caption",
+        "Put lozzahamden.click in your bio",
+        "Verify your Whop account by connecting socials before payout",
+        "Avoid country-specific slang from outside target regions",
+        "At least 50% of the audience in US, CA, AU, UK and NZ",
+        "10,000 views before payout",
+        "New pages can join",
+        "Views count from US, CA, AU, UK and NZ",
         "Post in English",
-        "Do not submit the same or nearly identical moment repeatedly",
-        "Keep it family friendly",
-        "Get approval before you post",
-        "Stay on the campaign topic",
-        "No negative portrayal",
-        "Keep posts live 30 days",
-        "Post vertical 9:16 video",
-        "The creator's channels"
+        "Post from a dedicated page",
+        "Submit clip links in Whop Content Rewards within 30 minutes of posting",
+        "Captions on",
+        "#LaurenHamden in the caption",
+        "@LaurenHamden in the caption",
+        "Campaign link in bio",
+        "Bought views or bots",
+        "Reposts of other clips",
+        "AI generated visuals",
+        "Negative portrayal",
+        "TikTok",
+        "Instagram",
+        "English",
+        "US",
+        "CA",
+        "AU",
+        "UK",
+        "NZ",
+        "A dedicated page"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11670479?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/austin-millz/clipping-2?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/857339?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/hamden-sisters/clipping?via=mcp"
     },
     {
-      "ref": "theburntpeanut/funkopop-collab",
-      "title": "TheBurntPeanut x FunkoPop Collab",
-      "brand": "TheBurntPeanut",
+      "ref": "ms-gloom/duck-duck-goose",
+      "title": "Ms*Gloom, Duck Duck Goose Sound Clipping",
+      "brand": "Ms*Gloom",
       "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 12000,
-      "alpha": 84,
+      "rate": 1,
+      "budgetLeft": 1000,
+      "alpha": 83,
       "tier": "alpha",
       "platforms": [
         "instagram",
-        "tiktok",
-        "youtube"
+        "tiktok"
       ],
       "days": null,
-      "minViews": 2000,
+      "minViews": 1000,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 89,
+      "score": 83,
       "why": [
         "footage shown after joining",
-        "pays from 2,000 views"
+        "pays from 1,000 views"
       ],
       "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)"
+        "requires #ad-style tag in captions",
+        "music promo: needs film, anime or game footage we have no rights to"
       ],
       "tags": [
-        "@funko",
-        "@OriginalFunko",
-        "@theburntpeanut"
+        "#ad"
       ],
-      "disclosure": [],
+      "disclosure": [
+        "Add #ad to every post"
+      ],
       "rules": [
-        "Tag @funko on Instagram and TikTok",
-        "Tag @OriginalFunko on YouTube",
-        "Tag @theburntpeanut on TikTok, Instagram and YouTube",
-        "Write caption in your own words, short, clear, English only",
-        "Add the Funko Pop image if the Pop is not showing",
-        "At least 40% of the audience in US, UK, CA and AU",
-        "2,000 views before payout",
+        "No made-up facts, stats, or dates",
+        "Add #ad to every post",
         "Any page size can join",
-        "No pages with NSFW, violent and off-topic",
-        "Views count from US, UK, CA and AU",
         "Post in English",
-        "Use only the brand's footage",
-        "A call to action",
-        "Brand footage only"
+        "Same video posted at most 5 times",
+        "No same video across multiple accounts",
+        "No nudity or sexual content",
+        "No violence",
+        "No controversial content",
+        "Stay on the campaign topic",
+        "No bought views or bots",
+        "Keep posts live 30 days",
+        "The named sound",
+        "TikTok",
+        "Instagram"
       ],
-      "joinUrl": "https://clippingalpha.com/go/12544001?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/theburntpeanut/funkopop-collab?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12544113?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/ms-gloom/duck-duck-goose?via=mcp"
     },
     {
       "ref": "make-fun/clipping",
@@ -947,20 +1433,20 @@
       "brand": "make.fun",
       "board": "Content Rewards",
       "rate": 2,
-      "budgetLeft": 1601,
-      "alpha": 71,
+      "budgetLeft": 1582,
+      "alpha": 67,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": null,
+      "days": 84,
       "minViews": 500,
       "footage": "after-join",
       "sources": [],
       "account": "Gaming",
-      "score": 76,
+      "score": 72,
       "why": [
         "footage shown after joining",
         "pays from 500 views"
@@ -987,154 +1473,12 @@
       "pageUrl": "https://clippingalpha.com/campaigns/make-fun/clipping?via=mcp"
     },
     {
-      "ref": "sypherpk/clipping",
-      "title": "SypherPK $7,500 Clipping Campaign",
-      "brand": "SypherPK",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 7426,
-      "alpha": 74,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 65,
-      "minViews": 10000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Gaming",
-      "score": 74,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "pays only from 10,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Clip from the creator's channels",
-        "Made for creators in Streamer and Personal Brand",
-        "The creator's channels"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12543897?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/sypherpk/clipping?via=mcp"
-    },
-    {
-      "ref": "kash-doll/clipping",
-      "title": "Kash Doll [CLIPPING]",
-      "brand": "Kash Doll",
-      "board": "Clipster",
-      "rate": 1.5,
-      "budgetLeft": 1654,
-      "alpha": 79,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 4,
-      "minViews": 1500,
-      "footage": "downloadable",
-      "sources": [
-        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/bab1d92f-4735-494c-bb67-a4deb0555c31",
-        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/6c837faa-a99a-4967-a501-9837e7beb9b3",
-        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/0e940504-7acb-4bdb-ba41-424b8cf5ea16",
-        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/4ef02305-aca3-436d-937e-81d0261afeac",
-        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/fe20890e-5d80-4f1b-9b43-c01fa921f75e",
-        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/014b253a-3158-47d5-ae1a-2b131752590d",
-        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/bf217590-990c-4915-b538-3189da0d2ac8",
-        "https://next.frame.io/share/459fd07e-5fe1-4dca-a007-fa00dd52396b/view/ec79d1b4-db79-4ef5-8497-ff980cafc46f",
-        "https://f.io/LIjJiJo3"
-      ],
-      "account": "ReplayRoom",
-      "score": 94,
-      "why": [
-        "footage on frameio",
-        "pays from 1,500 views"
-      ],
-      "reject": [
-        "music promo: needs film, anime or game footage we have no rights to"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "All on-screen text must be in English",
-        "On-screen text must stay positive about Kash Doll",
-        "Verse clips and performance clip can be used too",
-        "Max earnings 1200 USD per creator",
-        "Post in English",
-        "Max 50 posts per account",
-        "Use only the brand's footage",
-        "No outside footage",
-        "No negative portrayal",
-        "Use the sound the brief names",
-        "Post on TikTok, Instagram and YouTube",
-        "Creators earn $1500 for every 1M views",
-        "The named sound",
-        "Outside footage",
-        "Negative portrayal",
-        "Brand footage only",
-        "Instagram",
-        "English"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12543958?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/kash-doll/clipping?via=mcp"
-    },
-    {
-      "ref": "milktatz-crowncards/clipping",
-      "title": "MILKTATZ CrownCards Clipping",
-      "brand": "MILKTATZ.CROWNCARDS",
-      "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 353,
-      "alpha": 71,
-      "tier": "solid",
-      "platforms": [
-        "youtube"
-      ],
-      "days": 3,
-      "minViews": 1000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 61,
-      "why": [
-        "footage shown after joining",
-        "pays from 1,000 views"
-      ],
-      "reject": [
-        "caption must push a link in bio",
-        "only youtube platforms",
-        "budget forecast to run out within 3 days",
-        "not film/TV (ReplayRoom is a film & TV page)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Keep clips 15 to 45 seconds",
-        "Reside in a CrownCards-supported country and sign up",
-        "Use only the brand's footage",
-        "No bought views or bots",
-        "Put the campaign link in your bio",
-        "Post on YouTube",
-        "15 to 45 seconds",
-        "The creator's channels",
-        "YouTube"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/9295675?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/milktatz-crowncards/clipping?via=mcp"
-    },
-    {
       "ref": "ishowspeed/expedia",
       "title": "$8,000 Expedia x IShowSpeed Campaign",
       "brand": "IShowSpeed",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 7357,
+      "budgetLeft": 7298,
       "alpha": 67,
       "tier": "solid",
       "platforms": [
@@ -1165,164 +1509,71 @@
       "pageUrl": "https://clippingalpha.com/campaigns/ishowspeed/expedia?via=mcp"
     },
     {
-      "ref": "hunter-vess/clipping",
-      "title": "Hunter Vess $5,000 Clipping Campaign",
-      "brand": "Hunter Vess",
-      "board": "Content Rewards",
-      "rate": 1.35,
-      "budgetLeft": 4596,
-      "alpha": 80,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok"
-      ],
-      "days": 28,
-      "minViews": 10000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Off Mic",
-      "score": 75,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "pays only from 10,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Clip from the creator's channels",
-        "The creator's channels"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12543955?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/hunter-vess/clipping?via=mcp"
-    },
-    {
-      "ref": "mansory/arz-urus-1-of-1-reveal-trailer",
-      "title": "MANSORY x ARZ URUS 1 of 1, REVEAL TRAILER CLIPPING CAMPAIGN",
-      "brand": "Mansory",
-      "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 3240,
-      "alpha": 71,
+      "ref": "mystake/clipping",
+      "title": "MyStake Reposting Campaign (Trump Skydiving)",
+      "brand": "MyStake",
+      "board": "Clipstake",
+      "rate": 3,
+      "budgetLeft": 4832,
+      "alpha": 79,
       "tier": "solid",
       "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
+        "instagram"
       ],
-      "days": 34,
-      "minViews": 6667,
-      "footage": "after-join",
-      "sources": [],
+      "days": 51,
+      "minViews": 1000,
+      "footage": "downloadable",
+      "sources": [
+        "https://drive.google.com/file/d/1Of0FFkApSL2sngW5yrNkgKNvvCcNMkKN/view",
+        "https://drive.google.com/drive/folders/11oL3M_1mUspcruDJBk0v_X7UCzONW8YT"
+      ],
       "account": "ReplayRoom",
-      "score": 71,
+      "score": 99,
       "why": [
-        "footage shown after joining"
+        "footage on drive",
+        "pays from 1,000 views"
       ],
       "reject": [
-        "pays only from 6,667 views (ours get ~700-1,100)"
+        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
+        "only instagram platforms",
+        "not film/TV (ReplayRoom is a film & TV page)"
       ],
       "tags": [],
       "disclosure": [],
       "rules": [
-        "Clip from the creator's channels",
-        "Post on TikTok, Instagram and YouTube",
-        "The creator's channels",
-        "TikTok",
-        "Instagram",
-        "YouTube"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/10323342?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/mansory/arz-urus-1-of-1-reveal-trailer?via=mcp"
-    },
-    {
-      "ref": "newsdaddy/dylan-page-gta-vi-marathon",
-      "title": "$5,000 Dylan Page GTA VI Marathon Campaign",
-      "brand": "NewsDaddy",
-      "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 4935,
-      "alpha": 70,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": 10000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Gaming",
-      "score": 70,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "pays only from 10,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [
-        "#DylanPage"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #DylanPage to the caption",
-        "Clips must show Dylan on screen",
-        "Clip from the creator's channels",
-        "Post on TikTok, Instagram, X and YouTube",
-        "#DylanPage in the caption",
-        "The creator's channels",
-        "TikTok",
-        "Instagram",
-        "X",
-        "YouTube"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12544008?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/newsdaddy/dylan-page-gta-vi-marathon?via=mcp"
-    },
-    {
-      "ref": "pranos-inc-hologlass/clipping",
-      "title": "Pranos Inc. Hologlass (Digital Car Windows)'s Campaign",
-      "brand": "Pranos Inc. Hologlass",
-      "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 409,
-      "alpha": 75,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 47,
-      "minViews": 5000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Gaming",
-      "score": 75,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "pays only from 5,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "5,000 views before payout",
+        "Copy and hashtags are optional, not required",
+        "Accounts need 1,000 followers",
+        "Repost the brand's clips as they are, with no editing",
         "Use only the brand's footage",
-        "Add captions to every clip",
-        "Post on TikTok, Instagram and YouTube",
-        "Captions on",
+        "No reposts of other clips",
+        "Post on Instagram",
+        "Reposts of other clips",
         "Brand footage only",
-        "TikTok",
         "Instagram",
-        "YouTube"
+        "AE",
+        "AL",
+        "AR",
+        "AT",
+        "AU",
+        "BA",
+        "BE",
+        "BG",
+        "BH",
+        "BR",
+        "BY",
+        "CA",
+        "CH",
+        "CL",
+        "CO",
+        "CR",
+        "CY",
+        "CZ",
+        "DE",
+        "DK",
+        "EC"
       ],
-      "joinUrl": "https://clippingalpha.com/go/192357?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/pranos-inc-hologlass/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12544037?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/mystake/clipping?via=mcp"
     },
     {
       "ref": "topps/clipping",
@@ -1330,7 +1581,7 @@
       "brand": "Topps",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 9770,
+      "budgetLeft": 9088,
       "alpha": 95,
       "tier": "alpha",
       "platforms": [
@@ -1386,104 +1637,13 @@
       "pageUrl": "https://clippingalpha.com/campaigns/topps/clipping?via=mcp"
     },
     {
-      "ref": "hebrew-hammer/clipping",
-      "title": "The Hebrew Hammer [CLIPPING]",
-      "brand": "Hebrew Hammer",
-      "board": "Clipster",
-      "rate": 1.5,
-      "budgetLeft": 4000,
-      "alpha": 70,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": 2000,
-      "footage": "downloadable",
-      "sources": [
-        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/3d0d7cd6-32bb-4bdc-b963-caef246cef21",
-        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/b15f66fc-b713-4b02-99cd-412c19938409",
-        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/4d6ce1b4-74f4-44ed-99f1-5f7cc60ec388",
-        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/e2810586-8abc-40e7-bfcd-9dd4afff9b90",
-        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/01bf8c11-0eae-4917-8237-9e8d4df20aaf",
-        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/2da7b2d4-326e-497a-b553-85e27cc5ea4b",
-        "https://f.io/wsE2cMXA"
-      ],
-      "account": "ReplayRoom",
-      "score": 95,
-      "why": [
-        "footage on frameio",
-        "pays from 2,000 views"
-      ],
-      "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Keep clips over 9 seconds",
-        "Earnings capped at 2000 per creator",
-        "Max 25 posts per account per day",
-        "Max 50 posts per account total",
-        "Use only the brand's footage",
-        "No negative portrayal",
-        "Over 9 seconds",
-        "Negative portrayal",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12544065?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/hebrew-hammer/clipping?via=mcp"
-    },
-    {
-      "ref": "kreekcraft-gta-6/clipping",
-      "title": "KreekCraft GTA 6 Clipping",
-      "brand": "KreekCraft GTA 6",
+      "ref": "movietone-news/pilot",
+      "title": "Movietone News Pilot",
+      "brand": "Movietone News",
       "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 5905,
-      "alpha": 68,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 8,
-      "minViews": 5000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Gaming",
-      "score": 68,
-      "why": [
-        "footage shown after joining"
-      ],
-      "reject": [
-        "brand logo/banner must stay on screen",
-        "pays only from 5,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Clip from the creator's channels",
-        "Keep the brand logo on screen",
-        "End with the call to action",
-        "Brand logo on screen",
-        "A call to action",
-        "The creator's channels"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12544011?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/kreekcraft-gta-6/clipping?via=mcp"
-    },
-    {
-      "ref": "wiz-khalifa/cool",
-      "title": "Wiz Khalifa, Cool [CLIPPING]",
-      "brand": "Wiz Khalifa",
-      "board": "Clipster",
-      "rate": 2,
-      "budgetLeft": 3322,
-      "alpha": 79,
+      "rate": 1.25,
+      "budgetLeft": 1675,
+      "alpha": 78,
       "tier": "solid",
       "platforms": [
         "instagram",
@@ -1491,182 +1651,160 @@
         "youtube"
       ],
       "days": 13,
-      "minViews": 2000,
-      "footage": "downloadable",
-      "sources": [
-        "https://www.dropbox.com/scl/fi/wc9a34g6pcbh20xqihxje/cool-doc-11.13-4pm-edit.mov?rlkey=kz6em7tdny19sxfw62aizyfqy",
-        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/AJ29BJCObSNx5xH53-jHmso/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%282%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
-        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/ALCJfgnZJXXA76WiuuugcwA/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%289%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
-        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/ALdRa6nl40Lr5WcDDEfX2GU/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%283%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
-        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/AOmxk7H3GnSMD0PIB2kmzws/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%284%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
-        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/ANGdfSvQzo6FV8dMRDURQHA/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%286%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
-        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/ACvZ6-fTIelPbT-CgiixYb4/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%285%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
-        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/AMaIU-63BOUL2y1bOnUkC0M/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%281%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
-        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/AIZl26_MtPVFhEWakOVCbPc?rlkey=rfg00ch0z6xeaumu334r19yuz"
-      ],
+      "minViews": 1600,
+      "footage": "after-join",
+      "sources": [],
       "account": "ReplayRoom",
-      "score": 114,
+      "score": 83,
       "why": [
-        "footage on dropbox",
-        "pays from 2,000 views",
-        "long-form source: our clips are our own picks"
+        "footage shown after joining",
+        "pays from 1,600 views"
       ],
       "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)",
-        "not film/TV (ReplayRoom is a film & TV page)"
+        "caption must push a link in bio",
+        "pays only from 1,600 views (ours get ~700-1,100)"
       ],
       "tags": [],
       "disclosure": [],
       "rules": [
-        "Focus every on-screen text and caption on Wiz Khalifa",
-        "Rephrase the given text-on-screen lines to fit your content",
-        "Put text on screen on every post",
-        "All text-on-screen prompts must be positive about the artist",
-        "Accounts need 1,000 followers",
-        "Post in English",
-        "Maximum 50 posts per account in total",
-        "Maximum 50 posts per account per day",
         "Use only the brand's footage",
-        "No outside footage",
-        "No negative portrayal",
-        "Clip the Twitch stream from the provided Dropbox or Box files",
-        "Negative portrayal",
-        "Outside footage",
-        "Brand footage only",
-        "English",
-        "1,000 followers or more"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12543933?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/wiz-khalifa/cool?via=mcp"
-    },
-    {
-      "ref": "wa-chaa/rza-grandmaster-collection-clippin",
-      "title": "Wa-Chaa x The RZA, Grandmaster Collection Clippin",
-      "brand": "Wa-Chaa",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 7602,
-      "alpha": 95,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 22,
-      "minViews": 1000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 100,
-      "why": [
-        "footage shown after joining",
-        "pays from 1,000 views"
-      ],
-      "reject": [
-        "requires #ad-style tag in captions",
-        "not film/TV (ReplayRoom is a film & TV page)"
-      ],
-      "tags": [
-        "@wachaaworldwide",
-        "#ad"
-      ],
-      "disclosure": [
-        "Add #ad to every post"
-      ],
-      "rules": [
-        "Tag @wachaaworldwide on TikTok",
-        "Accuracy rules apply to captions, on-screen text, and titles",
-        "Add #ad to every post",
-        "Any page size can join",
-        "Post in English",
-        "No paid promotion or ads of any kind",
-        "Do not post the same video more than 5 times",
-        "Use only the brand's footage",
-        "No nudity or sexual content",
-        "No violence",
-        "No controversial content",
-        "No outside footage",
-        "Outside footage",
+        "Get approval before you post",
+        "Put the campaign link in your bio",
+        "Post on TikTok, Instagram and YouTube",
+        "Made for creators in Entertainment",
         "Brand footage only",
         "TikTok",
         "Instagram",
         "YouTube"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11371320?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/wa-chaa/rza-grandmaster-collection-clippin?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/11470176?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/movietone-news/pilot?via=mcp"
     },
     {
-      "ref": "motion-clipping/house-la",
-      "title": "Stream House LA Clipping",
-      "brand": "Motion Clipping",
+      "ref": "roblox-app/clipping",
+      "title": "Roblox App Clipping",
+      "brand": "Roblox App",
       "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 2176,
-      "alpha": 69,
+      "rate": 1,
+      "budgetLeft": 776,
+      "alpha": 67,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 20,
-      "minViews": 1750,
-      "footage": "after-join",
+      "days": 7,
+      "minViews": 1300,
+      "footage": "youtube",
       "sources": [],
-      "account": "ReplayRoom",
-      "score": 84,
+      "account": "Gaming",
+      "score": 77,
       "why": [
-        "footage shown after joining",
-        "pays from 1,750 views",
-        "long-form source: our clips are our own picks"
+        "pays from 1,300 views"
       ],
       "reject": [
         "needs a dedicated page for this brand",
-        "pays only from 1,750 views (ours get ~700-1,100)"
+        "brand logo/banner must stay on screen",
+        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
+        "footage is YouTube only (cloud can't download it)"
       ],
-      "tags": [
-        "@streamhousela",
-        "#streamhouselacwe",
-        "#streamhousela",
-        "#cwetv",
-        "#chickenwrapentertainment"
-      ],
+      "tags": [],
       "disclosure": [],
       "rules": [
-        "Tag @streamhousela on TikTok and Instagram",
-        "Add #streamhouselacwe, #streamhousela and #cwetv to the caption",
-        "Add an onscreen title to every clip",
-        "TikTok story must use the provided QR code link",
-        "Audience in US, UK and CA",
+        "Every caption must naturally mention Superbullet AI",
+        "Pin a comment mentioning Superbullet AI if possible",
+        "Put superbullet.ai in your bio",
+        "Keep clips over 10 seconds",
+        "Put 'Use SuperBullet AI' in the account bio",
+        "Overlay the Superbullet AI chat where the matching feature is prompted",
+        "Sort drive footage by date and use the latest clips",
         "New pages can join",
-        "Accounts need 2,000 followers",
-        "Views count from US, UK and CA",
+        "No pages with obvious spam accounts",
+        "Post in English",
         "Post from a dedicated page",
-        "Story post required on Instagram and TikTok for every clip",
-        "Payment goes to Whop balance 4 days after approval",
-        "Clip from the creator's channels",
+        "No paid promotion or boosts",
         "Vertical 9:16",
         "Captions on",
-        "#streamhouselacwe in the caption",
-        "#streamhousela in the caption",
-        "#cwetv in the caption",
-        "#chickenwrapentertainment in the caption",
-        "@streamhousela in the caption",
+        "Brand logo on screen",
         "A call to action",
         "Bought views or bots",
-        "Other platform watermarks",
+        "Bought views or bots",
+        "Low effort reuploads",
+        "Reposts of other clips",
+        "Brand footage only",
+        "TikTok",
+        "YouTube",
+        "Instagram",
+        "English",
+        "US",
+        "CA",
+        "UK",
+        "AU",
+        "NZ"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/1111229?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/roblox-app/clipping?via=mcp"
+    },
+    {
+      "ref": "parkerryt/clipping",
+      "title": "PARKERRYT",
+      "brand": "PARKERRYT",
+      "board": "Content Rewards",
+      "rate": 0.6,
+      "budgetLeft": 722,
+      "alpha": 64,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 8,
+      "minViews": 1000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Gaming",
+      "score": 69,
+      "why": [
+        "footage shown after joining",
+        "pays from 1,000 views"
+      ],
+      "reject": [
+        "brand logo/banner must stay on screen",
+        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Direct viewers only to Parkerr's approved social accounts",
+        "Never promote or mention Parkerr's main YouTube channel",
+        "Keep clips over 7 seconds",
+        "Flag story spoilers clearly before the reveal",
+        "No Branded or company accounts pages",
+        "No near-identical versions of already submitted clips",
+        "Direct viewers only to Parkerr's approved social accounts, never his main YouTube channel",
+        "Clip from the creator's channels",
+        "No outside footage",
+        "No negative portrayal",
+        "Keep posts live 30 days",
+        "Post vertical 9:16 video",
+        "Over 7 seconds",
+        "Vertical 9:16",
+        "Captions on",
+        "Brand logo on screen",
+        "Outside footage",
+        "Negative portrayal",
+        "Misleading claims",
+        "Bought views or bots",
+        "Reposts of other clips",
         "The creator's channels",
         "TikTok",
         "Instagram",
-        "YouTube",
-        "US",
-        "UK",
-        "CA",
-        "A dedicated page"
+        "YouTube"
       ],
-      "joinUrl": "https://clippingalpha.com/go/938123?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/motion-clipping/house-la?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/192547?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/parkerryt/clipping?via=mcp"
     },
     {
       "ref": "call-of-duty-mw4/clipping-2",
@@ -1674,14 +1812,14 @@
       "brand": "Call of Duty MW4",
       "board": "Content Rewards",
       "rate": 3,
-      "budgetLeft": 13351,
+      "budgetLeft": 13014,
       "alpha": 65,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": 31,
+      "days": 41,
       "minViews": 2000,
       "footage": "after-join",
       "sources": [],
@@ -1742,138 +1880,97 @@
       "pageUrl": "https://clippingalpha.com/campaigns/call-of-duty-mw4/clipping-2?via=mcp"
     },
     {
-      "ref": "taylor-swift/lainey-wilson-cma-awards",
-      "title": "Lainey Wilson, CMA Awards [CLIPPING]",
-      "brand": "Taylor Swift",
-      "board": "Clipster",
-      "rate": 2,
-      "budgetLeft": 1436,
-      "alpha": 79,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok"
-      ],
-      "days": 1,
-      "minViews": 1500,
-      "footage": "downloadable",
-      "sources": [
-        "https://next.frame.io/share/43727e1c-5845-4ac0-afc6-e129de7323a7/view/c3398392-0135-4a66-aab9-97e8f9ecb186",
-        "https://next.frame.io/share/43727e1c-5845-4ac0-afc6-e129de7323a7/view/ed12f53f-d701-4fb5-abcf-a8eb614b1518",
-        "https://next.frame.io/share/43727e1c-5845-4ac0-afc6-e129de7323a7/view/950f11ec-c16c-4972-97d5-c7bd04f2d308",
-        "https://next.frame.io/share/43727e1c-5845-4ac0-afc6-e129de7323a7/view/c6e2ef10-53e1-4056-9902-f9f8e5eebb7d",
-        "https://next.frame.io/share/43727e1c-5845-4ac0-afc6-e129de7323a7/view/1ee5c88d-0031-417c-961e-b0875ce03c82",
-        "https://next.frame.io/share/43727e1c-5845-4ac0-afc6-e129de7323a7/view/bde3c823-89a1-4601-a990-1387de4d054b",
-        "https://next.frame.io/share/43727e1c-5845-4ac0-afc6-e129de7323a7/view/b5d25f25-70c8-4194-9f55-74595b855f48",
-        "https://next.frame.io/share/43727e1c-5845-4ac0-afc6-e129de7323a7/view/c7d1e4c4-5685-4886-a757-078a4a5f903a",
-        "https://f.io/83JNIGy3",
-        "https://f.io/Hk3SSRaV"
-      ],
-      "account": "Off Mic",
-      "score": 89,
-      "why": [
-        "footage on frameio",
-        "pays from 1,500 views"
-      ],
-      "reject": [
-        "budget forecast to run out within 3 days"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "No sound ad allowed in caption or video",
-        "Keep clips over 5 seconds",
-        "Clip the priority performance before other CMA moments",
-        "On-screen text ideas are inspiration only, do not copy them",
-        "Put text on screen on every post",
-        "Post in English",
-        "Maximum 50 posts per account",
-        "Use only the brand's footage",
-        "No negativity about Lainey Wilson or the CMAs",
-        "Do not clip the ad reads",
-        "No outside footage",
-        "Post on TikTok and Instagram",
-        "Over 5 seconds",
-        "Negative portrayal",
-        "Brand footage only",
-        "TikTok",
-        "Instagram",
-        "English"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12544041?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/taylor-swift/lainey-wilson-cma-awards?via=mcp"
-    },
-    {
-      "ref": "honey-hunters-of-the-himalayas/doc",
-      "title": "Honey Hunters of the Himalayas, Doc Clips",
-      "brand": "Honey Hunters of the Himalayas",
+      "ref": "ikee-motola/clipping",
+      "title": "Ikee Motola Clipping",
+      "brand": "Ikee Motola",
       "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 1444,
-      "alpha": 69,
+      "rate": 2,
+      "budgetLeft": 2126,
+      "alpha": 61,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 9,
-      "minViews": 1000,
-      "footage": "youtube",
+      "days": 76,
+      "minViews": 1500,
+      "footage": "after-join",
       "sources": [],
-      "account": "ReplayRoom",
-      "score": 79,
+      "account": "Gaming",
+      "score": 66,
       "why": [
-        "pays from 1,000 views"
+        "footage shown after joining",
+        "pays from 1,500 views"
       ],
       "reject": [
-        "caption must push a link in bio",
-        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
-        "footage is YouTube only (cloud can't download it)"
+        "caption must push a link in bio"
       ],
       "tags": [
-        "@realmadhoney",
-        "#madhoney",
-        "#honeyhunters",
-        "#nepal",
-        "#cliffhoney",
-        "#himalayanhoney"
+        "@notikee"
       ],
       "disclosure": [],
       "rules": [
-        "Tag @realmadhoney in the caption",
-        "Add #madhoney, #honeyhunters and #nepal to the caption",
-        "Pin the comment \"Discount code CLIP15\"",
-        "Caption should be relevant, natural, curiosity-driven, not promotional",
-        "Write \"mad honey\" in the caption",
-        "Write \"Small amounts only. Not for everyone.\" in the caption",
-        "Put realmadhoney.com/clip in your bio",
-        "Keep clips 10 to 45 seconds",
-        "Submit clip analytics screen recording via support tab at 1,000 views",
-        "Submit a screenshot of the video as posted",
-        "Verify every factual statement before publishing",
-        "Use the words \"mad honey\"",
-        "Over 10 seconds",
-        "Captions on",
-        "@realmadhoney in the caption",
-        "#madhoney in the caption",
-        "#honeyhunters in the caption",
-        "#nepal in the caption",
-        "#cliffhoney in the caption",
-        "#himalayanhoney in the caption",
-        "A call to action",
-        "Campaign link in bio",
-        "Outside footage",
-        "Misleading claims",
-        "Bought views or bots",
-        "Reposts of other clips",
-        "Off topic content",
-        "Brand footage only",
-        "TikTok",
-        "Instagram"
+        "Tag @notikee in the caption",
+        "Use only the brand's footage",
+        "Put the campaign link in your bio",
+        "Made for creators in entertaining content, lifestyle and fragrance reviews",
+        "@notikee in the caption"
       ],
-      "joinUrl": "https://clippingalpha.com/go/192691?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/honey-hunters-of-the-himalayas/doc?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12015821?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/ikee-motola/clipping?via=mcp"
+    },
+    {
+      "ref": "fullcrate-jam/clipping",
+      "title": "FullCrate Jam Clipping",
+      "brand": "FullCrate Jam",
+      "board": "Content Rewards",
+      "rate": 1.5,
+      "budgetLeft": 1135,
+      "alpha": 75,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "days": 3,
+      "minViews": 2000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 65,
+      "why": [
+        "footage shown after joining",
+        "pays from 2,000 views"
+      ],
+      "reject": [
+        "budget forecast to run out within 3 days",
+        "pays only from 2,000 views (ours get ~700-1,100)"
+      ],
+      "tags": [
+        "@FullCrate",
+        "@FullCrateMusic",
+        "#FullCrate",
+        "#NewHomeSameHeart",
+        "#FullCrateJam"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Tag @FullCrate on Instagram",
+        "Tag @FullCrateMusic on TikTok",
+        "Add #FullCrate, #NewHomeSameHeart and #FullCrateJam to the caption",
+        "Spell album title New Home Same Heart, no comma",
+        "Keep clips over 10 seconds",
+        "Ask the team before posting if any asset or claim is unclear",
+        "Pick one focus per post: album or show",
+        "At least 40% of the audience in US",
+        "Any page size can join",
+        "Views count from US",
+        "Post in English",
+        "Keep likes and comments on"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/9176934?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/fullcrate-jam/clipping?via=mcp"
     },
     {
       "ref": "call-of-duty-mw4/clipping-french",
@@ -1881,14 +1978,14 @@
       "brand": "Call of Duty MW4",
       "board": "Content Rewards",
       "rate": 3,
-      "budgetLeft": 7456,
+      "budgetLeft": 7282,
       "alpha": 63,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": 40,
+      "days": 45,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
@@ -1944,96 +2041,184 @@
       "pageUrl": "https://clippingalpha.com/campaigns/call-of-duty-mw4/clipping-french?via=mcp"
     },
     {
-      "ref": "betworld/clipping",
-      "title": "Betworld [CLIPPING]",
-      "brand": "Betworld",
-      "board": "Clipster",
-      "rate": 1.75,
-      "budgetLeft": 4759,
-      "alpha": 79,
+      "ref": "pranos-inc-hologlass/clipping",
+      "title": "Pranos Inc. Hologlass (Digital Car Windows)'s Campaign",
+      "brand": "Pranos Inc. Hologlass",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 409,
+      "alpha": 65,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 38,
-      "minViews": 1000,
+      "days": 48,
+      "minViews": 5000,
       "footage": "after-join",
       "sources": [],
-      "account": "ReplayRoom",
-      "score": 84,
+      "account": "Gaming",
+      "score": 65,
       "why": [
-        "footage shown after joining",
-        "pays from 1,000 views"
+        "footage shown after joining"
       ],
       "reject": [
-        "not film/TV (ReplayRoom is a film & TV page)"
+        "pays only from 5,000 views (ours get ~700-1,100)"
       ],
       "tags": [],
       "disclosure": [],
       "rules": [
-        "Keep clips over 10 seconds",
-        "Add custom positive on-screen text",
-        "Posts must be video format",
-        "Max 50 posts per account per day",
-        "Max earnings per creator 3000",
+        "5,000 views before payout",
         "Use only the brand's footage",
-        "No low effort reuploads",
-        "Over 10 seconds",
-        "Low effort reuploads",
-        "Brand footage only"
+        "Add captions to every clip",
+        "Post on TikTok, Instagram and YouTube",
+        "Captions on",
+        "Brand footage only",
+        "TikTok",
+        "Instagram",
+        "YouTube"
       ],
-      "joinUrl": "https://clippingalpha.com/go/12543974?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/betworld/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/192357?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/pranos-inc-hologlass/clipping?via=mcp"
     },
     {
-      "ref": "monday-haircare-gifting-guides/clipping",
-      "title": "MONDAY Haircare Gifting Guides Clipping",
-      "brand": "MONDAY Haircare Gifting Guides",
+      "ref": "verttv/squatter-hunter-series",
+      "title": "The Squatter Hunter, New vertTV Series",
+      "brand": "VertTV",
       "board": "Content Rewards",
-      "rate": 3,
-      "budgetLeft": 4206,
-      "alpha": 94,
-      "tier": "alpha",
+      "rate": 1.25,
+      "budgetLeft": 456,
+      "alpha": 74,
+      "tier": "solid",
       "platforms": [
         "instagram",
-        "tiktok"
+        "tiktok",
+        "youtube"
       ],
-      "days": 15,
+      "days": 13,
+      "minViews": 800,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 79,
+      "why": [
+        "footage shown after joining",
+        "pays from 800 views"
+      ],
+      "reject": [
+        "caption must push a link in bio"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Put the campaign link in your bio",
+        "Post on TikTok, Instagram, YouTube and Facebook",
+        "Made for creators in drama, movie/TV clip and storytime"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12543841?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/verttv/squatter-hunter-series?via=mcp"
+    },
+    {
+      "ref": "hebrew-hammer/clipping",
+      "title": "The Hebrew Hammer [CLIPPING]",
+      "brand": "Hebrew Hammer",
+      "board": "Clipster",
+      "rate": 1.5,
+      "budgetLeft": 3997,
+      "alpha": 70,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
+      "minViews": 2000,
+      "footage": "downloadable",
+      "sources": [
+        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/3d0d7cd6-32bb-4bdc-b963-caef246cef21",
+        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/b15f66fc-b713-4b02-99cd-412c19938409",
+        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/4d6ce1b4-74f4-44ed-99f1-5f7cc60ec388",
+        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/e2810586-8abc-40e7-bfcd-9dd4afff9b90",
+        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/01bf8c11-0eae-4917-8237-9e8d4df20aaf",
+        "https://next.frame.io/share/b5f65fca-1b7a-440b-8fab-72a382af66fc/view/2da7b2d4-326e-497a-b553-85e27cc5ea4b",
+        "https://f.io/wsE2cMXA"
+      ],
+      "account": "ReplayRoom",
+      "score": 95,
+      "why": [
+        "footage on frameio",
+        "pays from 2,000 views"
+      ],
+      "reject": [
+        "pays only from 2,000 views (ours get ~700-1,100)"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Keep clips over 9 seconds",
+        "Earnings capped at 2000 per creator",
+        "Max 25 posts per account per day",
+        "Max 50 posts per account total",
+        "Use only the brand's footage",
+        "No negative portrayal",
+        "Over 9 seconds",
+        "Negative portrayal",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12544065?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/hebrew-hammer/clipping?via=mcp"
+    },
+    {
+      "ref": "sideline-3/endgame",
+      "title": "Sideline 3, Endgame",
+      "brand": "Sideline 3",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 2997,
+      "alpha": 67,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": null,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 94,
+      "score": 72,
       "why": [
         "footage shown after joining",
         "pays from 1,000 views"
       ],
       "reject": [
-        "not film/TV (ReplayRoom is a film & TV page)"
+        "bans AI clipping/editing tools",
+        "bans AI-generated content"
       ],
       "tags": [
-        "@mondayhaircare",
-        "#mondayhaircare"
+        "@tubi",
+        "#tubipartner"
       ],
       "disclosure": [],
       "rules": [
-        "Tag @mondayhaircare on TikTok",
-        "Add #mondayhaircare to the caption",
-        "Soft CTA must present Monday Haircare as your favorite recommendation",
-        "Under 1k TikTok followers: recommend Monday as buyable on Amazon on TikTok",
-        "Credit outside creators by tagging them in your post",
-        "Keep slideshows at 8 slides or fewer",
-        "Audience must be women",
-        "At least 30% of the audience in US",
-        "New pages can join",
-        "No pages with gore, pornographic/OF (OnlyFans-style) content and violent content",
-        "Accounts need 10,000 followers",
-        "Views count from US"
+        "Tag @tubi in the caption",
+        "Add #tubipartner to the caption",
+        "Caption should be creative but relevant to the clip",
+        "Write \"Sidelined 3: End Game\" in the caption",
+        "Keep hooks and captions relevant to the film",
+        "Use only the brand's footage",
+        "No AI generated visuals",
+        "No negative portrayal",
+        "Add captions to every clip",
+        "Post on TikTok, Instagram and YouTube",
+        "Pick an engaging moment from the approved trailer",
+        "Edit the clip to stay engaging and highlight the strongest moments"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11814044?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/monday-haircare-gifting-guides/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12544085?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/sideline-3/endgame?via=mcp"
     },
     {
       "ref": "concessions-movie/clipping",
@@ -2041,20 +2226,20 @@
       "brand": "Concessions Movie",
       "board": "Content Rewards",
       "rate": 1.25,
-      "budgetLeft": 1878,
-      "alpha": 69,
+      "budgetLeft": 1831,
+      "alpha": 68,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 32,
+      "days": 40,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 74,
+      "score": 73,
       "why": [
         "footage shown after joining",
         "pays from 1,000 views"
@@ -2096,253 +2281,173 @@
       "pageUrl": "https://clippingalpha.com/campaigns/concessions-movie/clipping?via=mcp"
     },
     {
-      "ref": "roblox-app/clipping",
-      "title": "Roblox App Clipping",
-      "brand": "Roblox App",
+      "ref": "youngla/black-friday-bodybuilders-vs-models",
+      "title": "YoungLA Black Friday \"Bodybuilders vs Models\"",
+      "brand": "YoungLA",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 930,
-      "alpha": 61,
+      "budgetLeft": 1525,
+      "alpha": 63,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 12,
-      "minViews": 1300,
-      "footage": "youtube",
+      "days": 7,
+      "minViews": 1500,
+      "footage": "after-join",
       "sources": [],
-      "account": "Gaming",
-      "score": 71,
-      "why": [
-        "pays from 1,300 views"
-      ],
-      "reject": [
-        "needs a dedicated page for this brand",
-        "brand logo/banner must stay on screen",
-        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
-        "footage is YouTube only (cloud can't download it)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Every caption must naturally mention Superbullet AI",
-        "Pin a comment mentioning Superbullet AI if possible",
-        "Put superbullet.ai in your bio",
-        "Keep clips over 10 seconds",
-        "Put 'Use SuperBullet AI' in the account bio",
-        "Overlay the Superbullet AI chat where the matching feature is prompted",
-        "Sort drive footage by date and use the latest clips",
-        "New pages can join",
-        "No pages with obvious spam accounts",
-        "Post in English",
-        "Post from a dedicated page",
-        "No paid promotion or boosts",
-        "Vertical 9:16",
-        "Captions on",
-        "Brand logo on screen",
-        "A call to action",
-        "Bought views or bots",
-        "Bought views or bots",
-        "Low effort reuploads",
-        "Reposts of other clips",
-        "Brand footage only",
-        "TikTok",
-        "YouTube",
-        "Instagram",
-        "English",
-        "US",
-        "CA",
-        "UK",
-        "AU",
-        "NZ"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/1111229?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/roblox-app/clipping?via=mcp"
-    },
-    {
-      "ref": "mystake/clipping",
-      "title": "MyStake Reposting Campaign (Trump Skydiving)",
-      "brand": "MyStake",
-      "board": "Clipstake",
-      "rate": 3,
-      "budgetLeft": 4973,
-      "alpha": 78,
-      "tier": "solid",
-      "platforms": [
-        "instagram"
-      ],
-      "days": null,
-      "minViews": 1000,
-      "footage": "downloadable",
-      "sources": [
-        "https://drive.google.com/file/d/1Of0FFkApSL2sngW5yrNkgKNvvCcNMkKN/view",
-        "https://drive.google.com/drive/folders/11oL3M_1mUspcruDJBk0v_X7UCzONW8YT"
-      ],
       "account": "ReplayRoom",
-      "score": 98,
+      "score": 58,
       "why": [
-        "footage on drive",
-        "pays from 1,000 views"
+        "footage shown after joining",
+        "pays from 1,500 views"
       ],
       "reject": [
-        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
-        "only instagram platforms",
         "not film/TV (ReplayRoom is a film & TV page)"
       ],
       "tags": [],
       "disclosure": [],
       "rules": [
-        "Copy and hashtags are optional, not required",
-        "Accounts need 1,000 followers",
-        "Repost the brand's clips as they are, with no editing",
+        "Write your own caption, keep it on topic and fun",
+        "Captions must be funny, organic and relevant to the clip",
+        "Minimum payout is $1.50 per clip on Instagram and TikTok",
+        "Minimum payout is $2.00 per clip on YouTube",
+        "Open a Whop or Discord support ticket for approval",
+        "At least 40% of the audience in US, UK, CA and AU",
+        "Audience proof: analytics and demographics submitted once clip hits minimum payout",
+        "Views count from US, UK, CA and AU",
+        "Keep post up at least 30 days",
+        "No posting the same video across many pages",
         "Use only the brand's footage",
-        "No reposts of other clips",
-        "Post on Instagram",
-        "Reposts of other clips",
-        "Brand footage only",
-        "Instagram",
-        "AE",
-        "AL",
-        "AR",
-        "AT",
-        "AU",
-        "BA",
-        "BE",
-        "BG",
-        "BH",
-        "BR",
-        "BY",
-        "CA",
-        "CH",
-        "CL",
-        "CO",
-        "CR",
-        "CY",
-        "CZ",
-        "DE",
-        "DK",
-        "EC"
+        "No nudity or sexual content",
+        "Brand footage only"
       ],
-      "joinUrl": "https://clippingalpha.com/go/12544037?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/mystake/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12543999?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/youngla/black-friday-bodybuilders-vs-models?via=mcp"
     },
     {
-      "ref": "lucas/clipping",
-      "title": "Lucas Clipping Cycle 2",
-      "brand": "Lucas",
+      "ref": "lany/stuck",
+      "title": "LANY, 'Stuck'",
+      "brand": "LANY",
       "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 2810,
-      "alpha": 66,
-      "tier": "solid",
+      "rate": 1.5,
+      "budgetLeft": 830,
+      "alpha": 91,
+      "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 27,
-      "minViews": 5000,
+      "days": 5,
+      "minViews": 2000,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 66,
+      "score": 86,
       "why": [
-        "footage shown after joining"
+        "footage shown after joining",
+        "pays from 2,000 views"
       ],
       "reject": [
-        "needs a dedicated page for this brand",
-        "caption must push a link in bio",
-        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
-        "pays only from 5,000 views (ours get ~700-1,100)"
+        "pays only from 2,000 views (ours get ~700-1,100)",
+        "not film/TV (ReplayRoom is a film & TV page)"
       ],
-      "tags": [],
+      "tags": [
+        "#lany"
+      ],
       "disclosure": [],
       "rules": [
-        "CTA goes in the description only, never inside the video itself",
-        "Vary the CTA wording on every clip to avoid TikTok spam flag",
-        "Put lucasbusiness.com/newsclip2 in your bio",
-        "Keep clips over 15 seconds",
-        "Pick a handle in Lucas's image, like lucasonly.clip or lucasonly.daily",
-        "Profile photo: screenshot of one of his videos, not all the same",
-        "Set the tracked link once and never change it",
-        "Post from a dedicated page",
-        "Post daily at midday and evening peak hours, max one clip per hour, never all at once",
-        "Repost the TikTok clip on Instagram and YouTube Shorts for extra views",
+        "Add #lany to the caption",
+        "Keep clips over 8 seconds",
+        "Use one approved on-screen line, covering original video text",
+        "On-screen text must fully cover the video's original text",
+        "2,000 views before payout",
+        "Post in English",
+        "Post each clip once per platform",
+        "Keep likes and comments ON",
+        "No spam posting, story boosts, paid boosts or collab posts",
         "Use only the brand's footage",
-        "Block comments that harm Lucas's image using keyword filters",
-        "Over 15 seconds",
-        "Vertical 9:16",
-        "Captions on",
-        "A call to action",
-        "Campaign link in bio",
-        "Bought views or bots",
-        "Reposts of other clips",
-        "Negative portrayal",
-        "Low effort reuploads",
-        "Profanity",
-        "The creator's channels",
-        "TikTok",
-        "Instagram",
-        "YouTube",
-        "A dedicated page"
+        "No misleading claims",
+        "No nudity or sexual content",
+        "Brand footage only"
       ],
-      "joinUrl": "https://clippingalpha.com/go/192487?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/lucas/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/11474723?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/lany/stuck?via=mcp"
     },
     {
-      "ref": "boxabl/deranged-ai",
-      "title": "BOXABL “The Deranged AI”",
-      "brand": "Boxabl",
+      "ref": "honey-hunters-of-the-himalayas/doc",
+      "title": "Honey Hunters of the Himalayas, Doc Clips",
+      "brand": "Honey Hunters of the Himalayas",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 79972,
-      "alpha": 72,
+      "budgetLeft": 1470,
+      "alpha": 67,
       "tier": "solid",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": null,
+      "days": 13,
       "minViews": 1000,
-      "footage": "after-join",
+      "footage": "youtube",
       "sources": [],
       "account": "ReplayRoom",
       "score": 77,
       "why": [
-        "footage shown after joining",
         "pays from 1,000 views"
       ],
       "reject": [
-        "needs you to film your own footage (UGC)",
-        "not film/TV (ReplayRoom is a film & TV page)"
+        "caption must push a link in bio",
+        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
+        "footage is YouTube only (cloud can't download it)"
       ],
       "tags": [
-        "@boxabl"
+        "@realmadhoney",
+        "#madhoney",
+        "#honeyhunters",
+        "#nepal",
+        "#cliffhoney",
+        "#himalayanhoney"
       ],
-      "disclosure": [
-        "Turn on the paid partnership label"
-      ],
+      "disclosure": [],
       "rules": [
-        "Tag @boxabl on TikTok, Instagram, YouTube, X and Facebook",
-        "Write the caption like a meme page",
-        "Hashtags are the clipper's choice",
-        "Write \"BOXABL\" in the caption",
-        "Turn on the paid partnership label",
-        "Keep clips 7 to 30 seconds",
-        "Minimum payout $1 on IG+TT, $2 on YT+FB+X",
-        "Likes must stay public",
-        "At least 40% of the audience in US, UK, CA and AU",
-        "Audience proof: Video demographics checked in your video demographics",
-        "Any page size can join",
-        "Views count from US, UK, CA and AU",
-        "Negative portrayal",
-        "Your own footage"
+        "Tag @realmadhoney in the caption",
+        "Add #madhoney, #honeyhunters and #nepal to the caption",
+        "Pin the comment \"Discount code CLIP15\"",
+        "Caption should be relevant, natural, curiosity-driven, not promotional",
+        "Write \"mad honey\" in the caption",
+        "Write \"Small amounts only. Not for everyone.\" in the caption",
+        "Put realmadhoney.com/clip in your bio",
+        "Keep clips 10 to 45 seconds",
+        "Submit clip analytics screen recording via support tab at 1,000 views",
+        "Submit a screenshot of the video as posted",
+        "Verify every factual statement before publishing",
+        "Use the words \"mad honey\"",
+        "Over 10 seconds",
+        "Captions on",
+        "@realmadhoney in the caption",
+        "#madhoney in the caption",
+        "#honeyhunters in the caption",
+        "#nepal in the caption",
+        "#cliffhoney in the caption",
+        "#himalayanhoney in the caption",
+        "A call to action",
+        "Campaign link in bio",
+        "Outside footage",
+        "Misleading claims",
+        "Bought views or bots",
+        "Reposts of other clips",
+        "Off topic content",
+        "Brand footage only",
+        "TikTok",
+        "Instagram"
       ],
-      "joinUrl": "https://clippingalpha.com/go/12543929?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/boxabl/deranged-ai?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/192691?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/honey-hunters-of-the-himalayas/doc?via=mcp"
     },
     {
       "ref": "laila/updated",
@@ -2350,14 +2455,14 @@
       "brand": "Laila!",
       "board": "Clipster",
       "rate": 1.5,
-      "budgetLeft": 1308,
+      "budgetLeft": 1296,
       "alpha": 89,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok"
       ],
-      "days": 45,
+      "days": 44,
       "minViews": 2000,
       "footage": "downloadable",
       "sources": [
@@ -2409,121 +2514,184 @@
       "pageUrl": "https://clippingalpha.com/campaigns/laila/updated?via=mcp"
     },
     {
-      "ref": "verttv/squatter-hunter-series",
-      "title": "The Squatter Hunter, New vertTV Series",
-      "brand": "VertTV",
-      "board": "Content Rewards",
-      "rate": 1.25,
-      "budgetLeft": 463,
-      "alpha": 64,
-      "tier": "solid",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 2,
-      "minViews": 800,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 59,
-      "why": [
-        "footage shown after joining",
-        "pays from 800 views"
-      ],
-      "reject": [
-        "caption must push a link in bio",
-        "budget forecast to run out within 3 days"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Put the campaign link in your bio",
-        "Post on TikTok, Instagram, YouTube and Facebook",
-        "Made for creators in drama, movie/TV clip and storytime"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12543841?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/verttv/squatter-hunter-series?via=mcp"
-    },
-    {
-      "ref": "booty-king/high-volume",
-      "title": "Booty King, High Volume",
-      "brand": "Booty King",
-      "board": "Content Rewards",
+      "ref": "wiz-khalifa/cool",
+      "title": "Wiz Khalifa, Cool [CLIPPING]",
+      "brand": "Wiz Khalifa",
+      "board": "Clipster",
       "rate": 2,
-      "budgetLeft": 991,
+      "budgetLeft": 3007,
       "alpha": 89,
       "tier": "alpha",
       "platforms": [
         "instagram",
-        "tiktok"
-      ],
-      "days": null,
-      "minViews": 2500,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Gaming",
-      "score": 89,
-      "why": [
-        "footage shown after joining",
-        "pays from 2,500 views"
-      ],
-      "reject": [
-        "pays only from 2,500 views (ours get ~700-1,100)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Edit each supplied clip with different text hooks",
-        "Re-edit each clip up to 5 different ways",
-        "Text hooks must have potential to get many views",
-        "Use only the brand's footage",
-        "Made for creators in streamer clips",
-        "Brand footage only"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12543904?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/booty-king/high-volume?via=mcp"
-    },
-    {
-      "ref": "oz-ali/clipping",
-      "title": "Oz Ali Clipping, YouTube & TikTok",
-      "brand": "Oz Ali",
-      "board": "Content Rewards",
-      "rate": 2,
-      "budgetLeft": 166,
-      "alpha": 62,
-      "tier": "solid",
-      "platforms": [
         "tiktok",
         "youtube"
       ],
-      "days": 4,
-      "minViews": 1000,
-      "footage": "after-join",
-      "sources": [],
+      "days": 8,
+      "minViews": 2000,
+      "footage": "downloadable",
+      "sources": [
+        "https://www.dropbox.com/scl/fi/wc9a34g6pcbh20xqihxje/cool-doc-11.13-4pm-edit.mov?rlkey=kz6em7tdny19sxfw62aizyfqy",
+        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/AJ29BJCObSNx5xH53-jHmso/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%282%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
+        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/ALCJfgnZJXXA76WiuuugcwA/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%289%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
+        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/ALdRa6nl40Lr5WcDDEfX2GU/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%283%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
+        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/AOmxk7H3GnSMD0PIB2kmzws/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%284%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
+        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/ANGdfSvQzo6FV8dMRDURQHA/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%286%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
+        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/ACvZ6-fTIelPbT-CgiixYb4/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%285%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
+        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/AMaIU-63BOUL2y1bOnUkC0M/Video%20Nov%2012%202026%2C%2010%2050%2019%20PM%20%281%29.mp4?rlkey=rfg00ch0z6xeaumu334r19yuz",
+        "https://www.dropbox.com/scl/fo/5f8e37nhgxvwyooyevmgh/AIZl26_MtPVFhEWakOVCbPc?rlkey=rfg00ch0z6xeaumu334r19yuz"
+      ],
       "account": "ReplayRoom",
-      "score": 52,
+      "score": 124,
       "why": [
-        "footage shown after joining",
-        "pays from 1,000 views"
+        "footage on dropbox",
+        "pays from 2,000 views",
+        "long-form source: our clips are our own picks"
       ],
       "reject": [
-        "under $300 of budget left"
+        "pays only from 2,000 views (ours get ~700-1,100)",
+        "not film/TV (ReplayRoom is a film & TV page)"
       ],
       "tags": [],
       "disclosure": [],
       "rules": [
-        "Clip from the creator's channels",
-        "Post on TikTok, Instagram and YouTube",
-        "Made for creators in personal brand",
+        "Focus every on-screen text and caption on Wiz Khalifa",
+        "Rephrase the given text-on-screen lines to fit your content",
+        "Put text on screen on every post",
+        "All text-on-screen prompts must be positive about the artist",
+        "Accounts need 1,000 followers",
+        "Post in English",
+        "Maximum 50 posts per account in total",
+        "Maximum 50 posts per account per day",
+        "Use only the brand's footage",
+        "No outside footage",
+        "No negative portrayal",
+        "Clip the Twitch stream from the provided Dropbox or Box files",
+        "Negative portrayal",
+        "Outside footage",
+        "Brand footage only",
+        "English",
+        "1,000 followers or more"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12543933?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/wiz-khalifa/cool?via=mcp"
+    },
+    {
+      "ref": "lucas/clipping",
+      "title": "Lucas Clipping Cycle 2",
+      "brand": "Lucas",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 2766,
+      "alpha": 66,
+      "tier": "solid",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 29,
+      "minViews": 5000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 66,
+      "why": [
+        "footage shown after joining"
+      ],
+      "reject": [
+        "needs a dedicated page for this brand",
+        "caption must push a link in bio",
+        "supplies ready-made edits to repost (TikTok marks them unoriginal and stops recommending them)",
+        "pays only from 5,000 views (ours get ~700-1,100)"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "CTA goes in the description only, never inside the video itself",
+        "Vary the CTA wording on every clip to avoid TikTok spam flag",
+        "Put lucasbusiness.com/newsclip2 in your bio",
+        "Keep clips over 15 seconds",
+        "Pick a handle in Lucas's image, like lucasonly.clip or lucasonly.daily",
+        "Profile photo: screenshot of one of his videos, not all the same",
+        "Set the tracked link once and never change it",
+        "Post from a dedicated page",
+        "Post daily at midday and evening peak hours, max one clip per hour, never all at once",
+        "Repost the TikTok clip on Instagram and YouTube Shorts for extra views",
+        "Use only the brand's footage",
+        "Block comments that harm Lucas's image using keyword filters",
+        "Over 15 seconds",
+        "Vertical 9:16",
+        "Captions on",
+        "A call to action",
+        "Campaign link in bio",
+        "Bought views or bots",
+        "Reposts of other clips",
+        "Negative portrayal",
+        "Low effort reuploads",
+        "Profanity",
         "The creator's channels",
         "TikTok",
         "Instagram",
-        "YouTube"
+        "YouTube",
+        "A dedicated page"
       ],
-      "joinUrl": "https://clippingalpha.com/go/3363145?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/oz-ali/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/192487?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/lucas/clipping?via=mcp"
+    },
+    {
+      "ref": "loaded-tea-shop/clipping-3",
+      "title": "The Loaded Tea Shop (COP)",
+      "brand": "Loaded Tea Shop",
+      "board": "Content Rewards",
+      "rate": 1,
+      "budgetLeft": 45088,
+      "alpha": 89,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube"
+      ],
+      "days": 51,
+      "minViews": 2000,
+      "footage": "after-join",
+      "sources": [],
+      "account": "ReplayRoom",
+      "score": 94,
+      "why": [
+        "footage shown after joining",
+        "pays from 2,000 views"
+      ],
+      "reject": [
+        "brand logo/banner must stay on screen",
+        "pays only from 2,000 views (ours get ~700-1,100)",
+        "not film/TV (ReplayRoom is a film & TV page)"
+      ],
+      "tags": [
+        "#TheLoadedTeaShop",
+        "@theogloaded"
+      ],
+      "disclosure": [],
+      "rules": [
+        "Add #TheLoadedTeaShop to the caption",
+        "Caption must be relevant to the clip and in English only",
+        "On Instagram, tag @theogloaded tea as the first word of the caption on Instagram",
+        "Minimum payout threshold is $2.00",
+        "Watermark must be transparent, clearly visible, and not cut off",
+        "Use the correct watermark file for this brief",
+        "At least 40% of the audience in US, UK, CA and AU",
+        "Any page size can join",
+        "No pages with NSFW videos, violent videos and off-topic videos",
+        "Views count from US, UK, CA and AU",
+        "Post in English",
+        "No posting the same video on many pages",
+        "Brand logo on screen",
+        "Outside footage",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/11426926?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/loaded-tea-shop/clipping-3?via=mcp"
     },
     {
       "ref": "jo-koy/blue-in-the-face",
@@ -2531,18 +2699,18 @@
       "brand": "Jo Koy",
       "board": "Content Rewards",
       "rate": 3,
-      "budgetLeft": 13662,
-      "alpha": 89,
+      "budgetLeft": 12445,
+      "alpha": 88,
       "tier": "alpha",
       "platforms": [
         "instagram"
       ],
-      "days": 17,
+      "days": 11,
       "minViews": 833,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 89,
+      "score": 88,
       "why": [
         "footage shown after joining",
         "pays from 833 views"
@@ -2571,25 +2739,64 @@
       "pageUrl": "https://clippingalpha.com/campaigns/jo-koy/blue-in-the-face?via=mcp"
     },
     {
+      "ref": "booty-king/high-volume",
+      "title": "Booty King, High Volume",
+      "brand": "Booty King",
+      "board": "Content Rewards",
+      "rate": 2,
+      "budgetLeft": 990,
+      "alpha": 88,
+      "tier": "alpha",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "days": null,
+      "minViews": 2500,
+      "footage": "after-join",
+      "sources": [],
+      "account": "Gaming",
+      "score": 88,
+      "why": [
+        "footage shown after joining",
+        "pays from 2,500 views"
+      ],
+      "reject": [
+        "pays only from 2,500 views (ours get ~700-1,100)"
+      ],
+      "tags": [],
+      "disclosure": [],
+      "rules": [
+        "Edit each supplied clip with different text hooks",
+        "Re-edit each clip up to 5 different ways",
+        "Text hooks must have potential to get many views",
+        "Use only the brand's footage",
+        "Made for creators in streamer clips",
+        "Brand footage only"
+      ],
+      "joinUrl": "https://clippingalpha.com/go/12543904?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/booty-king/high-volume?via=mcp"
+    },
+    {
       "ref": "let-him-mansplain-podcast/clipping",
       "title": "Let Him Mansplain Podcast Clipping",
       "brand": "Let Him Mansplain Podcast",
       "board": "Content Rewards",
       "rate": 1,
-      "budgetLeft": 6758,
-      "alpha": 87,
+      "budgetLeft": 6674,
+      "alpha": 88,
       "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": 36,
+      "days": 48,
       "minViews": 5000,
       "footage": "after-join",
       "sources": [],
       "account": "Off Mic",
-      "score": 97,
+      "score": 98,
       "why": [
         "footage shown after joining",
         "long-form source: our clips are our own picks"
@@ -2609,258 +2816,49 @@
       "pageUrl": "https://clippingalpha.com/campaigns/let-him-mansplain-podcast/clipping?via=mcp"
     },
     {
-      "ref": "sideline-3/endgame",
-      "title": "Sideline 3, Endgame",
-      "brand": "Sideline 3",
-      "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 3000,
-      "alpha": 63,
-      "tier": "solid",
+      "ref": "betworld/clipping",
+      "title": "Betworld [CLIPPING]",
+      "brand": "Betworld",
+      "board": "Clipster",
+      "rate": 1.75,
+      "budgetLeft": 2691,
+      "alpha": 86,
+      "tier": "alpha",
       "platforms": [
         "instagram",
         "tiktok",
         "youtube"
       ],
-      "days": null,
+      "days": 3,
       "minViews": 1000,
       "footage": "after-join",
       "sources": [],
       "account": "ReplayRoom",
-      "score": 68,
+      "score": 81,
       "why": [
         "footage shown after joining",
         "pays from 1,000 views"
       ],
       "reject": [
-        "bans AI clipping/editing tools",
-        "bans AI-generated content"
+        "budget forecast to run out within 3 days",
+        "not film/TV (ReplayRoom is a film & TV page)"
       ],
-      "tags": [
-        "@tubi",
-        "#tubipartner"
-      ],
+      "tags": [],
       "disclosure": [],
       "rules": [
-        "Tag @tubi in the caption",
-        "Add #tubipartner to the caption",
-        "Caption should be creative but relevant to the clip",
-        "Write \"Sidelined 3: End Game\" in the caption",
-        "Keep hooks and captions relevant to the film",
+        "Keep clips over 10 seconds",
+        "Add custom positive on-screen text",
+        "Posts must be video format",
+        "Max 50 posts per account per day",
+        "Max earnings per creator 3000",
         "Use only the brand's footage",
-        "No AI generated visuals",
-        "No negative portrayal",
-        "Add captions to every clip",
-        "Post on TikTok, Instagram and YouTube",
-        "Pick an engaging moment from the approved trailer",
-        "Edit the clip to stay engaging and highlight the strongest moments"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12544085?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/sideline-3/endgame?via=mcp"
-    },
-    {
-      "ref": "loaded-tea-shop/clipping-2",
-      "title": "The Loaded Tea Shop (MICHAEL JACKSON)",
-      "brand": "Loaded Tea Shop",
-      "board": "Content Rewards",
-      "rate": 1,
-      "budgetLeft": 46270,
-      "alpha": 84,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": null,
-      "minViews": 2000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Off Mic",
-      "score": 89,
-      "why": [
-        "footage shown after joining",
-        "pays from 2,000 views"
-      ],
-      "reject": [
-        "brand logo/banner must stay on screen",
-        "pays only from 2,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [
-        "#TheLoadedTeaShop",
-        "@tag"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Add #TheLoadedTeaShop to the caption",
-        "Caption must be relevant to what happens in the clip, English only",
-        "Instagram @tag must be the first word of the caption on Instagram",
-        "Submit post link on Whop and video demographics at payout threshold",
-        "At least 40% of the audience in US, UK, CA and AU",
-        "Any page size can join",
-        "Views count from US, UK, CA and AU",
-        "Post in English",
-        "Keep posts up at least 30 days",
-        "No posting the same video on many pages",
-        "Use only the brand's footage",
-        "No nudity or sexual content",
-        "Brand logo on screen",
+        "No low effort reuploads",
+        "Over 10 seconds",
+        "Low effort reuploads",
         "Brand footage only"
       ],
-      "joinUrl": "https://clippingalpha.com/go/11426921?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/loaded-tea-shop/clipping-2?via=mcp"
-    },
-    {
-      "ref": "mr-eazi/moliy-comfort",
-      "title": "Mr Eazi x MOLIY, Comfort [CLIPPING]",
-      "brand": "Mr Eazi",
-      "board": "Clipster",
-      "rate": 1.5,
-      "budgetLeft": 838,
-      "alpha": 82,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 10,
-      "minViews": 2000,
-      "footage": "downloadable",
-      "sources": [
-        "https://next.frame.io/share/b44e898c-8072-44af-bace-371b330dbb38/view/b26906b9-dd97-4b1f-a3d2-c3e801d4fb6a",
-        "https://next.frame.io/share/b44e898c-8072-44af-bace-371b330dbb38/view/4710532e-3820-40fb-b8e0-727bb1ceda6a",
-        "https://next.frame.io/share/b44e898c-8072-44af-bace-371b330dbb38/view/e85a6e3c-713e-42c6-b1cb-eb6b85861019",
-        "https://next.frame.io/share/b44e898c-8072-44af-bace-371b330dbb38/view/15f174f2-1104-4939-81f6-cb4de41dbd19",
-        "https://next.frame.io/share/b44e898c-8072-44af-bace-371b330dbb38/view/af6512bd-5b46-486b-9047-1c48db625aee",
-        "https://next.frame.io/share/b44e898c-8072-44af-bace-371b330dbb38/view/1af6f40a-4528-4eca-88ea-deffde11aa65",
-        "https://next.frame.io/share/b44e898c-8072-44af-bace-371b330dbb38/view/bd91d518-b18a-43d2-b34a-5f849616d5dc",
-        "https://next.frame.io/share/b44e898c-8072-44af-bace-371b330dbb38/view/302edaa7-a960-44ac-b0dd-2c1bd3b87240",
-        "https://f.io/vUTDPGQu"
-      ],
-      "account": "ReplayRoom",
-      "score": 107,
-      "why": [
-        "footage on frameio",
-        "pays from 2,000 views"
-      ],
-      "reject": [
-        "music promo: needs film, anime or game footage we have no rights to",
-        "pays only from 2,000 views (ours get ~700-1,100)",
-        "not film/TV (ReplayRoom is a film & TV page)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [
-        "Keep clips 7 to 20 seconds",
-        "All on-screen text prompts must stay positive around the artist",
-        "Read the full brief in the linked Google document",
-        "Accounts need 1,000 followers",
-        "Post in English",
-        "Maximum 50 posts per account",
-        "No negativity around Mr Eazi and MOLIY in text or captions",
-        "No negative portrayal",
-        "Stay on the campaign topic",
-        "Post vertical 9:16 video",
-        "Add captions to every clip",
-        "Use the sound \"official “Comfort” sound on TikTok\"",
-        "Over 10 seconds",
-        "The named sound",
-        "Negative portrayal",
-        "Off topic content",
-        "Outside footage",
-        "Brand footage only",
-        "TikTok",
-        "Instagram",
-        "YouTube",
-        "English",
-        "1,000 followers or more"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/4868177?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/mr-eazi/moliy-comfort?via=mcp"
-    },
-    {
-      "ref": "harmon/clipping",
-      "title": "Harmon Campaign (Semi Dedicated Pages)",
-      "brand": "Harmon",
-      "board": "Content Rewards",
-      "rate": 1.5,
-      "budgetLeft": 964,
-      "alpha": 81,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 81,
-      "minViews": 1333,
-      "footage": "after-join",
-      "sources": [],
-      "account": "ReplayRoom",
-      "score": 86,
-      "why": [
-        "footage shown after joining",
-        "pays from 1,333 views"
-      ],
-      "reject": [
-        "needs a dedicated page for this brand",
-        "not film/TV (ReplayRoom is a film & TV page)"
-      ],
-      "tags": [
-        "@1xharmon",
-        "#1xharmon"
-      ],
-      "disclosure": [],
-      "rules": [
-        "Tag @1xharmon on Instagram",
-        "Add #1xharmon on Instagram",
-        "Keep clips over 10 seconds",
-        "Mention Harmon in the text hook",
-        "Bio must include the brand handle on each platform",
-        "Bio must carry a short meme-style line",
-        "No pages with corporate or managed look and promo team or official clips style",
-        "Post from a dedicated page",
-        "Never submit the same link twice",
-        "Post every clip on all required platforms",
-        "Use only the brand's footage",
-        "No bought views or bots"
-      ],
-      "joinUrl": "https://clippingalpha.com/go/12543837?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/harmon/clipping?via=mcp"
-    },
-    {
-      "ref": "olivier-kennedy/clipping",
-      "title": "Olivier Kennedy X ViralClips®",
-      "brand": "Olivier Kennedy",
-      "board": "Content Rewards",
-      "rate": 1.7,
-      "budgetLeft": 2022,
-      "alpha": 81,
-      "tier": "alpha",
-      "platforms": [
-        "instagram",
-        "tiktok",
-        "youtube"
-      ],
-      "days": 16,
-      "minViews": 2000,
-      "footage": "after-join",
-      "sources": [],
-      "account": "Off Mic",
-      "score": 86,
-      "why": [
-        "footage shown after joining",
-        "pays from 2,000 views"
-      ],
-      "reject": [
-        "pays only from 2,000 views (ours get ~700-1,100)"
-      ],
-      "tags": [],
-      "disclosure": [],
-      "rules": [],
-      "joinUrl": "https://clippingalpha.com/go/11967593?via=mcp",
-      "pageUrl": "https://clippingalpha.com/campaigns/olivier-kennedy/clipping?via=mcp"
+      "joinUrl": "https://clippingalpha.com/go/12543974?via=mcp",
+      "pageUrl": "https://clippingalpha.com/campaigns/betworld/clipping?via=mcp"
     }
   ]
 }

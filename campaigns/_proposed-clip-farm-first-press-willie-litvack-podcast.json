@@ -3,20 +3,20 @@
   "type": "creator",
   "enabled": false,
   "account": "Off Mic",
-  "_scout": "Proposed by the scout on 2026-11-20. Alpha 84, $1.5/1K, $11718 left, ~? days. Join first: https://clippingalpha.com/go/12261570?via=mcp",
+  "_scout": "Proposed by the scout on 2026-11-21. Alpha 82, $1.5/1K, $11697 left, ~? days. Join first: https://clippingalpha.com/go/12261570?via=mcp",
   "_rules": [
     "Tag @firstpress_povc on TikTok",
     "Tag @firstpress-povc on YouTube",
     "Tag @pressonventures on Instagram",
-    "Write your own short, clear English caption recapping what the clip teaches",
-    "No hype, no clickbait in the caption",
+    "Write your own short, clear recap relevant to the clip, in English only",
+    "Caption must say what the clip teaches",
     "Clip must teach one clear idea",
-    "Make clips that drive viewers to watch the full episodes",
+    "Submit your video on Whop",
+    "Open a Whop or Discord ticket for approval",
     "At least 40% of the audience in US, UK, CA and AU",
-    "1,500 views before payout",
+    "Audience proof: Submit video demographics once the clip hits min payout",
+    "1,000 views before payout",
     "Views count from US, UK, CA and AU",
-    "Post in English",
-    "Do not post the same video on many pages",
     "Brand footage only"
   ],
   "sources": [],
@@ -41,5 +41,5 @@
     "@pressonventures"
   ],
   "endsOn": null,
-  "postingNotes": "Payout from 1500 views"
+  "postingNotes": "Payout from 1000 views"
 }
