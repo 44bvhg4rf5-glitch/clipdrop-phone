@@ -1,0 +1,49 @@
+{
+  "name": "Blizzard (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Gaming",
+  "_scout": "Proposed by the scout on 2026-11-23. Alpha 62, $5/1K, $6105 left, ~23 days. Join first: https://clippingalpha.com/go/9215495?via=mcp",
+  "_rules": [
+    "Tag @WorldofWarcraftFR on YouTube",
+    "Add #Sponsorisé and #blizzardpartner to the caption",
+    "Disclosure hashtags on their own line, after the post text",
+    "Write \"#Sponsorisé\" in the caption",
+    "Write \"#blizzardpartner\" in the caption",
+    "Add #Sponsorisé or #blizzardpartner to every post",
+    "Keep clips over 10 seconds",
+    "Say the game is released, not coming soon",
+    "Audience in FR",
+    "Any page size can join",
+    "Views count from FR",
+    "Post in French",
+    "Brand footage only",
+    "TikTok",
+    "YouTube",
+    "FR"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [
+    "#Sponsoris",
+    "#blizzardpartner"
+  ],
+  "mentions": [
+    "@WorldofWarcraftFR"
+  ],
+  "endsOn": "2026-12-16",
+  "postingNotes": "Add #Sponsorisé or #blizzardpartner to every post · Payout from 200 views"
+}
