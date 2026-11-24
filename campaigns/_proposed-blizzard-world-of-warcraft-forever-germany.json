@@ -1,0 +1,52 @@
+{
+  "name": "Blizzard (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Gaming",
+  "_scout": "Proposed by the scout on 2026-11-24. Alpha 68, $5/1K, $5759 left, ~14 days. Join first: https://clippingalpha.com/go/9215502?via=mcp",
+  "_rules": [
+    "Tag @blizzard_de on TikTok",
+    "Tag @WorldofWarcraftDE on YouTube",
+    "Add #werbung and #blizzardpartner to the caption",
+    "Disclosure hashtags on their own line after post text",
+    "Up to 3 extra hashtags allowed, must relate to content",
+    "Add #werbung or #blizzardpartner to every post",
+    "Keep clips over 10 seconds",
+    "Say the game is released, not coming soon",
+    "Never label non-gameplay footage as gameplay",
+    "Direct questions to Clipping Culture team, not Blizzard",
+    "Audience in DE, AT and CH",
+    "Any page size can join",
+    "Brand footage only",
+    "TikTok",
+    "YouTube",
+    "AT",
+    "CH",
+    "DE"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [
+    "#werbung",
+    "#blizzardpartner"
+  ],
+  "mentions": [
+    "@blizzard_de",
+    "@WorldofWarcraftDE"
+  ],
+  "endsOn": "2026-12-08",
+  "postingNotes": "Add #werbung or #blizzardpartner to every post · Payout from 200 views"
+}
