@@ -1,0 +1,45 @@
+{
+  "name": "Clip Farm (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "Off Mic",
+  "_scout": "Proposed by the scout on 2026-11-25. Alpha 88, $1.5/1K, $10687 left, ~33 days. Join first: https://clippingalpha.com/go/12261570?via=mcp",
+  "_rules": [
+    "Tag @firstpress_povc on TikTok",
+    "Tag @firstpress-povc on YouTube",
+    "Tag @pressonventures on Instagram",
+    "Write your own short, clear recap relevant to the clip, in English only",
+    "Caption must say what the clip teaches",
+    "Clip must teach one clear idea",
+    "Submit your video on Whop",
+    "Open a Whop or Discord ticket for approval",
+    "At least 40% of the audience in US, UK, CA and AU",
+    "Audience proof: Submit video demographics once the clip hits min payout",
+    "1,000 views before payout",
+    "Views count from US, UK, CA and AU",
+    "Brand footage only"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [
+    "@firstpress_povc",
+    "@firstpress",
+    "@pressonventures"
+  ],
+  "endsOn": "2026-12-28",
+  "postingNotes": "Payout from 1000 views"
+}
