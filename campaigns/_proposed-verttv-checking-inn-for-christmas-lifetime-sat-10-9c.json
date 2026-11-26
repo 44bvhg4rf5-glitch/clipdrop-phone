@@ -1,0 +1,34 @@
+{
+  "name": "VertTV (Content Rewards)",
+  "type": "creator",
+  "enabled": false,
+  "account": "ReplayRoom",
+  "_scout": "Proposed by the scout on 2026-11-26. Alpha 69, $1.5/1K, $1000 left, ~? days. Join first: https://clippingalpha.com/go/12544316?via=mcp",
+  "_rules": [
+    "Cut each clip on a cliffhanger",
+    "Audience must be women, 25+",
+    "Use only the brand's footage",
+    "Post on TikTok, Instagram, YouTube and Facebook",
+    "Made for creators in movie/TV clips, holiday movies and romance",
+    "Brand footage only"
+  ],
+  "sources": [],
+  "platforms": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "perDay": 2,
+  "minSeconds": 20,
+  "maxSeconds": 45,
+  "layout": "blurfill",
+  "zoom": 1.3,
+  "credit": "",
+  "quoteHooks": false,
+  "hooks": [],
+  "captionLines": [],
+  "hashtags": [],
+  "mentions": [],
+  "endsOn": null,
+  "postingNotes": "Payout from 667 views"
+}
